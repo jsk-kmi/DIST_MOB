@@ -1,0 +1,194 @@
+@import 'variables';
+
+// Common
+@mixin ellipsisLine01 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+
+@mixin ellipsisMultiline($lineCnt, $lineHeight, $height, $maxHeight) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: $lineHeight;
+  max-height: $maxHeight;
+}
+
+@mixin after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+@mixin position($x, $y) {
+  position: absolute;
+  left: $x;
+  top: $y;
+
+  @if $x == 50% and $y == 50% {
+    transform: translate(-50%, -50%);
+  } @else if $x == 50% {
+    transform: translateX(-50%);
+  } @else if $y == 50% {
+    transform: translateY(-50%);
+  }
+}
+
+@mixin hide {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+@mixin is-blind {
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+// = Font
+// + font style
+@mixin fontStyle($font-size, $line-height: $line-height, $font-weight: 300, $letter-spacing: null) {
+  @if ($font-weight == 300) {
+    font: {
+      size: $font-size;
+    }
+  } @else {
+    font: {
+      size: $font-size;
+      weight: $font-weight;
+    }
+  }
+  letter-spacing: $letter-spacing;
+  line-height: $line-height;
+}
+
+@mixin coTxtTitleHeadingLarge {
+  @include fontStyle($fs-heading-title-large, 2.5rem, 500, $g-letter-spacing-02);
+}
+
+@mixin coTxtTitleHeadingSmall {
+  @include fontStyle($fs-heading-title-small, 2rem, 500, $g-letter-spacing-02);
+}
+
+@mixin coTxtTitleLarge {
+  @include fontStyle($fs-title-large, $default-line-height, 400, $g-letter-spacing-02);
+}
+
+@mixin coTxtTitleSmall {
+  @include fontStyle($fs-title-small, $default-line-height, 400, $g-letter-spacing-02);
+}
+
+@mixin coTxtBody {
+  @include fontStyle($fs-body, $default-line-height, 300, $default-letter-spacing);
+}
+
+@mixin coTxtBodyLink {
+  @include fontStyle($fs-body-link, $default-line-height, 300, $default-letter-spacing);
+}
+
+@mixin coTxtBodySmall {
+  @include fontStyle($fs-body-small, $g-line-height-02, 300, $default-letter-spacing);
+}
+
+@mixin coTxtLabelLarge {
+  @include fontStyle($fs-label-large, $g-line-height-02, 400, $g-letter-spacing-02);
+}
+
+@mixin coTxtLabelMedium {
+  @include fontStyle($fs-label-medium, $g-line-height-03, 400, $g-letter-spacing-02);
+}
+
+@mixin coTxtBtn {
+  @include fontStyle($fs-body, $g-line-height-02, 400, null);
+}
+
+@mixin coTxtBtnSmall {
+  @include fontStyle($fs-button-sm, $g-line-height-03, 400, null);
+}
+
+@mixin coTxtCaption {
+  @include fontStyle($fs-body-small, 18px, 400, null);
+}
+
+@mixin coTxtTitleSub {
+  @include fontStyle($fs-body, $g-line-height-02, 500, null);
+}
+@mixin coTxtButtonBtnSm {
+  @include fontStyle($fs-label-large, $g-line-height-03, 400, $default-letter-spacing);
+}
+
+// = Form
+// + input text
+@mixin inputText {
+  border-radius: $input-border-radius;
+  padding: 0.75rem 1.25rem;
+  color: $default-font-color;
+  font: {
+    size: $default-font-size;
+    weight: $default-font-weight;
+    family: $font-name;
+  }
+}
+
+// + input focus
+@mixin inputTextFocus {
+  border-color: $input-focus-border-color;
+  transition: border-color 0.3s;
+}
+
+// + input disabled
+@mixin inputDisabledFocus {
+  border-color: $input-border-color;
+  transition: none;
+}
+// + input disabled
+@mixin inputReadonlyFocus {
+  border-color: $input-border-color;
+  transition: none;
+}
+
+// + is-error
+@mixin inputError {
+  border-color: $color-sub-03;
+}
+
+@mixin calcPercent($num1, $num2) {
+  $width: calc($num2 / $num1 * 100);
+  width: #{$width}+ '%';
+}
+
+@mixin clear {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+// = Tab
+// + radio default
+@mixin radio-default {
+  padding: {
+    top: 0.5rem;
+    right: 1rem;
+    bottom: 0.5rem;
+    left: 1rem;
+  }
+  @include coTxtLabelLarge;
+  color: $color-sub-01;
+  background: $color-white-100;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  white-space: nowrap;
+  display: block;
+}
+// + radio checked
+@mixin radio-checked {
+  color: $color-white-100;
+  background: url($image-ico-path + 'tab_overlay_01.png') $color-main right bottom/30px auto no-repeat;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(37, 57, 129, 0.2);
+}

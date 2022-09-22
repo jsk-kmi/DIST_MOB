@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/ico/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script defer src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupJoin4"><span>팝업열림 - 회원가입 및 확인 4단계 유효성 체크</span></button>
+
+                <div class="c-full-layer" id="popupJoin4" role="dialog" aria-labelledby="popupJoin4_Label" aria-modal="true" aria-hidden="true">
+                    <div class="c-container" tabindex="0">
+                        <div class="full-header">
+                            <button class="btn-go-back">
+                                <span>뒤로 가기</span>
+                            </button>
+                        </div>
+
+                        <div class="full-body">
+                            <!-- 회원가입 및 확인 4단계 -->
+                            <h4 id="popupJoin4_Label" class="top-title-box type-step">
+                                회원가입 및 확인
+                                <i class="skip">4단계 중 4단게</i>
+                                <div class="step" aria-hidden="true">
+                                    <span>4</span>/<span>4</span>
+                                </div>
+                            </h4>
+
+                            <div class="cont-box">
+                                <p class="tit">개인정보 입력</p>
+                                <p class="txt">본인의 정보를 입력하여 주시기 바랍니다.</p>
+
+                                <h5 class="menu-tit">임직원 정보</h5>
+                                <div class="c-input-list type01">
+                                    <div class="row">
+                                        <div class="col per-column label-input">
+                                            <label for="employeeBelong">소속</label>
+                                            <input type="text" id="employeeBelong" class="c-input" value="KMI 한국의학연구소" disabled />
+                                        </div>
+                                        <div class="col per-column label-input">
+                                            <label for="employeeNumber">사번</label>
+                                            <input type="text" id="employeeNumber" class="c-input" value="20210200220" disabled />
+                                        </div>
+                                        <div class="col per-column label-input">
+                                            <label for="employeeDep">부서</label>
+                                            <input type="text" id="employeeDep" class="c-input" value="헬스케어" disabled />
+                                        </div>
+                                        <div class="col per-column label-input">
+                                            <label for="employeeRank">직급(직위)</label>
+                                            <input type="text" id="employeeRank" class="c-input" value="본부장" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h5 class="menu-tit">기본정보</h5>
+                                <div class="c-input-list type01">
+                                    <div class="row">
+                                        <div class="col per-column label-input">
+                                            <label for="employeeBelong">이름</label>
+                                            <input type="text" id="employeeBelong" class="c-input" value="홍길동" disabled />
+                                        </div>
+                                        <!-- <div class="col per-column label-input">
+                        <label for="employeeBelong">본인인증</label>
+                        <input type="text" id="employeeBelong" class="c-input" value="YYYY-MM-DD 인증완료" disabled />
+                      </div> -->
+                                        <div class="col per-column">
+                                            <input type="text" class="c-input is-error" placeholder="휴대폰 전화번호 (필수)" disabled />
+                                            <p class="input-err-txt">(필수) 휴대폰 전화번호를 입력해 주세요.</p>
+                                        </div>
+                                        <div class="col per-column">
+                                            <input type="text" class="c-input" placeholder="유선전화" />
+                                        </div>
+                                        <div class="col per-column">
+                                            <input type="text" class="c-input is-error" placeholder="이메일 주소 (필수)" />
+                                            <p class="input-err-txt">(필수) 이메일 주소를 입력해 주세요.</p>
+                                        </div>
+                                        <div class="col per-column">
+                                            <div class="c-input-address-group">
+                                                <div class="col per-column">
+                                                    <div class="row inner c-input-btn-group">
+                                                        <div class="column input">
+                                                            <input type="text" class="c-input is-error" placeholder="주소 (필수)" disabled />
+                                                        </div>
+                                                        <div class="column btns">
+                                                            <button type="button" class="co-btn type02"><span>주소검색</span></button>
+                                                        </div>
+                                                    </div>
+                                                    <p class="input-err-txt">(필수) 주소를 입력해 주세요.</p>
+                                                </div>
+
+                                                <div class="row input-addr-02">
+                                                    <input type="text" class="c-input is-error" placeholder="상세 주소 (필수)" />
+                                                    <p class="input-err-txt">(필수) 상세 주소를 입력해 주세요.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // 회원가입 및 확인 4단계 -->
+                        </div>
+
+                        <div class="full-footer">
+                            <div class="buttons">
+                                <!-- <button class="co-btn is-outline-navy-1"><i class="skip">터치 시 이전내용으로 바뀜</i><span>이전</span></button> -->
+                                <button class="co-btn bg-navy-1"><i class="skip">터치 시 팝업 닫힘</i><span>완료</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer -->
+            <footer class="footer type-login border-top-type">
+                <img src="../../images/logo/footer_logo_02.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE" />
+            </footer>
+
+        </div>
+    </div>
+</body>
+
+</html>

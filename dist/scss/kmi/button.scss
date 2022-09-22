@@ -1,0 +1,46 @@
+// = Button
+.co-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 100rem;
+  background-color: $color-main;
+  color: $color-white-100;
+  line-height: $g-line-height-02;
+  padding: $fs-body-small;
+  white-space: nowrap;
+  @include coTxtBtn;
+  &:hover, &:active {
+    color: $color-white-100;
+  }
+}
+
+// = Button List
+.c-button-list {
+  .per-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+    & ~ .per-column {
+      margin-top: 1.25rem;
+    }
+  }
+
+  .per-column {
+    & ~ .c-input-email-group {
+      margin-top: 1.25rem;
+    }
+  }
+  &.chk-list-full {
+    > .col {
+      & + .col {
+        margin-top: 1.25rem;
+      }
+    }
+  }
+
+  .label-input {
+    & ~ .label-input {
+      margin-top: 1.75rem;
+    }
+  }
+}
