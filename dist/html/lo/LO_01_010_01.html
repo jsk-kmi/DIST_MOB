@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/ico/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupJoin2"><span>팝업열림 - 회원가입 및 확인 2단계</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- full popup - 회원가입 및 확인 2단계 -->
+    <div class="c-full-layer kmi-popup type-full" id="popupJoin2" role="dialog" aria-labelledby="popupJoin2_Label" aria-modal="true" aria-hidden="true">
+        <div class="c-container" tabindex="0">
+            <div class="full-header">
+                <button class="btn-go-back">
+                    <span>뒤로 가기</span>
+                </button>
+            </div>
+
+            <div class="full-body">
+                <!-- 회원가입 및 확인 2단계 -->
+                <h4 id="popupJoin2_Label" class="top-title-box type-step">
+                    회원가입 및 확인
+                    <i class="skip">4단계 중 2단게</i>
+                    <div class="step" aria-hidden="true">
+                        <span>2</span>/<span>4</span>
+                    </div>
+                </h4>
+
+                <div class="cont-box type-btn-floating">
+                    <p class="tit">본인인증</p>
+
+                    <p class="txt">아래 본인 확인 수단 중 하나를 선택하여 본인 인증을 진행해 주세요.</p>
+
+                    <div class="co-chk-list type02">
+                        <div class="c-rdochk type01">
+                            <input type="radio" id="rdoCertifyWayPhone" name="rdoCertifyWay" checked="">
+                            <label for="rdoCertifyWayPhone" class="chk-label"><i></i><span>휴대폰 인증</span></label>
+                        </div>
+                        <div class="c-rdochk type01">
+                            <input type="radio" id="rdoCertifyWayIpin" name="rdoCertifyWay">
+                            <label for="rdoCertifyWayIpin" class="chk-label"><i></i><span>아이핀 인증</span></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- // 회원가입 및 확인 2단계 -->
+
+                <!-- 다음 버튼 -->
+                <div class="btn-floating">
+                    <a href="javascript:void(0);" class="co-btn bg-navy-1" title="터치 시 팝업 내용 바뀜"><span>다음</span></a>
+                </div>
+            </div>
+
+            <!-- <div class="full-footer">
+          <div class="buttons">
+            <a href="javascript:void(0);" class="co-btn bg-navy-1" title="터치 시 팝업 내용 바뀜"><span>다음</span></a>
+          </div>
+        </div> -->
+        </div>
+    </div>
+</body>
+
+</html>

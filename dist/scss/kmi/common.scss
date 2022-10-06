@@ -1,0 +1,433 @@
+//	= Font
+
+// notch safe-area
+#container {
+  width: 100%;
+  height: 100%;
+  box-sizing: inherit;
+  overflow-x: hidden;
+  padding-top: 0;
+  // padding-top: var(--safe-top);
+  .flex-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .flex-container {
+      flex-grow: 1;
+      &.type-etc {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    header {
+      &.header {
+        &.co-header {
+          & + .flex-container {
+            margin-top: 5.25rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// loading 
+.is-loading {
+  overflow: hidden;
+}
+
+// + font-name
+$fonts: (
+  'Thin': 100,
+  'Light': 300,
+  'Regular': 400,
+  'Medium': 500,
+  'Bold': 700,
+  'Black': 900,
+);
+
+@each $name, $size in $fonts {
+  @font-face {
+    font: {
+      family: #{$font-name};
+      weight: $size;
+      style: normal;
+    }
+
+    src: url('#{$font-path}#{$font-name}-#{$name}.woff') format('woff'), url('#{$font-path}#{$font-name}-#{$name}.woff2') format('woff2'), url('#{$font-path}#{$font-name}-#{$name}.otf') format('opentype');
+  }
+}
+
+// = color
+.cl-main-1 {
+  color: $color-main !important;
+}
+.cl-sub-1 {
+  color: $color-sub-01 !important;
+}
+.cl-sub-2 {
+  color: $color-sub-02 !important;
+}
+.cl-sub-3 {
+  color: $color-sub-03 !important;
+}
+.cl-sub-5 {
+  color: $color-sub-05 !important;
+}
+.cl-bg-3 {
+  color: $color-bg-03 !important;
+}
+.cl-bg-4 {
+  color: $color-bg-04 !important;
+}
+
+.cl-white-1 {
+  color: $color-white-100 !important;
+}
+.cl-white-op8 {
+  color: $color-white-80 !important;
+}
+.cl-white-op7 {
+  color: $color-white-70 !important;
+}
+.cl-white-op6 {
+  color: $color-white-60 !important;
+}
+.cl-white-op4 {
+  color: $color-white-40 !important;
+}
+.cl-white-op2 {
+  color: $color-white-20 !important;
+}
+
+.cl-black-1 {
+  color: $color-black-100 !important;
+}
+.cl-black-op8 {
+  color: $color-black-80 !important;
+}
+.cl-black-op6 {
+  color: $color-black-60 !important;
+}
+.cl-black-op4 {
+  color: $color-black-40 !important;
+}
+.cl-black-op2 {
+  color: $color-black-20 !important;
+}
+.cl-black-op1 {
+  color: $color-black-10 !important;
+}
+.cl-black-op05 {
+  color: $color-black-05 !important;
+  @include coTxtBody;
+}
+
+// + text
+.c-txt-tit-head-l {
+  @include coTxtTitleHeadingLarge;
+}
+.c-txt-tit-head-s {
+  @include coTxtTitleHeadingSmall;
+}
+.c-txt-tit-l {
+  @include coTxtTitleLarge;
+}
+
+.c-txt-tit-s {
+  @include coTxtTitleSmall;
+}
+
+.c-txt-nomal {
+  @include coTxtBody;
+}
+.c-txt-nomal-s {
+  @include coTxtBodySmall;
+}
+
+.c-txt-link {
+  @include coTxtBodyLink;
+}
+
+.c-txt-label-l {
+  @include coTxtLabelLarge;
+}
+
+.c-txt-label-m {
+  @include coTxtLabelMedium;
+}
+
+.c-txt-btn {
+  @include coTxtBtn;
+}
+
+.c-txt-btn-s {
+  @include coTxtBtnSmall;
+}
+
+// + align
+.ta-l {
+  text-align: left !important;
+}
+.ta-c {
+  text-align: center !important;
+}
+.ta-r {
+  text-align: right !important;
+}
+
+// + flex-align
+.justify-cont-s {
+  justify-content: flex-start !important;
+}
+.justify-cont-e {
+  justify-content: flex-end !important;
+}
+.justify-cont-c {
+  justify-content: center !important;
+}
+.justify-cont-sb {
+  justify-content: space-between !important;
+}
+.align-item-s {
+  align-items: flex-start !important;
+}
+.align-item-e {
+  align-items: flex-end !important;
+}
+.align-item-c {
+  align-items: center !important;
+}
+
+// = grid
+// + row
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+
+.col {
+  max-width: 100%;
+  flex: 1 1 0;
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex: 0 0 math.percentage(math.div($i, 12));
+    max-width: math.percentage(math.div($i, 12));
+  }
+}
+
+.inner-row {
+  width: 100%;
+  flex: 1 1 auto;
+}
+
+// = input
+input {
+  &[type='text'],
+  &[type='password'],
+  &[type='number'],
+  &[type='search'] {
+    outline: 0;
+    border: 1px solid $input-border-color;
+    border-radius: $input-border-radius;
+    padding: 0.6875rem 1.25rem;
+    width: 100%;
+    font: {
+      size: $default-font-size;
+      family: $font-name;
+      weight: $default-font-weight;
+    }
+    line-height: $input-line-height;
+    letter-spacing: $default-letter-spacing;
+  }
+  color: $color-black-80;
+}
+input::placeholder {
+  color: $color-black-40;
+}
+// = button
+.co-btn {
+  &.type02 {
+    padding: 1rem 1.25rem;
+    background-color: $color-main;
+    border-radius: 0 $input-border-radius $input-border-radius 0;
+    // box-shadow: 0 0 0 1px #24346d;
+    background: url($image-ico-path + 'btn_overlay_01.png') $color-main right bottom/60px auto no-repeat;
+
+    > span {
+      line-height: 1.125rem;
+    }
+  }
+  &.type-sm {
+    height: 1.75rem;
+    padding: 0.25rem 0.75rem;
+    width: auto;
+    & > span {
+      @include coTxtButtonBtnSm;
+    }
+  }
+  &.type-small {
+    width: 100%;
+    padding: {
+      top: 0.5rem;
+      right:  1.75rem;
+      bottom: 0.5rem;
+      left:  1.75rem;
+    }
+    & > span {
+      @include coTxtButtonSmall;
+    }
+  }
+  &.type-input-btn {
+    & > span {
+      @include coTxtButtonBtnSm;
+    }
+  }
+}
+
+// button
+.buttons {
+  display: flex;
+  flex: 1;
+
+  .co-btn {
+    &:only-child {
+      width: 100%;
+    }
+  }
+}
+
+button,
+a {
+  &.co-btn {
+    position: relative;
+    width: 100%;
+    font-size: 0;
+    padding: 0.75rem;
+    border-radius: 1.75rem;
+    text-align: center;
+    color: $color-white-100;
+    background-color: $color-main;
+    display: inline-block;
+    vertical-align: top;
+
+    > span {
+      position: relative;
+      @include coTxtButtonBtn;
+      &.alt-txt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1px;
+        height: 1px;
+        font-size: 1px;
+        line-height: 1px;
+        opacity: 0;
+        color: transparent;
+        display: block;
+      }
+    }
+
+    & ~ .co-btn {
+      margin-left: 1.25rem;
+    }
+  }
+
+  // + is-disable
+  &.is-disable {
+    background-color: $color-blue-02;
+  }
+
+  // + outline btn
+  $btn-outline: (
+    navy-1: $color-main,
+    disable: $color-blue-02,
+  );
+  @each $class, $line in $btn-outline {
+    &.is-outline-#{$class} {
+      border-width: 1px;
+      border-style: solid;
+      background-color: $color-white-100;
+      border-color: $line;
+      color: $line;
+      padding: 0.6875rem;
+
+      // &:hover {
+      //   opacity: 0.4;
+      // }
+    }
+  }
+
+  // + 이전 글, 다음 글
+  &.is-prev,
+  &.is-next {
+    @include coTxtButtonBtnSm;
+    color: $color-sub-01;
+    background-color: $color-black-05;
+    padding-left: 1.5rem;
+    &.is-disable {
+      opacity: .3;
+    }
+  }
+  &.is-prev {
+    padding-right: 1.5rem;
+    padding-left: 0.75rem;
+  }
+  &.is-next {
+    padding-left: 1.5rem;
+    padding-right: 0.75rem;
+  }
+}
+
+// = Module
+.skip {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  font-size: 1px;
+  line-height: 1px;
+  color: transparent;
+}
+
+// = 대체텍스트
+.alt-txt {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  line-height: 1px;
+  opacity: 0;
+  color: transparent;
+  display: block;
+}
+
+// 최상단 이동 버튼
+.btn-move-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  opacity: .9;
+  background-color: $color-main;
+  background-image: url('../../images/ico/ico_arrow_top_white_01.svg');
+  background-position: center center;
+  background-size: 2.125rem 2.125rem;
+  background-repeat: no-repeat;
+  z-index: 100;
+  &.hide {
+    display: none;
+  }
+}

@@ -1,0 +1,10 @@
+// media query test
+@media (max-width: 280px) {
+  // 로그인 상단 배너
+  .login-banner {
+    img {
+      right: auto;
+      left: 10.75rem;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/ico/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupFindPw1"><span>팝업열림 - 비밀번호 찾기 1단계</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- full popup - 비밀번호 찾기 1단계 -->
+    <div class="c-full-layer kmi-popup type-full" id="popupFindPw1" role="dialog" aria-labelledby="popupFindPw1_Label" aria-modal="true" aria-hidden="true">
+        <div class="c-container" tabindex="0">
+            <div class="full-header">
+                <button class="btn-go-back">
+                    <span>뒤로 가기</span>
+                </button>
+            </div>
+
+            <div class="full-body">
+                <!-- 비밀번호 찾기 1단계 -->
+                <h4 id="popupFindPw1_Label" class="top-title-box type-step">
+                    비밀번호 찾기
+                    <i class="skip">3단계 중 1단게</i>
+                    <div class="step" aria-hidden="true">
+                        <span>1</span>/<span>3</span>
+                    </div>
+                </h4>
+
+                <div class="cont-box type-btn-floating">
+                    <p class="txt">아이디 또는 사번을 입력해 주세요.</p>
+
+                    <div class="c-input-list type01">
+                        <div class="row">
+                            <div class="col per-column">
+                                <input type="text" class="c-input" placeholder="아이디 또는 사번" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // 비밀번호 찾기 1단계 -->
+
+                <!-- 다음 버튼 -->
+                <div class="btn-floating">
+                    <a href="javascript:void(0);" class="co-btn bg-navy-1" title="터치 시 팝업 내용 바뀜"><span>다음</span></a>
+                </div>
+            </div>
+
+            <!-- <div class="full-footer">
+          <div class="buttons">
+            <a href="javascript:void(0);" class="co-btn bg-navy-1" title="터치 시 팝업 내용 바뀜"><span>다음</span></a>
+          </div>
+        </div> -->
+        </div>
+    </div>
+</body>
+
+</html>

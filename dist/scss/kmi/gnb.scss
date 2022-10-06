@@ -1,0 +1,166 @@
+
+
+$icon: 'ico_gnb_main', 'ico_gnb_health_check_system', 'ico_gnb_examination', 'ico_gnb_result_consultation', 'ico_gnb_health_information', 'ico_gnb_community';
+.co-gnb {
+  position: fixed;
+  right: calc(0rem - (100% - 3.75rem));
+  top: 0;
+  width: calc(100% - 3.75rem);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: right $transition-3 ease-in-out;
+  .gnb-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-black-60;
+    opacity: 0;
+    transition: opacity $transition-3 ease-in-out;
+  }
+  .gnb-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $color-main;
+    width: 100%;
+    height: 5.25rem;
+    padding: 1.5625rem 1.25rem;
+    z-index: 2001;
+    h1 {
+      &.profile {
+        a {
+          img {
+            width: 1.625rem;
+            height: 1.625rem;
+          }
+          span,
+          span em {
+            @include coTxtTitleSub;
+            color: $color-white-100;
+          }
+          span {
+            display: inline-block;
+            margin-left: 0.5rem;
+          }
+        }
+      }
+    }
+    button {
+      img {
+        width: 2.125rem;
+        height: 2.125rem;
+      }
+    }
+  }
+  .gnb-body {
+    position: relative;
+    display: block;
+    background-color: $color-white-100;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 2001;
+    li {
+      display: block;
+      > a, button {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 3.875rem;
+        padding: 0.875rem 1.25rem;
+        text-align: left;
+        h2 {
+          @include coTxtButtonBtnSm;
+          color: $color-sub-01;
+          flex-grow: 1;
+          padding-left: 2.375rem;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          height: 2.125rem;
+          background-size: 2.125rem 2.125rem;
+          background-position: left center;
+          background-repeat: no-repeat;
+          transition: all $transition-3 ease-out;
+        }
+        &:active {
+          h2 {
+            color: $color-main;
+          }
+        }
+      }
+      .gnb-list {
+        width: 100%;
+        a {
+          @include coTxtLabelLarge;
+          color: $color-sub-01;
+          background-color: $color-bg-04;
+          padding: 0.875rem 1.25rem;
+          display: block;
+          &:active {
+            background-color: $color-bg-03;
+            color: $color-main;
+          }
+        }
+      }
+      &:last-child {
+        border-bottom: 1px solid $color-black-10;
+      }
+    }
+    @each $image in $icon {
+      $i: index($icon, $image);
+      li:nth-child(#{$i}) {
+        > a, button {
+          h2 {
+            background-image: url('../../images/ico/gnb/#{$image}.svg');
+          }
+          &:active {
+            h2 {
+              color: $color-main;
+              background-image: url('../../images/ico/gnb/#{$image}_on.svg');
+            }
+          }
+        }
+        &.open {
+          > a, button {
+            h2 {
+              color: $color-main;
+              background-image: url('../../images/ico/gnb/#{$image}_on.svg');
+            }
+          }
+        }
+      }
+    }
+  }
+  .gnb-btn-logout {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $color-white-100;
+    width: 100%;
+    height: 3.625rem;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid $color-black-10;
+    z-index: 2001;
+    img {
+      width: 2.125rem;
+      height: 2.125rem;
+    }
+    span {
+      @include coTxtButtonBtnSm;
+      color: $color-sub-01;
+    }
+  }
+  &.show {
+    right: 0;
+    .gnb-bg {
+      opacity: 1;
+    }
+  }
+}

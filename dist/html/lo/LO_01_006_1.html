@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/ico/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupFindId"><span>팝업열림 - 사번/아이디 찾기</span></button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- full popup - 사번/아이디 찾기 -->
+    <div class="c-full-layer kmi-popup type-full" id="popupFindId" role="dialog" aria-labelledby="popupFindId_Label" aria-modal="true" aria-hidden="true">
+        <div class="c-container" tabindex="0">
+            <div class="full-header">
+                <button class="btn-go-back">
+                    <span>뒤로 가기</span>
+                </button>
+            </div>
+
+            <div class="full-body">
+                <h4 id="popupFindId_Label" class="top-title-box">사번/아이디 찾기</h4>
+
+                <div class="cont-box type-btn-floating">
+                    <p class="txt">아이디 찾기 방법을 선택해 주세요.</p>
+
+                    <ul class="c-tab type-slide type-panel" role="tablist">
+                        <li role="tab" aria-controls="find-mobile">
+                            <input type="radio" name="findIdTab" id="findMobile" checked />
+                            <label for="findMobile">휴대폰 전화번호</label>
+                        </li>
+                        <li role="tab" aria-controls="find-email">
+                            <input type="radio" name="findIdTab" id="findEmail" />
+                            <label for="findEmail">이메일</label>
+                        </li>
+                        <li role="tab">
+                            <input type="radio" name="findIdTab" id="findIpin" />
+                            <label for="findIpin">아이핀</label>
+                        </li>
+                    </ul>
+
+                    <!-- 
+              * 휴대폰 전화번호 panel
+              * tab-panel show class: show || null
+            -->
+                    <div class="tab-panel show" role="tabpanel" aria-labelledby="find-mobile">
+                        <div class="c-input-list type01">
+                            <div class="row">
+                                <div class="col per-column">
+                                    <input type="text" class="c-input" placeholder="이름" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="c-input-sub-group">
+                            <div class="per-column">
+                                <div class="row inner c-input-btn-group">
+                                    <div class="column input">
+                                        <input type="text" class="c-input" placeholder="휴대폰 전화번호" />
+                                    </div>
+                                    <div class="column btns">
+                                        <button type="button" class="co-btn type02 type-input-btn"><em class="alt-txt">등록된휴대폰번호로인증번호가옵니다</em><span>인증받기</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="per-column">
+                                <div class="c-input-count">
+                                    <input type="number" class="c-input" placeholder="인증번호 입력해 주세요." />
+                                    <span class="count">05:00</span>
+                                </div>
+                                <!-- [comment] 
+                    - 인증 완료시 해당 input으로 변경 
+                  -->
+                                <!-- <input type="text" class="c-input"  value="인증완료" readonly="readonly" /> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 이메일 panel -->
+                    <div class="tab-panel" role="tabpanel" aria-labelledby="find-email">
+                        <div class="c-input-list type01">
+                            <div class="row">
+                                <div class="col per-column">
+                                    <input type="text" class="c-input" placeholder="이름" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="c-input-sub-group">
+                            <div class="per-column">
+                                <div class="row inner c-input-btn-group">
+                                    <div class="column input">
+                                        <input type="text" class="c-input" placeholder="이메일" />
+                                    </div>
+                                    <div class="column btns">
+                                        <button type="button" class="co-btn type02 type-input-btn"><em class="alt-txt">등록된이메일로인증번호가옵니다</em><span>인증받기</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="per-column">
+                                <input type="text" class="c-input" placeholder="인증번호 입력해 주세요.">
+                                <!-- [comment] 
+                    - 인증 완료시 해당 input으로 변경 
+                  -->
+                                <!-- <input type="text" class="c-input"  value="인증완료" readonly="readonly" /> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 찾기 버튼 -->
+                <div class="btn-floating">
+                    <a href="javascript:void(0);" class="co-btn bg-navy-1" title="페이지 이동"><span>찾기</span></a>
+                </div>
+            </div>
+
+            <!-- <div class="full-footer">
+          <div class="buttons">
+            <a href="javascript:void(0);" title="페이지 이동" class="co-btn bg-navy-1"><span>찾기</span></a>
+          </div>
+        </div> -->
+        </div>
+    </div>
+
+</body>
+
+</html>

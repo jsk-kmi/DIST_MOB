@@ -1,0 +1,15 @@
+.co-badge {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  li {
+    @include coTxtLabelMedium;
+    color: #12420B;
+    background-color: #DBFAD6;
+    width: auto;
+    height: 1.5rem;
+    border-radius: 1.25rem;
+    text-align: center;
+    padding: 0.125rem 0.625rem;
+  }
+}

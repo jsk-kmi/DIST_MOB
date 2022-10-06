@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/ico/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+
+                <!-- BUTTON - 가입하지 않은 아이디이거나, 잘못된 비밀번호입니다. -->
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupNullID"><span>팝업열림 - 가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.</span></button><br /><br />
+
+                <!-- BUTTON - 퇴직 처리된 임직원 입니다. -->
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupRetirement"><span>팝업열림 - 퇴직 처리된 임직원 입니다.</span></button><br /><br />
+
+                <!-- BUTTON -  본인인증이 실패하였습니다. -->
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupVerificationFailed"><span>팝업열림 - 본인인증이 실패하였습니다.</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP - 가입하지 않은 아이디이거나, 잘못된 비밀번호입니다. -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupNullID" role="dialog" aria-labelledby="popupNullID_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+            <div class="modal-field" tabindex="0">
+                <!-- 닫힘버튼 class: popup-btn-close -->
+                <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            <p id="popupNullID_Label">가입하지 않은 아이디이거나<br />잘못된 비밀번호입니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>확인</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP - 퇴직 처리된 임직원 입니다. -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupRetirement" role="dialog" aria-labelledby="popuppopupRetirement_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+            <div class="modal-field" tabindex="0">
+                <!-- 닫힘버튼 class: popup-btn-close -->
+                <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            <p id="popuppopupRetirement_Label">퇴직 처리된 임직원 입니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>확인</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP - 본인인증이 실패하였습니다. -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupVerificationFailed" role="dialog" aria-labelledby="popupVerificationFailed_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+            <div class="modal-field" tabindex="0">
+                <!-- 닫힘버튼 class: popup-btn-close -->
+                <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            <p id="popupVerificationFailed_Label">본인인증이 실패하였습니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>확인</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

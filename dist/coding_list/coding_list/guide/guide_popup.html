@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Layout Guide</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scaLabel=no" />
+    <!-- guide css -->
+    <link rel="stylesheet" href="../css/base.css" />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap" class="coding_guide">
+      <h1 class="h1_guide">Popup</h1>
+      <div class="title-box">
+        <h2 class="h2_guide">Popup</h2>
+      </div>
+      <div class="guide_descbox" aria-hidden="true">
+        <h3 class="g-title"></h3>
+        <div class="inner_desc">
+          <ul>
+            <li>
+              동일 속성값 매칭<br />
+              1. 팝업 연결 button [data-target] - .c-layer-popup [id]<br />
+              .c-layer-popup [aria-labelledby] - .c-modal-title-field > .c-title 동일 속성값 부여
+            </li>
+            <li>버튼 - 팝업 연동 script 이벤트 제어 [class="btn-open-popup"]</li>
+            <li>버튼 없이 팝업 제어할 경우 - .c-layer-popup 의 show 클래스 add/remove를 통한 제어 (common.js - popup 주석 참고)</li>
+            <li>
+              팝업위치 :
+              <p>body</p>
+              <p>&nbsp;┗ #container</p>
+              <p>&nbsp;┗ /#container</p>
+              <p>&nbsp;┗ popup</p>
+              <p>&nbsp;┗ gnb</p>
+              <p>/body</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- [ MODAL TYPE ] -->
+      <h3 class="h3_guide">MODAL TYPE - 기본</h3>
+
+      <div class="guide_descbox02" aria-hidden="true">
+        <div class="inner_desc">
+          <ul>
+            <li>경고문 한 문장인 경우 해당 TYPE 사용</li>
+          </ul>
+        </div>
+      </div>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupModalType01_01"><span>OPEN POPUP</span></button>
+
+        <div class="c-layer-popup kmi-popup type-modal" id="popupModalType01_01" role="dialog" aria-labelledby="popupModalType_Label" aria-modal="true" aria-hidden="true">
+          <div class="modal-wrap">
+            <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+            <div class="modal-field" tabindex="0">
+              <!-- 닫힘버튼 class: popup-btn-close -->
+              <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+              <div class="c-modal-body">
+                <div class="c-modal-inner">
+                  <!-- 팝업의 설명(대체텍스트)이 필요한 경우 -->
+                  <!-- <h4 class="c-title skip" id="popupModalType_Label">대체 텍스트</h4> -->
+                  <div class="in-cont">
+                    <p id="popupModalType_Label">MODAL TYPE</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-modal-footer">
+                <div class="inner">
+                  <div class="buttons">
+                    <button class="co-btn bg-navy-1 popup-btn-close"><span>CLOSE</span></button>
+                    <button class="co-btn bg-navy-1 popup-btn-close"><span>CLOSE</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ? // view -->
+      </div>
+      <!-- [ // MODAL TYPE] -->
+
+      <!-- [ MODAL TYPE TEXT ] -->
+      <h3 class="h3_guide">MODAL TYPE - TEXT 구분</h3>
+
+      <div class="guide_descbox02" aria-hidden="true">
+        <div class="inner_desc">
+          <ul>
+            <li>경고문 2문장 이상일 경우 해당 TYPE 사용</li>
+          </ul>
+        </div>
+      </div>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupModalType01_02"><span>OPEN POPUP</span></button>
+
+        <div class="c-layer-popup kmi-popup type-modal" id="popupModalType01_02" role="dialog" aria-labelledby="popupModalType_Label02" aria-modal="true" aria-hidden="true">
+          <div class="modal-wrap">
+            <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+            <div class="modal-field" tabindex="0">
+              <!-- 닫힘버튼 class: popup-btn-close -->
+              <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+              <div class="c-modal-body">
+                <div class="c-modal-inner">
+                  <h4 class="c-title skip" id="popupModalType_Label02">POPUP Modal</h4>
+                  <div class="in-cont">
+                    <p>TEXT 구분</p>
+                    <p>TEXT 구분</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-modal-footer">
+                <div class="inner">
+                  <div class="buttons">
+                    <!-- <button class="co-btn is-outline-navy-1 popup-btn-close"><span>CLOSE</span></button> -->
+                    <button class="co-btn bg-navy-1 popup-btn-close"><span>CLOSE</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ? // view -->
+      </div>
+      <!-- [ // MODAL TYPE TEXT] -->
+    </div>
+
+    <!-- guide script -->
+    <script src="../js/pretty.js"></script>
+
+    <script defer src="../../js/common.js" defer></script>
+  </body>
+</html>

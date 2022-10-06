@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/ico/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupExaminationResult"><span>팝업열림 - 검진결과</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- full popup - 검진결과 -->
+    <div class="c-full-layer kmi-popup type-full-footer" id="popupExaminationResult" role="dialog" aria-labelledby="popupExaminationResult_Label" aria-modal="true" aria-hidden="true">
+        <div class="c-container" tabindex="0">
+            <div class="full-header">
+                <button class="btn-go-back">
+                    <span>뒤로 가기</span>
+                </button>
+            </div>
+
+            <div class="full-body">
+                <!-- 검진결과 -->
+                <h4 id="popupExaminationResult_Label" class="top-title-box">검진 결과</h4>
+
+                <div class="cont-box type-swiper">
+
+                    <!-- swiper -->
+                    <div class="swiper examResSwiper type-hide-arr">
+                        <div class="skip">검진 받은 병원 리스트입니다. 리스트는 슬라이드 방식입니다.</div>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide card_04">
+                                <div class="inner">
+                                    <p class="hospital-date">2022-03-15</p>
+                                    <p class="hospital-name">한국의학연구소 광화문1</p>
+                                    <div class="badges">
+                                        <span>정밀종합검진 - 일반형</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide card_04">
+                                <div class="inner">
+                                    <p class="hospital-date">2022-03-15</p>
+                                    <p class="hospital-name">한국의학연구소 광화문2</p>
+                                    <div class="badges">
+                                        <span>정밀종합검진 - 일반형</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide card_04">
+                                <div class="inner">
+                                    <p class="hospital-date">2022-03-15</p>
+                                    <p class="hospital-name">한국의학연구소 광화문3</p>
+                                    <div class="badges">
+                                        <span>정밀종합검진 - 일반형</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+
+                    <!-- tab -->
+                    <ul class="c-tab type-slide type-scroll" role="tablist">
+                        <li role="tab" aria-controls="exam-all">
+                            <input type="radio" name="examinationResult" id="examAll" checked />
+                            <label for="examAll">종합소견</label>
+                        </li>
+                        <li role="tab" aria-controls="exam-basic">
+                            <input type="radio" name="examinationResult" id="examBasic" />
+                            <label for="examBasic">기본검사</label>
+                        </li>
+                        <li role="tab" aria-controls="exam-blood">
+                            <input type="radio" name="examinationResult" id="examBlood" />
+                            <label for="examBlood">혈액검사</label>
+                        </li>
+                        <li role="tab" aria-controls="exam-equipment">
+                            <input type="radio" name="examinationResult" id="examEquipment" />
+                            <label for="examEquipment">장비검사</label>
+                        </li>
+                        <li role="tab" aria-controls="exam-etc">
+                            <input type="radio" name="examinationResult" id="examEtc" />
+                            <label for="examEtc">기타검사</label>
+                        </li>
+                    </ul>
+
+                    <!-- 
+              * 종합소견 panel
+              * tab-panel show class: show || null
+            -->
+                    <div class="tab-panel show" role="tabpanel" aria-labelledby="exam-all">
+                        <!-- 아코디언 열림 class: open -->
+                        <div class="accordion type1 open">
+                            <button class="accordion-header" id="ResultGeneralOpinion" aria-controls="result-general-opinion">
+                                <p class="acc-tit">종합소견</p>
+                                <a href="javascript:void(0)" class="co-btn is-outline-navy-1 type-sm"><span>비교하기</span></a>
+                                <img src="../../images/ico/ico_arrow_accordion.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow" />
+                            </button>
+                            <div class="accordion-body" id="result-general-opinion" role="region" aria-labelledby="ResultGeneralOpinion">
+                                <ul class="list type1">
+                                    <li>흉부촬영상 좌상의 비활동성의 섬유흔 소견입니다. </li>
+                                    <li>고혈압 전단계 입니다. 고혈압으로 발전할 가능성이 높으므로 금주, 금연 및 저염식이, 규칙적인 운동하시고 정기적으로 혈압 측정 하시기 바랍니다. </li>
+                                    <li>우내시경 검사상 만성 표재성 위염 소견입니다. </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="accordion type1">
+                            <button class="accordion-header" id="ResultEye" aria-controls="result-eye">
+                                <span class="alt-txt">시력, 안저촬영, 안압검사 5개 항목있음</span>
+                                <p class="acc-tit" aria-hidden="true">시력, 안저촬영, 안압검사 (5)</p>
+                                <img src="../../images/ico/ico_arrow_accordion.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow" />
+                            </button>
+                            <div class="accordion-body" id="result-eye" role="region" aria-labelledby="ResultEye">
+                                <ul class="card_06">
+                                    <li>
+                                        <p class="card-tit">죄측시력</p>
+                                        <p class="card-res">1.5</p>
+                                    </li>
+                                    <li>
+                                        <button class="co-btn is-outline-navy-1 type-sm"><span>비교하기</span></button>
+                                    </li>
+                                </ul>
+
+                                <ul class="card_06">
+                                    <li>
+                                        <p class="card-tit">안저 <button class="co-tooltip"><span class="skip">터치시이버튼하단에안내팝업열림</span></button></p>
+                                        <p class="card-res">1.2</p>
+                                    </li>
+                                    <li>
+                                        <button class="co-btn is-outline-navy-1 type-sm"><span>비교하기</span></button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 기본검사 panel -->
+                    <div class="tab-panel" role="tabpanel" aria-labelledby="exam-basic">
+                        기본 검사
+                    </div>
+
+                    <!-- 혈액검사 panel -->
+                    <div class="tab-panel" role="tabpanel" aria-labelledby="exam-blood">
+                        혈액검사
+                    </div>
+
+                    <!-- 장비검사 panel -->
+                    <div class="tab-panel" role="tabpanel" aria-labelledby="exam-equipment">
+                        장비검사
+                    </div>
+
+                    <!-- 기타검사 panel -->
+                    <div class="tab-panel" role="tabpanel" aria-labelledby="exam-etc">
+                        기타검사
+                    </div>
+
+                </div>
+                <!-- // 검진결과 -->
+            </div>
+
+            <!-- footer -->
+            <footer class="footer type-default">
+                <img src="../../images/logo/footer_logo_01.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE" class="img-logo" />
+
+                <div class="btn-list type-footer">
+                    <a href="javascript:void(0);" title="페이지 이동">이용약관</a>
+                    <a href="javascript:void(0);" title="페이지 이동">개인정보처리방침</a>
+                    <a href="javascript:void(0);" title="페이지 이동">이용가이드</a>
+                </div>
+
+                <div class="footer-txt">
+                    상호 : 재단법인 한국의학연구소 ㅣ 대표자 : 이상호<br />
+                    03173 서울시 종로구 세종대로 23길 54(당주동, 세종빌딩)<br />
+                    전화 : <a href="tel:1599-7070">1599-7070</a> ㅣ 전자우편주소 : <a href="mailto:webmaster@kmi.or.kr">webmaster@kmi.or.kr</a><br />
+                    사업자등록번호 : 130-82-06960
+                </div>
+
+                <div class="copyright">
+                    Copyright© KMI.All Rights Reserved.
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- script - swiper -->
+    <script src="../../js/common-swiper.js"></script>
+    <script>
+        const EXAM_RES_SWIPER = new Swiper('.examResSwiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            on: {
+                init: function() {
+                    swiperInitEvt(this);
+                },
+                slideChangeTransitionEnd: function() {
+                    swiperTransitionEndEvt(this);
+                }
+            }
+        });
+    </script>
+    <!-- // script - swiper -->
+</body>
+
+</html>
