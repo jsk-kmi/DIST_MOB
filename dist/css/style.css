@@ -1601,6 +1601,10 @@ textarea,
 		color: rgba(28, 28, 28, 0.8);
 		resize: none;
 }
+textarea.is-error,
+.c-txt-area.is-error {
+		border-color: #ba1d3c;
+}
 textarea:not(.is-error):focus,
 .c-txt-area:not(.is-error):focus {
 		border-color: #253981;
