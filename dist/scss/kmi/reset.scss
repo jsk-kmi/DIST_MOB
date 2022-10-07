@@ -314,6 +314,8 @@ legend {
 [type='number']::-webkit-inner-spin-button,
 [type='number']::-webkit-outer-spin-button {
   height: auto;
+  margin: 0;
+  -webkit-appearance: none;
 }
 [type='search'] {
   outline-offset: -2px;
@@ -329,6 +331,10 @@ legend {
 }
 
 // italics
-div, p, span, em, i {
+div,
+p,
+span,
+em,
+i {
   font-style: normal;
 }

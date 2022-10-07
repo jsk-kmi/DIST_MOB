@@ -338,6 +338,7 @@ textarea,
   min-width: 100%;
   color: $color-black-80;
   resize: none;
+
   &.is-error {
     @include inputError;
   }

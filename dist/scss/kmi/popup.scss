@@ -287,6 +287,26 @@
     flex: 1;
     flex-direction: column;
     height: 100%;
+    &.input-focus {
+      display: block;
+      overflow-y: hidden;
+      .full-body {
+        display: block;
+        overflow-y: hidden;
+        padding: 0;
+        .btn-floating {
+          &.isScrollEnd {
+            position: relative;
+            padding: {
+              top: 0.75rem;
+              right: 1.75rem;
+              bottom: 0.75rem;
+              left: 1.75rem;
+            }
+          }
+        }
+      }
+    }
   }
   .full-header {
     background-color: $color-white-100;

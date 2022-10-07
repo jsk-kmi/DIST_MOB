@@ -321,6 +321,8 @@ legend {
 [type=number]::-webkit-inner-spin-button,
 [type=number]::-webkit-outer-spin-button {
 		height: auto;
+		margin: 0;
+		-webkit-appearance: none;
 }
 
 [type=search] {
@@ -338,7 +340,11 @@ legend {
 		-webkit-appearance: button;
 }
 
-div, p, span, em, i {
+div,
+p,
+span,
+em,
+i {
 		font-style: normal;
 }
 
@@ -5017,6 +5023,22 @@ header.header.co-header.scroll-hide {
 		        flex-direction: column;
 		height: 100%;
 }
+.c-full-layer .c-container.input-focus {
+		display: block;
+		overflow-y: hidden;
+}
+.c-full-layer .c-container.input-focus .full-body {
+		display: block;
+		overflow-y: hidden;
+		padding: 0;
+}
+.c-full-layer .c-container.input-focus .full-body .btn-floating.isScrollEnd {
+		position: relative;
+		padding-top: 0.75rem;
+		padding-right: 1.75rem;
+		padding-bottom: 0.75rem;
+		padding-left: 1.75rem;
+}
 .c-full-layer .full-header {
 		background-color: #fff;
 		height: 64px;
@@ -5604,20 +5626,31 @@ header.header.co-header.scroll-hide {
 .header.co-header ~ .flex-container .tit.type-floating {
 		padding-bottom: 0.5rem;
 }
-.header.co-header ~ .flex-container .tit.type-floating + .c-tab.type-floating {
+.header.co-header ~ .flex-container .tit.type-floating ~ .tab-floating {
 		position: -webkit-sticky;
 		position: sticky;
+		width: 100vw;
 		left: 0;
 		top: 84px;
 		background-color: #FFF;
-		z-index: 9000;
-		-webkit-transition: top 0.3s ease-in-out, padding 0.3s ease-in-out;
-		transition: top 0.3s ease-in-out, padding 0.3s ease-in-out;
+		z-index: 1500;
+		margin-left: -1.75rem;
+		-webkit-transition: top 0.3s ease-in-out;
+		transition: top 0.3s ease-in-out;
 }
-.header.co-header ~ .flex-container .tit.type-floating + .c-tab.type-floating.isScroll {
+.header.co-header ~ .flex-container .tit.type-floating ~ .tab-floating .c-tab {
+		margin-left: 0;
+		padding: 0.75rem 1.75rem;
+		-webkit-transition: padding 0.3s ease-in-out;
+		transition: padding 0.3s ease-in-out;
+}
+.header.co-header ~ .flex-container .tit.type-floating ~ .tab-floating + .tab-panel.show {
+		padding-top: 3rem;
+}
+.header.co-header ~ .flex-container .tit.type-floating ~ .tab-floating.isScroll .c-tab {
 		padding: 0.75rem;
 }
-.header.co-header ~ .flex-container .tit.type-floating + .c-tab.type-floating.isScroll::after {
+.header.co-header ~ .flex-container .tit.type-floating ~ .tab-floating.isScroll::after {
 		content: "";
 		display: block;
 		position: absolute;
@@ -5630,17 +5663,14 @@ header.header.co-header.scroll-hide {
 		-webkit-transition: height 0.3s ease-in-out, background-image 0.3s ease-in-out;
 		transition: height 0.3s ease-in-out, background-image 0.3s ease-in-out;
 }
-.header.co-header ~ .flex-container .tit.type-floating + .c-tab.type-floating + .tab-panel.show {
-		padding-top: 3rem;
-}
-.header.co-header.scroll-hide ~ .flex-container .tit.type-floating + .c-tab.type-floating {
+.header.co-header.scroll-hide ~ .flex-container .tit.type-floating ~ .tab-floating {
 		top: -4rem;
 }
-.header.co-header.scroll-hide ~ .flex-container .tit.type-floating + .c-tab.type-floating.isScroll::after {
+.header.co-header.scroll-hide ~ .flex-container .tit.type-floating ~ .tab-floating::after {
 		bottom: 0;
 		height: 0;
-		background-image: -webkit-linear-gradient(top, rgba(25, 25, 25, 0) 0%, rgba(217, 217, 217, 0) 38.05%);
-		background-image: linear-gradient(to bottom, rgba(25, 25, 25, 0) 0%, rgba(217, 217, 217, 0) 38.05%);
+		background-image: -webkit-linear-gradient(top, rgba(25, 25, 25, 0) 0%, rgba(217, 217, 217, 0) 0%);
+		background-image: linear-gradient(to bottom, rgba(25, 25, 25, 0) 0%, rgba(217, 217, 217, 0) 0%);
 }
 
 .table-wrap {
@@ -5821,15 +5851,6 @@ header.header.co-header.scroll-hide {
 		padding-right: 1.75rem;
 		padding-bottom: 3.75rem;
 		padding-left: 1.75rem;
-}
-.login-block .c-tab.type-slide.type-floating,
-.hi-block .c-tab.type-slide.type-floating,
-.ni-block .c-tab.type-slide.type-floating,
-.mi-block .c-tab.type-slide.type-floating,
-.em-block .c-tab.type-slide.type-floating,
-.terms-block .c-tab.type-slide.type-floating,
-.guide-block .c-tab.type-slide.type-floating {
-		padding: 0.75rem 1.75rem;
 }
 .login-block .detail-tit,
 .hi-block .detail-tit,

@@ -392,21 +392,19 @@ function clkElClickPopupChkFullFooter(_popHasElem) {
   var TAB_POP_BTN_ELEM = _popHasElem.querySelector('.full-footer');
 
   if (TAB_POP_BTN_ELEM) if (TAB_POP_BTN_ELEM.classList.contains('scroll')) TAB_POP_BTN_ELEM.classList.remove('scroll');
-  fullPopupScrollHeightChk('full-footer', popHasElem);
+  fullPopupScrollHeightChk('full-footer', _popHasElem);
 } // X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // +++ 팝업에서 tab 터치 시 full 팝업 c-container 높이가 변할 경우
-
-
-function clkElClickPopupCheck(_elem) {
-  var popHasElem = _elem.closest('.c-full-layer.show');
-
-  if (popHasElem) {
-    var TAB_POP_BTN_ELEM = popHasElem.querySelector('.full-footer');
-    if (TAB_POP_BTN_ELEM) if (TAB_POP_BTN_ELEM.classList.contains('scroll')) TAB_POP_BTN_ELEM.classList.remove('scroll');
-    if (popHasElem.classList.contains('type-full')) fullPopupScrollHeightChk('full', popHasElem);
-    if (popHasElem.classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', popHasElem);
-  }
-} // X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// function clkElClickPopupCheck(_elem) {
+//   let popHasElem = _elem.closest('.c-full-layer.show');
+//   if (popHasElem) {
+//     const TAB_POP_BTN_ELEM = popHasElem.querySelector('.full-footer');
+//     if (TAB_POP_BTN_ELEM) if (TAB_POP_BTN_ELEM.classList.contains('scroll')) TAB_POP_BTN_ELEM.classList.remove('scroll');
+//     if (popHasElem.classList.contains('type-full')) fullPopupScrollHeightChk('full', popHasElem);
+//     if (popHasElem.classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', popHasElem);
+//   }
+// }
+// X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // // 사용안함 +++ tab 터치 시 panel의 내용이 바뀌는 방식의 tab 일 경우
 
 
@@ -673,7 +671,7 @@ function fullScrollChk(_elem) {
 function fullScrollEvt(_container, _header, _body, _fBtn) {
   _body.classList.add('type-flex');
 
-  if (_body.scrollHeight > _body.clientHeight) {
+  if (_body.scrollHeight > _body.clientHeight - 72) {
     _body.classList.remove('type-flex');
 
     _fBtn.classList.add('isScroll');
@@ -682,66 +680,59 @@ function fullScrollEvt(_container, _header, _body, _fBtn) {
       // scroll end check
       var scrollRes = _body.offsetHeight + _body.scrollTop; // scroll down end
 
-      if (scrollRes >= _body.scrollHeight) _fBtn.classList.add('isScrollEnd');else _fBtn.classList.remove('isScrollEnd');
+      if (scrollRes >= _body.scrollHeight - _fBtn.clientHeight / 2) _fBtn.classList.add('isScrollEnd');else _fBtn.classList.remove('isScrollEnd');
     });
   } else {
     _fBtn.classList.remove('isScroll');
   }
 } // X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // ++ full type 일 경우
-
-
-function fullScrollCheck(_elem) {
-  var F_CONTAINER = _elem.querySelector('.c-container');
-
-  if (F_CONTAINER) {
-    var F_HEADER = F_CONTAINER.querySelector('.full-header');
-    var F_BODY = F_CONTAINER.querySelector('.full-body');
-    var F_FOOTER = F_CONTAINER.querySelector('.full-footer'); // full-body가 스크롤 되는지 체크
-
-    if (F_HEADER && F_BODY && F_FOOTER) fullScrollEvent(F_CONTAINER, F_HEADER, F_BODY, F_FOOTER);
-  }
-} // +++ full type의 container가 스크롤 될 경우
-
-
-function fullScrollEvent(_container, _header, _body, _footer) {
-  var bStyle = _body.currentStyle || window.getComputedStyle(_body);
-  var cHeight = _container.clientHeight;
-  var hHeight = _header.clientHeight; // let bHeight = _body.scrollHeight;
-
-  var bhInit = parseInt(bStyle.paddingBottom);
-  var bHeight = _body.clientHeight + bhInit > _body.scrollHeight ? _body.clientHeight + bhInit : _body.scrollHeight;
-  var fHeight = _footer.clientHeight; // 100px || 72px
-
-  var hRes = cHeight - (hHeight + 72);
-
-  if (bHeight > hRes) {
-    // bottom fixed 버튼: 애니메이션 제거
-    // _footer.style.transition = 'none';
-    // footer addClass: scroll
-    _footer.classList.add('scroll'); // scroll end event check
-
-
-    fullScrollEndEvent(_container, _body, _footer);
-  }
-} // ++++ scroll end event check
-
-
-function fullScrollEndEvent(_scrollContainer, _scrollBody, _buttonEl) {
-  // let scrollInit = 0;
-  _scrollBody.addEventListener('scroll', function () {
-    // bottom fixed 버튼: 애니메이션 적용
-    // _buttonEl.style.transition = 'padding .1s ease-in-out';
-    // scroll up
-    if (!timeout) {
-      // scroll end check
-      var scrollRes = _scrollBody.offsetHeight + _scrollBody.scrollTop; // scroll down end
-
-      if (scrollRes >= _scrollBody.scrollHeight) _buttonEl.classList.remove('scroll');
-      if (scrollRes < _scrollBody.scrollHeight - 28) _buttonEl.classList.add('scroll');
-    }
-  });
-} // X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+// function fullScrollCheck(_elem) {
+//   const F_CONTAINER = _elem.querySelector('.c-container');
+//   if (F_CONTAINER) {
+//     const F_HEADER = F_CONTAINER.querySelector('.full-header');
+//     const F_BODY = F_CONTAINER.querySelector('.full-body');
+//     const F_FOOTER = F_CONTAINER.querySelector('.full-footer');
+//     // full-body가 스크롤 되는지 체크
+//     if (F_HEADER && F_BODY && F_FOOTER) fullScrollEvent(F_CONTAINER, F_HEADER, F_BODY, F_FOOTER);
+//   }
+// }
+// +++ full type의 container가 스크롤 될 경우
+// function fullScrollEvent(_container, _header, _body, _footer) {
+//   let bStyle = _body.currentStyle || window.getComputedStyle(_body);
+//   let cHeight = _container.clientHeight;
+//   let hHeight = _header.clientHeight;
+//   // let bHeight = _body.scrollHeight;
+//   let bhInit = parseInt(bStyle.paddingBottom);
+//   let bHeight = (_body.clientHeight + bhInit) > _body.scrollHeight ? _body.clientHeight + bhInit : _body.scrollHeight;
+//   let fHeight = _footer.clientHeight; // 100px || 72px
+//   let hRes = cHeight - (hHeight + 72);
+//   if (bHeight > hRes) {
+//     // bottom fixed 버튼: 애니메이션 제거
+//     // _footer.style.transition = 'none';
+//     // footer addClass: scroll
+//     _footer.classList.add('scroll');
+//     // scroll end event check
+//     fullScrollEndEvent(_container, _body, _footer);
+//   }
+// }
+// ++++ scroll end event check
+// function fullScrollEndEvent(_scrollContainer, _scrollBody, _buttonEl) {
+//   // let scrollInit = 0;
+//   _scrollBody.addEventListener('scroll', () => {
+//     // bottom fixed 버튼: 애니메이션 적용
+//     // _buttonEl.style.transition = 'padding .1s ease-in-out';
+//     // scroll up
+//     if (!timeout) {
+//       // scroll end check
+//       let scrollRes = _scrollBody.offsetHeight + _scrollBody.scrollTop;
+//       // scroll down end
+//       if (scrollRes >= _scrollBody.scrollHeight) _buttonEl.classList.remove('scroll');
+//       if (scrollRes < _scrollBody.scrollHeight - 28) _buttonEl.classList.add('scroll');
+//     }
+//   });
+// }
+// X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // ++ full footer type 일 경우
 
 
@@ -879,8 +870,7 @@ function fullPopupScrollHeightCheck(_type, _popEl) {
     var F_BUTTON = F_CONTAINER.querySelector('.btn-floating');
     if (F_HEADER && F_BODY && F_BUTTON) if (_type === 'full') fullScrollEvt(F_CONTAINER, F_HEADER, F_BODY, F_BUTTON);
   }
-} // X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-// + resize: DOM에 팝업이 있는 경우
+} // + resize: DOM에 팝업이 있는 경우
 
 
 function fullPopupScrollHeightChk(_type, _popEl) {
@@ -910,8 +900,7 @@ function fullResizeEvent(_container, _header, _body, _footer) {
   else _footer.classList.remove('scroll'); // reisze 했을 때 scroll이 최하단일 경우
 
   if (_body.offsetHeight + _body.scrollTop >= _body.scrollHeight) _footer.classList.remove('scroll');
-} // X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
+}
 /**
  * accordion
 */
@@ -962,52 +951,62 @@ function accButtonClickEvent(_accWrap, _elem, _accType) {
 
   var bodyHeight = accBodyEl.scrollHeight; // 열려있는 아코디언이 있을 경우
 
-  if (_accWrap.classList.contains('open')) {
-    _accWrap.querySelector('.accordion-body').style.maxHeight = bodyHeight + 'px';
-  }
+  if (_accWrap.classList.contains('open')) _accWrap.querySelector('.accordion-body').style.maxHeight = bodyHeight + 'px';
 
   _elem.addEventListener('click', function (e) {
-    // 터치하는 영역이 '비교하기' 버튼이 아닐 경우 - 아코디언 hide / show
-    if (!e.target.parentElement.classList.contains('co-btn')) {
-      // 터치 시 하나만 보이는 타입
-      if (_accType === 'type-one-open') {
-        // 아코디언이 열려있으면
-        if (!_accWrap.classList.contains('open')) {
-          var ACC_WRAP = _accWrap.closest('.accordion-list');
-
-          if (ACC_WRAP) {
-            // 아코디언 모두 닫기
-            var accOneList = ACC_WRAP.querySelectorAll('.accordion');
-
-            for (var _i19 = 0; _i19 < accOneList.length; _i19++) {
-              accOneList[_i19].classList.remove('open');
-
-              accOneList[_i19].querySelector('.accordion-body').style.maxHeight = 0;
-
-              accOneList[_i19].querySelector('.accordion-body').setAttribute('tabindex', -1);
-
-              accOneList[_i19].querySelector('.accordion-body').setAttribute('aria-hidden', true);
-
-              accOneList[_i19].querySelector('.accordion-header').setAttribute('aria-expanded', false);
-            }
-          }
-        }
-      }
-
-      if (_accWrap.classList.contains('open')) {
-        _accWrap.classList.remove('open');
-
-        accBodyEl.style.maxHeight = 0;
-      } else {
-        _accWrap.classList.add('open');
-
-        accBodyEl.style.maxHeight = bodyHeight + 'px';
-      } // 접근성
-
-
-      accordionAccessibility(_accWrap);
-    }
+    accButtonClickEvtComn(e, _accType, _accWrap, accBodyEl, bodyHeight);
   });
+}
+
+function accButtonClickEvtComn(_e, _accType, _accWrap, _accBodyEl, _bodyHeight) {
+  // 터치하는 영역이 '비교하기' 버튼이 아닐 경우 - 아코디언 hide / show
+  if (!_e.target.parentElement.classList.contains('co-btn')) {
+    accButtonTypeOneOpen(_accType, _accWrap);
+    accButtonOpenClose(_accWrap, _accBodyEl, _bodyHeight); // 접근성
+
+    accordionAccessibility(_accWrap);
+  }
+}
+
+function accButtonTypeOneOpen(_accType, _accWrap) {
+  // 터치 시 하나만 보이는 타입
+  if (_accType === 'type-one-open') {
+    // 아코디언이 열려있으면
+    if (!_accWrap.classList.contains('open')) accButtonTypeOneOpenAllClose(_accWrap);
+  }
+}
+
+function accButtonTypeOneOpenAllClose(_accWrap) {
+  var ACC_WRAP = _accWrap.closest('.accordion-list');
+
+  if (ACC_WRAP) {
+    // 아코디언 모두 닫기
+    var accOneList = ACC_WRAP.querySelectorAll('.accordion');
+
+    for (var _i19 = 0; _i19 < accOneList.length; _i19++) {
+      accOneList[_i19].classList.remove('open');
+
+      accOneList[_i19].querySelector('.accordion-body').style.maxHeight = 0;
+
+      accOneList[_i19].querySelector('.accordion-body').setAttribute('tabindex', -1);
+
+      accOneList[_i19].querySelector('.accordion-body').setAttribute('aria-hidden', true);
+
+      accOneList[_i19].querySelector('.accordion-header').setAttribute('aria-expanded', false);
+    }
+  }
+}
+
+function accButtonOpenClose(_accWrap, _accBodyEl, _bodyHeight) {
+  if (_accWrap.classList.contains('open')) {
+    _accWrap.classList.remove('open');
+
+    _accBodyEl.style.maxHeight = 0;
+  } else {
+    _accWrap.classList.add('open');
+
+    _accBodyEl.style.maxHeight = _bodyHeight + 'px';
+  }
 } // + 아코디언 모두닫힘
 
 
@@ -1098,13 +1097,9 @@ function termsScrollEvent(_scrollBody, _scrollWrap, _scrollElem) {
 
 
 var INPUT_ELEM = document.querySelectorAll('input');
-
-if (INPUT_ELEM.length > 0) {
-  for (var _i22 = 0; _i22 < INPUT_ELEM.length; _i22++) {
-    inputComn(INPUT_ELEM[_i22]);
-  }
+if (INPUT_ELEM.length > 0) for (var _i22 = 0; _i22 < INPUT_ELEM.length; _i22++) {
+  inputComn(INPUT_ELEM[_i22]);
 } // input 공통 scritp
-
 
 function inputComn(_elem) {
   var inputTypeState = inputTypeCase(_elem);
@@ -1129,33 +1124,51 @@ function inputTypeCase(_input) {
 
 
 function inputFocusEvent(_inputEl, _inputState) {
-  if (_inputState === 'default') {
-    _inputEl.addEventListener('focus', function () {
-      // floating 버튼 있는 full 팝업
-      var floatinPopup = document.querySelector('.c-full-layer.kmi-popup.show');
+  if (_inputState === 'default') inputFocusEvtComn(_inputEl);
+}
 
-      if (floatinPopup) {
-        var floatinBtn = floatinPopup.querySelector('.full-footer.scroll');
-
-        if (floatinBtn) {
-          floatinPopup.classList.add('input-focus');
-          floatinBtn.classList.remove('scroll');
-          this.addEventListener('blur', function () {
-            floatinBtn.classList.add('scroll');
-            floatinPopup.classList.remove('input-focus');
-          });
-        }
-      } // modal 팝업
+function inputFocusEvtComn(_inputEl) {
+  _inputEl.addEventListener('focus', function () {
+    inputFocusEvtFloating(_inputEl);
+    inputFocusEvtModal();
+  });
+} // ++ floating 버튼 있는 full 팝업
 
 
-      var modalPopup = document.querySelector('.c-layer-popup.kmi-popup.show');
+function inputFocusEvtFloating(_inputEl) {
+  var floatinPopup = document.querySelector('.c-full-layer.kmi-popup.show');
 
-      if (modalPopup) {
-        modalPopup.classList.add('input-focus');
-        this.addEventListener('blur', function () {
-          modalPopup.classList.remove('input-focus');
-        });
-      }
+  if (floatinPopup) {
+    var floatingContainer = floatinPopup.querySelector('.c-container');
+    var floatingBtn = floatinPopup.querySelector('.btn-floating.isScroll');
+    if (floatingContainer && floatingBtn) inputFocusEvtFloatingBtn(floatinPopup, floatingContainer, floatingBtn, _inputEl);
+  }
+}
+
+function inputFocusEvtFloatingBtn(_floatinPopup, _floatingContainer, _floatingBtn, _inputEl) {
+  _floatinPopup.classList.add('input-focus');
+
+  _floatingContainer.classList.add('input-focus');
+
+  _floatingBtn.classList.remove('isScroll');
+
+  _inputEl.addEventListener('blur', function () {
+    _floatingContainer.classList.remove('input-focus');
+
+    _floatinPopup.classList.remove('input-focus');
+
+    _floatingBtn.classList.add('isScroll');
+  });
+} // ++ modal 팝업
+
+
+function inputFocusEvtModal() {
+  var modalPopup = document.querySelector('.c-layer-popup.kmi-popup.show');
+
+  if (modalPopup) {
+    modalPopup.classList.add('input-focus');
+    this.addEventListener('blur', function () {
+      modalPopup.classList.remove('input-focus');
     });
   }
 }
@@ -1217,7 +1230,7 @@ if (BTN_MOVE_TOP_ELEM) {
 */
 
 
-var STICKYELM = document.querySelector('.c-tab.type-floating');
+var STICKYELM = document.querySelector('.tab-floating');
 
 if (STICKYELM) {
   var scrollEl = document.querySelector('#container');
