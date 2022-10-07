@@ -38,9 +38,7 @@
                 <h4 id="popupJoin4_Label" class="top-title-box type-step">
                     회원가입 및 확인
                     <i class="skip">4단계 중 4단게</i>
-                    <div class="step" aria-hidden="true">
-                        <span>4</span>/<span>4</span>
-                    </div>
+                    <div class="step" aria-hidden="true"><span>4</span>/<span>4</span></div>
                 </h4>
 
                 <div class="cont-box type-btn-floating">
@@ -81,7 +79,11 @@
                   <input type="text" id="employeeBelong" class="c-input" value="YYYY-MM-DD 인증완료" disabled />
                 </div> -->
                             <div class="col per-column">
-                                <input type="text" class="c-input type-white" placeholder="휴대폰 전화번호 (필수)" disabled />
+                                <input type="text" class="c-input" placeholder="휴대폰 전화번호 (필수)" />
+                                <!-- [Comment] 
+										-  휴대번호 데이터를 불러오는 경우 Disable
+									-->
+                                <!-- <input type="text" class="c-input" placeholder="휴대폰 전화번호 (필수)" value="01011111111" disabled /> -->
                             </div>
                             <div class="col per-column">
                                 <input type="text" class="c-input" placeholder="유선전화" />
@@ -92,14 +94,19 @@
                             <div class="col per-column">
                                 <div class="c-input-address-group">
                                     <div class="col per-column">
-                                        <div class="row inner c-input-btn-group">
-                                            <div class="column input">
-                                                <input type="text" class="c-input type-white" placeholder="주소 (필수)" disabled />
+                                        <a href="javascript:;" class="btn-address">
+                                            <div class="row inner c-input-btn-group">
+                                                <div class="column input">
+                                                    <!-- [comment]
+															- 필요에 따라 disabled 제거 
+														-->
+                                                    <input type="text" class="c-input type-white" title="주소입력" placeholder="주소 (필수)" disabled />
+                                                </div>
+                                                <div class="column btns">
+                                                    <button type="button" class="co-btn type02 type-input-btn"><span>주소검색</span></button>
+                                                </div>
                                             </div>
-                                            <div class="column btns">
-                                                <button type="button" class="co-btn type02 type-input-btn"><span>주소검색</span></button>
-                                            </div>
-                                        </div>
+                                        </a>
                                     </div>
 
                                     <div class="row input-addr-02">
