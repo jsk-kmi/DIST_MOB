@@ -384,7 +384,12 @@ function clkElClickPopupChkFull(_popHasElem) {
 
   if (TAB_POP_BODY_EL) TAB_POP_BODY_EL.classList.add('type-flex');
   if (TAB_POP_CONT_EL) if (TAB_POP_CONT_EL.classList.contains('type-btn-floating')) TAB_POP_BTN_EL.classList.remove('.type-btn-floating');
-  if (TAB_POP_BTN_EL) if (TAB_POP_BTN_EL.classList.contains('isScroll')) TAB_POP_BTN_EL.classList.remove('isScroll');
+
+  if (TAB_POP_BTN_EL) {
+    if (TAB_POP_BTN_EL.classList.contains('isScroll')) TAB_POP_BTN_EL.classList.remove('isScroll');
+    if (TAB_POP_BTN_EL.classList.contains('isScrollEnd')) TAB_POP_BTN_EL.classList.remove('isScrollEnd');
+  }
+
   fullPopupScrollHeightCheck('full', _popHasElem);
 }
 
@@ -669,22 +674,38 @@ function fullScrollChk(_elem) {
 }
 
 function fullScrollEvt(_container, _header, _body, _fBtn) {
+  // scroll end check
   _body.classList.add('type-flex');
 
-  if (_body.scrollHeight > _body.clientHeight - 72) {
+  _fBtn.classList.remove('isScrollEnd');
+
+  if (_body.offsetHeight + _body.scrollTop >= _body.scrollHeight) _fBtn.classList.add('isScrollEnd');
+
+  if (_body.scrollHeight > _body.clientHeight + 72) {
     _body.classList.remove('type-flex');
 
     _fBtn.classList.add('isScroll');
 
     _body.addEventListener('scroll', function () {
-      // scroll end check
-      var scrollRes = _body.offsetHeight + _body.scrollTop; // scroll down end
-
-      if (scrollRes >= _body.scrollHeight - _fBtn.clientHeight / 2) _fBtn.classList.add('isScrollEnd');else _fBtn.classList.remove('isScrollEnd');
+      var SCROLL_WRAP = document.querySelector('.c-full-layer.kmi-popup.show');
+      if (SCROLL_WRAP) fullScrollEvtInit(SCROLL_WRAP, _fBtn);
     });
   } else {
     _fBtn.classList.remove('isScroll');
   }
+}
+
+function fullScrollEvtInit(_scrollWrap, _fBtn) {
+  var SCROLL_BODY = _scrollWrap.querySelector('.full-body');
+
+  if (SCROLL_BODY) fullScrollEvtScroll(SCROLL_BODY, _fBtn);
+}
+
+function fullScrollEvtScroll(_scrollBody, _fBtn) {
+  // scroll end check
+  var scrollRes = _scrollBody.offsetHeight + _scrollBody.scrollTop; // scroll down end
+
+  if (scrollRes >= _scrollBody.scrollHeight) _fBtn.classList.add('isScrollEnd');else _fBtn.classList.remove('isScrollEnd');
 } // X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 // ++ full type 일 경우
 // function fullScrollCheck(_elem) {
@@ -1140,7 +1161,7 @@ function inputFocusEvtFloating(_inputEl) {
 
   if (floatinPopup) {
     var floatingContainer = floatinPopup.querySelector('.c-container');
-    var floatingBtn = floatinPopup.querySelector('.btn-floating.isScroll');
+    var floatingBtn = floatinPopup.querySelector('.btn-floating');
     if (floatingContainer && floatingBtn) inputFocusEvtFloatingBtn(floatinPopup, floatingContainer, floatingBtn, _inputEl);
   }
 }
