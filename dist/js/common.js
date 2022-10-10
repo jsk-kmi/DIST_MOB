@@ -45,7 +45,15 @@ function containerHidden(_state) {
   var GNB_CONTAINER_EL = document.getElementById('container');
 
   if (GNB_CONTAINER_EL) {
-    if (_state) GNB_CONTAINER_EL.setAttribute('aria-hidden', true);else GNB_CONTAINER_EL.setAttribute('aria-hidden', false);
+    if (_state) {
+      GNB_CONTAINER_EL.setAttribute('aria-hidden', true);
+    } else {
+      var OPEN_POPUPS = document.querySelectorAll('.kmi-popup.show');
+
+      if (OPEN_POPUPS.length == 0) {
+        GNB_CONTAINER_EL.setAttribute('aria-hidden', false);
+      }
+    }
   }
 }
 /**
@@ -209,7 +217,7 @@ function tabClickEvent(_wrap, _ipt, _elem, _j, _ipt_checked) {
     if (_ipt.tagName !== 'A' && _ipt.tagName !== 'a') {
       var altEl = _wrap.querySelectorAll('.alt-txt');
 
-      if (altEl.length > 0) applyTabAltText(altEl, _j);
+      if (altEl.length > 0) applyTabAltText(_ipt, altEl, _j);
     } // hide / show 방식의 tab 일 경우
 
 
@@ -254,7 +262,7 @@ function tabCenterCheck(_tabEl) {
 function tabAltTxtInit(_elem, _ipt, _ipt_checked) {
   var altElBefore = document.createElement('span');
   altElBefore.classList.add('alt-txt');
-  altElBefore.innerText = '선택안됨';
+  if (_ipt.tagName == 'A' || _ipt.tagName == 'a') altElBefore.innerText = '선택안됨터치시페이지이동';else altElBefore.innerText = '선택안됨';
 
   _elem.insertBefore(altElBefore, _ipt);
 
@@ -262,12 +270,37 @@ function tabAltTxtInit(_elem, _ipt, _ipt_checked) {
 } // +++ 터치 시 대체텍스트 적용 - 선택됨, 선택안됨
 
 
-function applyTabAltText(_elem, _j) {
-  for (var k = 0; k < _elem.length; k++) {
-    _elem[k].innerText = '선택안됨';
-  }
+function applyTabAltText(_ipt, _elem, _j) {
+  HTMLElement.prototype.index = function () {
+    var self = this.parentNode;
+    var parent = self.parentNode;
+    var i = 0;
 
-  _elem[_j].innerText = '선택됨';
+    while (self.previousElementSibling) {
+      i++;
+      self = self.previousElementSibling;
+    }
+
+    ;
+    return this.parentNode === parent.children[i] ? i : -1;
+  };
+
+  var indexRes = Number(_ipt.index() - 1);
+
+  if (_ipt.closest('.c-tab').querySelector('.ico-plus')) {
+    // 탭 제일 왼쪽에 +버튼이 있는 경우
+    for (var k = 0; k < _elem.length; k++) {
+      _elem[k].innerText = '선택안됨';
+    }
+
+    _elem[indexRes].innerText = '선택됨';
+  } else {
+    for (var _k = 0; _k < _elem.length; _k++) {
+      _elem[_k].innerText = '선택안됨';
+    }
+
+    _elem[_j].innerText = '선택됨';
+  }
 } // +++ center 정렬 필요한 tab
 
 
@@ -580,6 +613,14 @@ if (POPUP_BTN_ELEM.length > 0) {
   var _loop = function _loop(_i15) {
     // popup open button - click event
     POPUP_BTN_ELEM[_i15].addEventListener('click', function () {
+      var OPENSTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
+
+      if (OPENSTATE_POPUP.length > 0) {
+        for (var _i16 = 0; _i16 < OPENSTATE_POPUP.length; _i16++) {
+          OPENSTATE_POPUP[_i16].setAttribute('aria-hidden', true);
+        }
+      }
+
       var TARGET = POPUP_BTN_ELEM[_i15].getAttribute('data-target');
 
       var CURRENT_POPUP = document.getElementById(TARGET);
@@ -590,7 +631,7 @@ if (POPUP_BTN_ELEM.length > 0) {
 
       var popupState = popupStateCheck(CURRENT_POPUP); // style
 
-      popupStyle(CURRENT_POPUP, 'show'); // 접근성
+      popupStyle(CURRENT_POPUP, 'show', _i15); // 접근성
 
       focusFirstBtn(popupState, CURRENT_POPUP); // 팝업 배경 click event
       // 220923 - 현업 요청으로 제거
@@ -617,10 +658,16 @@ function popupStateCheck(_popState) {
 
 
 function popupStyle(_elem, _state) {
+  var indexRes = 0;
+
+  for (var _i17 = 0; _i17 < (arguments.length <= 2 ? 0 : arguments.length - 2); _i17++) {
+    indexRes = _i17 + 2 < 2 || arguments.length <= _i17 + 2 ? undefined : arguments[_i17 + 2];
+  }
+
   switch (_state) {
     case 'show':
       _elem.style.top = 0;
-      _elem.style.zIndex = '2000';
+      _elem.style.zIndex = 2000 + indexRes;
       _elem.style.visibility = 'visible';
       break;
 
@@ -829,10 +876,18 @@ var POPUP_CLOSE_ELEM = document.querySelectorAll('.popup-btn-close');
 if (POPUP_CLOSE_ELEM.length > 0) popupCloseComn(POPUP_CLOSE_ELEM); // + popup close
 
 function popupCloseComn(_popupCloseEl) {
-  var _loop2 = function _loop2(_i16) {
+  var _loop2 = function _loop2(_i18) {
     // popup close button - click event
-    _popupCloseEl[_i16].addEventListener('click', function () {
-      var TARGET = _popupCloseEl[_i16].closest('.kmi-popup');
+    _popupCloseEl[_i18].addEventListener('click', function () {
+      var CLOSESTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
+
+      if (CLOSESTATE_POPUP.length > 0) {
+        for (var _i19 = 0; _i19 < CLOSESTATE_POPUP.length; _i19++) {
+          CLOSESTATE_POPUP[_i19].setAttribute('aria-hidden', false);
+        }
+      }
+
+      var TARGET = _popupCloseEl[_i18].closest('.kmi-popup');
 
       TARGET.classList.remove('show');
       TARGET.setAttribute('aria-hidden', true); // 접근성: popup close 시 #container focus 풀기
@@ -840,15 +895,19 @@ function popupCloseComn(_popupCloseEl) {
       containerHidden(false); // style - 사라지는 animation을 위해 setTimeout 사용
 
       setTimeout(function () {
-        popupStyle(TARGET, 'hide');
-        focusCloseState(TARGET);
+        popupCloseTimeout(TARGET);
       }, ANI_TIME_300);
     });
   };
 
-  for (var _i16 = 0; _i16 < _popupCloseEl.length; _i16++) {
-    _loop2(_i16);
+  for (var _i18 = 0; _i18 < _popupCloseEl.length; _i18++) {
+    _loop2(_i18);
   }
+}
+
+function popupCloseTimeout(_target) {
+  popupStyle(_target, 'hide');
+  focusCloseState(_target);
 } // 팝업: 접근성
 // + 팝업 닫을 때 열었던 버튼에 focus 시키기
 
@@ -865,11 +924,12 @@ function focusCloseState(_elem) {
 function focusFirstBtn(_state, _elem) {
   setTimeout(function () {
     var focus_el = new Object();
-    if (_state === 'full-footer' || _state === 'full') focus_el = _elem.querySelectorAll('.btn-go-back');else if (_state === 'modal') focus_el = _elem.querySelectorAll('.popup-btn-close');
-    if (focus_el) setTimeout(function () {
+    if (_state === 'full-footer' || _state === 'full') focus_el = _elem.querySelectorAll('.btn-go-back');
+    if (_state === 'modal') focus_el = _elem.querySelectorAll('.popup-cls-btn.popup-btn-close');
+    if (focus_el.length > 0) setTimeout(function () {
       focus_el[0].focus();
     }, INTERVAL_1);
-  }, INTERVAL_1);
+  }, ANI_TIME_300);
 } // DOM에 풀팝업이 있을 경우 
 
 
@@ -877,9 +937,9 @@ function fullPopupState() {
   var FULL_POP_ELEM = document.querySelectorAll('.c-full-layer.show');
 
   if (FULL_POP_ELEM.length > 0) {
-    for (var _i17 = 0; _i17 < FULL_POP_ELEM.length; _i17++) {
-      if (FULL_POP_ELEM[_i17].classList.contains('type-full')) fullPopupScrollHeightCheck('full', FULL_POP_ELEM[_i17]);
-      if (FULL_POP_ELEM[_i17].classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', FULL_POP_ELEM[_i17]);
+    for (var _i20 = 0; _i20 < FULL_POP_ELEM.length; _i20++) {
+      if (FULL_POP_ELEM[_i20].classList.contains('type-full')) fullPopupScrollHeightCheck('full', FULL_POP_ELEM[_i20]);
+      if (FULL_POP_ELEM[_i20].classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', FULL_POP_ELEM[_i20]);
     }
   }
 } // + resize: DOM에 팝업이 있는 경우
@@ -933,16 +993,16 @@ function fullResizeEvent(_container, _header, _body, _footer) {
 var ACCORDION_ELEM = document.querySelectorAll('.accordion');
 
 if (ACCORDION_ELEM.length > 0) {
-  for (var _i18 = 0; _i18 < ACCORDION_ELEM.length; _i18++) {
+  for (var _i21 = 0; _i21 < ACCORDION_ELEM.length; _i21++) {
     // 아코디언 타입체크
-    var accordionType = accordionTypeCheck(ACCORDION_ELEM[_i18]); // 접근성
+    var accordionType = accordionTypeCheck(ACCORDION_ELEM[_i21]); // 접근성
 
-    accordionAccessibility(ACCORDION_ELEM[_i18]);
+    accordionAccessibility(ACCORDION_ELEM[_i21]);
 
-    var BTN_OPEN = ACCORDION_ELEM[_i18].querySelectorAll('.accordion-header'); // acc button click event
+    var BTN_OPEN = ACCORDION_ELEM[_i21].querySelectorAll('.accordion-header'); // acc button click event
 
 
-    if (BTN_OPEN.length > 0) accButtonClickEvent(ACCORDION_ELEM[_i18], BTN_OPEN[0], accordionType);
+    if (BTN_OPEN.length > 0) accButtonClickEvent(ACCORDION_ELEM[_i21], BTN_OPEN[0], accordionType);
   }
 } // + 아코디언 타입 체크: 하나만 보이는 타입, 모두 보이는 타입
 
@@ -1007,16 +1067,16 @@ function accButtonTypeOneOpenAllClose(_accWrap) {
     // 아코디언 모두 닫기
     var accOneList = ACC_WRAP.querySelectorAll('.accordion');
 
-    for (var _i19 = 0; _i19 < accOneList.length; _i19++) {
-      accOneList[_i19].classList.remove('open');
+    for (var _i22 = 0; _i22 < accOneList.length; _i22++) {
+      accOneList[_i22].classList.remove('open');
 
-      accOneList[_i19].querySelector('.accordion-body').style.maxHeight = 0;
+      accOneList[_i22].querySelector('.accordion-body').style.maxHeight = 0;
 
-      accOneList[_i19].querySelector('.accordion-body').setAttribute('tabindex', -1);
+      accOneList[_i22].querySelector('.accordion-body').setAttribute('tabindex', -1);
 
-      accOneList[_i19].querySelector('.accordion-body').setAttribute('aria-hidden', true);
+      accOneList[_i22].querySelector('.accordion-body').setAttribute('aria-hidden', true);
 
-      accOneList[_i19].querySelector('.accordion-header').setAttribute('aria-expanded', false);
+      accOneList[_i22].querySelector('.accordion-header').setAttribute('aria-expanded', false);
     }
   }
 }
@@ -1035,14 +1095,14 @@ function accButtonOpenClose(_accWrap, _accBodyEl, _bodyHeight) {
 
 
 function accordionAllClose(_accEl) {
-  for (var _i20 = 0; _i20 < _accEl.length; _i20++) {
-    _accEl[_i20].classList.remove('open');
+  for (var _i23 = 0; _i23 < _accEl.length; _i23++) {
+    _accEl[_i23].classList.remove('open');
 
-    _accEl[_i20].querySelector('.accordion-body').setAttribute('tabindex', -1);
+    _accEl[_i23].querySelector('.accordion-body').setAttribute('tabindex', -1);
 
-    _accEl[_i20].querySelector('.accordion-body').setAttribute('aria-hidden', true);
+    _accEl[_i23].querySelector('.accordion-body').setAttribute('aria-hidden', true);
 
-    _accEl[_i20].querySelector('.accordion-body').style.maxHeight = 0;
+    _accEl[_i23].querySelector('.accordion-body').style.maxHeight = 0;
   }
 }
 /**
@@ -1054,10 +1114,10 @@ var TERMS_ELEM = document.querySelectorAll('.terms-box');
 if (TERMS_ELEM.length > 0) termsComn(TERMS_ELEM); // + 약관이 있으면
 
 function termsComn(_elem) {
-  for (var _i21 = 0; _i21 < TERMS_ELEM.length; _i21++) {
-    var TERMS_INNER = TERMS_ELEM[_i21].querySelectorAll('.inner');
+  for (var _i24 = 0; _i24 < TERMS_ELEM.length; _i24++) {
+    var TERMS_INNER = TERMS_ELEM[_i24].querySelectorAll('.inner');
 
-    termsInner(TERMS_INNER, TERMS_ELEM[_i21]);
+    termsInner(TERMS_INNER, TERMS_ELEM[_i24]);
   }
 }
 
@@ -1121,8 +1181,8 @@ function termsScrollEvent(_scrollBody, _scrollWrap, _scrollElem) {
 
 
 var INPUT_ELEM = document.querySelectorAll('input');
-if (INPUT_ELEM.length > 0) for (var _i22 = 0; _i22 < INPUT_ELEM.length; _i22++) {
-  inputComn(INPUT_ELEM[_i22]);
+if (INPUT_ELEM.length > 0) for (var _i25 = 0; _i25 < INPUT_ELEM.length; _i25++) {
+  inputComn(INPUT_ELEM[_i25]);
 } // input 공통 scritp
 
 function inputComn(_elem) {

@@ -12,6 +12,10 @@
   overflow-y: auto;
   z-index: 1000;
   button {
+    display: block;
+    &:nth-child(even) {
+      background-color: #fbfbfd;
+    }
     font-weight: 300;
     font-size: 1rem;
     line-height: 1.75rem;
@@ -21,7 +25,8 @@
     display: block;
     width: 100%;
     text-align: left;
-    &:active {
+    &:active,
+    &:hover {
       background-color: $color-bg-03;
       color: $color-main;
     }

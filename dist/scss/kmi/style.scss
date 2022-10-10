@@ -7,7 +7,7 @@
 .media-list {
   &.end-state {
     a {
-      opacity: .3;
+      opacity: 0.3;
       pointer-events: none;
     }
   }
@@ -74,7 +74,7 @@
         margin: 0;
         width: auto;
         height: 1.25rem;
-        color: #FFF;
+        color: #fff;
         background-color: transparent;
         border-radius: 0;
         float: left;
@@ -119,7 +119,7 @@
             width: 100vw;
             left: 0;
             top: 84px;
-            background-color: #FFF;
+            background-color: #fff;
             z-index: 1500;
             margin-left: -1.75rem;
             transition: top $transition-3 ease-in-out;
@@ -146,9 +146,7 @@
                 width: 100%;
                 height: 2.25rem;
                 background-image: linear-gradient(to bottom, rgba(25, 25, 25, 0.05) 0%, rgba(217, 217, 217, 0) 38.05%);
-                transition: 
-                  height $transition-3 ease-in-out,
-                  background-image $transition-3 ease-in-out;
+                transition: height $transition-3 ease-in-out, background-image $transition-3 ease-in-out;
               }
             }
           }
@@ -209,9 +207,62 @@
     }
   }
 }
+// + 버튼
+button {
+  &.ico-plus {
+    position: relative;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: #fff;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 1.5rem;
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: $color-sub-01;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &::before {
+      width: 0.125rem;
+      height: 0.75rem;
+    }
+    &::after {
+      width: 0.75rem;
+      height: 0.125rem;
+    }
+  }
+}
+// + swiper pagination
+.swiper-pagination {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  height: 0.5rem;
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .swiper-pagination-bullet {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: $color-black-10;
+    opacity: 1;
+    transition: all $transition-3;
+    &.swiper-pagination-bullet-active {
+      width: 1rem;
+      background: $color-main;
+      border-radius: 1.25rem;
+    }
+  }
+}
 
 // 전체틀, 타이틀, 탭
 .login-block,
+.main-block,
 .hi-block,
 .ni-block,
 .mi-block,
@@ -226,7 +277,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      .step, .step span {
+      .step,
+      .step span {
         @include coTxtTitleLarge;
         color: $color-black-20;
       }
@@ -234,34 +286,6 @@
         span {
           &:first-child {
             color: $color-black-40;
-          }
-        }
-      }
-      button {
-        &.ico-plus {
-          position: relative;
-          width: 2.25rem;
-          height: 2.25rem;
-          background: #FFF;
-          box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-          border-radius: 1.5rem;
-          &::before,
-          &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            background-color: $color-sub-01;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-          }
-          &::before {
-            width: 0.125rem;
-            height: 0.75rem;
-          }
-          &::after {
-            width: 0.75rem;
-            height: 0.125rem;
           }
         }
       }
@@ -352,7 +376,7 @@
     img {
       width: 7rem;
       height: auto;
-      opacity: .4;
+      opacity: 0.4;
     }
     p {
       @include coTxtBody;
@@ -375,6 +399,9 @@
 }
 .login-block {
   padding: 3.75rem 1.75rem;
+}
+.main-block {
+  padding: 3.75rem 1.75rem 0;
 }
 .hi-block,
 .ni-block,
@@ -400,7 +427,7 @@
   .c-tab {
     margin-top: 2.5rem;
   }
-  *[aria-labelledby="comn-login-tab-panel"] {
+  *[aria-labelledby='comn-login-tab-panel'] {
     .co-btn {
       margin-top: 2.5rem;
     }
@@ -427,6 +454,7 @@
       }
     }
     & + .btn-list {
+      flex-wrap: wrap;
       a {
         padding: 0 0.5rem;
       }
@@ -475,6 +503,28 @@
     }
     &:first-child {
       margin-top: 0;
+    }
+  }
+}
+
+// 메인
+.main-block {
+  // + 이벤트 swiper
+  .eventSwiper {
+    .swiper-slide {
+      display: block;
+      padding: 0;
+      background: transparent;
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+      border: 0 none;
+      overflow: inherit;
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }
@@ -580,7 +630,7 @@
     }
   }
   .c-tab {
-    &[data-tablist=notice] {
+    &[data-tablist='notice'] {
       padding-top: 1.75rem;
       padding-bottom: 3.75rem;
     }
@@ -637,10 +687,9 @@
         right: 0;
         bottom: 0;
         left: 0;
-      } 
+      }
     }
   }
-  
 }
 
 // 채용검진(EM)
@@ -731,7 +780,8 @@
             margin-top: 0;
           }
         }
-        h3, h4 {
+        h3,
+        h4 {
           @include coTxtLabelLarge;
           color: $color-black-80;
           margin-top: 1.25rem;
@@ -743,7 +793,9 @@
         h4 {
           margin-top: 3.75rem;
         }
-        p, ul, ul li {
+        p,
+        ul,
+        ul li {
           @include coTxtBody;
           color: $color-black-60;
         }
@@ -786,11 +838,13 @@
           color: $color-black-80;
           margin-top: 3.75rem;
         }
-        p, ul, ul li {
+        p,
+        ul,
+        ul li {
           @include coTxtBody;
           color: $color-black-80;
         }
-        
+
         p {
           margin-top: 0.25rem;
           & + ul {
@@ -850,5 +904,45 @@
 
 // 이용가이드
 .guide-block {
-
+  h2 {
+    @include coTxtTitleHeadingSmall;
+    color: #494949;
+    margin-top: 2.5rem;
+  }
+  h3 {
+    @include coTxtTitleSmall;
+    color: $color-main;
+    margin-top: 2.5rem;
+    span {
+      color: $color-black-40;
+    }
+  }
+  p {
+    @include coTxtBody;
+    color: #494949;
+    margin-top: 0.75rem;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 1.25rem;
+    & + h2 {
+      margin-top: 3.75rem;
+    }
+  }
+  .tab-floating {
+    & + .tab-panel {
+      &.show {
+        & > h2 {
+          margin-top: 0;
+        }
+        .c-select {
+          & + h2 {
+            margin-top: 2.5rem;
+          }
+        }
+      }
+    }
+  }
 }

@@ -69,10 +69,10 @@
 
   // = input focus
   &.input-focus {
-    overflow-y: auto;
+    //  overflow-y: auto;
     .modal-field {
-      display: block;
-      overflow-y: auto;
+      // display: block;
+      // overflow-y: auto;
     }
   }
 }
@@ -103,7 +103,7 @@
   overflow-y: auto;
   transition: all $transition-3 ease-out;
   max-height: none;
-  width: calc(100% - 2rem);
+  width: calc(100% - 1rem);
 
   .btn-modal-cls {
     position: absolute;
@@ -287,10 +287,12 @@
     flex-direction: column;
     height: 100%;
     &.input-focus {
-      display: block;
+      // display: block;
+      // overflow-y: hidden;
       .full-body {
-        display: block;
-        padding: 0;
+        // display: block;
+        // overflow-y: hidden;
+        // padding: 0;
         .btn-floating {
           &.isScrollEnd {
             position: relative;
@@ -348,9 +350,10 @@
     &.type-flex {
       display: flex;
       flex-direction: column;
-      padding-bottom: 0;
+      // padding-bottom: 0;
       .cont-box {
         flex-grow: 1;
+        flex-shrink: 0;
       }
     }
   }
@@ -432,6 +435,28 @@
     }
     .examResSwiper {
       position: relative;
+      .swiper-pagination {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        height: 0.5rem;
+        margin-top: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .swiper-pagination-bullet {
+          width: 0.5rem;
+          height: 0.5rem;
+          background: $color-black-10;
+          opacity: 1;
+          transition: all $transition-3;
+          &.swiper-pagination-bullet-active {
+            width: 1rem;
+            background: $color-main;
+            border-radius: 1.25rem;
+          }
+        }
+      }
       & + .c-tab {
         margin-top: 0;
       }
@@ -539,10 +564,10 @@
     }
   }
   &.input-focus {
-    overflow-y: auto;
+    // overflow-y: auto;
     .c-container {
-      display: block;
-      overflow-y: auto;
+      // display: block;
+      // overflow-y: auto;
       .full-header {
         position: sticky;
         left: 0;

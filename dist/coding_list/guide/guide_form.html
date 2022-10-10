@@ -134,7 +134,7 @@
       <div class="d_desc code">
         <!-- ? view -->
         <div class="row">
-          <div class="col">
+          <div class="col per-column">
             <div class="row inner c-input-btn-group">
               <div class="column input">
                 <input type="text" class="c-input" />
@@ -143,6 +143,27 @@
                 <button type="button" class="co-btn type02 type-input-btn"><span>Button</span></button>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- ? // view -->
+      </div>
+      <!-- [ // Input Text + Button] -->
+      <!-- [Input Text + Button] -->
+      <h3 class="h3_guide">Input Text + Button (ERROR)</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="row">
+          <div class="col per-column">
+            <div class="row inner c-input-btn-group">
+              <div class="column input">
+                <input type="text" class="c-input is-error" />
+              </div>
+              <div class="column btns">
+                <button type="button" class="co-btn type02 type-input-btn"><span>Button</span></button>
+              </div>
+            </div>
+            <p class="input-err-txt">에러 문구.</p>
           </div>
         </div>
 
@@ -201,6 +222,23 @@
                 class="c-txt-area type02"
                 placeholder="의료진에 전달하고자 하는 내용(ex 알러지, 복용약 등)을 입력해 주세요. 아스피린, 항 응고제, 혈압, 당뇨 기타 약이 있으시면 꼭 기재해 주세요. &#13;&#10;심장관련 질환이 있거나 수술 또는 병력, 치료중인 사항도 기입해주셔야 하며 검진 진행 시 제한이 있을 수 있습니다."
               ></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="h3_guide">Text Area (ERROR)</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="row">
+          <div class="col">
+            <div class="c-txtarea-field">
+              <textarea
+                id="inputChkPersoninfo01_05"
+                class="c-txt-area type02 is-error"
+                placeholder="의료진에 전달하고자 하는 내용(ex 알러지, 복용약 등)을 입력해 주세요. 아스피린, 항 응고제, 혈압, 당뇨 기타 약이 있으시면 꼭 기재해 주세요. &#13;&#10;심장관련 질환이 있거나 수술 또는 병력, 치료중인 사항도 기입해주셔야 하며 검진 진행 시 제한이 있을 수 있습니다."
+              ></textarea>
+              <p class="input-err-txt">에러 문구.</p>
             </div>
           </div>
         </div>
@@ -338,9 +376,9 @@
         </div>
         <!-- ? // view -->
       </div>
-
-      <!-- [Basic] -->
-      <h3 class="h3_guide">Basic (ERROR)</h3>
+      <!-- [ // Input List] -->
+      <!-- [Basic ERROR] -->
+      <h3 class="h3_guide">Basic(ERROR)</h3>
       <div class="d_desc code">
         <!-- ? view -->
 
@@ -368,11 +406,6 @@
             <!-- [comment] 
               -	 휴대전화 인증번호 5분 카운트
             -->
-            <div class="c-input-count">
-              <input type="number" class="c-input is-error" placeholder="인증번호 입력해 주세요." />
-              <span class="count">05:00</span>
-            </div>
-            <p class="input-err-txt">에러 문구.</p>
           </div>
         </div>
         <!-- ? // view -->
@@ -417,7 +450,7 @@
             </div>
           </div>
           <div class="col per-column">
-            <input type="text" placeholder="인증번호 입력해 주세요." />
+            <input type="text" class="c-input" placeholder="인증번호 입력해 주세요." />
           </div>
         </div>
       </div>
@@ -452,21 +485,43 @@
         <div class="c-input-list type01">
           <div class="row">
             <div class="col label-input">
-              <label>주소</label>
+              <label for="">text</label>
               <div class="c-input-address-group">
-                <a href="javascript:;" class="btn-address">
-                  <div class="row inner c-input-btn-group">
-                    <div class="column input">
-                      <!-- [comment]
-												- 필요에 따라 disabled 제거 
-											-->
-                      <input type="text" class="c-input type-white" title="주소입력" disabled />
-                    </div>
-                    <div class="column btns">
-                      <button type="button" class="co-btn type02 type-input-btn"><span>주소검색</span></button>
-                    </div>
-                  </div></a
-                >
+                <div class="row inner c-input-btn-group">
+                  <div class="column input">
+                    <input type="text" class="c-input" title="주소입력" />
+                  </div>
+                  <div class="column btns">
+                    <button type="button" class="co-btn type02 type-input-btn"><span>주소검색</span></button>
+                  </div>
+                </div>
+                <div class="row input-addr-02">
+                  <input type="text" class="c-input" title="상세주소 입력" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ? // view -->
+      </div>
+
+      <!-- [Basic + input Group] -->
+      <h3 class="h3_guide">Basic + input Group</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="c-input-list type01">
+          <div class="row">
+            <div class="col label-input">
+              <label for="">text</label>
+              <div class="c-input-address-group">
+                <div class="row inner c-input-btn-group">
+                  <div class="column input">
+                    <input type="text" class="c-input" title="주소입력" />
+                  </div>
+                  <div class="column btns">
+                    <button type="button" class="co-btn type02 type-input-btn"><span>주소검색</span></button>
+                  </div>
+                </div>
                 <div class="row input-addr-02">
                   <input type="text" class="c-input" title="상세주소 입력" />
                 </div>

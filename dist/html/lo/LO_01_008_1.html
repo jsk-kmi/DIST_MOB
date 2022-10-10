@@ -28,7 +28,7 @@
     <div class="c-full-layer kmi-popup type-full" id="popupFindPw1" role="dialog" aria-labelledby="popupFindPw1_Label" aria-modal="true" aria-hidden="true">
         <div class="c-container" tabindex="0">
             <div class="full-header">
-                <button class="btn-go-back">
+                <button class="btn-go-back popup-btn-close">
                     <span>뒤로 가기</span>
                 </button>
             </div>
@@ -59,14 +59,38 @@
                 <!-- 다음 버튼 -->
                 <div class="btn-floating">
                     <a href="javascript:void(0);" class="co-btn bg-navy-1" title="터치 시 팝업 내용 바뀜"><span>다음</span></a>
+                    <!-- 팝업열림 - 등록된 사번 또는 아이디가 없습니다. -->
+                    <!-- <button type="button" class="co-btn bg-navy-1 btn-open-popup" data-toggle="modal" data-target="popupNotFindEmployeeNumber"><span>찾기</span></button> -->
                 </div>
             </div>
 
-            <!-- <div class="full-footer">
-          <div class="buttons">
-            <a href="javascript:void(0);" class="co-btn bg-navy-1" title="터치 시 팝업 내용 바뀜"><span>다음</span></a>
-          </div>
-        </div> -->
+        </div>
+    </div>
+
+    <!-- 팝업 - 등록된 사번 또는 아이디가 없습니다. -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupNotFindEmployeeNumber" role="dialog" aria-labelledby="popupNotFindEmployeeNumber_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+            <div class="modal-field" tabindex="0">
+                <!-- 닫힘버튼 class: popup-btn-close -->
+                <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            <p id="popupNotFindEmployeeNumber_Label">등록된 사번 또는 아이디가 없습니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>확인</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

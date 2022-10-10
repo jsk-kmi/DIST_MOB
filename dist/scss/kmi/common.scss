@@ -32,7 +32,7 @@
   }
 }
 
-// loading 
+// loading
 .is-loading {
   overflow: hidden;
 }
@@ -274,9 +274,9 @@ input::placeholder {
     width: 100%;
     padding: {
       top: 0.5rem;
-      right:  1.75rem;
+      right: 1.75rem;
       bottom: 0.5rem;
-      left:  1.75rem;
+      left: 1.75rem;
     }
     & > span {
       @include coTxtButtonSmall;
@@ -307,6 +307,10 @@ a {
     position: relative;
     width: 100%;
     font-size: 0;
+    font: {
+      size: 0;
+      family: $font-name;
+    }
     padding: 0.75rem;
     border-radius: 1.75rem;
     text-align: center;
@@ -314,10 +318,10 @@ a {
     background-color: $color-main;
     display: inline-block;
     vertical-align: top;
-
-    > span {
+    & > span {
       position: relative;
       @include coTxtButtonBtn;
+      font-family: $font-name;
       &.alt-txt {
         position: absolute;
         left: 0;
@@ -370,7 +374,7 @@ a {
     background-color: $color-black-05;
     padding-left: 1.5rem;
     &.is-disable {
-      opacity: .3;
+      opacity: 0.3;
     }
   }
   &.is-prev {
@@ -420,7 +424,7 @@ a {
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 0.75rem;
-  opacity: .9;
+  opacity: 0.9;
   background-color: $color-main;
   background-image: url('../../images/ico/ico_arrow_top_white_01.svg');
   background-position: center center;

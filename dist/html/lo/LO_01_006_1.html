@@ -127,14 +127,37 @@
                 <!-- 찾기 버튼 -->
                 <div class="btn-floating">
                     <a href="javascript:void(0);" class="co-btn bg-navy-1" title="페이지 이동"><span>찾기</span></a>
+                    <!-- 팝업열림 - 인증번호가 일치하지 않습니다 -->
+                    <!-- <button type="button" class="co-btn bg-navy-1 btn-open-popup" data-toggle="modal" data-target="popupNotCertification"><span>찾기</span></button> -->
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- <div class="full-footer">
-          <div class="buttons">
-            <a href="javascript:void(0);" title="페이지 이동" class="co-btn bg-navy-1"><span>찾기</span></a>
-          </div>
-        </div> -->
+    <!-- 팝업 - 인증번호가 일치하지 않습니다 -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupNotCertification" role="dialog" aria-labelledby="popupNotCertification_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+            <div class="modal-field" tabindex="0">
+                <!-- 닫힘버튼 class: popup-btn-close -->
+                <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            <p id="popupNotCertification_Label">인증번호가 일치하지 않습니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>확인</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

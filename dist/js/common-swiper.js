@@ -37,15 +37,17 @@ function slide(_slide) {
 
   var currentSlide = _slide.$el[0].querySelector('.swiper-slide-active');
 
-  for (var i = 0; i < SlideEls.length; i++) {
-    SlideEls[i].setAttribute('aria-expanded', false);
-    SlideEls[i].setAttribute('aria-hidden', true);
-    SlideEls[i].setAttribute('tabindex', '-1');
-  }
+  if (SlideEls && currentSlide) {
+    for (var i = 0; i < SlideEls.length; i++) {
+      SlideEls[i].setAttribute('aria-expanded', false);
+      SlideEls[i].setAttribute('aria-hidden', true);
+      SlideEls[i].setAttribute('tabindex', '-1');
+    }
 
-  currentSlide.setAttribute('aria-expanded', true);
-  currentSlide.setAttribute('aria-hidden', false);
-  currentSlide.setAttribute('tabindex', '0');
+    currentSlide.setAttribute('aria-expanded', true);
+    currentSlide.setAttribute('aria-hidden', false);
+    currentSlide.setAttribute('tabindex', '0');
+  }
 } // + dot
 
 
@@ -56,11 +58,13 @@ function dot(_dot) {
     var allDot = dotWrap.querySelectorAll('.swiper-pagination-bullet');
     var currentDot = dotWrap.querySelector('.swiper-pagination-bullet-active');
 
-    for (var i = 0; i < allDot.length; i++) {
-      allDot[i].setAttribute('aria-label', "\uD130\uCE58 \uC2DC ".concat(i + 1, "\uBC88 \uC2AC\uB77C\uC774\uB4DC\uB85C \uC774\uB3D9"));
-    }
+    if (allDot && currentDot) {
+      for (var i = 0; i < allDot.length; i++) {
+        allDot[i].setAttribute('aria-label', "\uD130\uCE58 \uC2DC ".concat(i + 1, "\uBC88 \uC2AC\uB77C\uC774\uB4DC\uB85C \uC774\uB3D9"));
+      }
 
-    currentDot.setAttribute('aria-label', "\uD604\uC7AC ".concat(_dot.realIndex + 1, "\uBC88 \uC2AC\uB77C\uC774\uB4DC"));
+      currentDot.setAttribute('aria-label', "\uD604\uC7AC ".concat(_dot.realIndex + 1, "\uBC88 \uC2AC\uB77C\uC774\uB4DC"));
+    }
   }
 } // left, right Arrow
 
