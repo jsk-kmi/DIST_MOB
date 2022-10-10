@@ -47,6 +47,8 @@
                     </div>
 
                     <a href="javascript:void(0);" title="페이지 이동" class="co-btn"><span>로그인</span></a>
+                    <!-- 팝업열림 - 퇴직 처리된 임직원 입니다. -->
+                    <!-- <button type="button" class="co-btn btn-open-popup" data-toggle="modal" data-target="popupRetirement" onclick="popupDirectClick(this)"><em class="alt-txt">팝업열림</em><span>로그인</span></button> -->
 
                     <div class="btn-list">
                         <a href="javascript:void(0);" title="페이지 이동">사번/아이디 찾기</a>
@@ -66,6 +68,33 @@
                 <img src="../../images/logo/footer_logo_02.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE" />
             </footer>
 
+        </div>
+    </div>
+
+    <!-- POPUP - 퇴직 처리된 임직원 입니다. -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupRetirement" role="dialog" aria-labelledby="popuppopupRetirement_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+            <div class="modal-field" tabindex="0">
+                <!-- 닫힘버튼 class: popup-btn-close -->
+                <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            <p id="popuppopupRetirement_Label">퇴직 처리된 임직원 입니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>확인</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

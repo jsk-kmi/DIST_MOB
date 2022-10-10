@@ -613,38 +613,52 @@ if (POPUP_BTN_ELEM.length > 0) {
   var _loop = function _loop(_i15) {
     // popup open button - click event
     POPUP_BTN_ELEM[_i15].addEventListener('click', function () {
-      var OPENSTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
-
-      if (OPENSTATE_POPUP.length > 0) {
-        for (var _i16 = 0; _i16 < OPENSTATE_POPUP.length; _i16++) {
-          OPENSTATE_POPUP[_i16].setAttribute('aria-hidden', true);
-        }
-      }
-
-      var TARGET = POPUP_BTN_ELEM[_i15].getAttribute('data-target');
-
-      var CURRENT_POPUP = document.getElementById(TARGET);
-      CURRENT_POPUP.classList.add('show');
-      CURRENT_POPUP.setAttribute('aria-hidden', false); // 접근성: popup 오픈 시 #container focus 막기
-
-      containerHidden(true); // 팝업 종류 체크
-
-      var popupState = popupStateCheck(CURRENT_POPUP); // style
-
-      popupStyle(CURRENT_POPUP, 'show', _i15); // 접근성
-
-      focusFirstBtn(popupState, CURRENT_POPUP); // 팝업 배경 click event
-      // 220923 - 현업 요청으로 제거
-      // popupBgClickEvt(CURRENT_POPUP);
-      // full type: 스크롤 되는 경우
-
-      popupScrollCase(popupState, CURRENT_POPUP);
+      popupOpenEvent(POPUP_BTN_ELEM[_i15], _i15);
     });
   };
 
   for (var _i15 = 0; _i15 < POPUP_BTN_ELEM.length; _i15++) {
     _loop(_i15);
   }
+} // + popup open button click event
+
+
+function popupOpenEvent(_btnElem) {
+  var OPENSTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
+
+  if (OPENSTATE_POPUP.length > 0) {
+    for (var _i16 = 0; _i16 < OPENSTATE_POPUP.length; _i16++) {
+      OPENSTATE_POPUP[_i16].setAttribute('aria-hidden', true);
+    }
+  }
+
+  var TARGET = _btnElem.getAttribute('data-target');
+
+  var CURRENT_POPUP = document.getElementById(TARGET);
+  CURRENT_POPUP.classList.add('show');
+  CURRENT_POPUP.setAttribute('aria-hidden', false); // 접근성: popup 오픈 시 #container focus 막기
+
+  containerHidden(true); // 팝업 종류 체크
+
+  var popupState = popupStateCheck(CURRENT_POPUP); // style
+
+  var btnArr = 0;
+
+  for (var _len = arguments.length, _i = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    _i[_key - 1] = arguments[_key];
+  }
+
+  if (_i.length > 0) btnArr = _i.map(function (idx) {
+    return idx;
+  });
+  popupStyle(CURRENT_POPUP, 'show', _i.length > 0 ? btnArr[0] : 0); // 접근성
+
+  focusFirstBtn(popupState, CURRENT_POPUP); // 팝업 배경 click event
+  // 220923 - 현업 요청으로 제거
+  // popupBgClickEvt(CURRENT_POPUP);
+  // full type: 스크롤 되는 경우
+
+  popupScrollCase(popupState, CURRENT_POPUP);
 } // + 팝업 종류 체크
 
 
@@ -984,6 +998,11 @@ function fullResizeEvent(_container, _header, _body, _footer) {
   else _footer.classList.remove('scroll'); // reisze 했을 때 scroll이 최하단일 경우
 
   if (_body.offsetHeight + _body.scrollTop >= _body.scrollHeight) _footer.classList.remove('scroll');
+} // 팝업 열림 버튼을 직접 click할 경우
+
+
+function popupDirectClick(_popupBtnEl) {
+  popupOpenEvent(_popupBtnEl);
 }
 /**
  * accordion
