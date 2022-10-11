@@ -21,10 +21,11 @@
         <h3 class="g-title"></h3>
         <div class="inner_desc">
           <ul>
-						<li>현재페이지에 따른 클래스 제어 필요<br>
-							- 메인메뉴 Class 제어 [class="accordion type-open-one"] 클래스 추가/제거 :  open <br>
-							- 서브메뉴 Class 제어 [class="gnb-list accordion-body > a"] 클래스 추가/제거 : active
-						</li>
+            <li>
+              현재페이지에 따른 클래스 제어 필요<br />
+              - 메인메뉴 Class 제어 [class="accordion type-open-one"] 클래스 추가/제거 : open <br />
+              - 서브메뉴 Class 제어 [class="gnb-list accordion-body > a"] 클래스 추가/제거 : active
+            </li>
             <li>
               gnb 위치 :
               <p>body</p>
@@ -72,7 +73,7 @@
 
       <!-- gnb body -->
       <ul class="gnb-body accordion-list">
-        <li @@if(context.mainMenu === 'main') {class='open'}>
+        <li>
           <a href="javascript:void(0);" title="페이지 이동" class="btn-gnb-main">
             <h2>메인</h2>
           </a>
