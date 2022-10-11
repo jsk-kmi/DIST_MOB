@@ -107,9 +107,6 @@ $icon: 'ico_gnb_main', 'ico_gnb_health_check_system', 'ico_gnb_examination', 'ic
           }
         }
       }
-      &:last-child {
-        border-bottom: 1px solid $color-black-10;
-      }
     }
     @each $image in $icon {
       $i: index($icon, $image);

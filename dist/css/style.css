@@ -4555,9 +4555,6 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		background-color: #ecf1f8;
 		color: #253981;
 }
-.co-gnb .gnb-body li:last-child {
-		border-bottom: 1px solid rgba(28, 28, 28, 0.1);
-}
 .co-gnb .gnb-body li:nth-child(1) > a h2,
 .co-gnb .gnb-body li:nth-child(1) button h2 {
 		background-image: url("../images/ico//gnb/ico_gnb_main.svg");
