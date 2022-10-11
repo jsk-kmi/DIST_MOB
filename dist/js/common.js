@@ -643,6 +643,7 @@ function popupOpenEvent(_btnElem) {
   var popupState = popupStateCheck(CURRENT_POPUP); // style
 
   var btnArr = 0;
+  if (OPENSTATE_POPUP.length > 0) btnArr = OPENSTATE_POPUP.length;
 
   for (var _len = arguments.length, _i = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
     _i[_key - 1] = arguments[_key];
@@ -651,7 +652,7 @@ function popupOpenEvent(_btnElem) {
   if (_i.length > 0) btnArr = _i.map(function (idx) {
     return idx;
   });
-  popupStyle(CURRENT_POPUP, 'show', _i.length > 0 ? btnArr[0] : 0); // 접근성
+  popupStyle(CURRENT_POPUP, 'show', _i.length > 0 ? btnArr[0] : btnArr); // 접근성
 
   focusFirstBtn(popupState, CURRENT_POPUP); // 팝업 배경 click event
   // 220923 - 현업 요청으로 제거
@@ -673,8 +674,7 @@ function popupStateCheck(_popState) {
 
 function popupStyle(_elem, _state) {
   var indexRes = 0;
-
-  for (var _i17 = 0; _i17 < (arguments.length <= 2 ? 0 : arguments.length - 2); _i17++) {
+  if ((arguments.length <= 2 ? 0 : arguments.length - 2) > 0) for (var _i17 = 0; _i17 < (arguments.length <= 2 ? 0 : arguments.length - 2); _i17++) {
     indexRes = _i17 + 2 < 2 || arguments.length <= _i17 + 2 ? undefined : arguments[_i17 + 2];
   }
 
