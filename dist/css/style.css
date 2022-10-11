@@ -5972,6 +5972,7 @@ button.ico-plus::after {
 .guide-block .detail-editor {
 		position: relative;
 		background-color: rgba(28, 28, 28, 0.05);
+		min-height: 320px;
 }
 .login-block .detail-editor.type-vdo,
 .main-block .detail-editor.type-vdo,

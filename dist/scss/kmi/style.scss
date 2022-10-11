@@ -347,6 +347,7 @@ button {
   .detail-editor {
     position: relative;
     background-color: $color-black-05;
+    min-height: 320px;
     &.type-vdo {
       padding-bottom: 56.25%; /* 16:9 */
       height: 0;
