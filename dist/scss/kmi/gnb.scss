@@ -1,5 +1,3 @@
-
-
 $icon: 'ico_gnb_main', 'ico_gnb_health_check_system', 'ico_gnb_examination', 'ico_gnb_result_consultation', 'ico_gnb_health_information', 'ico_gnb_community';
 .co-gnb {
   position: fixed;
@@ -67,7 +65,8 @@ $icon: 'ico_gnb_main', 'ico_gnb_health_check_system', 'ico_gnb_examination', 'ic
     z-index: 2001;
     li {
       display: block;
-      > a, button {
+      > a,
+      button {
         display: flex;
         align-items: center;
         width: 100%;
@@ -102,7 +101,7 @@ $icon: 'ico_gnb_main', 'ico_gnb_health_check_system', 'ico_gnb_examination', 'ic
           background-color: $color-bg-04;
           padding: 0.875rem 1.25rem;
           display: block;
-          &:active {
+          &.active {
             background-color: $color-bg-03;
             color: $color-main;
           }
@@ -115,7 +114,8 @@ $icon: 'ico_gnb_main', 'ico_gnb_health_check_system', 'ico_gnb_examination', 'ic
     @each $image in $icon {
       $i: index($icon, $image);
       li:nth-child(#{$i}) {
-        > a, button {
+        > a,
+        button {
           h2 {
             background-image: url('../../images/ico/gnb/#{$image}.svg');
           }
@@ -127,7 +127,8 @@ $icon: 'ico_gnb_main', 'ico_gnb_health_check_system', 'ico_gnb_examination', 'ic
           }
         }
         &.open {
-          > a, button {
+          > a,
+          button {
             h2 {
               color: $color-main;
               background-image: url('../../images/ico/gnb/#{$image}_on.svg');

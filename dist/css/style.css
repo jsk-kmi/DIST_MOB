@@ -4454,7 +4454,8 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 .co-gnb .gnb-body li {
 		display: block;
 }
-.co-gnb .gnb-body li > a, .co-gnb .gnb-body li button {
+.co-gnb .gnb-body li > a,
+.co-gnb .gnb-body li button {
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -ms-flexbox;
@@ -4468,7 +4469,8 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		padding: 0.875rem 1.25rem;
 		text-align: left;
 }
-.co-gnb .gnb-body li > a h2, .co-gnb .gnb-body li button h2 {
+.co-gnb .gnb-body li > a h2,
+.co-gnb .gnb-body li button h2 {
 		font-size: 0.875rem;
 		font-weight: 400;
 		letter-spacing: -0.0187rem;
@@ -4498,7 +4500,8 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		-webkit-transition: all 0.3s ease-out;
 		transition: all 0.3s ease-out;
 }
-.co-gnb .gnb-body li > a:active h2, .co-gnb .gnb-body li button:active h2 {
+.co-gnb .gnb-body li > a:active h2,
+.co-gnb .gnb-body li button:active h2 {
 		color: #253981;
 }
 .co-gnb .gnb-body li .gnb-list {
@@ -4514,76 +4517,94 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		padding: 0.875rem 1.25rem;
 		display: block;
 }
-.co-gnb .gnb-body li .gnb-list a:active {
+.co-gnb .gnb-body li .gnb-list a.active {
 		background-color: #ecf1f8;
 		color: #253981;
 }
 .co-gnb .gnb-body li:last-child {
 		border-bottom: 1px solid rgba(28, 28, 28, 0.1);
 }
-.co-gnb .gnb-body li:nth-child(1) > a h2, .co-gnb .gnb-body li:nth-child(1) button h2 {
+.co-gnb .gnb-body li:nth-child(1) > a h2,
+.co-gnb .gnb-body li:nth-child(1) button h2 {
 		background-image: url("../../images/ico/gnb/ico_gnb_main.svg");
 }
-.co-gnb .gnb-body li:nth-child(1) > a:active h2, .co-gnb .gnb-body li:nth-child(1) button:active h2 {
+.co-gnb .gnb-body li:nth-child(1) > a:active h2,
+.co-gnb .gnb-body li:nth-child(1) button:active h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_main_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(1).open > a h2, .co-gnb .gnb-body li:nth-child(1).open button h2 {
+.co-gnb .gnb-body li:nth-child(1).open > a h2,
+.co-gnb .gnb-body li:nth-child(1).open button h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_main_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(2) > a h2, .co-gnb .gnb-body li:nth-child(2) button h2 {
+.co-gnb .gnb-body li:nth-child(2) > a h2,
+.co-gnb .gnb-body li:nth-child(2) button h2 {
 		background-image: url("../../images/ico/gnb/ico_gnb_health_check_system.svg");
 }
-.co-gnb .gnb-body li:nth-child(2) > a:active h2, .co-gnb .gnb-body li:nth-child(2) button:active h2 {
+.co-gnb .gnb-body li:nth-child(2) > a:active h2,
+.co-gnb .gnb-body li:nth-child(2) button:active h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_health_check_system_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(2).open > a h2, .co-gnb .gnb-body li:nth-child(2).open button h2 {
+.co-gnb .gnb-body li:nth-child(2).open > a h2,
+.co-gnb .gnb-body li:nth-child(2).open button h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_health_check_system_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(3) > a h2, .co-gnb .gnb-body li:nth-child(3) button h2 {
+.co-gnb .gnb-body li:nth-child(3) > a h2,
+.co-gnb .gnb-body li:nth-child(3) button h2 {
 		background-image: url("../../images/ico/gnb/ico_gnb_examination.svg");
 }
-.co-gnb .gnb-body li:nth-child(3) > a:active h2, .co-gnb .gnb-body li:nth-child(3) button:active h2 {
+.co-gnb .gnb-body li:nth-child(3) > a:active h2,
+.co-gnb .gnb-body li:nth-child(3) button:active h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_examination_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(3).open > a h2, .co-gnb .gnb-body li:nth-child(3).open button h2 {
+.co-gnb .gnb-body li:nth-child(3).open > a h2,
+.co-gnb .gnb-body li:nth-child(3).open button h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_examination_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(4) > a h2, .co-gnb .gnb-body li:nth-child(4) button h2 {
+.co-gnb .gnb-body li:nth-child(4) > a h2,
+.co-gnb .gnb-body li:nth-child(4) button h2 {
 		background-image: url("../../images/ico/gnb/ico_gnb_result_consultation.svg");
 }
-.co-gnb .gnb-body li:nth-child(4) > a:active h2, .co-gnb .gnb-body li:nth-child(4) button:active h2 {
+.co-gnb .gnb-body li:nth-child(4) > a:active h2,
+.co-gnb .gnb-body li:nth-child(4) button:active h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_result_consultation_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(4).open > a h2, .co-gnb .gnb-body li:nth-child(4).open button h2 {
+.co-gnb .gnb-body li:nth-child(4).open > a h2,
+.co-gnb .gnb-body li:nth-child(4).open button h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_result_consultation_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(5) > a h2, .co-gnb .gnb-body li:nth-child(5) button h2 {
+.co-gnb .gnb-body li:nth-child(5) > a h2,
+.co-gnb .gnb-body li:nth-child(5) button h2 {
 		background-image: url("../../images/ico/gnb/ico_gnb_health_information.svg");
 }
-.co-gnb .gnb-body li:nth-child(5) > a:active h2, .co-gnb .gnb-body li:nth-child(5) button:active h2 {
+.co-gnb .gnb-body li:nth-child(5) > a:active h2,
+.co-gnb .gnb-body li:nth-child(5) button:active h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_health_information_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(5).open > a h2, .co-gnb .gnb-body li:nth-child(5).open button h2 {
+.co-gnb .gnb-body li:nth-child(5).open > a h2,
+.co-gnb .gnb-body li:nth-child(5).open button h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_health_information_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(6) > a h2, .co-gnb .gnb-body li:nth-child(6) button h2 {
+.co-gnb .gnb-body li:nth-child(6) > a h2,
+.co-gnb .gnb-body li:nth-child(6) button h2 {
 		background-image: url("../../images/ico/gnb/ico_gnb_community.svg");
 }
-.co-gnb .gnb-body li:nth-child(6) > a:active h2, .co-gnb .gnb-body li:nth-child(6) button:active h2 {
+.co-gnb .gnb-body li:nth-child(6) > a:active h2,
+.co-gnb .gnb-body li:nth-child(6) button:active h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_community_on.svg");
 }
-.co-gnb .gnb-body li:nth-child(6).open > a h2, .co-gnb .gnb-body li:nth-child(6).open button h2 {
+.co-gnb .gnb-body li:nth-child(6).open > a h2,
+.co-gnb .gnb-body li:nth-child(6).open button h2 {
 		color: #253981;
 		background-image: url("../../images/ico/gnb/ico_gnb_community_on.svg");
 }
