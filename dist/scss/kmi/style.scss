@@ -346,7 +346,7 @@ button {
   }
   .detail-editor {
     position: relative;
-    background-color: $color-black-05;
+    // background-color: $color-black-05;
     min-height: 320px;
     &.type-vdo {
       padding-bottom: 56.25%; /* 16:9 */
@@ -358,6 +358,12 @@ button {
         width: 100%;
         height: 100%;
       }
+    }
+
+    .dummy-area {
+      background: url($image-path + '/dummy/dummy_editorarea.png') center/contain $color-black-05 no-repeat;
+      width: 100%;
+      height: 320px;
     }
   }
   .detail-btn {

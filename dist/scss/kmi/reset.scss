@@ -339,3 +339,11 @@ em,
 i {
   font-style: normal;
 }
+
+// scrollbar reset
+* {
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-thumb {
+    display: none;
+  }
+}

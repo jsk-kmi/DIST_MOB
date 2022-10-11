@@ -435,3 +435,38 @@ a {
     display: none;
   }
 }
+
+// common scrollbar
+.kim-scroll {
+  position: absolute;
+  right: 0.25rem;
+  top: 0.75rem;
+  width: 0.25rem;
+  height: calc(100% - 1.5rem);
+  background-color: transparent;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity $transition-1 ease-in-out;
+  span {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0.25rem;
+    height: 2.5rem;
+    background-color: $color-black-10;
+    border-radius: 1000px;
+  }
+  &.show {
+    opacity: 1;
+  }
+}
+.c-layer-popup {
+  .modal-wrap {
+    .modal-field {
+      .kim-scroll {
+        z-index: 1997;
+      }
+    }
+  }
+}

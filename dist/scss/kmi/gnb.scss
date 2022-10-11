@@ -117,12 +117,12 @@ $icon: 'ico_gnb_main', 'ico_gnb_health_check_system', 'ico_gnb_examination', 'ic
         > a,
         button {
           h2 {
-            background-image: url('../../images/ico/gnb/#{$image}.svg');
+            background-image: url($image-ico-path + '/gnb/#{$image}.svg');
           }
           &:active {
             h2 {
               color: $color-main;
-              background-image: url('../../images/ico/gnb/#{$image}_on.svg');
+              background-image: url($image-ico-path + '/gnb/#{$image}_on.svg');
             }
           }
         }
@@ -131,7 +131,7 @@ $icon: 'ico_gnb_main', 'ico_gnb_health_check_system', 'ico_gnb_examination', 'ic
           button {
             h2 {
               color: $color-main;
-              background-image: url('../../images/ico/gnb/#{$image}_on.svg');
+              background-image: url($image-ico-path + '/gnb/#{$image}_on.svg');
             }
           }
         }
