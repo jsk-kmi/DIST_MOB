@@ -1008,7 +1008,7 @@ a.is-next {
 		border-radius: 0.75rem;
 		opacity: 0.9;
 		background-color: #253981;
-		background-image: url("../../images/ico/ico_arrow_top_white_01.svg");
+		background-image: url("../images/ico//ico_arrow_top_white_01.svg");
 		background-position: center center;
 		background-size: 2.125rem 2.125rem;
 		background-repeat: no-repeat;
@@ -6085,7 +6085,7 @@ button.ico-plus::after {
 		height: 2rem;
 		margin-left: 0.75rem;
 		padding-left: 2rem;
-		background-image: url("../../images/ico/ico_calendar_01.svg");
+		background-image: url("../images/ico//ico_calendar_01.svg");
 		background-size: 2rem 2rem;
 		background-position: left center;
 		background-repeat: no-repeat;
@@ -6100,7 +6100,7 @@ button.ico-plus::after {
 .terms-block .detail-info span:first-child,
 .guide-block .detail-info span:first-child {
 		margin-left: 0;
-		background-image: url("../../images/ico/ico_eye_01.svg");
+		background-image: url("../images/ico//ico_eye_01.svg");
 }
 .login-block .detail-info::after,
 .ti-block .detail-info::after,
