@@ -12,8 +12,28 @@ var INTERVAL_1000 = 1000; // scroll
 
 var SHOW_HEADER_NUM = 100; // 이 숫자만큼 스크롤을 올려야 .co-header가 보임
 
-var SCROLL_TIME = 0.5; // 초, 이 숫자만큼의 스피드로 scroll top 이동
+var SCROLL_TIME = 0.5; // 초(second), 이 숫자만큼의 스피드로 scroll top 이동
 
+/**
+ * common interface
+*/
+// POPUP
+
+var IPOPUP = {
+  iModal: {
+    mAlert: 'mAlert',
+    mHeader: 'mHeader'
+  },
+  iFull: {
+    fLayer: 'fLayer',
+    fFooter: 'fFooter'
+  }
+}; // ACCORDION
+
+var IACCORDION = {
+  iAll: 'iAll',
+  iOne: 'iOne'
+};
 /**
  * resize event
 */
@@ -39,7 +59,7 @@ function resizeend() {
 
     fullPopupState(); // modal header popup: header shadow
 
-    modalHeaderPopupShadow(); // full popup: resize scrollbar
+    modalHeaderPopupShadow(); // full layer popup: resize scrollbar
 
     fullPopupResizeScrollbar(); // container resize scrollbar
 
@@ -215,43 +235,56 @@ function tabClickEvent(_wrap, _ipt, _elem, _j, _ipt_checked) {
 
   if (_wrap.classList.contains('type-move')) setTimeout(function () {
     tabStateMove(_elem);
-  }, INTERVAL_1); // 탭 터치 event
+  }, INTERVAL_1); // talkback event listener
+  // + 탭 터치 event
 
-  _ipt.addEventListener('click', function () {
-    // focus 제거
-    var FOCUS_INPUT = document.querySelectorAll('.input-focus');
-
-    if (FOCUS_INPUT.length > 0) {
-      for (var _i4 = 0; _i4 < FOCUS_INPUT.length; _i4++) {
-        FOCUS_INPUT[_i4].classList.remove('input-focus');
-      }
-    } // 팝업에서 tab 터치 시 팝업 c-container 높이가 변할 경우
-    // 애니메이션 타임: 100
-    // setTimeout(() => { clkElClickPopupCheck(_elem) }, INTERVAL_1);
-
-
-    setTimeout(function () {
-      clkElClickPopupChk(_elem);
-    }, INTERVAL_1); // 대체텍스트 적용
-
-    if (_ipt.tagName !== 'A' && _ipt.tagName !== 'a') {
-      var altEl = _wrap.querySelectorAll('.alt-txt');
-
-      if (altEl.length > 0) applyTabAltText(_ipt, altEl, _j);
-    } // hide / show 방식의 tab 일 경우
+  if (_ipt.tagName !== 'A' && _ipt.tagName !== 'a') {
+    _ipt.parentElement.addEventListener('click', function () {
+      _ipt.checked = true;
+      tabClickComn(_wrap, _elem, _ipt, tabState, _j);
+    });
+  } else {
+    _ipt.addEventListener('click', function () {
+      tabClickComn(_wrap, _elem, _ipt, tabState, _j);
+    });
+  }
+} // ++ tab click common
 
 
-    if (tabState === 'hide-type') tabStatePanel(_elem); // scroll 방식의 tab 일 경우
+function tabClickComn(_wrap, _elem, _ipt, _tabState, _j) {
+  // focus 제거
+  var FOCUS_INPUT = document.querySelectorAll('.input-focus');
 
-    if (tabState === 'scroll-type') tabStateScroll(_elem); // panel 내용이 바뀌는 방식의 tab 일 경우
+  if (FOCUS_INPUT.length > 0) {
+    for (var _i4 = 0; _i4 < FOCUS_INPUT.length; _i4++) {
+      FOCUS_INPUT[_i4].classList.remove('input-focus');
+    }
+  } // 팝업에서 tab 터치 시 팝업 c-container 높이가 변할 경우
+  // 애니메이션 타임: 100
+  // setTimeout(() => { clkElClickPopupCheck(_elem) }, INTERVAL_1);
 
-    if (tabState === 'click-type') tabStateClick(_elem); // tab터치 시 tab의 하단 bar가 animation되는 경우
 
-    if (_ipt.closest('.c-tab').classList.contains('type-basic')) tabBarTouchAnimation(_elem); // center 정렬 필요한 tab
+  setTimeout(function () {
+    clkElClickPopupChk(_elem);
+  }, INTERVAL_1); // 대체텍스트 적용
 
-    var centerType = tabCenterCheck(_wrap);
-    if (centerType) tabCenterEvent(_wrap, _elem);
-  });
+  if (_ipt.tagName !== 'A' && _ipt.tagName !== 'a') {
+    var altEl = _wrap.querySelectorAll('.alt-txt');
+
+    if (altEl.length > 0) applyTabAltText(_ipt, altEl, _j);
+  } // hide / show 방식의 tab 일 경우
+
+
+  if (_tabState === 'hide-type') tabStatePanel(_elem); // scroll 방식의 tab 일 경우
+
+  if (_tabState === 'scroll-type') tabStateScroll(_elem); // panel 내용이 바뀌는 방식의 tab 일 경우
+
+  if (_tabState === 'click-type') tabStateClick(_elem); // tab터치 시 tab의 하단 bar가 animation되는 경우
+
+  if (_ipt.closest('.c-tab').classList.contains('type-basic')) tabBarTouchAnimation(_elem); // center 정렬 필요한 tab
+
+  var centerType = tabCenterCheck(_wrap);
+  if (centerType) tabCenterEvent(_wrap, _elem);
 } // +++ 탭 종류 체크
 
 
@@ -760,7 +793,7 @@ function popupScrollCase(_state, _elem) {
   if (_state === 'full-footer') fullFooterScrollCheck(_elem); // scroll event
 
   if (_state === 'full' || _state === 'full-footer') {
-    customScrollbar(_elem);
+    customScrollbar(_elem, _state);
   }
 }
 
@@ -926,18 +959,18 @@ function fullFooterScrollEndEvent(_scrollContainer, _buttonEl, _footerEl) {
 
 
 function popupModalHeader(_state, _popupEl) {
-  if (_state === 'modal') setTimeout(popupModalHeaderScroll, ANI_TIME_300, _popupEl);
+  if (_state === 'modal') setTimeout(popupModalHeaderScroll, ANI_TIME_300, _popupEl, _state);
 } // ++ modal header type의 modal-field가 스크롤 되는지 체크
 
 
-function popupModalHeaderScroll(_popEl) {
+function popupModalHeaderScroll(_popEl, _state) {
   var SCROLL_ELEM = _popEl.querySelector('.modal-field');
 
   if (SCROLL_ELEM) {
     var POP_HEADER = SCROLL_ELEM.querySelector('.c-modal-header');
     if (POP_HEADER) if (SCROLL_ELEM.scrollHeight > SCROLL_ELEM.clientHeight) {
       // scrollbar design
-      customScrollbar(_popEl); // scroll event
+      customScrollbar(_popEl, _state); // scroll event
 
       popupModalHeaderScrollEvt(SCROLL_ELEM, POP_HEADER);
     }
@@ -1072,7 +1105,7 @@ function modalHeaderPopupShadow() {
 
   if (MODAL_HEADER_POPUP.length > 0) {
     for (var _i22 = 0; _i22 < MODAL_HEADER_POPUP.length; _i22++) {
-      customScrollbar(MODAL_HEADER_POPUP[_i22]);
+      customScrollbar(MODAL_HEADER_POPUP[_i22], 'modal');
     }
   }
 } // resize: full popup
@@ -1083,7 +1116,13 @@ function fullPopupResizeScrollbar() {
 
   if (FULL_POPUP.length > 0) {
     for (var _i23 = 0; _i23 < FULL_POPUP.length; _i23++) {
-      customScrollbar(FULL_POPUP[_i23]);
+      if (FULL_POPUP[_i23].classList.contains('type-full')) {
+        customScrollbar(FULL_POPUP[_i23], 'full');
+      }
+
+      if (FULL_POPUP[_i23].classList.contains('type-full-footer')) {
+        customScrollbar(FULL_POPUP[_i23], 'full-footer');
+      }
     }
   }
 } // 팝업 열림 버튼을 직접 click할 경우
@@ -1323,7 +1362,6 @@ function inputFocusEvent(_inputEl, _inputState) {
 
 function inputFocusEvtComn(_inputEl) {
   _inputEl.addEventListener('focus', function () {
-    console.log('focus >>>> ');
     inputFocusEvtFloating(_inputEl);
     inputFocusEvtModal();
     var elTop = 0;
@@ -1361,8 +1399,7 @@ function inputFocusEvtComn(_inputEl) {
   });
 
   _inputEl.addEventListener('blur', function () {
-    console.log('blur >>>> '); // type-full
-
+    // type-full
     var floatinPopup = _inputEl.closest('.c-full-layer.kmi-popup.show');
 
     if (floatinPopup) {
@@ -1554,7 +1591,7 @@ if (STICKYELM) {
  * custom scrollbar
 */
 // common formula
-// + modal header
+// + popup: modal header
 
 
 var scrollElHeight = function scrollElHeight(_body, _header) {
@@ -1567,14 +1604,15 @@ var scrollStyleTop = function scrollStyleTop(_header) {
 
 var innerStyleHeight = function innerStyleHeight(_body, _header) {
   return (_body.clientHeight - _header.clientHeight) * ((_body.clientHeight - _header.clientHeight) / (_body.scrollHeight - _header.clientHeight)) + 'px';
-}; // + full popup
+}; // + popup: full
 
-
-var scrollElHeightFull = function scrollElHeightFull(_body) {
-  return parseFloat(_body.clientHeight - 24) + 'px';
-};
 
 var innerStyleHeightFull = function innerStyleHeightFull(_body, _header) {
+  return (_body.clientHeight - _header.clientHeight) * ((_body.clientHeight - _header.clientHeight) / (_body.scrollHeight - _header.clientHeight)) + 'px';
+}; // + popup: full footer
+
+
+var innerStyleHeightFooter = function innerStyleHeightFooter(_body, _header) {
   return (_body.clientHeight - _header.clientHeight) * ((_body.clientHeight - _header.clientHeight) / (_body.scrollHeight - _header.clientHeight)) + 'px';
 }; // + container
 
@@ -1589,11 +1627,17 @@ var innerStyleHeightCon = function innerStyleHeightCon(_body) {
 
 
 function customScrollbar(_elem) {
-  // container
-  if (_elem.id === 'container') scrollDesignContainer(_elem); // popup - modal header
+  if ((arguments.length <= 1 ? 0 : arguments.length - 1) > 0) {
+    // popup - modal: .modal-field
+    if ((arguments.length <= 1 ? undefined : arguments[1]) === 'modal') scrollDesignPopModalHeader(_elem); // popup - full: .full-body
 
-  if (_elem.classList.contains('type-modal')) scrollDesignPopModalHeader(_elem); // popup - full
-  // if (_elem.classList.contains('c-full-layer')) scrollDesignPopFull(_elem);
+    if ((arguments.length <= 1 ? undefined : arguments[1]) === 'full') scrollDesignPopFullLayer(_elem); // popup - full-footer: c-container
+
+    if ((arguments.length <= 1 ? undefined : arguments[1]) === 'full-footer') scrollDesignPopFullFooter(_elem);
+  } else {
+    // container
+    scrollDesignContainer(_elem);
+  }
 } // container
 
 
@@ -1604,7 +1648,7 @@ function scrollDesignContainer(_container) {
     var CUSTOMER_SCROLL_INNER = CUSTOMER_SCROLL.querySelector('span');
 
     if (CUSTOMER_SCROLL_INNER) {
-      addStyle(CUSTOMER_SCROLL, CUSTOMER_SCROLL_INNER, _container);
+      addStyle('container', CUSTOMER_SCROLL, CUSTOMER_SCROLL_INNER, _container);
     }
   } else {
     scrollbarCreate(_container);
@@ -1612,14 +1656,26 @@ function scrollDesignContainer(_container) {
 } // popup: full
 
 
-function scrollDesignPopFull(_elem) {
+function scrollDesignPopFullLayer(_elem) {
   var POPUP_SCROLL_ELEM = _elem.querySelector('.c-container');
 
   if (POPUP_SCROLL_ELEM) {
     var POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.full-header');
     var POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.full-body');
     var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kim-scroll');
-    if (POPUP_HEADER && POPUP_BODY) modalHeaderScrollbarComn(POPUP_SCROLL_ELEM, CUSTOMER_SCROLL, POPUP_HEADER);
+    if (POPUP_HEADER && POPUP_BODY) fullLayerScrollbarComn(POPUP_BODY, CUSTOMER_SCROLL, POPUP_HEADER);
+  }
+} // popup: full footer
+
+
+function scrollDesignPopFullFooter(_elem) {
+  var POPUP_SCROLL_ELEM = _elem.querySelector('.c-container');
+
+  if (POPUP_SCROLL_ELEM) {
+    var POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.full-header');
+    var POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.full-body');
+    var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kim-scroll');
+    if (POPUP_HEADER && POPUP_BODY) fullLayerScrollbarComn(POPUP_SCROLL_ELEM, CUSTOMER_SCROLL, POPUP_HEADER);
   }
 } // popup: modal header
 
@@ -1642,7 +1698,7 @@ function modalHeaderScrollbarComn(_wrap, _scrollEl, _header) {
 
     if (CUSTOMER_SCROLL_INNER) {
       // add style
-      addStyle(_scrollEl, CUSTOMER_SCROLL_INNER, _wrap, _header);
+      addStyle('modal', _scrollEl, CUSTOMER_SCROLL_INNER, _wrap, _header);
     }
   } else {
     // create element
@@ -1651,6 +1707,21 @@ function modalHeaderScrollbarComn(_wrap, _scrollEl, _header) {
 
 
   popupModalHeaderScrollEvt(_wrap, _header);
+} // + full layer create scrollbar comn
+
+
+function fullLayerScrollbarComn(_wrap, _scrollEl, _header) {
+  if (_scrollEl) {
+    var CUSTOMER_SCROLL_INNER = _scrollEl.querySelector('span');
+
+    if (CUSTOMER_SCROLL_INNER) {
+      // add style
+      addStyle('full', _scrollEl, CUSTOMER_SCROLL_INNER, _wrap, _header);
+    }
+  } else {
+    // create element
+    scrollbarCreate(_wrap, _header);
+  }
 } // ++ create element
 
 
@@ -1662,52 +1733,64 @@ function scrollbarCreate(_scrollEl, _popHeader) {
   scrollEl.appendChild(scrollInner);
 
   _scrollEl.appendChild(scrollEl); // add style
+  // modal
 
 
-  if (_popHeader) {
-    addStyle(scrollEl, scrollInner, _scrollEl, _popHeader);
-  } else {
-    addStyle(scrollEl, scrollInner, _scrollEl);
+  if (scrollEl.closest('.type-modal')) {
+    addStyle('modal', scrollEl, scrollInner, _scrollEl, _popHeader);
+  } // full
+  else if (scrollEl.closest('.type-full')) {
+    addStyle('full', scrollEl, scrollInner, _scrollEl, _popHeader);
+  } // full-footer
+  else if (scrollEl.closest('.type-full-footer')) {
+    addStyle('full-footer', scrollEl, scrollInner, _scrollEl, _popHeader);
+  } // container
+  else {
+    addStyle('container', scrollEl, scrollInner, _scrollEl);
   }
 } // ++ add style
 
 
-function addStyle(_scrollEl, _scrollInner, _popScrollEl, _popHeader) {
+function addStyle(_type, _scrollEl, _scrollInner, _popScrollEl, _popHeader) {
   setTimeout(function () {
-    if (_popHeader) {
+    if (_type === 'modal') {
       _scrollEl.style.height = scrollElHeight(_popScrollEl, _popHeader);
       _scrollEl.style.top = scrollStyleTop(_popHeader);
       _scrollInner.style.height = innerStyleHeight(_popScrollEl, _popHeader);
-    } else {
-      // container case
+    }
+
+    if (_type === 'full') {
+      _scrollInner.style.height = innerStyleHeightFull(_popScrollEl, _popHeader);
+    }
+
+    if (_type === 'full-footer') {
+      _scrollInner.style.height = innerStyleHeightFooter(_popScrollEl, _popHeader);
+    }
+
+    if (_type === 'container') {
       _scrollEl.style.height = scrollElHeightCon(_popScrollEl);
       _scrollInner.style.height = innerStyleHeightCon(_popScrollEl);
     } // scroll event
 
 
-    scrollDesignScrollEvt(_popScrollEl, _scrollEl, _scrollInner);
+    scrollDesignScrollEvt(_type, _popScrollEl, _scrollEl, _scrollInner);
   }, 1);
 } // +++ scroll event
 
 
-function scrollDesignScrollEvt(_sclBody, _sclBar, _sclThum) {
+function scrollDesignScrollEvt(_type, _sclBody, _sclBar, _sclThum) {
   var sclBarTop = parseInt(_sclBar.style.top);
   var isScrolling;
 
   _sclBody.addEventListener('scroll', function () {
     if (this.scrollTop > 0) {
-      if (sclBarTop > 0) {
-        _sclBar.style.top = parseFloat(sclBarTop + this.scrollTop) + 'px';
-      }
+      if (_type === 'modal') _sclBar.style.top = parseFloat(sclBarTop + this.scrollTop) + 'px';
 
       _sclBar.classList.add('show');
 
       _sclThum.style.top = this.scrollTop / ((this.scrollHeight - this.clientHeight + _sclBar.clientHeight) / 100) + '%';
     } else {
-      if (sclBarTop > 0) {
-        _sclBar.style.top = sclBarTop + 'px';
-      }
-
+      if (_type === 'modal') _sclBar.style.top = sclBarTop + 'px';
       _sclThum.style.top = '0';
     } // scroll stop event
 

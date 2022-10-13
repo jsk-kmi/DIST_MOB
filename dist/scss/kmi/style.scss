@@ -268,6 +268,7 @@ button {
 
 // 전체틀, 타이틀, 탭
 .login-block,
+.ti-block,
 .main-block,
 .hi-block,
 .ni-block,
@@ -416,6 +417,7 @@ button {
 .main-block {
   padding: 3.75rem 1.75rem 0;
 }
+.ti-block,
 .hi-block,
 .ni-block,
 .mi-block,
@@ -518,6 +520,162 @@ button {
     }
     &:first-child {
       margin-top: 0;
+    }
+  }
+}
+
+// 건강검진 제도(TI)
+.ti-block {
+  .tab-panel {
+    // 건강검진 제도
+    &[aria-labelledby='health-system-tab-panel'] {
+      h2 {
+        @include coTxtTitleHeadingSmall;
+        color: $color-black-80;
+        & + p {
+          & + h3 {
+            padding-top: 5rem;
+            position: relative;
+            &::after {
+              content: '';
+              display: block;
+              position: absolute;
+              width: 100%;
+              height: 1px;
+              top: 2.5rem;
+              left: 0;
+              background-color: $color-black-10;
+            }
+          }
+        }
+        & + ul {
+          margin-top: 1.25rem;
+          li {
+            & ~ li {
+              margin-top: 0.75rem;
+            }
+          }
+          & + h3 {
+            & + ul {
+              margin-top: 1.25rem;
+              li {
+                & ~ li {
+                  margin-top: 0.75rem;
+                }
+              }
+            }
+          }
+        }
+        & + h3 {
+          margin-top: 1.25rem;
+          & + ul {
+            li {
+              & + li {
+                margin-top: 0.75rem;
+              }
+            }
+          }
+        }
+      }
+      h3 {
+        @include coTxtTitleSmall;
+        color: $color-sub-02;
+        & ~ h3 {
+          margin-top: 3.75rem;
+        }
+        & + ul {
+          margin-top: 1rem;
+          li {
+            & ~ li {
+              margin-top: 0.5rem;
+            }
+          }
+          &.list {
+            &.type1 {
+              li {
+                &::after {
+                  top: 0.75rem;
+                }
+              }
+            }
+          }
+        }
+      }
+      p,
+      ul li {
+        @include coTxtBody;
+        color: $color-black-80;
+      }
+      p {
+        margin-top: 1.25rem;
+      }
+      ul {
+        & + h2 {
+          padding-top: 5rem;
+          position: relative;
+          & + h3 {
+            margin-top: 1.25rem;
+          }
+          & ~ h3 {
+            & + ul {
+              li {
+                & ~ li {
+                  margin-top: 0.75rem;
+                }
+              }
+            }
+          }
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            top: 2.5rem;
+            left: 0;
+            background-color: $color-black-10;
+          }
+        }
+        & + h3 {
+          margin-top: 3.75rem;
+        }
+      }
+    }
+    // 우리 회사 검진제도 안내
+    &[aria-labelledby='our-health-tab-panel'] {
+      h2 {
+        @include coTxtTitleSmall;
+        color: $color-black-100;
+        & + ul {
+          margin-top: 1rem;
+        }
+        & ~ h2 {
+          margin-top: 3.75rem;
+        }
+        & + h3 {
+          margin-top: 1rem;
+        }
+      }
+      h3 {
+        @include coTxtBody;
+        color: $color-black-80;
+        & + ul {
+          margin-top: 0.75rem;
+          li {
+            padding-left: 1.25rem;
+          }
+        }
+        & ~ h3 {
+          margin-top: 2.5rem;
+        }
+      }
+      ul {
+        li {
+          & ~ li {
+            margin-top: 0.5rem;
+          }
+        }
+      }
     }
   }
 }

@@ -1,3 +1,6 @@
+// + media query
+$mq-m-sm-default-h-spacing: 1.142rem;
+
 // media query test
 @media (max-width: 280px) {
   // 로그인 상단 배너
@@ -5,6 +8,41 @@
     img {
       right: auto;
       left: 10.75rem;
+    }
+  }
+}
+
+@include devices(mobileSm) {
+  html,
+  body {
+    font-size: 14px;
+  }
+
+  // = Login
+  .login-block {
+    @include mSmHorizonSpacing;
+  }
+
+  .footer {
+    &.type-default {
+      .img-logo {
+        width: 12.857rem;
+      }
+    }
+    .type-footer {
+      // a {
+      //   font-size: 1rem;
+      // }
+    }
+  }
+
+  // = Popup
+  .c-full-layer {
+    .cont-box,
+    .full-body .top-title-box,
+    .btn-floating,
+    .btn-floating.isScroll {
+      @include mSmHorizonSpacing;
     }
   }
 }

@@ -447,10 +447,6 @@ a {
   height: calc(100% - 1.5rem);
   background-color: transparent;
   opacity: 0;
-
-  // opacity: 1;
-  // background-color: #FF0000;
-
   overflow: hidden;
   z-index: 2500;
   transition: opacity $transition-1 ease-in-out;
@@ -462,9 +458,6 @@ a {
     width: 0.25rem;
     height: 2.5rem;
     background-color: $color-black-10;
-
-    // background-color: #000;
-
     border-radius: 1000px;
   }
   &.show {
@@ -481,7 +474,17 @@ a {
   }
 }
 .kmi-popup {
-  .kim-scroll {
-    z-index: 2501;
+  &.show {
+    &.type-full,
+    &.type-full-footer {
+      .kim-scroll {
+        position: fixed;
+        top: 4.75rem;
+        height: calc(100% - 5.5rem);
+      }
+    }
+    .kim-scroll {
+      z-index: 2501;
+    }
   }
 }

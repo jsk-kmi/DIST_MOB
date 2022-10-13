@@ -279,3 +279,22 @@
   opacity: 0;
   transition: opacity $transition-3 ease-in-out;
 }
+
+// = Media query
+
+$mq-mobile-sm: 280px;
+
+@mixin devices($breakpoint) {
+  @if $breakpoint == mobileSm {
+    @media screen and (max-width: 280px) {
+      @content;
+    }
+  }
+}
+
+@mixin mSmHorizonSpacing {
+  padding: {
+    left: $mq-m-sm-default-h-spacing;
+    right: $mq-m-sm-default-h-spacing;
+  }
+}

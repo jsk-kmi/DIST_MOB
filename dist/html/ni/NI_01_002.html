@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/ico/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <!-- Header -->
+            <header class="header co-header">
+                <!-- 기업 로고에 따른 alt값 부여 -->
+                <h1 class="logo">
+                    <a href="javascrpit:void(0);"><img src="../../images/dummy/dummy_logo01.png" alt="LG화학 로고" /></a>
+                </h1>
+                <div class="menu">
+                    <button type="button" class="btn-open-gnb">
+                        <span class="skip">전체 메뉴 열기</span>
+                        <img src="../../images/ico/ico_gnb_hamberger.svg" alt="전체메뉴 아이콘" />
+                    </button>
+                </div>
+            </header>
+
+            <div class="flex-container">
+                <div class="ni-block">
+                    <h1 class="tit type-floating">공지사항</h1>
+
+                    <!--
+              * 탭 터치 시 페이지 이동되는 case
+              * 탭의 aria-controls와 panel의 aria-labelledby가 동일해야 됨
+              * 스크롤 시 floating 되는 tab의 경우 div.tab-floating 필요
+            -->
+                    <div class="tab-floating">
+                        <ul class="c-tab type-slide type-move" role="tablist" data-tablist="notice">
+                            <li role="tab" aria-controls="all-notice-tab-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab active">전체</a>
+                            </li>
+                            <li role="tab" aria-controls="noti-service-tab-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab">서비스</a>
+                            </li>
+                            <li role="tab" aria-controls="noti-health-tab-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab">검진</a>
+                            </li>
+                            <li role="tab" aria-controls="noti-event-tab-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab">이벤트</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 
+              * 전체 panel
+              * tab-panel show class: show || null
+              * 탭 터치 후 새로고침 된 후: panel의 aria-labelledby가 탭의 active class를 가진 aria-controls로 바뀜
+            -->
+                    <div class="tab-panel show" role="tabpanel" aria-labelledby="all-notice-tab-panel" data-panelname="notice">
+                        <div class="notice-list">
+                            <a href="javascript:void(0);" title="페이지 이동" class="card_07">
+                                <ul>
+                                    <li class="sub-tit">서비스</li>
+                                    <li class="date">2021-27</li>
+                                </ul>
+                                <h2 class="card-tit">KMI한국의학연구소 신규검사 안내 신규검사 안내신규검사 안내신규검사 안내</h2>
+                            </a>
+                            <a href="javascript:void(0);" title="페이지 이동" class="card_07">
+                                <ul>
+                                    <li class="sub-tit">서비스</li>
+                                    <li class="date">2021-10-27</li>
+                                </ul>
+                                <h2 class="card-tit">검진결과, 전자등기로 받으시면 편리합니다!</h2>
+                            </a>
+                            <a href="javascript:void(0);" title="페이지 이동" class="card_07">
+                                <ul>
+                                    <li class="sub-tit">이벤트</li>
+                                    <li class="date">2021-10-27</li>
+                                </ul>
+                                <h2 class="card-tit">이메일 결과지 모바일 열람 안내</h2>
+                            </a>
+                            <a href="javascript:void(0);" title="페이지 이동" class="card_07">
+                                <ul>
+                                    <li class="sub-tit">서비스</li>
+                                    <li class="date">2021-10-27</li>
+                                </ul>
+                                <h2 class="card-tit">[크미 X 김토끼] 콜라보 브랜드 인스타툰 연재</h2>
+                            </a>
+                            <a href="javascript:void(0);" title="페이지 이동" class="card_07">
+                                <ul>
+                                    <li class="sub-tit">검진</li>
+                                    <li class="date">2021-10-27</li>
+                                </ul>
+                                <h2 class="card-tit">홈페이지 긴급 서버점검 안내</h2>
+                            </a>
+                        </div>
+
+                        <!-- 더보기 -->
+                        <button class="co-btn btn-view-more"><span>더보기</span></button>
+                    </div>
+                </div>
+
+                <!-- 상단으로 이동 버튼 -->
+                <button class="btn-move-top"><span class="skip">터치시최상단으로이동</span></button>
+            </div>
+            <!-- footer -->
+            <footer class="footer type-default">
+                <img src="../../images/logo/footer_logo_01.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE" class="img-logo" />
+
+                <div class="btn-list type-footer">
+                    <a href="javascript:void(0);" title="페이지 이동">이용약관</a>
+                    <a href="javascript:void(0);" title="페이지 이동">개인정보처리방침</a>
+                    <a href="javascript:void(0);" title="페이지 이동">이용가이드</a>
+                </div>
+
+                <div class="footer-txt">
+                    상호 : 재단법인 한국의학연구소 ㅣ 대표자 : 이상호<br />
+                    03173 서울시 종로구 세종대로 23길 54(당주동, 세종빌딩)<br />
+                    전화 : <a href="tel:1599-7070">1599-7070</a> ㅣ 전자우편주소 : <a href="mailto:webmaster@kmi.or.kr">webmaster@kmi.or.kr</a><br />
+                    사업자등록번호 : 130-82-06960
+                </div>
+
+                <div class="copyright">
+                    Copyright© KMI.All Rights Reserved.
+                </div>
+            </footer>
+
+        </div>
+    </div>
+    <!-- GNB -->
+    <!-- // GNB -->
+</body>
+
+</html>
