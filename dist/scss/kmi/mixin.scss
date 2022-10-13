@@ -54,15 +54,9 @@
 // = Font
 // + font style
 @mixin fontStyle($font-size, $line-height: $line-height, $font-weight: 300, $letter-spacing: null) {
-  @if ($font-weight == 300) {
-    font: {
-      size: $font-size;
-    }
-  } @else {
-    font: {
-      size: $font-size;
-      weight: $font-weight;
-    }
+  font: {
+    size: $font-size;
+    weight: $font-weight;
   }
   letter-spacing: $letter-spacing;
   line-height: $line-height;
@@ -262,7 +256,7 @@
 // card
 // + check type off
 @mixin card-check-type-off {
-  background-color: #FFF;
+  background-color: #fff;
   padding: 0.1875rem;
   border: 1px solid $color-black-05;
   box-sizing: border-box;

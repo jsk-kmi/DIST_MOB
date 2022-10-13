@@ -105,6 +105,12 @@
         height: 0;
       }
     }
+
+    &.type-main-card {
+      li {
+        font-weight: 300;
+      }
+    }
   }
 }
 // floating title, tab
@@ -477,7 +483,6 @@ button {
     box-sizing: border-box;
     margin-top: $g-article-spacing-v-40;
     p {
-      @include coTxtLabelMedium;
       color: $color-black-60;
       text-align: center;
       word-break: keep-all;
@@ -488,6 +493,9 @@ button {
           color: $default-font-color;
           display: inline-block;
         }
+      }
+      &:last-child {
+        @include coTxtLabelMedium;
       }
     }
   }
@@ -611,7 +619,7 @@ button {
     color: $color-black-80;
     & ~ .box {
       &.type3 {
-        margin-top: 0.5rem;
+        margin-top: 0.75rem;
         & ~ .box-tit {
           margin-top: 1.75rem;
         }
@@ -643,12 +651,14 @@ button {
     }
   }
   .c-input-list {
-    & + .accordion {
-      &.type2 {
-        margin-top: 2.5rem;
-        & ~ .accordion {
-          &.type2 {
-            margin-top: 1.25rem;
+    & + .accordion-list {
+      margin-top: 2.5rem;
+      .accordion {
+        &.type2 {
+          & ~ .accordion {
+            &.type2 {
+              margin-top: 1.25rem;
+            }
           }
         }
       }
@@ -791,11 +801,13 @@ button {
         h4 {
           @include coTxtLabelLarge;
           color: $color-black-80;
-          margin-top: 1.25rem;
           & + p,
           & + ul {
             margin-top: 0.25rem;
           }
+        }
+        h3 {
+          margin-top: 2.5rem;
         }
         h4 {
           margin-top: 3.75rem;
@@ -928,15 +940,16 @@ button {
     @include coTxtBody;
     color: #494949;
     margin-top: 0.75rem;
+
+    & + h2 {
+      margin-top: 3.75rem;
+    }
   }
   img {
     display: block;
     width: 100%;
     height: auto;
     margin-top: 1.25rem;
-    & + h2 {
-      margin-top: 3.75rem;
-    }
   }
   .tab-floating {
     & + .tab-panel {
@@ -947,6 +960,11 @@ button {
         .c-select {
           & + h2 {
             margin-top: 2.5rem;
+          }
+        }
+        img {
+          & + h2 {
+            margin-top: 3.75rem;
           }
         }
       }

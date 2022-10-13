@@ -13,7 +13,7 @@
     transition: max-height $transition-3, padding $transition-3, opacity $transition-3;
   }
   &.open {
-    .accordion-header  {
+    .accordion-header {
       img {
         &.img-acc-arrow {
           transform: rotate(180deg);
@@ -118,7 +118,7 @@
     .accordion-body {
       background-color: $color-bg-04;
       border-radius: 0.75rem;
-      padding: 0 0.75rem;
+      padding: 0 1.25rem;
       margin-top: 0;
       transition: max-height $transition-3, margin-top $transition-3, opacity $transition-3;
       p {
@@ -128,7 +128,7 @@
         }
         &.acc-body-tit {
           @include coTxtLabelLarge;
-          margin-top: 0.75rem;
+          margin-top: 1.25rem;
         }
         &.acc-body-con {
           @include coTxtBody;

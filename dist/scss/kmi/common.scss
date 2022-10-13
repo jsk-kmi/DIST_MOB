@@ -369,7 +369,9 @@ a {
   // + 이전 글, 다음 글
   &.is-prev,
   &.is-next {
-    @include coTxtButtonBtnSm;
+    > span {
+      @include coTxtButtonBtnSm;
+    }
     color: $color-sub-01;
     background-color: $color-black-05;
     padding-left: 1.5rem;
@@ -445,7 +447,12 @@ a {
   height: calc(100% - 1.5rem);
   background-color: transparent;
   opacity: 0;
+
+  // opacity: 1;
+  // background-color: #FF0000;
+
   overflow: hidden;
+  z-index: 2500;
   transition: opacity $transition-1 ease-in-out;
   span {
     display: block;
@@ -455,6 +462,9 @@ a {
     width: 0.25rem;
     height: 2.5rem;
     background-color: $color-black-10;
+
+    // background-color: #000;
+
     border-radius: 1000px;
   }
   &.show {
@@ -468,5 +478,10 @@ a {
         z-index: 1997;
       }
     }
+  }
+}
+.kmi-popup {
+  .kim-scroll {
+    z-index: 2501;
   }
 }
