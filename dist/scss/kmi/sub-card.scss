@@ -14,6 +14,7 @@
       white-space: nowrap;
     }
     dd {
+      position: relative;
       margin-left: 0.5rem;
     }
     &::after {
@@ -51,9 +52,9 @@
           border-radius: 1.125rem;
           background-color: #FFF;
           padding: {
-            top: 1.5rem;
+            top: 1.3125rem;
             right: 1.25rem;
-            bottom: 1rem;
+            bottom: 0.5625rem;
             left: 1.25rem;
           }
           ul {
@@ -82,12 +83,16 @@
               align-items: center;
               justify-content: flex-start;
               padding-bottom: 0.5rem;
+              margin-top: 0.25rem;
               li {
                 @include coTxtTitleLarge;
                 color: $color-black-80;
+                position: relative;
                 & ~ li {
-                  @include coTxtBody;
-                  margin-left: 0.75rem;
+                  span {
+                    @include coTxtBody;
+                    margin-left: 0.75rem;
+                  }
                 }
               }
             }
@@ -100,8 +105,10 @@
               width: 1.625rem;
             }
             dd {
-              @include coTxtBodySmall;
-              width: calc(100% - 2.125rem);
+              span {
+                @include coTxtBodySmall;
+                width: calc(100% - 2.125rem);
+              }
             }
           }
         }
@@ -148,34 +155,38 @@
         margin-bottom: 0.75rem;
       }
     }
-    dl {
-      dt, dd {
-        @include coTxtLabelMedium;
-      }
-      dt {
-        width: 4rem;
-        color: $color-black-40;
-      }
-      dd {
-        width: calc(100% - 4.5rem);
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        span {
+    .info-list {
+      padding-bottom: 1.5rem;
+      dl {
+        dt, dd {
           @include coTxtLabelMedium;
-          color: $color-black-80;
+        }
+        dt {
+          width: 4rem;
+          color: $color-black-40;
+        }
+        dd {
           position: relative;
-          & ~ span {
-            padding-left: 0.8125rem;
-            &::after {
-              content: '/';
-              display: block;
-              position: absolute;
-              left: 0.25rem;
-              top: 0;
-              width: 0.3125rem;
-              height: 1.25rem;
-              color: $color-black-20;
+          width: calc(100% - 4.5rem);
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          span {
+            @include coTxtLabelMedium;
+            color: $color-black-80;
+            position: relative;
+            & ~ span {
+              padding-left: 0.8125rem;
+              &::after {
+                content: '/';
+                display: block;
+                position: absolute;
+                left: 0.25rem;
+                top: 0;
+                width: 0.3125rem;
+                height: 1.25rem;
+                color: $color-black-20;
+              }
             }
           }
         }
@@ -184,7 +195,7 @@
     .button-list {
       background-color: $color-bg-04;
       margin-left: -1.25rem;
-      margin-top: 1.5rem;
+      // margin-top: 1.5rem;
       width: calc(100% + 2.5rem);
       height: 2.75rem;
       display: flex;

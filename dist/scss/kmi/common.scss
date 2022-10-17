@@ -428,7 +428,7 @@ a {
   border-radius: 0.75rem;
   opacity: 0.9;
   background-color: $color-main;
-  background-image: url($image-ico-path + 'ico_arrow_top_white_01.svg');
+  background-image: url('../../images/ico/ico_arrow_top_white_01.svg');
   background-position: center center;
   background-size: 2.125rem 2.125rem;
   background-repeat: no-repeat;
@@ -439,7 +439,8 @@ a {
 }
 
 // common scrollbar
-.kim-scroll {
+.kmi-scroll,
+.textarea-scroll {
   position: absolute;
   right: 0.25rem;
   top: 0.75rem;
@@ -467,7 +468,7 @@ a {
 .c-layer-popup {
   .modal-wrap {
     .modal-field {
-      .kim-scroll {
+      .kmi-scroll {
         z-index: 1997;
       }
     }
@@ -477,14 +478,21 @@ a {
   &.show {
     &.type-full,
     &.type-full-footer {
-      .kim-scroll {
+      .kmi-scroll {
         position: fixed;
         top: 4.75rem;
         height: calc(100% - 5.5rem);
       }
     }
-    .kim-scroll {
+    .kmi-scroll {
       z-index: 2501;
     }
+  }
+}
+.c-txtarea-field {
+  position: relative;
+  .textarea-scroll {
+    height: calc(100% - 2.5rem);
+    top: 1.25rem;
   }
 }

@@ -1325,13 +1325,48 @@ function termsScrollEvent(_scrollBody, _scrollWrap, _scrollElem) {
   });
 }
 /**
+ * textarea
+*/
+
+
+var TEXTAREA_ELEM = document.querySelectorAll('textarea');
+if (TEXTAREA_ELEM.length > 0) for (var _i28 = 0; _i28 < TEXTAREA_ELEM.length; _i28++) {
+  textareaComn(TEXTAREA_ELEM[_i28]);
+} // + textarea가 있으면
+
+function textareaComn(_elem) {
+  if (_elem.scrollHeight > _elem.clientHeight) textareaScrollbar(_elem); // add scrollbar
+
+  _elem.addEventListener('input', function () {
+    if (this.scrollHeight > this.clientHeight) textareaScrollbar(_elem);
+  });
+} // + create textarea scrollbar
+
+
+function textareaScrollbar(_elem) {
+  if (_elem.parentElement.querySelector('.textarea-scroll')) {// has scrollbar
+  } else {
+    // null scrollbar
+    var scrollEl = document.createElement('div');
+    var scrollInner = document.createElement('span');
+    scrollEl.classList.add('textarea-scroll');
+    scrollEl.setAttribute('aria-hidden', true);
+    scrollEl.appendChild(scrollInner);
+
+    _elem.parentElement.appendChild(scrollEl); // 스크롤바 scroll event
+
+
+    termsScrollEvent(_elem, scrollEl, scrollInner);
+  }
+}
+/**
  * input
 */
 
 
 var INPUT_ELEM = document.querySelectorAll('input');
-if (INPUT_ELEM.length > 0) for (var _i28 = 0; _i28 < INPUT_ELEM.length; _i28++) {
-  inputComn(INPUT_ELEM[_i28]);
+if (INPUT_ELEM.length > 0) for (var _i29 = 0; _i29 < INPUT_ELEM.length; _i29++) {
+  inputComn(INPUT_ELEM[_i29]);
 } // input 공통 scritp
 
 function inputComn(_elem) {
@@ -1642,7 +1677,7 @@ function customScrollbar(_elem) {
 
 
 function scrollDesignContainer(_container) {
-  var CUSTOMER_SCROLL = _container.querySelector('.kim-scroll');
+  var CUSTOMER_SCROLL = _container.querySelector('.kmi-scroll');
 
   if (CUSTOMER_SCROLL) {
     var CUSTOMER_SCROLL_INNER = CUSTOMER_SCROLL.querySelector('span');
@@ -1662,7 +1697,7 @@ function scrollDesignPopFullLayer(_elem) {
   if (POPUP_SCROLL_ELEM) {
     var POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.full-header');
     var POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.full-body');
-    var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kim-scroll');
+    var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
     if (POPUP_HEADER && POPUP_BODY) fullLayerScrollbarComn(POPUP_BODY, CUSTOMER_SCROLL, POPUP_HEADER);
   }
 } // popup: full footer
@@ -1674,7 +1709,7 @@ function scrollDesignPopFullFooter(_elem) {
   if (POPUP_SCROLL_ELEM) {
     var POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.full-header');
     var POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.full-body');
-    var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kim-scroll');
+    var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
     if (POPUP_HEADER && POPUP_BODY) fullLayerScrollbarComn(POPUP_SCROLL_ELEM, CUSTOMER_SCROLL, POPUP_HEADER);
   }
 } // popup: modal header
@@ -1686,7 +1721,7 @@ function scrollDesignPopModalHeader(_elem) {
   if (POPUP_SCROLL_ELEM) {
     var POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.c-modal-header');
     var POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.c-modal-body');
-    var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kim-scroll');
+    var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
     if (POPUP_HEADER && POPUP_BODY) modalHeaderScrollbarComn(POPUP_SCROLL_ELEM, CUSTOMER_SCROLL, POPUP_HEADER);
   }
 } // + modal heder create scrollbar comn
@@ -1728,7 +1763,7 @@ function fullLayerScrollbarComn(_wrap, _scrollEl, _header) {
 function scrollbarCreate(_scrollEl, _popHeader) {
   var scrollEl = document.createElement('div');
   var scrollInner = document.createElement('span');
-  scrollEl.classList.add('kim-scroll');
+  scrollEl.classList.add('kmi-scroll');
   scrollEl.setAttribute('aria-hidden', true);
   scrollEl.appendChild(scrollInner);
 

@@ -371,6 +371,7 @@
           color: $color-black-100;
           & + ul {
             margin-top: 0.75rem;
+            position: relative;
           }
         }
 
@@ -501,6 +502,10 @@
       }
       &.date {
         color: $color-black-40;
+        span {
+          @include coTxtLabelMedium;
+          color: $color-black-40;
+        }
       }
     }
   }

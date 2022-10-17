@@ -12,7 +12,8 @@
       overflow: hidden;
     }
     span {
-      &.date {
+      &.date,
+      &.address {
         @include coTxtLabelMedium;
         color: $color-sub-02;
         display: inline-block;

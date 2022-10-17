@@ -112,6 +112,13 @@
       }
     }
   }
+  &.type-gray {
+    li {
+      background-color: $color-black-05;
+      color: $color-black-60;
+      padding: 0.125rem 0.75rem
+    }
+  }
 }
 // floating title, tab
 .header {
@@ -265,10 +272,57 @@ button {
     }
   }
 }
+// + 등록된 컨텐츠 없음
+.null-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2.5rem 0;
+  img {
+    width: 7rem;
+    height: auto;
+    opacity: 0.4;
+  }
+  p {
+    @include coTxtBody;
+    color: $color-black-40;
+    text-align: center;
+    margin-top: 0.9375rem;
+  }
+  &.type-round {
+    padding: 1rem 0;
+    border: 1px solid $color-black-20;
+    border-radius: 0.75rem;
+    img {
+      width: 5.0625rem;
+    }
+    p {
+      margin-top: 0.75rem;
+    }
+  }
+  &.type-shadow {
+    padding: 1.25rem;
+    background: #ffffff;
+    border: 1px solid $color-black-05;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+    border-radius: 0.75rem;
+    img {
+      width: 6rem;
+      opacity: 1;
+    }
+    p {
+      @include coTxtLabelLarge;
+      margin-top: 0.75rem;
+    }
+  }
+}
 
 // 전체틀, 타이틀, 탭
 .login-block,
 .ti-block,
+.rv-block,
+.vgt-block,
 .main-block,
 .hi-block,
 .ni-block,
@@ -331,13 +385,13 @@ button {
       height: 2rem;
       margin-left: 0.75rem;
       padding-left: 2rem;
-      background-image: url($image-ico-path + 'ico_calendar_01.svg');
+      background-image: url('../../images/ico/ico_calendar_01.svg');
       background-size: 2rem 2rem;
       background-position: left center;
       background-repeat: no-repeat;
       &:first-child {
         margin-left: 0;
-        background-image: url($image-ico-path + '/ico_eye_01.svg');
+        background-image: url('../../images/ico/ico_eye_01.svg');
       }
     }
     &::after {
@@ -379,37 +433,6 @@ button {
   .btn-move-list {
     margin-top: 1.25rem;
   }
-
-  // + 등록된 컨텐츠 없음
-  .null-contents {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 2.5rem 0;
-    img {
-      width: 7rem;
-      height: auto;
-      opacity: 0.4;
-    }
-    p {
-      @include coTxtBody;
-      color: $color-black-40;
-      text-align: center;
-      margin-top: 0.9375rem;
-    }
-    &.type-round {
-      padding: 1rem 0;
-      border: 1px solid $color-black-20;
-      border-radius: 0.75rem;
-      img {
-        width: 5.0625rem;
-      }
-      p {
-        margin-top: 0.75rem;
-      }
-    }
-  }
 }
 .login-block {
   padding: 3.75rem 1.75rem;
@@ -418,6 +441,8 @@ button {
   padding: 3.75rem 1.75rem 0;
 }
 .ti-block,
+.rv-block,
+.vgt-block,
 .hi-block,
 .ni-block,
 .mi-block,
@@ -527,7 +552,6 @@ button {
 // 건강검진 제도(TI)
 .ti-block {
   .tab-panel {
-    // 건강검진 제도
     &[aria-labelledby='health-system-tab-panel'] {
       h2 {
         @include coTxtTitleHeadingSmall;
@@ -641,7 +665,6 @@ button {
         }
       }
     }
-    // 우리 회사 검진제도 안내
     &[aria-labelledby='our-health-tab-panel'] {
       h2 {
         @include coTxtTitleSmall;
@@ -676,6 +699,181 @@ button {
           }
         }
       }
+    }
+  }
+}
+
+// 검진내역(RV)
+.rv-block {
+  .tit {
+    & + .c-select {
+      margin-top: 1.25rem;
+      & + .info-txt {
+        margin: 3.75rem 0 0.75rem;
+        position: relative;
+        display: block;
+        text-align: right;
+        li {
+          & ~ li {
+            @include coTxtLabelMedium;
+            color: $color-black-60;
+            span {
+              color: $color-sub-02;
+              display: inline-block;
+              margin: 0 0.25rem;
+            }
+          }
+        }
+        & + .sub-card.type2 {
+          & ~ .sub-card.type2 {
+            margin-top: 2.5rem;
+          }
+        }
+      }
+    }
+    & + h2 {
+      margin-top: 2.5rem;
+      & ~ h2 {
+        padding-top: 5rem;
+        position: relative;
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 1px;
+          left: 0;
+          top: 2.5rem;
+          background-color: $color-black-10;
+        }
+      }
+    }
+  }
+  h2 {
+    @include coTxtTitleLarge;
+    color: $color-black-80;
+    &.type-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      a {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        color: $color-sub-02;
+        text-decoration: underline;
+      }
+    }
+    & + .c-input-list {
+      margin-top: 1.25rem;
+    }
+    & + h3 {
+      margin-top: 1.25rem;
+      & ~ h3 {
+        padding-top: 2rem;
+      }
+    }
+    & + .tag-list {
+      margin-top: 1.375rem;
+    }
+  }
+  h3 {
+    @include coTxtLabelMedium;
+    color: $color-sub-02;
+    & + .tag-list {
+      margin-top: 0.5rem;
+    }
+  }
+  .c-txtarea-field {
+    height: auto;
+    textarea {
+      height: 10rem;
+      background: $color-white-80;
+      @include coTxtBody;
+      &::placeholder {
+        @include coTxtBody;
+      }
+      &:disabled {
+        border-color: $color-black-10;
+        background-color: $color-black-05;
+      }
+    }
+  }
+  .tab-panel {
+    &[aria-labelledby='step-1-panel'] {
+      .accordion.type6 {
+        & ~ .accordion.type6 {
+          margin-top: 1.5rem;
+        }
+      }
+    }
+    &[aria-labelledby='step-2-panel'] {
+      & > .c-chkbox {
+        float: right;
+        & + .c-input-list {
+          float: none;
+          clear: both;
+          padding-top: 1.25rem;
+          & ~ .c-input-list {
+            margin-top: 1.75rem;
+          }
+        }
+      }
+    }
+    &[aria-labelledby='step-3-panel'] {
+      & > p {
+        @include coTxtLabelMedium;
+        color: $color-black-80;
+        & + .box {
+          margin-top: 0.5rem;
+        }
+      }
+      h2 {
+        margin-top: 3.75rem;
+        & + .c-input-list {
+          margin-top: 1.25rem;
+          & ~ .c-input-list {
+            margin-top: 3.75rem;
+          }
+        }
+        & + .terms {
+          margin-top: 1.25rem;
+        }
+      }
+    }
+  }
+  input[type='text'] {
+    &.type-link {
+      color: $color-sub-02;
+      text-decoration: underline;
+    }
+  }
+  // 다음, 취소 버튼
+  .btn-next,
+  .btn-cancel {
+    margin-top: 3.75rem;
+  }
+}
+// + 예약 내역 필터
+#popupReservationFilter {
+  .co-chk-list {
+    margin-top: 1.75rem;
+  }
+}
+// + 예약상세
+#popupReservationDetails {
+  .in-cont {
+    p {
+      @include coTxtBody;
+      color: $color-black-80;
+    }
+  }
+}
+
+// 검진기관(VGT)
+.vgt-block {
+  .tit {
+    & + .c-select {
+      margin-top: 3.75rem;
     }
   }
 }
@@ -895,12 +1093,15 @@ button {
     justify-content: space-between;
     height: 2.25rem;
     li {
-      @include coTxtLabelMedium;
-      color: $color-black-60;
       text-align: right;
+      position: relative;
       &:first-child {
         text-align: left;
         color: $color-black-40;
+      }
+      span {
+        @include coTxtLabelMedium;
+        color: $color-black-60;
       }
     }
   }

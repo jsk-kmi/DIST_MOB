@@ -427,6 +427,15 @@ textarea,
     display: flex;
     color: $color-black-80;
   }
+
+  // + 필수입력항목
+  label {
+    position: relative;
+    .essential {
+      color: $color-sub-03;
+    }
+  }
+
   .c-select {
     width: 100%;
   }
