@@ -4987,10 +4987,7 @@ header.header.co-header.scroll-hide {
 .footer.type-default {
 		background-color: #1c1c1c;
 		text-align: center;
-		padding-top: 3.75rem;
-		padding-right: 0;
-		padding-bottom: 2rem;
-		padding-left: 0;
+		padding: 3.75rem 0.75rem 2rem;
 }
 .footer.type-default .img-logo {
 		width: 11.25rem;
