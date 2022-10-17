@@ -306,7 +306,6 @@ a {
   &.co-btn {
     position: relative;
     width: 100%;
-    font-size: 0;
     font: {
       size: 0;
       family: $font-name;
@@ -371,6 +370,7 @@ a {
   &.is-next {
     > span {
       @include coTxtButtonBtnSm;
+      line-height: 1.4rem;
     }
     color: $color-sub-01;
     background-color: $color-black-05;

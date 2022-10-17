@@ -10,7 +10,8 @@
   padding: $fs-body-small;
   white-space: nowrap;
   @include coTxtBtn;
-  &:hover, &:active {
+  &:hover,
+  &:active {
     color: $color-white-100;
   }
 }

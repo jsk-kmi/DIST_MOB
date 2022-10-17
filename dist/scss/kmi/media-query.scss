@@ -45,4 +45,25 @@ $mq-m-sm-default-h-spacing: 1.142rem;
       @include mSmHorizonSpacing;
     }
   }
+
+  // = Button
+  button,
+  a {
+    &.is-prev,
+    &.is-next {
+      > span {
+        line-height: 1.6rem;
+      }
+    }
+  }
+
+  .c-input {
+    min-height: 46px;
+  }
+
+  .c-input-btn-group {
+    .co-btn {
+      min-height: 46px;
+    }
+  }
 }

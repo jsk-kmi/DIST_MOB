@@ -259,7 +259,7 @@
         <div class="c-input-list type01">
           <div class="row">
             <div class="col per-column label-input">
-              <label for="inputName">이름</label>
+              <label for="inputName">이름 <span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
               <input type="text" class="c-input" id="" value="text" />
             </div>
             <div class="col per-column label-input">
@@ -432,14 +432,20 @@
         <!-- ? view -->
         <div class="row">
           <div class="col">
-            <div class="row inner c-input-btn-group">
-              <div class="column input">
-                <input type="text" class="c-input" />
+            <!-- [Comment] 
+							- 클릭 영역 : 전체 
+							- 필요에 따라 input disabled 제거
+						-->
+            <a href="javascript:;" class="btn-address" role="button">
+              <div class="row inner c-input-btn-group">
+                <div class="column input">
+                  <input type="text" class="c-input type-white" title="주소입력" placeholder="주소" disabled />
+                </div>
+                <div class="column btns">
+                  <div class="co-btn type02 type-input-btn"><span>주소검색</span></div>
+                </div>
               </div>
-              <div class="column btns">
-                <button type="button" class="co-btn type02 type-input-btn"><span>Button</span></button>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
         <!-- ? // view -->
@@ -454,19 +460,23 @@
             <div class="col label-input">
               <label>주소</label>
               <div class="c-input-address-group">
-                <a href="javascript:;" class="btn-address">
+                <!-- [Comment] 
+							- 클릭 영역 : 전체 
+							- 필요에 따라 input disable 제거
+						-->
+                <a href="javascript:;" class="btn-address" role="button">
                   <div class="row inner c-input-btn-group">
                     <div class="column input">
                       <!-- [comment]
 												- 필요에 따라 disabled 제거 
 											-->
-                      <input type="text" class="c-input type-white" title="주소입력" disabled />
+                      <input type="text" class="c-input type-white" title="주소입력" placeholder="주소" disabled />
                     </div>
                     <div class="column btns">
-                      <button type="button" class="co-btn type02 type-input-btn"><span>주소검색</span></button>
+                      <div class="co-btn type02 type-input-btn"><span>주소검색</span></div>
                     </div>
-                  </div></a
-                >
+                  </div>
+                </a>
                 <div class="row input-addr-02">
                   <input type="text" class="c-input" title="상세주소 입력" />
                 </div>

@@ -884,7 +884,6 @@ a.co-btn {
 		position: relative;
 		width: 100%;
 		font-size: 0;
-		font-size: 0;
 		font-family: "NotoSansKR";
 		padding: 0.75rem;
 		border-radius: 1.75rem;
@@ -955,6 +954,7 @@ a.is-next > span {
 		font-weight: 400;
 		letter-spacing: -0.0187rem;
 		line-height: 1.25rem;
+		line-height: 1.4rem;
 }
 button.is-prev.is-disable, button.is-next.is-disable,
 a.is-prev.is-disable,
@@ -1954,6 +1954,16 @@ textarea textarea[readonly=readonly]:focus,
 }
 .c-rdochk.type01 input[type=radio]:disabled + .chk-label i {
 		background-position-y: -70px;
+}
+
+.btn-address .type-input-btn {
+		padding: 1rem 0;
+		max-height: 52px;
+		line-height: 1;
+		text-align: center;
+}
+.btn-address .type-input-btn > span {
+		color: #fff;
 }
 
 .c-tab {
@@ -7349,6 +7359,17 @@ body {
 .c-full-layer .btn-floating.isScroll {
 				padding-left: 1.142rem;
 				padding-right: 1.142rem;
+		}
+		button.is-prev > span, button.is-next > span,
+a.is-prev > span,
+a.is-next > span {
+				line-height: 1.6rem;
+		}
+		.c-input {
+				min-height: 46px;
+		}
+		.c-input-btn-group .co-btn {
+				min-height: 46px;
 		}
 }
 /*# sourceMappingURL=maps/style.css.map */
