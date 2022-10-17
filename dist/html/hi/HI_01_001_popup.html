@@ -19,14 +19,15 @@
     <div id="container">
         <div class="flex-wrap">
             <div class="flex-container">
-                <!-- BUTTON - 로그인 안내 -->
-                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupLoginInfo"><em class="alt-txt">터치시팝업열림</em><span>팝업열림 - 로그인 안내</span></button><br /><br />
+
+                <!-- BUTTON - 검진항목정보 상세 팝업열림 -->
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupExaminationInfo"><span>팝업열림 - 검진항목정보 상세</span></button><br /><br />
             </div>
         </div>
     </div>
 
-    <!-- POPUP - 로그인 안내 -->
-    <div class="c-layer-popup kmi-popup type-modal" id="popupLoginInfo" role="dialog" aria-labelledby="popupLoginInfo_Label" aria-modal="true" aria-hidden="true">
+    <!-- POPUP - 검진항목정보 상세 -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupExaminationInfo" role="dialog" aria-labelledby="popupExaminationInfo_Label" aria-modal="true" aria-hidden="true">
         <div class="modal-wrap">
             <div class="popup-bg"></div>
             <div class="modal-field" tabindex="0">
@@ -35,23 +36,21 @@
                     <!-- 닫힘버튼 class: popup-btn-close -->
                     <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
                     <div class="c-modal-title-field">
-                        <h3 id="popupLoginInfo_Label" class="c-title">로그인 안내</h3>
+                        <h3 id="popupExaminationInfo_Label" class="c-title">혈액 검사</h3>
                     </div>
                 </div>
 
                 <div class="c-modal-body">
                     <div class="c-modal-inner">
                         <div class="in-cont">
-                            비로그인 상태입니다.<br />자세한 검진결과 보기를 원하시는 경우 회원가입 후 서비스를 이용해 주세요.
+                            <p class="box-tit">검사 구분</p>
+                            <div class="box type3">혈액</div>
 
-                            <div class="c-input-sub-group">
-                                <div class="per-column">
-                                    <input type="text" class="c-input" placeholder="아이디" />
-                                </div>
-                                <div class="per-column">
-                                    <input type="password" class="c-input" placeholder="비밀번호" />
-                                </div>
-                            </div>
+                            <p class="box-tit">검사 항목</p>
+                            <div class="box type3">간기능, 간염, 지질대사 및 심혈관계, Cardiac Risk Index, 당뇨, 췌장기능, 신장기능, 통풍 및 염증반응, 종양표지자, 빈혈, 활성산소 및 항산화력, 혈액질환, 갑상선기능, 감염관련 혈청반응 등</div>
+
+                            <p class="box-tit">검사 설명</p>
+                            <div class="box type3">혈액은 몸 안의 모든 장기의 세포에 산소, 영양분, 호르몬 그리고 영양물질을 공급하는 중요한 역할을 할 뿐만 아니라 감염에 대한 방어 기관이자 독소와 노폐물을 운반해내는 기능도 하고 있기 때문에 체내에서 일어나는 변화는 혈액성분에 변화를 주게 됩니다. 질병의 진행 정도나 치료 효과를 판정하기 위해 혈액의 각종 성분을 검사합니다.</div>
                         </div>
                     </div>
                 </div>
@@ -59,14 +58,16 @@
                 <div class="c-modal-footer">
                     <div class="inner">
                         <div class="buttons">
-                            <a href="javascript:void(0);" class="co-btn is-outline-navy-1" title="페이지 이동"><span>회원가입</span></ㅁ>
-                                <a href="javascript:void(0);" class="co-btn bg-navy-1" title="페이지 이동"><span>로그인</span></a>
+                            <button class="co-btn bg-navy-1 popup-btn-close"><i class="skip">팝업 닫힘</i><span>확인</span></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- GNB -->
+    <!-- // GNB -->
 </body>
 
 </html>
