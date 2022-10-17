@@ -30,7 +30,7 @@
               &.ico-checkbox {
                 width: 1.25rem;
                 height: 1.25rem;
-                background-image: url('../../images/ico/ico_checkbox_sub_card_20x20.svg');
+                background-image: url($image-ico-path + 'ico_checkbox_sub_card_20x20.svg');
                 background-size: 1.25rem 1.25rem;
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -76,7 +76,7 @@
             &.case {
               li {
                 &.ico-checkbox {
-                  background-image: url('../../images/ico/ico_checkbox_sub_card_20x20_default_on.svg');
+                  background-image: url($image-ico-path + 'ico_checkbox_sub_card_20x20_default_on.svg');
                 }
               }
             }
@@ -141,10 +141,10 @@
                 background-repeat: no-repeat;
               }
               .ico-document {
-                background-image: url('../../images/ico/ico_card_document_01.svg');
+                background-image: url($image-ico-path + 'ico_card_document_01.svg');
               }
               .ico-checkbox {
-                background-image: url('../../images/ico/ico_card_checkbox_01.svg');
+                background-image: url($image-ico-path + 'ico_card_checkbox_01.svg');
                 margin-left: 0.75rem;
                 transition: background-image $transition-3 ease-in-out;
               }
@@ -155,7 +155,7 @@
               &.ico-checkbox {
                 width: 1.25rem;
                 height: 1.25rem;
-                background-image: url('../../images/ico/ico_checkbox_sub_card_20x20.svg');
+                background-image: url($image-ico-path + 'ico_checkbox_sub_card_20x20.svg');
                 background-size: 1.25rem 1.25rem;
                 background-position: center center;
                 background-repeat: no-repeat;
@@ -185,7 +185,7 @@
             &.case {
               li {
                 &.ico-checkbox {
-                  background-image: url('../../images/ico/ico_checkbox_sub_card_20x20_on.svg');
+                  background-image: url($image-ico-path + 'ico_checkbox_sub_card_20x20_on.svg');
                 }
               }
             }
@@ -215,7 +215,7 @@
   }
   &.type-link {
     padding-right: 3.625rem;
-    background-image: url('../../images/ico/ico_arrow_right_01_34x34.svg');
+    background-image: url($image-ico-path + 'ico_arrow_right_01_34x34.svg');
     background-position: right 0.75rem center;
     background-size: 2.125rem 2.125rem;
     background-repeat: no-repeat;
@@ -406,10 +406,10 @@
                 background-repeat: no-repeat;
               }
               .ico-document {
-                background-image: url('../../images/ico/ico_card_document_01.svg');
+                background-image: url($image-ico-path + 'ico_card_document_01.svg');
               }
               .ico-checkbox {
-                background-image: url('../../images/ico/ico_card_checkbox_01.svg');
+                background-image: url($image-ico-path + 'ico_card_checkbox_01.svg');
                 margin-left: 0.75rem;
                 transition: background-image $transition-3 ease-in-out;
               }
@@ -430,7 +430,7 @@
             li {
               &.icon {
                 .ico-checkbox {
-                  background-image: url('../../images/ico/ico_card_checkbox_01_on.svg');
+                  background-image: url($image-ico-path + 'ico_card_checkbox_01_on.svg');
                 }
               }
             }

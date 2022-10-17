@@ -299,7 +299,7 @@
       border-radius: 0.75rem;
       box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.08);
       background-color: $color-white-100;
-      background-image: url('../../images/ico/ico_arrow_accordion_20x20.svg');
+      background-image: url($image-ico-path + 'ico_arrow_accordion_20x20.svg');
       background-size: 1.25rem 1.25rem;
       background-position: right 1.25rem center;
       background-repeat: no-repeat;
@@ -312,7 +312,7 @@
         margin-left: 0.5rem;
         width: 1rem;
         height: 1rem;
-        background-image: url('../../images/ico/ico_tooltip_question.png');
+        background-image: url($image-ico-path + 'ico_tooltip_question.png');
         background-size: 1rem 1rem;
         background-position: center center;
         background-repeat: no-repeat;
@@ -326,7 +326,7 @@
     }
     &.open {
       .accordion-header {
-        background-image: url('../../images/ico/ico_arrow_accordion_20x20_on.svg');
+        background-image: url($image-ico-path + 'ico_arrow_accordion_20x20_on.svg');
         span {
           color: $color-black-80;
         }
