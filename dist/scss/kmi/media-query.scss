@@ -1,5 +1,5 @@
 // + media query
-$mq-m-sm-default-h-spacing: 1.142rem;
+$mq-sm-default-h-spacing: 1.066rem;
 
 // media query test
 @media (max-width: 280px) {
@@ -7,7 +7,7 @@ $mq-m-sm-default-h-spacing: 1.142rem;
   .login-banner {
     img {
       right: auto;
-      left: 10.75rem;
+      left: 10.933rem;
     }
   }
 }
@@ -15,7 +15,7 @@ $mq-m-sm-default-h-spacing: 1.142rem;
 @include devices(mobileSm) {
   html,
   body {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   // = Login
@@ -46,6 +46,18 @@ $mq-m-sm-default-h-spacing: 1.142rem;
     }
   }
 
+  .ti-block,
+  .rv-block,
+  .vgt-block,
+  .hi-block,
+  .ni-block,
+  .mi-block,
+  .em-block,
+  .terms-block,
+  .guide-block {
+    @include mSmHorizonSpacing;
+  }
+
   // = Button
   button,
   a {
@@ -64,6 +76,33 @@ $mq-m-sm-default-h-spacing: 1.142rem;
   .c-input-btn-group {
     .co-btn {
       min-height: 46px;
+    }
+  }
+
+  // = 검진항목정보
+  .hi-block {
+    .item-info {
+      margin-left: -$mq-sm-default-h-spacing;
+      padding: 0.4rem;
+    }
+  }
+
+  .item-info {
+    a {
+      margin {
+        left: 0.666rem;
+        right: 0.666rem;
+      }
+      width: calc(50vw - 0.666rem - $mq-sm-default-h-spacing);
+    }
+  }
+
+  .c-modal-header {
+    .c-modal-title-field {
+      .c-title {
+        font-size: 1.4rem;
+        margin-right: 0.571rem;
+      }
     }
   }
 }

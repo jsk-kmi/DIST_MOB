@@ -27,7 +27,8 @@
   flex-wrap: wrap;
   margin-left: -0.25rem;
   width: calc(100% + 0.5rem);
-  li {
+  li,
+  button {
     @include coTxtLabelMedium;
     color: $color-main;
     background-color: $color-bg-03;
@@ -41,7 +42,7 @@
     margin: {
       top: 0;
       right: 0.25rem;
-      bottom: 0.5rem;
+      bottom: 0.75rem;
       left: 0.25rem;
     }
     &:last-child {
@@ -112,8 +113,9 @@
       }
     }
   }
-  &.type-gray {
-    li {
+  &.type-popup {
+    button {
+      position: relative;
       background-color: $color-black-05;
       color: $color-black-60;
       padding: 0.125rem 0.75rem;
@@ -131,7 +133,7 @@
             position: sticky;
             width: 100vw;
             left: 0;
-            top: 84px;
+            top: 5.25rem;
             background-color: #fff;
             z-index: 1500;
             margin-left: -1.75rem;
@@ -289,6 +291,16 @@ button {
     color: $color-black-40;
     text-align: center;
     margin-top: 0.9375rem;
+  }
+  &.type-default {
+    img {
+      padding: 0.9375rem 0;
+    }
+    p {
+      @include coTxtBody;
+      color: $color-black-80;
+      margin: 0;
+    }
   }
   &.type-round {
     padding: 1rem 0;
@@ -752,6 +764,7 @@ button {
   h2 {
     @include coTxtTitleLarge;
     color: $color-black-80;
+    position: relative;
     &.type-link {
       display: flex;
       align-items: center;
@@ -769,11 +782,17 @@ button {
     & + h3 {
       margin-top: 1.25rem;
       & ~ h3 {
-        padding-top: 2rem;
+        padding-top: 1.75rem;
       }
     }
     & + .tag-list {
       margin-top: 1.375rem;
+      & + .type-link {
+        padding-top: 4.25rem;
+        &::after {
+          top: 1.75rem;
+        }
+      }
     }
   }
   h3 {
@@ -875,6 +894,73 @@ button {
     & + .c-select {
       margin-top: 3.75rem;
     }
+  }
+  .co-img-card {
+    padding: 0;
+    margin-top: 2.5rem;
+    &::after {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  }
+}
+// + 검진기관 상세 full 팝업
+#popupInstitutionDetails {
+  h2 {
+    @include coTxtLabelLarge;
+    color: $color-black-80;
+    & ~ h2 {
+      padding-top: 0.5rem;
+    }
+    & + .box {
+      margin-top: 0.75rem;
+      margin-bottom: 1.25rem;
+      & + .map {
+        margin-top: 1.75rem;
+        width: 100%;
+        img {
+          width: 100%;
+          height: auto;
+        }
+        & + h2 {
+          padding-top: 1.75rem;
+        }
+      }
+    }
+  }
+  // + 상세 swiper
+  .instDetailsCenter {
+    .swiper-slide {
+      width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    &.swiper-ready {
+      .swiper-slide {
+        width: calc(100% - 1.75rem) !important;
+        height: auto;
+      }
+      & + h2 {
+        padding-top: 1.75rem;
+      }
+    }
+  }
+  // + 아코디언
+  .accordion-list {
+    .accordion {
+      & ~ .accordion {
+        margin-top: 1.25rem;
+      }
+    }
+  }
+  .full-body {
+    padding-bottom: 2.5rem;
   }
 }
 
@@ -1238,19 +1324,19 @@ button {
                 tr {
                   td {
                     &:nth-child(1) {
-                      width: 120px;
+                      width: 7.5rem;
                     }
                     &:nth-child(2) {
-                      width: 160px;
+                      width: 10rem;
                     }
                     &:nth-child(3) {
-                      width: 320px;
+                      width: 20rem;
                     }
                     &:nth-child(4) {
-                      width: 200px;
+                      width: 12.5rem;
                     }
                     &:nth-child(5) {
-                      width: 320px;
+                      width: 20rem;
                     }
                     &:last-child {
                       text-align: center;

@@ -433,6 +433,8 @@ textarea,
     position: relative;
     .essential {
       color: $color-sub-03;
+      display: inline-block;
+      margin-left: 0.125rem;
     }
   }
 

@@ -448,7 +448,7 @@
 .card_06 {
   background: $color-white-100;
   border: 1px solid $color-black-05;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   border-radius: 0.75rem;
   padding: 0.75rem 1.25rem;
   display: flex;
@@ -489,7 +489,7 @@
   height: 4.5rem;
   background-color: $color-white-100;
   border: 1px solid $color-black-05;
-  box-shadow: 0px 0.125rem 0.25rem rgba(0, 0, 0, 0.16);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.16);
   border-radius: 0.75rem;
   ul {
     display: flex;
@@ -548,7 +548,7 @@
         padding: {
           top: 0.8125rem;
           right: 1.0625rem;
-          bottom: 0.25rem;
+          bottom: 0;
           left: 1.0625rem;
         }
         p,

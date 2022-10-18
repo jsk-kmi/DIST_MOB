@@ -294,7 +294,7 @@ $mq-mobile-sm: 280px;
 
 @mixin mSmHorizonSpacing {
   padding: {
-    left: $mq-m-sm-default-h-spacing;
-    right: $mq-m-sm-default-h-spacing;
+    left: $mq-sm-default-h-spacing;
+    right: $mq-sm-default-h-spacing;
   }
 }

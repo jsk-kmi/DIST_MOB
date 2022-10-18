@@ -26,7 +26,7 @@
       <div class="title-box">
         <h2 class="h2_guide">공통</h2>
       </div>
-      <div class="guide_descbox">
+      <div class="guide_descbox" aria-hidden="true">
         <h3 class="g-title"></h3>
         <div class="inner_desc">
           <ul>
@@ -168,7 +168,45 @@
       </div>
       <!-- [ // TAB: type-slide type-panel] -->
 
-      <!-- [TAB: type-slide type-click - input tag] -->
+      <!-- [TAB LEFT BUTTON: type-slide type-panel] -->
+      <h3 class="h3_guide">TAB LEFT BUTTON: type-slide type-panel</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <!--
+          * 탭 터치 시 panel이 바뀌는 case
+          * 탭 제일 왼쪽에 + 버튼 있음
+          * 탭의 aria-controls와 panel의 aria-labelledby가 동일해야 됨
+        -->
+        <ul class="c-tab type-slide type-panel" role="tablist">
+          <li>
+            <button class="ico-plus"><span class="skip">터치시 팝업열림</span></button>
+          </li>
+          <li role="tab" aria-controls="tab1-leftBtn-tab-panel">
+            <input type="radio" name="tabTypeLeftBtn" id="tab1LeftBtn" checked />
+            <label for="tab1LeftBtn">TAB 1</label>
+          </li>
+          <li role="tab" aria-controls="tab2-leftBtn-tab-panel">
+            <input type="radio" name="tabTypeLeftBtn" id="tab2LeftBtn" />
+            <label for="tab2LeftBtn">TAB 2</label>
+          </li>
+        </ul>
+
+        <!-- 
+          * tab1 panel
+          * tab-panel show class: show || null
+        -->
+        <div class="tab-panel show" role="tabpanel" aria-labelledby="tab1-leftBtn-tab-panel">
+          <br />LEFT PLUS BUTTON TAB 1 CONTENTS<br />
+        </div>
+        <!-- tab2 panel -->
+        <div class="tab-panel" role="tabpanel" aria-labelledby="tab2-leftBtn-tab-panel">
+          <br />LEFT PLUS BUTTON TAB 2 CONTENTS<br />
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [ // TAB LEFT BUTTON: type-slide type-panel] -->
+
+      <!-- 사용 안함 - [TAB: type-slide type-click - input tag] -->
       <!-- <h3 class="h3_guide">TAB: type-slide type-click - input tag</h3>
       <div class="d_desc code"> -->
         <!-- ? view -->
