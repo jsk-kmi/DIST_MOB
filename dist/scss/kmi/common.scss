@@ -230,7 +230,8 @@ input {
   &[type='text'],
   &[type='password'],
   &[type='number'],
-  &[type='search'] {
+  &[type='search'],
+  &[type='tel'] {
     outline: 0;
     border: 1px solid $input-border-color;
     border-radius: $input-border-radius;
@@ -436,6 +437,7 @@ a {
   &.hide {
     display: none;
   }
+  transition: bottom $transition-3 ease-in-out;
 }
 
 // common scrollbar

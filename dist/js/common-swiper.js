@@ -1,5 +1,7 @@
 'use strict'; // = Common swiper
 
+var swiper = new Object();
+var autoPlayState = true;
 /**
  * swiper
 */
@@ -7,6 +9,7 @@
 // + init
 
 function swiperInitEvt(_elem) {
+  swiper = _elem;
   swiperInitAriaExpanded(_elem);
 } // 접근성: aria-expanded, aria-hidden
 
@@ -76,5 +79,22 @@ function arrow(_arrow) {
 
   if (arrPrev) arrPrev.setAttribute('aria-label', '이전 슬라이드로 이동');
   if (arrNext) arrNext.setAttribute('aria-label', '다음 슬라이드로 이동');
+} // button: rolling swiper
+
+
+function stopSwiper(_this) {
+  if (autoPlayState) {
+    swiper.autoplay.stop();
+
+    _this.setAttribute('aria-label', '자동롤링이정지되어있는리스트입니다터치시자동롤링이플레이됩니다');
+
+    autoPlayState = false;
+  } else {
+    swiper.autoplay.start();
+
+    _this.setAttribute('aria-label', '자동롤링되있는리스트입니다터치시자동롤링이멈춥니다');
+
+    autoPlayState = true;
+  }
 }
 //# sourceMappingURL=maps/common-swiper.js.map

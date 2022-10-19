@@ -251,7 +251,11 @@ button {
     }
   }
 }
-// + swiper pagination
+// + swiper
+.swiper {
+  position: relative;
+}
+// ++ swiper pagination
 .swiper-pagination {
   position: relative;
   bottom: auto;
@@ -273,6 +277,16 @@ button {
       border-radius: 1.25rem;
     }
   }
+}
+// ++ rolling swiper stop button
+.btn-swiper-stop {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  background-color: transparent;
+  z-index: 2;
 }
 // + 등록된 컨텐츠 없음
 .null-contents {
@@ -326,6 +340,71 @@ button {
     p {
       @include coTxtLabelLarge;
       margin-top: 0.75rem;
+    }
+  }
+}
+// #container > 하단고정버튼
+#container {
+  .btn-bottom-floating {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    padding: 0.75rem 1.75rem;
+    margin-left: -1.75rem;
+    width: calc(100% + 3.5rem);
+    background-color: #fff;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: -2.25rem;
+      width: 100%;
+      height: 0;
+      background-image: linear-gradient(to top, rgba(25, 25, 25, 0) 0%, rgba(217, 217, 217, 0) 38.05%);
+      transition: background-image $transition-3 ease-in-out;
+    }
+    a,
+    button {
+      margin: 0;
+    }
+  }
+  &.isFloatingScroll {
+    .btn-move-top {
+      bottom: 5.75rem;
+    }
+    .btn-bottom-floating {
+      &::after {
+        height: 2.25rem;
+        background-image: linear-gradient(to top, rgba(25, 25, 25, 0.05) 0%, rgba(217, 217, 217, 0) 38.05%);
+      }
+    }
+  }
+}
+// txt + 기간
+.examinationPeriod {
+  border-radius: 1.25rem;
+  background-color: $color-bg-04;
+  height: 2.25rem;
+  overflow: hidden;
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 2.25rem;
+    padding: 0.5rem 1.25rem;
+    li {
+      text-align: right;
+      position: relative;
+      &:first-child {
+        @include coTxtLabelMedium;
+        color: $color-black-40;
+        text-align: left;
+      }
+      span {
+        @include coTxtLabelMedium;
+        color: $color-black-60;
+      }
     }
   }
 }
@@ -463,6 +542,9 @@ button {
 .guide-block {
   padding: 3.75rem 1.75rem 5rem;
 }
+.type-btn-floating {
+  padding-bottom: 3.25rem;
+}
 
 // 로그인(LO)
 .login-block {
@@ -518,7 +600,7 @@ button {
   .info-box {
     background: $color-black-05;
     border-radius: 1.875rem;
-    padding: 2rem 2.5rem;
+    padding: 2rem 0;
     box-sizing: border-box;
     margin-top: $g-article-spacing-v-40;
     p {
@@ -818,6 +900,31 @@ button {
     }
   }
   .tab-panel {
+    &[aria-labelledby='ap-step-1-panel'] {
+      p {
+        @include coTxtBody;
+        color: $color-black-80;
+        & ~ p {
+          margin-top: 0.75rem;
+        }
+      }
+      .examinationPeriod {
+        margin-top: 2.5rem;
+      }
+      .sub-card {
+        &.type1 {
+          margin-top: 1.25rem;
+        }
+      }
+      .null-contents {
+        margin-top: 2.5rem;
+      }
+      .accordion {
+        &.type4 {
+          margin-top: 3.75rem;
+        }
+      }
+    }
     &[aria-labelledby='step-1-panel'] {
       .accordion.type6 {
         & ~ .accordion.type6 {
@@ -1007,7 +1114,7 @@ button {
   .co-img-card {
     &.type-tag {
       position: relative;
-      padding: 2.5rem 0;
+      padding: 2.5rem 0 2rem;
       &::after {
         content: '';
         display: block;
@@ -1156,38 +1263,17 @@ button {
   .txt {
     @include coTxtBody;
     color: $color-black-80;
-    & + .examination-period {
-      margin-top: 2.5rem;
-      & + .sub-card {
-        &.type1 {
-          margin-top: 1.25rem;
-          & + .accordion {
-            &.type4 {
-              margin-top: 3.75rem;
-            }
+  }
+  .examinationPeriod {
+    margin-top: 2.5rem;
+    & + .sub-card {
+      &.type1 {
+        margin-top: 1.25rem;
+        & + .accordion {
+          &.type4 {
+            margin-top: 3.75rem;
           }
         }
-      }
-    }
-  }
-  .examination-period {
-    padding: 0.5rem 1.25rem;
-    border-radius: 1.25rem;
-    background-color: $color-bg-04;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 2.25rem;
-    li {
-      text-align: right;
-      position: relative;
-      &:first-child {
-        text-align: left;
-        color: $color-black-40;
-      }
-      span {
-        @include coTxtLabelMedium;
-        color: $color-black-60;
       }
     }
   }

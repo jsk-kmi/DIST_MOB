@@ -88,3 +88,13 @@ $table-border-color: $color-black-10;
 // + transition
 $transition-1: 0.1s;
 $transition-3: 0.3s;
+
+// = media query
+$mq-sm-default-h-spacing: 1.066rem;
+$mq-sm-width: 280px;
+
+// + gnb
+$mq-sm-gnb-h-spacing: 0.8rem;
+
+// + popup
+$mq-sm-popup-h-spacing: 1.333rem;

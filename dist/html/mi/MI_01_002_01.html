@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/ico/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <!-- BUTTON - 비밀번호 변경 팝업열림 -->
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupChangePassword"><span>팝업열림 - 비밀번호 변경</span></button><br /><br />
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP - 비밀번호 변경 -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupChangePassword" role="dialog" aria-labelledby="popupChangePassword_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg"></div>
+            <div class="modal-field" tabindex="0">
+                <div class="c-modal-header">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+                    <div class="c-modal-title-field">
+                        <h3 id="popupChangePassword_Label" class="c-title">비밀번호 변경</h3>
+                    </div>
+                </div>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            <div class="c-input-list">
+                                <div class="row">
+                                    <div class="col per-column label-input">
+                                        <label for="profileNowPassword">현재 비밀번호</label>
+                                        <input type="password" id="profileNowPassword" class="c-input" placeholder="현재 비밀번호" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="c-input-sub-group">
+                                <div class="per-column label-input">
+                                    <label for="profileChgPassword">변경할 비밀번호</label>
+                                    <input id="profileChgPassword" type="password" class="c-input" placeholder="새 비밀번호" />
+                                </div>
+                                <div class="per-column">
+                                    <input type="password" class="c-input" placeholder="새 비밀번호 확인" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <button class="co-btn is-outline-navy-1 popup-btn-close"><i class="skip">팝업 닫힘</i><span>취소</span></button>
+                            <a href="javascript:void(0);" class="co-btn bg-navy-1" title="페이지이동"><span>확인</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GNB -->
+    <!-- // GNB -->
+</body>
+
+</html>

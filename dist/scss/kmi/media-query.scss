@@ -1,6 +1,3 @@
-// + media query
-$mq-sm-default-h-spacing: 1.066rem;
-
 // media query test
 @media (max-width: 280px) {
   // 로그인 상단 배너
@@ -18,9 +15,54 @@ $mq-sm-default-h-spacing: 1.066rem;
     font-size: 15px;
   }
 
+  input,
+  textarea {
+    max-width: 100%;
+    box-sizing: border-box;
+    &::placeholder {
+      font-size: 14px;
+    }
+  }
+
+  // = GNB
+  .co-gnb {
+    right: calc(0rem - (100% - 2.666rem));
+    width: calc(100% - 2.666rem);
+
+    .gnb-header,
+    .gnb-btn-logout {
+      @include mSmHorizonSpacing;
+    }
+
+    .gnb-body {
+      li {
+        > a,
+        button {
+          @include mSmGnbListHSpacing;
+        }
+
+        .gnb-list {
+          a {
+            @include mSmGnbListHSpacing;
+          }
+        }
+      }
+    }
+  }
+
   // = Login
   .login-block {
     @include mSmHorizonSpacing;
+
+    .tab-panel {
+      & + .btn-list a {
+        &:nth-child(even) {
+          &:after {
+            @include after;
+          }
+        }
+      }
+    }
   }
 
   .footer {
@@ -37,12 +79,26 @@ $mq-sm-default-h-spacing: 1.066rem;
   }
 
   // = Popup
+
+  // + c-full-layer
   .c-full-layer {
     .cont-box,
     .full-body .top-title-box,
     .btn-floating,
     .btn-floating.isScroll {
       @include mSmHorizonSpacing;
+    }
+  }
+
+  // + c-layer-popup
+  .c-layer-popup {
+    .c-modal-header,
+    .c-modal-body,
+    .c-modal-footer {
+      padding: {
+        left: $mq-sm-popup-h-spacing;
+        right: $mq-sm-popup-h-spacing;
+      }
     }
   }
 
@@ -56,6 +112,16 @@ $mq-sm-default-h-spacing: 1.066rem;
   .terms-block,
   .guide-block {
     @include mSmHorizonSpacing;
+  }
+
+  // = Form
+  input {
+    &[type='text'],
+    &[type='password'],
+    &[type='number'],
+    &[type='search'] {
+      @include mSmHorizonSpacing;
+    }
   }
 
   // = Button
@@ -76,6 +142,24 @@ $mq-sm-default-h-spacing: 1.066rem;
   .c-input-btn-group {
     .co-btn {
       min-height: 46px;
+    }
+  }
+
+  // = 로그인 (LO)
+  .login-block {
+    .tab-panel {
+      & + .btn-list {
+        a {
+          padding: 0 0.4rem;
+        }
+      }
+    }
+  }
+  .c-full-layer {
+    .full-body {
+      .top-title-box {
+        font-size: 1.866rem;
+      }
     }
   }
 
@@ -102,6 +186,18 @@ $mq-sm-default-h-spacing: 1.066rem;
       .c-title {
         font-size: 1.4rem;
         margin-right: 0.571rem;
+      }
+    }
+  }
+
+  // = Header
+  header {
+    &.header {
+      &.co-header {
+        padding: {
+          left: $mq-sm-default-h-spacing;
+          right: $mq-sm-default-h-spacing;
+        }
       }
     }
   }

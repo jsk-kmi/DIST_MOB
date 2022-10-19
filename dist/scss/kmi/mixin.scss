@@ -282,8 +282,6 @@
 
 // = Media query
 
-$mq-mobile-sm: 280px;
-
 @mixin devices($breakpoint) {
   @if $breakpoint == mobileSm {
     @media screen and (max-width: 280px) {
@@ -296,5 +294,12 @@ $mq-mobile-sm: 280px;
   padding: {
     left: $mq-sm-default-h-spacing;
     right: $mq-sm-default-h-spacing;
+  }
+}
+
+@mixin mSmGnbListHSpacing {
+  padding: {
+    left: $mq-sm-gnb-h-spacing;
+    right: $mq-sm-gnb-h-spacing;
   }
 }

@@ -2,7 +2,7 @@
 
 /**
  * common variable
- */
+*/
 // animation time
 
 var ANI_TIME_300 = 301; // interval time
@@ -14,9 +14,10 @@ var SHOW_HEADER_NUM = 100; // 이 숫자만큼 스크롤을 올려야 .co-header
 
 var SCROLL_TIME = 0.5; // 초(second), 이 숫자만큼의 스피드로 scroll top 이동
 
+var INVERTED = 55;
 /**
  * common interface
- */
+*/
 // POPUP
 
 var IPOPUP = {
@@ -36,14 +37,12 @@ var IACCORDION = {
 };
 /**
  * HTML element length check
- */
+*/
 
 function elemLenCheck() {
   var okEl = 1;
 
   if (arguments.length > 0) {
-    console.log(arguments.length);
-
     for (var i = 0; i < arguments.length; i++) {
       if (document.querySelectorAll(i < 0 || arguments.length <= i ? undefined : arguments[i]).length > 0) {
         okEl += 1;
@@ -60,7 +59,7 @@ function elemLenCheck() {
 }
 /**
  * resize event
- */
+*/
 
 
 var rtime;
@@ -88,12 +87,14 @@ function resizeend() {
 
     fullPopupResizeScrollbar(); // container resize scrollbar
 
-    containerResizeScrollbar();
+    containerResizeScrollbar(); // container resize bottom floating button
+
+    containerResizeFloatingBtn();
   }
 }
 /**
  * 접근성 공통
- */
+*/
 // #container -> aria-hidden: true || false
 
 
@@ -105,16 +106,13 @@ function containerHidden(_state) {
       GNB_CONTAINER_EL.setAttribute('aria-hidden', true);
     } else {
       var OPEN_POPUPS = document.querySelectorAll('.kmi-popup.show');
-
-      if (OPEN_POPUPS.length == 0) {
-        GNB_CONTAINER_EL.setAttribute('aria-hidden', false);
-      }
+      if (OPEN_POPUPS.length == 0) GNB_CONTAINER_EL.setAttribute('aria-hidden', false);
     }
   }
 }
 /**
  * GNB
- */
+*/
 
 
 var GNB_ELEM = document.querySelectorAll('.btn-open-gnb');
@@ -220,7 +218,7 @@ function navTimeoutEvent(_navEl, _gnbBgEl, _gnbAcc, _gnbEl) {
 }
 /**
  * tab
- */
+*/
 
 
 var TAB_EL = document.querySelectorAll('ul.c-tab');
@@ -279,15 +277,11 @@ function tabClickEvent(_wrap, _ipt, _elem, _j, _ipt_checked) {
 function tabClickComn(_wrap, _elem, _ipt, _tabState, _j) {
   // focus 제거
   var FOCUS_INPUT = document.querySelectorAll('.input-focus');
-
-  if (FOCUS_INPUT.length > 0) {
-    for (var _i4 = 0; _i4 < FOCUS_INPUT.length; _i4++) {
-      FOCUS_INPUT[_i4].classList.remove('input-focus');
-    }
+  if (FOCUS_INPUT.length > 0) for (var _i4 = 0; _i4 < FOCUS_INPUT.length; _i4++) {
+    FOCUS_INPUT[_i4].classList.remove('input-focus');
   } // 팝업에서 tab 터치 시 팝업 c-container 높이가 변할 경우
   // 애니메이션 타임: 100
   // setTimeout(() => { clkElClickPopupCheck(_elem) }, INTERVAL_1);
-
 
   setTimeout(function () {
     clkElClickPopupChk(_elem);
@@ -372,6 +366,7 @@ function applyTabAltText(_ipt, _elem, _j) {
       self = self.previousElementSibling;
     }
 
+    ;
     return this.parentNode === parent.children[i] ? i : -1;
   };
 
@@ -573,18 +568,12 @@ function tabStateClick(_elem) {
 
       if (DATA_NULL_WRAP) {
         var DATA_NULL_LIST = DATA_NULL_WRAP.querySelectorAll('[data-view]');
-
-        if (DATA_NULL_LIST.length > 0) {
-          for (var _i11 = 0; _i11 < DATA_NULL_LIST.length; _i11++) {
-            DATA_NULL_LIST[_i11].classList.remove('show');
-          }
+        if (DATA_NULL_LIST.length > 0) for (var _i11 = 0; _i11 < DATA_NULL_LIST.length; _i11++) {
+          DATA_NULL_LIST[_i11].classList.remove('show');
         } // 전체 tab click
 
-
-        if (DATA_CASE === 'all') {
-          for (var _i12 = 0; _i12 < DATA_NULL_LIST.length; _i12++) {
-            DATA_NULL_LIST[_i12].classList.add('show');
-          }
+        if (DATA_CASE === 'all') for (var _i12 = 0; _i12 < DATA_NULL_LIST.length; _i12++) {
+          DATA_NULL_LIST[_i12].classList.add('show');
         }
       }
     }
@@ -675,18 +664,15 @@ function tabClickListAllShow(_tabWrap) {
 
     if (DATA_TAB_PANEL) {
       var PANEL_VIEW_LIST = DATA_TAB_PANEL.querySelectorAll('*[data-view]');
-
-      if (PANEL_VIEW_LIST.length > 0) {
-        for (var _i14 = 0; _i14 < PANEL_VIEW_LIST.length; _i14++) {
-          PANEL_VIEW_LIST[_i14].classList.add('show');
-        }
+      if (PANEL_VIEW_LIST.length > 0) for (var _i14 = 0; _i14 < PANEL_VIEW_LIST.length; _i14++) {
+        PANEL_VIEW_LIST[_i14].classList.add('show');
       }
     }
   }
 }
 /**
  * popup
- */
+*/
 // 화면에 팝업이 있을 경우 공통 스타일 적용
 // 팝업 필수 class: kmi-popup
 
@@ -697,11 +683,10 @@ if (POPUP_ELEM.length > 0) for (var _i15 = 0; _i15 < POPUP_ELEM.length; _i15++) 
   popupStyle(POPUP_ELEM[_i15], 'hide');
 } // 팝업 열림
 
-var POPUP_BTN_ELEM = document.querySelectorAll('.btn-open-popup');
+var POPUP_BTN_ELEM = document.querySelectorAll('.btn-open-popup'); // popup open button - click event
 
 if (POPUP_BTN_ELEM.length > 0) {
   var _loop = function _loop(_i16) {
-    // popup open button - click event
     POPUP_BTN_ELEM[_i16].addEventListener('click', function () {
       popupOpenEvent(POPUP_BTN_ELEM[_i16], _i16);
     });
@@ -715,11 +700,8 @@ if (POPUP_BTN_ELEM.length > 0) {
 
 function popupOpenEvent(_btnElem) {
   var OPENSTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
-
-  if (OPENSTATE_POPUP.length > 0) {
-    for (var _i17 = 0; _i17 < OPENSTATE_POPUP.length; _i17++) {
-      OPENSTATE_POPUP[_i17].setAttribute('aria-hidden', true);
-    }
+  if (OPENSTATE_POPUP.length > 0) for (var _i17 = 0; _i17 < OPENSTATE_POPUP.length; _i17++) {
+    OPENSTATE_POPUP[_i17].setAttribute('aria-hidden', true);
   }
 
   var TARGET = _btnElem.getAttribute('data-target');
@@ -823,7 +805,7 @@ function fullTabScrollChk(_elem) {
     var F_Tab = F_CONTAINER.querySelector('.tab-floating');
     var F_HEADER = F_CONTAINER.querySelector('.full-header');
     var F_BODY = F_CONTAINER.querySelector('.full-body');
-    if (F_HEADER && F_BODY) fullTabScrollEvt(F_CONTAINER, F_Tab, F_HEADER, F_BODY);
+    if (F_HEADER && F_BODY && F_Tab) fullTabScrollEvt(F_CONTAINER, F_Tab, F_HEADER, F_BODY);
   }
 }
 
@@ -878,9 +860,7 @@ function fullTabScrollEvt(_container, _tab, _header, _body) {
 
           scrollArr = [];
         }
-      } else {
-        _container.closest('.kmi-popup.show').classList.remove('type-floating');
-      }
+      } else _container.closest('.kmi-popup.show').classList.remove('type-floating');
     }
   });
 } // + full type: 스크롤 되는 경우 check
@@ -891,9 +871,7 @@ function popupScrollCase(_state, _elem) {
   if (_state === 'full') fullScrollChk(_elem);
   if (_state === 'full-footer') fullFooterScrollCheck(_elem); // scroll event
 
-  if (_state === 'full' || _state === 'full-footer') {
-    customScrollbar(_elem, _state);
-  }
+  if (_state === 'full' || _state === 'full-footer') customScrollbar(_elem, _state);
 }
 
 function fullScrollChk(_elem) {
@@ -1067,11 +1045,14 @@ function popupModalHeaderScroll(_popEl, _state) {
 
   if (SCROLL_ELEM) {
     var POP_HEADER = SCROLL_ELEM.querySelector('.c-modal-header');
-    if (POP_HEADER) if (SCROLL_ELEM.scrollHeight > SCROLL_ELEM.clientHeight) {
-      // scrollbar design
-      customScrollbar(_popEl, _state); // scroll event
 
-      popupModalHeaderScrollEvt(SCROLL_ELEM, POP_HEADER);
+    if (POP_HEADER) {
+      if (SCROLL_ELEM.scrollHeight > SCROLL_ELEM.clientHeight) {
+        // scrollbar design
+        customScrollbar(_popEl, _state); // scroll event
+
+        popupModalHeaderScrollEvt(SCROLL_ELEM, POP_HEADER);
+      }
     }
   }
 } // +++ modal header type의 modal-field가 스크롤 되는 경우
@@ -1092,11 +1073,8 @@ function popupCloseComn(_popupCloseEl) {
     // popup close button - click event
     _popupCloseEl[_i19].addEventListener('click', function () {
       var CLOSESTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
-
-      if (CLOSESTATE_POPUP.length > 0) {
-        for (var _i20 = 0; _i20 < CLOSESTATE_POPUP.length; _i20++) {
-          CLOSESTATE_POPUP[_i20].setAttribute('aria-hidden', false);
-        }
+      if (CLOSESTATE_POPUP.length > 0) for (var _i20 = 0; _i20 < CLOSESTATE_POPUP.length; _i20++) {
+        CLOSESTATE_POPUP[_i20].setAttribute('aria-hidden', false);
       }
 
       var TARGET = _popupCloseEl[_i19].closest('.kmi-popup');
@@ -1142,23 +1120,16 @@ function focusFirstBtn(_state, _elem) {
       focus_el[0].focus();
     }, INTERVAL_1);
   }, ANI_TIME_300);
-} // DOM에 풀팝업이 있을 경우
+} // DOM에 풀팝업이 있을 경우 
 
 
 function fullPopupState() {
   var FULL_POP_ELEM = document.querySelectorAll('.c-full-layer.show');
-  console.log(FULL_POP_ELEM.length);
 
   if (FULL_POP_ELEM.length > 0) {
     for (var _i21 = 0; _i21 < FULL_POP_ELEM.length; _i21++) {
-      if (FULL_POP_ELEM[_i21].classList.contains('type-full')) {
-        fullPopupScrollHeightCheck('full', FULL_POP_ELEM[_i21]);
-      }
-
-      if (FULL_POP_ELEM[_i21].classList.contains('type-full-footer')) {
-        fullPopupScrollHeightChk('full-footer', FULL_POP_ELEM[_i21]);
-        console.log('type-full-footer');
-      }
+      if (FULL_POP_ELEM[_i21].classList.contains('type-full')) fullPopupScrollHeightCheck('full', FULL_POP_ELEM[_i21]);
+      if (FULL_POP_ELEM[_i21].classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', FULL_POP_ELEM[_i21]);
     }
   }
 } // + resize: DOM에 팝업이 있는 경우
@@ -1208,11 +1179,8 @@ function fullResizeEvent(_container, _header, _body, _footer) {
 
 function modalHeaderPopupShadow() {
   var MODAL_HEADER_POPUP = document.querySelectorAll('.c-layer-popup.kmi-popup.type-modal.show');
-
-  if (MODAL_HEADER_POPUP.length > 0) {
-    for (var _i22 = 0; _i22 < MODAL_HEADER_POPUP.length; _i22++) {
-      customScrollbar(MODAL_HEADER_POPUP[_i22], 'modal');
-    }
+  if (MODAL_HEADER_POPUP.length > 0) for (var _i22 = 0; _i22 < MODAL_HEADER_POPUP.length; _i22++) {
+    customScrollbar(MODAL_HEADER_POPUP[_i22], 'modal');
   }
 } // resize: full popup
 
@@ -1222,13 +1190,8 @@ function fullPopupResizeScrollbar() {
 
   if (FULL_POPUP.length > 0) {
     for (var _i23 = 0; _i23 < FULL_POPUP.length; _i23++) {
-      if (FULL_POPUP[_i23].classList.contains('type-full')) {
-        customScrollbar(FULL_POPUP[_i23], 'full');
-      }
-
-      if (FULL_POPUP[_i23].classList.contains('type-full-footer')) {
-        customScrollbar(FULL_POPUP[_i23], 'full-footer');
-      }
+      if (FULL_POPUP[_i23].classList.contains('type-full')) customScrollbar(FULL_POPUP[_i23], 'full');
+      if (FULL_POPUP[_i23].classList.contains('type-full-footer')) customScrollbar(FULL_POPUP[_i23], 'full-footer');
     }
   }
 } // 팝업 열림 버튼을 직접 click할 경우
@@ -1239,7 +1202,7 @@ function popupDirectClick(_popupBtnEl) {
 }
 /**
  * accordion
- */
+*/
 
 
 var ACCORDION_ELEM = document.querySelectorAll('.accordion');
@@ -1303,7 +1266,12 @@ function accButtonClickEvtComn(_e, _accType, _accWrap, _accBodyEl, _bodyHeight) 
     accButtonTypeOneOpen(_accType, _accWrap);
     accButtonOpenClose(_accWrap, _accBodyEl, _bodyHeight); // 접근성
 
-    accordionAccessibility(_accWrap);
+    accordionAccessibility(_accWrap); // btn-bottom-floating check
+
+    setTimeout(function () {
+      var CONTAINER_EL = document.getElementById('container');
+      if (CONTAINER_EL) scrollTopFake(CONTAINER_EL);
+    }, ANI_TIME_300);
   }
 }
 
@@ -1362,7 +1330,7 @@ function accordionAllClose(_accEl) {
 }
 /**
  * terms
- */
+*/
 
 
 var TERMS_ELEM = document.querySelectorAll('.terms-box');
@@ -1432,7 +1400,7 @@ function termsScrollEvent(_scrollBody, _scrollWrap, _scrollElem) {
 }
 /**
  * textarea
- */
+*/
 
 
 var TEXTAREA_ELEM = document.querySelectorAll('textarea');
@@ -1467,7 +1435,7 @@ function textareaScrollbar(_elem) {
 }
 /**
  * input
- */
+*/
 
 
 var INPUT_ELEM = document.querySelectorAll('input');
@@ -1513,10 +1481,7 @@ function inputFocusEvtComn(_inputEl) {
 
       if (PARENT_EL_FULL) {
         var PARENT_EL_HEADER = PARENT_EL_FULL.querySelector('.full-header');
-
-        if (PARENT_EL_HEADER) {
-          PARENT_EL_FULL.scrollTop = elTop - PARENT_EL_HEADER.clientHeight;
-        }
+        if (PARENT_EL_HEADER) PARENT_EL_FULL.scrollTop = elTop - PARENT_EL_HEADER.clientHeight;
       } // type-modal
 
 
@@ -1527,10 +1492,7 @@ function inputFocusEvtComn(_inputEl) {
 
         if (MODAL_INNER) {
           var MODAL_HEADER = MODAL_INNER.querySelector('.c-modal-header');
-
-          if (MODAL_HEADER) {
-            MODAL_INNER.scrollTop = elTop - MODAL_HEADER.clientHeight;
-          }
+          if (MODAL_HEADER) MODAL_INNER.scrollTop = elTop - MODAL_HEADER.clientHeight;
         }
       }
 
@@ -1595,7 +1557,7 @@ function inputFocusEvtModal() {// let modalPopup = document.querySelector('.c-la
 }
 /**
  * #container scroll event
- */
+*/
 
 
 var CONTAINER_ELEM = document.querySelector('#container');
@@ -1616,7 +1578,20 @@ function containerScrollEvent(_moveHeader, _scrollEl) {
   var headerHeight = _moveHeader.clientHeight;
   var lastScrollTop = 0;
   var scrollArr = [];
-  var isScrolling; // move top button
+  var isScrolling;
+
+  var BTN_BOTTOM_FLOATING = _scrollEl.querySelector('.btn-bottom-floating');
+
+  var CONTAINER_FOOTER = _scrollEl.querySelector('.footer');
+
+  var elTopArr = new Array();
+
+  if (BTN_BOTTOM_FLOATING) {
+    var MARGIN_EL = BTN_BOTTOM_FLOATING.previousSibling.previousElementSibling;
+    if (MARGIN_EL) MARGIN_EL.style.marginBottom = '3.75rem';
+    if (CONTAINER_FOOTER) floatingBtnComn(_scrollEl, CONTAINER_FOOTER);else floatingBtnComn(_scrollEl);
+  } // move top button
+
 
   var MOVE_TOP_BTN_ELEM = document.querySelector('.btn-move-top');
 
@@ -1653,21 +1628,75 @@ function containerScrollEvent(_moveHeader, _scrollEl) {
 
     if (MOVE_TOP_BTN_ELEM) {
       if (this.scrollTop <= 0) MOVE_TOP_BTN_ELEM.classList.add('hide');else MOVE_TOP_BTN_ELEM.classList.remove('hide');
-    }
+    } // 하단 고정 버튼이 있는 경우
+
+
+    if (BTN_BOTTOM_FLOATING) scrollingFloatingBtn(BTN_BOTTOM_FLOATING, elTopArr, this, CONTAINER_FOOTER);
   }, false);
+}
+
+function floatingBtnComn(_scrollBody) {
+  for (var _len2 = arguments.length, _footer = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+    _footer[_key2 - 1] = arguments[_key2];
+  }
+
+  if (_footer.length > 0) {
+    if (_scrollBody.scrollHeight > _scrollBody.clientHeight + _footer[0].clientHeight + INVERTED) floatingBtnInner(true, _scrollBody);else floatingBtnInner(false, _scrollBody);
+  } else {
+    if (_scrollBody.scrollHeight > _scrollBody.clientHeight + INVERTED) floatingBtnInner(true, _scrollBody);else floatingBtnInner(false, _scrollBody);
+  }
+}
+
+function floatingBtnInner(_state, _el) {
+  switch (_state) {
+    case true:
+      _el.classList.add('isFloatingScroll');
+
+      scrollTopFake(_el);
+      break;
+
+    default:
+      _el.classList.remove('isFloatingScroll');
+
+      break;
+  }
+}
+
+function scrollingFloatingBtn(_floatingBtn, _arr, _this, _footer) {
+  if (_arr.length < 10) _arr.push(_floatingBtn.offsetTop);
+  var min = Math.min.apply(Math, _arr);
+  var elTopRes = _floatingBtn.offsetTop - _this.scrollTop;
+
+  if (min > elTopRes) {
+    _this.classList.remove('isFloatingScroll');
+  } else {
+    if (_footer) if (_this.scrollHeight - _this.clientHeight - INVERTED > _footer.clientHeight) _this.classList.add('isFloatingScroll');else _this.classList.add('isFloatingScroll');
+  }
+}
+
+function scrollTopFake(_scrollBody) {
+  _scrollBody.scrollTop += 1;
+  _scrollBody.scrollTop -= 1;
 } // container scrollbar resize
 
 
 function containerResizeScrollbar() {
   var CONTAINER_ELEM = document.getElementById('container');
+  if (CONTAINER_ELEM) customScrollbar(CONTAINER_ELEM);
+} // container bottom floating button
+
+
+function containerResizeFloatingBtn() {
+  var CONTAINER_ELEM = document.getElementById('container');
 
   if (CONTAINER_ELEM) {
-    customScrollbar(CONTAINER_ELEM);
+    var CONTAINER_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
+    if (CONTAINER_HEADER) containerScrollEvent(CONTAINER_HEADER, CONTAINER_ELEM);
   }
 }
 /**
  * 최상단 스크롤 이동 버튼 click event
- */
+*/
 
 
 var BTN_MOVE_TOP_ELEM = document.querySelector('.btn-move-top');
@@ -1678,7 +1707,6 @@ if (BTN_MOVE_TOP_ELEM) {
   if (SCROLLING_ELEM) {
     if (SCROLLING_ELEM.scrollTop <= 0) BTN_MOVE_TOP_ELEM.classList.add('hide');
     BTN_MOVE_TOP_ELEM.addEventListener('click', function () {
-      // SCROLLING_ELEM.scrollTop = 0;
       scrollToItemId(SCROLLING_ELEM.id);
     });
   }
@@ -1711,7 +1739,7 @@ function easeOutCubic(currentIteration, startValue, changeInValue, totalIteratio
 }
 /**
  * floating tab
- */
+*/
 
 
 var STICKYELM = document.querySelector('.tab-floating');
@@ -1722,15 +1750,19 @@ if (STICKYELM) {
   if (scrollEl) {
     var tabOffsetTop = STICKYELM.offsetTop;
     scrollEl.addEventListener('scroll', function () {
-      // scrolling
-      var tabOffsetTopScroll = STICKYELM.offsetTop;
-      if (tabOffsetTopScroll <= tabOffsetTop) STICKYELM.classList.remove('isScroll');else STICKYELM.classList.add('isScroll');
+      stickyElComn(STICKYELM, tabOffsetTop);
     });
   }
 }
+
+function stickyElComn(_el, _top) {
+  // scrolling
+  var tabOffsetTopScroll = _el.offsetTop;
+  if (tabOffsetTopScroll <= _top) _el.classList.remove('isScroll');else _el.classList.add('isScroll');
+}
 /**
  * custom scrollbar
- */
+*/
 // common formula
 // + popup: modal header
 
@@ -1787,10 +1819,7 @@ function scrollDesignContainer(_container) {
 
   if (CUSTOMER_SCROLL) {
     var CUSTOMER_SCROLL_INNER = CUSTOMER_SCROLL.querySelector('span');
-
-    if (CUSTOMER_SCROLL_INNER) {
-      addStyle('container', CUSTOMER_SCROLL, CUSTOMER_SCROLL_INNER, _container);
-    }
+    if (CUSTOMER_SCROLL_INNER) addStyle('container', CUSTOMER_SCROLL, CUSTOMER_SCROLL_INNER, _container);
   } else {
     scrollbarCreate(_container);
   }
@@ -1835,12 +1864,10 @@ function scrollDesignPopModalHeader(_elem) {
 
 function modalHeaderScrollbarComn(_wrap, _scrollEl, _header) {
   if (_scrollEl) {
-    var CUSTOMER_SCROLL_INNER = _scrollEl.querySelector('span');
+    var CUSTOMER_SCROLL_INNER = _scrollEl.querySelector('span'); // add style
 
-    if (CUSTOMER_SCROLL_INNER) {
-      // add style
-      addStyle('modal', _scrollEl, CUSTOMER_SCROLL_INNER, _wrap, _header);
-    }
+
+    if (CUSTOMER_SCROLL_INNER) addStyle('modal', _scrollEl, CUSTOMER_SCROLL_INNER, _wrap, _header);
   } else {
     // create element
     scrollbarCreate(_wrap, _header);

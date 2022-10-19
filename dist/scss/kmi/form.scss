@@ -316,7 +316,8 @@
 // = Count
 .c-input-count {
   position: relative;
-  input[type='text'] {
+  input[type='text'],
+  input[type='number'] {
     width: 100%;
     padding-right: 4.25rem;
     // readonly
@@ -406,7 +407,9 @@ textarea,
   }
   input {
     &[type='text'],
-    &[type='password'] {
+    &[type='password'],
+    &[type='tel'],
+    &[type='number'] {
       border-radius: $input-border-radius 0 0 $input-border-radius;
     }
   }
@@ -538,6 +541,7 @@ textarea,
           cursor: pointer;
           display: inline-block;
           width: 24px;
+          min-width: 24px;
           height: 24px;
           background: {
             image: url($image-ico-chkbox-sprite01);

@@ -2,7 +2,7 @@
   dl {
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     padding-top: 1.75rem;
     dt,
@@ -13,6 +13,8 @@
     dt {
       @include coTxtLabelMedium;
       white-space: nowrap;
+      align-self: stretch;
+      line-height: 1.625rem;
     }
     dd {
       position: relative;
@@ -39,6 +41,7 @@
   }
   &.type1 {
     position: relative;
+    input[type='radio'],
     input[type='checkbox'] {
       @include hide-input;
       & + label {
