@@ -353,7 +353,8 @@
 // + card_05
 .card_05 {
   position: relative;
-  input[type='checkbox'] {
+  input[type='checkbox'],
+  input[type='radio'] {
     @include hide-input;
     & + label {
       @include card-check-type-off;
@@ -367,8 +368,25 @@
         background-color: #fff;
         padding: 1rem 1.25rem;
         p {
-          @include coTxtLabelLarge;
-          color: $color-black-100;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          span {
+            @include coTxtLabelLarge;
+            color: $color-black-100;
+            padding-right: 1rem;
+            @include shortening-one;
+          }
+          em {
+            @include coTxtLabelMedium;
+            color: $color-white-100;
+            background-color: $color-main;
+            display: inline-block;
+            padding: 0 0.5rem;
+            border-radius: 0.5rem;
+            white-space: nowrap;
+          }
           & + ul {
             margin-top: 0.75rem;
             position: relative;

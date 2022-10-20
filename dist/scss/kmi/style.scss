@@ -3,6 +3,20 @@
 .btn-view-more {
   margin-top: 3.75rem;
 }
+// + ? 아이콘
+.ico-ques {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background-image: url($image-ico-path + 'ico_tooltip_question.png');
+  background-size: 1rem 1rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  &.type-big {
+    width: 2rem;
+    height: 2rem;
+  }
+}
 // 영상, 이미지 리스트
 .media-list {
   &.end-state {
@@ -213,6 +227,7 @@
       }
     }
     tbody {
+      th,
       td {
         @include coTxtBody;
         border-bottom: 1px solid $color-black-10;
@@ -361,8 +376,9 @@ button {
       top: -2.25rem;
       width: 100%;
       height: 0;
-      background-image: linear-gradient(to top, rgba(25, 25, 25, 0) 0%, rgba(217, 217, 217, 0) 38.05%);
-      transition: background-image $transition-3 ease-in-out;
+      opacity: 0;
+      background-image: linear-gradient(to top, rgba(25, 25, 25, 0.05) 0%, rgba(217, 217, 217, 0) 38.05%);
+      transition: opacity $transition-3 ease-in-out;
     }
     a,
     button {
@@ -376,7 +392,7 @@ button {
     .btn-bottom-floating {
       &::after {
         height: 2.25rem;
-        background-image: linear-gradient(to top, rgba(25, 25, 25, 0.05) 0%, rgba(217, 217, 217, 0) 38.05%);
+        opacity: 1;
       }
     }
   }
@@ -393,18 +409,52 @@ button {
     justify-content: space-between;
     height: 2.25rem;
     padding: 0.5rem 1.25rem;
+    position: relative;
     li {
-      text-align: right;
-      position: relative;
-      &:first-child {
-        @include coTxtLabelMedium;
-        color: $color-black-40;
-        text-align: left;
-      }
-      span {
+      @include coTxtLabelMedium;
+      color: $color-black-40;
+      text-align: left;
+      & ~ li {
         @include coTxtLabelMedium;
         color: $color-black-60;
+        text-align: right;
       }
+    }
+  }
+}
+// 검진기관 리스트
+.region-list {
+  margin-left: -1.75rem;
+  width: 100vw;
+  background-color: $color-black-05;
+  padding: 2rem 1.75rem;
+  .list {
+    h2 {
+      position: relative;
+      .region-list-tit {
+        @include coTxtTitleLarge;
+        color: $color-black-80;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        i {
+          @include coTxtLabelLarge;
+          color: $color-black-40;
+          margin-left: 0.5rem;
+        }
+      }
+    }
+    .accordion {
+      margin-top: 0.75rem;
+      transition: margin-top $transition-3 ease-in-out;
+      &.open {
+        & + .accordion {
+          margin-top: 2rem;
+        }
+      }
+    }
+    & ~ .list {
+      margin-top: 3.75rem;
     }
   }
 }
@@ -799,6 +849,9 @@ button {
 
 // 검진내역(RV)
 .rv-block {
+  &.type-floating-btn {
+    padding: 3.75rem 1.75rem 4.25rem;
+  }
   .tit {
     & + .c-select {
       margin-top: 1.25rem;
@@ -839,6 +892,22 @@ button {
           left: 0;
           top: 2.5rem;
           background-color: $color-black-10;
+        }
+      }
+    }
+    & + img {
+      display: block;
+      width: 10.9375rem;
+      height: auto;
+      text-align: center;
+      margin: 5rem auto 0;
+      & + h2 {
+        @include coTxtTitleLarge;
+        color: $color-sub-02;
+        text-align: center;
+        margin-top: 2.5rem;
+        & + .box {
+          margin-top: 1.25rem;
         }
       }
     }
@@ -925,6 +994,23 @@ button {
         }
       }
     }
+    &[aria-labelledby='ap-step-2-panel'] {
+      // 검진기관 리스트
+      .region-list {
+        margin-top: 2.5rem;
+      }
+    }
+    &[aria-labelledby='ap-step-3-panel'] {
+      .accordion-list {
+        margin-top: 2.5rem;
+        .accordion {
+          margin-top: 1.25rem;
+        }
+      }
+      .c-input-list {
+        margin-top: 3.75rem;
+      }
+    }
     &[aria-labelledby='step-1-panel'] {
       .accordion.type6 {
         & ~ .accordion.type6 {
@@ -991,6 +1077,110 @@ button {
     p {
       @include coTxtBody;
       color: $color-black-80;
+    }
+  }
+}
+// + 팝업: 대상자 추가
+#popupAddTarget {
+  p {
+    @include coTxtBody;
+    color: $color-black-60;
+  }
+  .c-input-list {
+    margin-top: 2.5rem;
+  }
+}
+// + 팝업: 세부 검진항목 보기
+#popupDetailedExamItems {
+  .cont-box {
+    h2 {
+      @include coTxtLabelLarge;
+      color: $color-sub-02;
+      & ~ p {
+        @include coTxtBody;
+        color: $color-black-80;
+        margin-top: 0.25rem;
+      }
+    }
+    .c-select {
+      margin-top: 2.5rem;
+    }
+    .table-wrap {
+      margin-top: 1.75rem;
+      overflow-x: hidden;
+      table {
+        width: 100%;
+        border-bottom: 2px solid $color-black-20;
+        thead {
+          border-bottom: 2px solid $color-black-20;
+          th {
+            border-top: 0 none;
+            width: 39%;
+            & ~ th {
+              width: 61%;
+            }
+          }
+        }
+        tbody {
+          th {
+            vertical-align: middle;
+            border-bottom: 2px solid $color-black-20;
+          }
+          td {
+            padding: {
+              top: 0.375rem;
+              right: 0;
+              bottom: 0.375rem;
+              left: 0.5rem;
+            }
+            &.last {
+              border-bottom: 2px solid $color-black-20;
+            }
+            p {
+              display: table;
+              table-layout: fixed;
+              width: 100%;
+              span,
+              a {
+                vertical-align: middle;
+              }
+              span {
+                display: inline-block;
+                width: calc(100% - 2.5rem);
+                @include shortening-one;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// ++ 팝업: 세부 검진항목 보기 상세
+#popupRvDetialQues {
+  .in-cont {
+    text-align: left;
+    h1 {
+      @include coTxtTitleSmall;
+      color: $color-black-80;
+      & + p {
+        @include coTxtBody;
+        color: $color-black-80;
+        margin-top: 0.75rem;
+      }
+    }
+  }
+}
+// + 팝업: 회사검진 기간 내 불가
+#popupNotAvailableInspection {
+  .in-cont {
+    p {
+      span {
+        display: block;
+        & ~ span {
+          margin-top: 0.75rem;
+        }
+      }
     }
   }
 }
@@ -1280,33 +1470,7 @@ button {
 
   // 검진기관 리스트
   .region-list {
-    margin-left: -1.75rem;
     margin-top: 3.75rem;
-    width: 100vw;
-    background-color: $color-black-05;
-    padding: 1.75rem;
-    .list {
-      h2 {
-        position: relative;
-        .region-list-tit {
-          @include coTxtTitleLarge;
-          color: $color-black-80;
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          i {
-            @include coTxtLabelLarge;
-            color: $color-black-40;
-            margin-left: 0.5rem;
-          }
-        }
-        & + .accordion {
-          &.type5 {
-            margin-top: 0.5rem;
-          }
-        }
-      }
-    }
   }
 
   // 다음 버튼

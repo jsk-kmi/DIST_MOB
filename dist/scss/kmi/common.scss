@@ -407,16 +407,16 @@ a {
 
 // = 대체텍스트
 .alt-txt {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1px;
-  height: 1px;
-  font-size: 1px;
-  line-height: 1px;
-  opacity: 0;
-  color: transparent;
-  display: block;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  font-size: 1px !important;
+  line-height: 1px !important;
+  opacity: 0 !important;
+  color: transparent !important;
+  display: block !important;
 }
 
 // 최상단 이동 버튼
@@ -496,5 +496,17 @@ a {
   .textarea-scroll {
     height: calc(100% - 2.5rem);
     top: 1.25rem;
+  }
+}
+
+// left, right block
+.c-loc {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  line-height: 0;
+  &.type-right {
+    text-align: right;
   }
 }

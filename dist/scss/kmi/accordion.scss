@@ -288,7 +288,7 @@
     .accordion-header {
       padding: {
         top: 0.75rem;
-        right: 2.5rem;
+        right: 3rem;
         bottom: 0.75rem;
         left: 1.25rem;
       }
@@ -306,16 +306,10 @@
       span {
         @include coTxtLabelLarge;
         color: $color-black-40;
+        padding-right: 0.5rem;
+        max-width: calc(100% - 1rem);
+        @include shortening-one;
         transition: color $transition-3;
-      }
-      .ico-ques {
-        margin-left: 0.5rem;
-        width: 1rem;
-        height: 1rem;
-        background-image: url($image-ico-path + 'ico_tooltip_question.png');
-        background-size: 1rem 1rem;
-        background-position: center center;
-        background-repeat: no-repeat;
       }
     }
     .accordion-body {
@@ -323,6 +317,15 @@
       margin-top: 0;
       overflow: inherit;
       transition: max-height $transition-3, margin-top $transition-3, opacity $transition-3;
+      .c-loc {
+        padding-top: 1rem;
+        & + .card_05 {
+          margin-top: 1.25rem;
+        }
+      }
+      .card_05 {
+        margin-top: 1rem;
+      }
     }
     &.open {
       .accordion-header {
@@ -332,7 +335,7 @@
         }
       }
       .accordion-body {
-        margin-top: 1.25rem;
+        // margin-top: 1.25rem;
       }
     }
   }

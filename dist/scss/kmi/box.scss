@@ -29,6 +29,11 @@
     @include coTxtBody;
     color: $color-black-80;
     padding: 1rem 1.25rem;
+    p {
+      & ~ p {
+        margin-top: 0.75rem;
+      }
+    }
   }
   &.type4 {
     @include coTxtLabelLarge;

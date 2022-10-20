@@ -1,7 +1,17 @@
 'use strict'; // = Common swiper
 
+/**
+ * swiper variable
+*/
+
 var swiper = new Object();
 var autoPlayState = true;
+var SWIPER_ALT_TXT = {
+  rolling: {
+    start: '자동롤링되있는리스트입니다이중탭하면자동롤링이멈춥니다',
+    stop: '자동롤링이정지되어있는리스트입니다이중탭하면자동롤링이플레이됩니다'
+  }
+};
 /**
  * swiper
 */
@@ -63,7 +73,7 @@ function dot(_dot) {
 
     if (allDot && currentDot) {
       for (var i = 0; i < allDot.length; i++) {
-        allDot[i].setAttribute('aria-label', "\uD130\uCE58 \uC2DC ".concat(i + 1, "\uBC88 \uC2AC\uB77C\uC774\uB4DC\uB85C \uC774\uB3D9"));
+        allDot[i].setAttribute('aria-label', "\uC774\uC911\uD0ED\uD558\uBA74 ".concat(i + 1, "\uBC88 \uC2AC\uB77C\uC774\uB4DC\uB85C \uC774\uB3D9"));
       }
 
       currentDot.setAttribute('aria-label', "\uD604\uC7AC ".concat(_dot.realIndex + 1, "\uBC88 \uC2AC\uB77C\uC774\uB4DC"));
@@ -82,19 +92,9 @@ function arrow(_arrow) {
 } // button: rolling swiper
 
 
-function stopSwiper(_this) {
-  if (autoPlayState) {
-    swiper.autoplay.stop();
-
-    _this.setAttribute('aria-label', '자동롤링이정지되어있는리스트입니다터치시자동롤링이플레이됩니다');
-
-    autoPlayState = false;
-  } else {
-    swiper.autoplay.start();
-
-    _this.setAttribute('aria-label', '자동롤링되있는리스트입니다터치시자동롤링이멈춥니다');
-
-    autoPlayState = true;
-  }
+function rollingSwiper(_this) {
+  autoPlayState ? swiper.autoplay.stop() : swiper.autoplay.start();
+  autoPlayState ? _this.setAttribute('aria-label', SWIPER_ALT_TXT.rolling.stop) : _this.setAttribute('aria-label', SWIPER_ALT_TXT.rolling.start);
+  autoPlayState = autoPlayState ? false : true;
 }
 //# sourceMappingURL=maps/common-swiper.js.map

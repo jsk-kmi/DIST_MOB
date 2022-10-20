@@ -15,10 +15,11 @@
       white-space: nowrap;
       align-self: stretch;
       line-height: 1.625rem;
+      padding-right: 0.5rem;
     }
     dd {
+      @include shortening-two;
       position: relative;
-      margin-left: 0.5rem;
     }
     &::after {
       content: '';

@@ -35,6 +35,13 @@ var IACCORDION = {
   iAll: 'iAll',
   iOne: 'iOne'
 };
+var ACC_ALT_TXT = {
+  open: '버튼확장됨축소하려면이중탭하십시요',
+  close: '버튼축소됨확장하려면이중탭하십시요'
+}; // container > bottom floating button
+
+var elTopArr = [];
+var elTopRes = 0;
 /**
  * HTML element length check
 */
@@ -337,17 +344,28 @@ function tabAltTxtInit(_elem, _ipt, _ipt_checked) {
 
   if (_ipt.tagName == 'A') {
     if (_elem.closest('.c-tab').classList.contains('type-step')) {
-      altElBefore.innerText = '선택안됨터치해도페이지이동안됨';
-
-      _ipt.setAttribute('title', '기능없는버튼');
+      altElBefore.innerText = '선택안됨페이지이동안됨이중탭하면팝업열림';
+      if (_ipt.classList.contains('active')) _ipt.setAttribute('title', '기능없는버튼');else _ipt.setAttribute('title', '팝업열림');
     } else {
-      altElBefore.innerText = '선택안됨터치시페이지이동';
+      altElBefore.innerText = '선택안됨이중탭시페이지이동';
+      if (_ipt.classList.contains('active')) _ipt.setAttribute('title', '기능없는버튼');else _ipt.setAttribute('title', '페이지이동');
     }
   } else {
     altElBefore.innerText = '선택안됨';
+  } // if (_ipt.classList.contains('is-disable')) altElBefore.innerText = '선택안됨비활성화됨';
+
+
+  if (_ipt.classList.contains('is-disable')) {
+    altElBefore.innerText = '이중탭하면팝업열림';
+
+    _ipt.setAttribute('title', '팝업열림');
   }
 
-  if (_ipt.classList.contains('is-disable')) altElBefore.innerText = '선택안됨비활성화됨';
+  if (_ipt.classList.contains('is-save-data')) {
+    altElBefore.innerText = '이중탭하면페이지이동';
+
+    _ipt.setAttribute('title', '페이지이동');
+  }
 
   _elem.insertBefore(altElBefore, _ipt);
 
@@ -1212,6 +1230,7 @@ if (ACCORDION_ELEM.length > 0) {
     // 아코디언 타입체크
     var accordionType = accordionTypeCheck(ACCORDION_ELEM[_i24]); // 접근성
 
+    accordionAltTxt(ACCORDION_ELEM[_i24]);
     accordionAccessibility(ACCORDION_ELEM[_i24]);
 
     var BTN_OPEN = ACCORDION_ELEM[_i24].querySelectorAll('.accordion-header'); // acc button click event
@@ -1225,6 +1244,34 @@ if (ACCORDION_ELEM.length > 0) {
 function accordionTypeCheck(_accEl) {
   if (_accEl.classList.contains('type-open-one')) return 'type-one-open';
   return 'type-multi-open';
+} // + 접근성: 대체텍스트
+
+
+function accordionAltTxt(_elem) {
+  if (_elem.classList.contains('type-inner-btn')) {
+    var altElTxt = document.createElement('em');
+    altElTxt.classList.add('alt-txt');
+    altElTxt.setAttribute('role', 'button');
+
+    var header = _elem.querySelector('.accordion-header');
+
+    var accTit = header.querySelector('.acc-tit');
+    header.insertBefore(altElTxt, accTit);
+    _elem.classList.contains('open') ? altElTxt.innerHTML = ACC_ALT_TXT.open : altElTxt.innerHTML = ACC_ALT_TXT.close;
+  }
+} // + 접근성: 아코디언 터치 시 대체텍스트
+
+
+function accordionAltTxtTouch(_altEl, _state) {
+  switch (_state) {
+    case true:
+      _altEl.innerHTML = ACC_ALT_TXT.open;
+      break;
+
+    default:
+      _altEl.innerHTML = ACC_ALT_TXT.close;
+      break;
+  }
 } // + 접근성: aria-expanded
 
 
@@ -1235,12 +1282,16 @@ function accordionAccessibility(_elem) {
     _elem.querySelector('.accordion-body').setAttribute('tabindex', 0);
 
     _elem.querySelector('.accordion-body').setAttribute('aria-hidden', false);
+
+    if (_elem.querySelector('.alt-txt')) accordionAltTxtTouch(_elem.querySelector('.alt-txt'), true);
   } else {
     _elem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
 
     _elem.querySelector('.accordion-body').setAttribute('tabindex', -1);
 
     _elem.querySelector('.accordion-body').setAttribute('aria-hidden', true);
+
+    if (_elem.querySelector('.alt-txt')) accordionAltTxtTouch(_elem.querySelector('.alt-txt'), false);
   }
 } // + acc button click event
 
@@ -1262,7 +1313,8 @@ function accButtonClickEvent(_accWrap, _elem, _accType) {
 
 function accButtonClickEvtComn(_e, _accType, _accWrap, _accBodyEl, _bodyHeight) {
   // 터치하는 영역이 '비교하기' 버튼이 아닐 경우 - 아코디언 hide / show
-  if (!_e.target.parentElement.classList.contains('co-btn')) {
+  // 터치하는 영역이 물음표 아이콘이 아닐 경우 - 아코디언 hide / show
+  if (!_e.target.parentElement.classList.contains('co-btn') && !_e.target.classList.contains('co-btn') && !_e.target.classList.contains('ico-ques')) {
     accButtonTypeOneOpen(_accType, _accWrap);
     accButtonOpenClose(_accWrap, _accBodyEl, _bodyHeight); // 접근성
 
@@ -1584,11 +1636,12 @@ function containerScrollEvent(_moveHeader, _scrollEl) {
 
   var CONTAINER_FOOTER = _scrollEl.querySelector('.footer');
 
-  var elTopArr = new Array();
+  var RV_BLOCK = _scrollEl.querySelector('.rv-block');
 
   if (BTN_BOTTOM_FLOATING) {
     var MARGIN_EL = BTN_BOTTOM_FLOATING.previousSibling.previousElementSibling;
     if (MARGIN_EL) MARGIN_EL.style.marginBottom = '3.75rem';
+    if (RV_BLOCK) RV_BLOCK.classList.add('type-floating-btn');
     if (CONTAINER_FOOTER) floatingBtnComn(_scrollEl, CONTAINER_FOOTER);else floatingBtnComn(_scrollEl);
   } // move top button
 
@@ -1631,7 +1684,7 @@ function containerScrollEvent(_moveHeader, _scrollEl) {
     } // 하단 고정 버튼이 있는 경우
 
 
-    if (BTN_BOTTOM_FLOATING) scrollingFloatingBtn(BTN_BOTTOM_FLOATING, elTopArr, this, CONTAINER_FOOTER);
+    if (BTN_BOTTOM_FLOATING) scrollingFloatingBtn(BTN_BOTTOM_FLOATING, this, CONTAINER_FOOTER);
   }, false);
 }
 
@@ -1662,10 +1715,32 @@ function floatingBtnInner(_state, _el) {
   }
 }
 
-function scrollingFloatingBtn(_floatingBtn, _arr, _this, _footer) {
-  if (_arr.length < 10) _arr.push(_floatingBtn.offsetTop);
-  var min = Math.min.apply(Math, _arr);
-  var elTopRes = _floatingBtn.offsetTop - _this.scrollTop;
+function scrollingFloatingBtn(_floatingBtn, _this, _footer) {
+  var S_HEADER = _this.querySelector('.header.co-header');
+
+  var S_BTN = _this.querySelector('.btn-bottom-floating');
+
+  if (elTopArr.length < 10) {
+    elTopArr.push(_floatingBtn.offsetTop);
+    elTopArr.sort(function (a, b) {
+      if (a > b) return 1;
+      if (a === b) return 0;
+      if (a < b) return -1;
+    });
+  }
+
+  var min = 0;
+
+  if (_this.scrollTop <= 0) {
+    min = Math.min.apply(Math, elTopArr);
+  } else {
+    if (S_HEADER && S_BTN) {
+      min = _this.clientHeight - S_HEADER.clientHeight - S_BTN.clientHeight;
+    }
+  }
+
+  elTopRes = Math.ceil(_floatingBtn.offsetTop - _this.scrollTop); // console.log('min >>>>>>> ', min);
+  // console.log('elTopRes >> ', elTopRes);
 
   if (min > elTopRes) {
     _this.classList.remove('isFloatingScroll');
@@ -1687,11 +1762,20 @@ function containerResizeScrollbar() {
 
 
 function containerResizeFloatingBtn() {
+  elTopArr = [];
   var CONTAINER_ELEM = document.getElementById('container');
 
   if (CONTAINER_ELEM) {
     var CONTAINER_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
-    if (CONTAINER_HEADER) containerScrollEvent(CONTAINER_HEADER, CONTAINER_ELEM);
+    var CONTAINER_BTN = document.querySelector('.btn-bottom-floating');
+
+    if (CONTAINER_HEADER && CONTAINER_BTN) {
+      if (CONTAINER_ELEM.scrollHeight > CONTAINER_ELEM.clientHeight) {
+        var lRes = CONTAINER_ELEM.clientHeight - CONTAINER_HEADER.clientHeight - CONTAINER_BTN.clientHeight;
+        var rRes = Math.ceil(CONTAINER_BTN.offsetTop - CONTAINER_ELEM.scrollTop);
+        if (lRes > rRes) CONTAINER_ELEM.classList.remove('isFloatingScroll');else CONTAINER_ELEM.classList.add('isFloatingScroll');
+      }
+    }
   }
 }
 /**
