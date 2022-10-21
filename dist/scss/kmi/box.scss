@@ -58,4 +58,9 @@
       }
     }
   }
+  &.type7 {
+    @include coTxtLabelLarge;
+    color: $color-black-60;
+    padding: 1rem 1.25rem;
+  }
 }

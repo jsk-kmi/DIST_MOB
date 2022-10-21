@@ -41,9 +41,7 @@
                 <h4 id="popupFindPw2_Label" class="top-title-box type-step">
                     비밀번호 찾기
                     <i class="skip">3단계 중 2단게</i>
-                    <div class="step" aria-hidden="true">
-                        <span>2</span>/<span>3</span>
-                    </div>
+                    <div class="step" aria-hidden="true"><span>2</span>/<span>3</span></div>
                 </h4>
 
                 <div class="cont-box type-btn-floating">
@@ -85,7 +83,7 @@
                             <div class="per-column">
                                 <div class="row inner c-input-btn-group">
                                     <div class="column input">
-                                        <input type="text" class="c-input" placeholder="휴대폰 전화번호" />
+                                        <input type="number" class="c-input" pattern="\d*" placeholder="휴대폰 전화번호" />
                                     </div>
                                     <div class="column btns">
                                         <button type="button" class="co-btn type02 type-input-btn"><span>인증받기</span></button>
@@ -94,7 +92,7 @@
                             </div>
                             <div class="per-column">
                                 <div class="c-input-count">
-                                    <input type="number" class="c-input" placeholder="인증번호 입력해 주세요." />
+                                    <input type="number" class="c-input" pattern="\d*" placeholder="인증번호 입력해 주세요." />
                                     <span class="count">05:00</span>
                                 </div>
                             </div>
@@ -130,7 +128,7 @@
                                 </div>
                             </div>
                             <div class="per-column">
-                                <input type="text" class="c-input" placeholder="인증번호 입력해 주세요.">
+                                <input type="number" class="c-input" pattern="*\d" placeholder="인증번호 입력해 주세요." />
                                 <!-- [comment] 
                     - 인증 완료시 해당 input으로 변경 
                   -->

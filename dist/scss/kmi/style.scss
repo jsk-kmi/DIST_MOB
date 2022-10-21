@@ -50,7 +50,7 @@
     align-items: center;
     justify-content: center;
     padding: 0.125rem 0.625rem;
-    height: 1.5rem;
+    min-height: 1.5rem;
     text-align: center;
     border-radius: 1.25rem;
     margin: {
@@ -463,6 +463,7 @@ button {
 .login-block,
 .ti-block,
 .rv-block,
+.rc-block,
 .vgt-block,
 .main-block,
 .hi-block,
@@ -583,6 +584,7 @@ button {
 }
 .ti-block,
 .rv-block,
+.rc-block,
 .vgt-block,
 .hi-block,
 .ni-block,
@@ -592,6 +594,29 @@ button {
 .guide-block {
   padding: 3.75rem 1.75rem 5rem;
 }
+// 결과 완료 페이지
+.rv-block,
+.rc-block {
+  .tit {
+    & + img {
+      display: block;
+      width: 10.9375rem;
+      height: auto;
+      text-align: center;
+      margin: 5rem auto 0;
+      & + h2 {
+        @include coTxtTitleLarge;
+        color: $color-sub-02;
+        text-align: center;
+        margin-top: 2.5rem;
+        & + .box {
+          margin-top: 1.25rem;
+        }
+      }
+    }
+  }
+}
+
 .type-btn-floating {
   padding-bottom: 3.25rem;
 }
@@ -895,22 +920,6 @@ button {
         }
       }
     }
-    & + img {
-      display: block;
-      width: 10.9375rem;
-      height: auto;
-      text-align: center;
-      margin: 5rem auto 0;
-      & + h2 {
-        @include coTxtTitleLarge;
-        color: $color-sub-02;
-        text-align: center;
-        margin-top: 2.5rem;
-        & + .box {
-          margin-top: 1.25rem;
-        }
-      }
-    }
   }
   h2 {
     @include coTxtTitleLarge;
@@ -1171,8 +1180,9 @@ button {
     }
   }
 }
-// + 팝업: 회사검진 기간 내 불가
-#popupNotAvailableInspection {
+// + 팝업: 회사검진 기간 내 불가, 상담완료안내
+#popupNotAvailableInspection,
+#popupApplicationCompleted {
   .in-cont {
     p {
       span {
@@ -1180,6 +1190,26 @@ button {
         & ~ span {
           margin-top: 0.75rem;
         }
+      }
+    }
+  }
+}
+
+// 결과상담(RC)
+.rc-block {
+  .tab-panel {
+    &[aria-labelledby='rc-consulting-panel'] {
+      p {
+        @include coTxtBody;
+        color: $color-black-80;
+        & ~ p {
+          margin-top: 0.75rem;
+        }
+      }
+      .c-input-list,
+      .terms,
+      .box {
+        margin-top: 2.5rem;
       }
     }
   }

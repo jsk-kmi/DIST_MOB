@@ -296,11 +296,10 @@
 
         <!-- ? // view -->
       </div>
-      <!-- [ // Input List] -->
-
-      <!-- ===================================== Input Group -->
+      <!-- [
+      <!-- ===================================== Input Group (Number)-->
       <div class="title-box">
-        <h2 class="h2_guide">Input Group</h2>
+        <h2 class="h2_guide">Input Group (Number)</h2>
       </div>
 
       <!-- [Basic] -->
@@ -312,7 +311,7 @@
           <div class="per-column">
             <div class="row inner c-input-btn-group">
               <div class="column input">
-                <input type="text" class="c-input" />
+                <input type="number" class="c-input" pattern="\d*" />
               </div>
               <div class="column btns">
                 <button type="button" class="co-btn type02 type-input-btn"><span>인증받기</span></button>
@@ -320,7 +319,7 @@
             </div>
           </div>
           <div class="per-column">
-            <input type="number" class="c-input" placeholder="인증번호 입력해 주세요." />
+            <input type="number" class="c-input" pattern="\d*" placeholder="인증번호 입력해 주세요." />
             <!-- [comment] 
               -	 인증 완료시 해당 input으로 변경 
             -->
@@ -331,7 +330,7 @@
               -	 휴대전화 인증번호 5분 카운트
             -->
             <div class="c-input-count">
-              <input type="number" class="c-input" placeholder="인증번호 입력해 주세요." />
+              <input type="number" class="c-input" pattern="\d*" placeholder="인증번호 입력해 주세요." />
               <span class="count">05:00</span>
             </div>
           </div>
@@ -348,7 +347,7 @@
           <div class="per-column">
             <div class="row inner c-input-btn-group">
               <div class="column input">
-                <input type="text" class="c-input is-error" />
+                <input type="number" class="c-input is-error" pattern="\d*" />
               </div>
               <div class="column btns">
                 <button type="button" class="co-btn type02 type-input-btn"><span>인증받기</span></button>
@@ -357,7 +356,7 @@
             <p class="input-err-txt">에러 문구.</p>
           </div>
           <div class="per-column">
-            <input type="number" class="c-input is-error" placeholder="인증번호 입력해 주세요." />
+            <input type="number" class="c-input is-error" pattern="\d*" placeholder="인증번호 입력해 주세요." />
             <p class="input-err-txt">에러 문구.</p>
             <!-- [comment] 
               -	 인증 완료시 해당 input으로 변경 
@@ -369,7 +368,7 @@
               -	 휴대전화 인증번호 5분 카운트
             -->
             <div class="c-input-count">
-              <input type="number" class="c-input is-error" placeholder="인증번호 입력해 주세요." />
+              <input type="number" class="c-input is-error" pattern="\d*" placeholder="인증번호 입력해 주세요." />
               <span class="count">05:00</span>
             </div>
             <p class="input-err-txt">에러 문구.</p>
