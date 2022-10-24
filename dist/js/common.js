@@ -506,7 +506,9 @@ function commonInit() {
 
     if (AC) {
       var activeAC = document.querySelector('[aria-labelledby=' + AC + ']');
-      if (activeAC) activeAC.classList.add('show');
+      if (activeAC) activeAC.classList.add('show'); // .tabpanel.show에 있는 아코디언
+
+      if (activeAC) tabAccInit(activeAC);
     }
   }
 
@@ -515,6 +517,32 @@ function commonInit() {
       var panelEl = document.querySelector('[aria-labelledby="' + _tabList[_i8] + '"]');
       if (panelEl) if (panelEl.classList.contains('show')) panelEl.classList.remove('show');
     }
+  }
+
+  function tabAccInit(_panelEl) {
+    if (_panelEl) {
+      var ACC_EL = _panelEl.querySelectorAll('.accordion');
+
+      if (ACC_EL.length > 0) {
+        for (var _i9 = 0; _i9 < ACC_EL.length; _i9++) {
+          var ACC_HEADER = ACC_EL[_i9].querySelector('.accordion-header');
+
+          var ACC_BODY = ACC_EL[_i9].querySelector('.accordion-body');
+
+          if (ACC_BODY && ACC_HEADER) {
+            if (ACC_EL[_i9].classList.contains('open')) ACC_BODY.style.maxHeight = ACC_BODY.scrollHeight + 'px';else tabAccClickEvt(ACC_EL[_i9], ACC_HEADER, ACC_BODY);
+          }
+        }
+      }
+    }
+  }
+
+  function tabAccClickEvt(_accEl, _accHead, _accBody) {
+    _accHead.addEventListener('click', function (e) {
+      var accordionType = accordionTypeCheck(_accEl);
+      var bodyHeight = _accBody.scrollHeight;
+      accButtonClickEvtComn(e, accordionType, _accEl, _accBody, bodyHeight);
+    });
   } // +++ scroll 방식의 tab 일 경우
 
 
@@ -589,12 +617,12 @@ function commonInit() {
           var DATA_LIST = DATA_WRAP.querySelectorAll('[data-view]');
 
           if (DATA_LIST) {
-            for (var _i9 = 0; _i9 < DATA_LIST.length; _i9++) {
-              DATA_LIST[_i9].classList.remove('show');
+            for (var _i10 = 0; _i10 < DATA_LIST.length; _i10++) {
+              DATA_LIST[_i10].classList.remove('show');
             }
 
-            for (var _i10 = 0; _i10 < DATA_VIEW.length; _i10++) {
-              DATA_VIEW[_i10].classList.add('show');
+            for (var _i11 = 0; _i11 < DATA_VIEW.length; _i11++) {
+              DATA_VIEW[_i11].classList.add('show');
             }
           }
         }
@@ -605,12 +633,12 @@ function commonInit() {
 
         if (DATA_NULL_WRAP) {
           var DATA_NULL_LIST = DATA_NULL_WRAP.querySelectorAll('[data-view]');
-          if (DATA_NULL_LIST.length > 0) for (var _i11 = 0; _i11 < DATA_NULL_LIST.length; _i11++) {
-            DATA_NULL_LIST[_i11].classList.remove('show');
+          if (DATA_NULL_LIST.length > 0) for (var _i12 = 0; _i12 < DATA_NULL_LIST.length; _i12++) {
+            DATA_NULL_LIST[_i12].classList.remove('show');
           } // 전체 tab click
 
-          if (DATA_CASE === 'all') for (var _i12 = 0; _i12 < DATA_NULL_LIST.length; _i12++) {
-            DATA_NULL_LIST[_i12].classList.add('show');
+          if (DATA_CASE === 'all') for (var _i13 = 0; _i13 < DATA_NULL_LIST.length; _i13++) {
+            DATA_NULL_LIST[_i13].classList.add('show');
           }
         }
       }
@@ -645,10 +673,10 @@ function commonInit() {
   }
 
   function tabStateMoveConmEvt(_tabMoveList, _tabWrap) {
-    for (var _i13 = 0; _i13 < _tabMoveList.length; _i13++) {
-      var activeTab = _tabMoveList[_i13].querySelectorAll('a.tab.active');
+    for (var _i14 = 0; _i14 < _tabMoveList.length; _i14++) {
+      var activeTab = _tabMoveList[_i14].querySelectorAll('a.tab.active');
 
-      if (activeTab.length > 0) moveTabActivity(_tabWrap, _tabMoveList[_i13]);
+      if (activeTab.length > 0) moveTabActivity(_tabWrap, _tabMoveList[_i14]);
     }
   }
 
@@ -701,8 +729,8 @@ function commonInit() {
 
       if (DATA_TAB_PANEL) {
         var PANEL_VIEW_LIST = DATA_TAB_PANEL.querySelectorAll('*[data-view]');
-        if (PANEL_VIEW_LIST.length > 0) for (var _i14 = 0; _i14 < PANEL_VIEW_LIST.length; _i14++) {
-          PANEL_VIEW_LIST[_i14].classList.add('show');
+        if (PANEL_VIEW_LIST.length > 0) for (var _i15 = 0; _i15 < PANEL_VIEW_LIST.length; _i15++) {
+          PANEL_VIEW_LIST[_i15].classList.add('show');
         }
       }
     }
@@ -716,29 +744,29 @@ function commonInit() {
 
   var POPUP_ELEM = document.querySelectorAll('.kmi-popup'); // style
 
-  if (POPUP_ELEM.length > 0) for (var _i15 = 0; _i15 < POPUP_ELEM.length; _i15++) {
-    popupStyle(POPUP_ELEM[_i15], 'hide');
+  if (POPUP_ELEM.length > 0) for (var _i16 = 0; _i16 < POPUP_ELEM.length; _i16++) {
+    popupStyle(POPUP_ELEM[_i16], 'hide');
   } // 팝업 열림
 
   var POPUP_BTN_ELEM = document.querySelectorAll('.btn-open-popup'); // popup open button - click event
 
   if (POPUP_BTN_ELEM.length > 0) {
-    var _loop = function _loop(_i16) {
-      POPUP_BTN_ELEM[_i16].addEventListener('click', function () {
-        popupOpenEvent(POPUP_BTN_ELEM[_i16], _i16);
+    var _loop = function _loop(_i17) {
+      POPUP_BTN_ELEM[_i17].addEventListener('click', function () {
+        popupOpenEvent(POPUP_BTN_ELEM[_i17], _i17);
       });
     };
 
-    for (var _i16 = 0; _i16 < POPUP_BTN_ELEM.length; _i16++) {
-      _loop(_i16);
+    for (var _i17 = 0; _i17 < POPUP_BTN_ELEM.length; _i17++) {
+      _loop(_i17);
     }
   } // + popup open button click event
 
 
   function popupOpenEvent(_btnElem) {
     var OPENSTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
-    if (OPENSTATE_POPUP.length > 0) for (var _i17 = 0; _i17 < OPENSTATE_POPUP.length; _i17++) {
-      OPENSTATE_POPUP[_i17].setAttribute('aria-hidden', true);
+    if (OPENSTATE_POPUP.length > 0) for (var _i18 = 0; _i18 < OPENSTATE_POPUP.length; _i18++) {
+      OPENSTATE_POPUP[_i18].setAttribute('aria-hidden', true);
     }
 
     var TARGET = _btnElem.getAttribute('data-target');
@@ -787,8 +815,8 @@ function commonInit() {
 
   function popupStyle(_elem, _state) {
     var indexRes = 0;
-    if ((arguments.length <= 2 ? 0 : arguments.length - 2) > 0) for (var _i18 = 0; _i18 < (arguments.length <= 2 ? 0 : arguments.length - 2); _i18++) {
-      indexRes = _i18 + 2 < 2 || arguments.length <= _i18 + 2 ? undefined : arguments[_i18 + 2];
+    if ((arguments.length <= 2 ? 0 : arguments.length - 2) > 0) for (var _i19 = 0; _i19 < (arguments.length <= 2 ? 0 : arguments.length - 2); _i19++) {
+      indexRes = _i19 + 2 < 2 || arguments.length <= _i19 + 2 ? undefined : arguments[_i19 + 2];
     }
 
     switch (_state) {
@@ -1106,15 +1134,15 @@ function commonInit() {
   if (POPUP_CLOSE_ELEM.length > 0) popupCloseComn(POPUP_CLOSE_ELEM); // + popup close
 
   function popupCloseComn(_popupCloseEl) {
-    var _loop2 = function _loop2(_i19) {
+    var _loop2 = function _loop2(_i20) {
       // popup close button - click event
-      _popupCloseEl[_i19].addEventListener('click', function () {
+      _popupCloseEl[_i20].addEventListener('click', function () {
         var CLOSESTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
-        if (CLOSESTATE_POPUP.length > 0) for (var _i20 = 0; _i20 < CLOSESTATE_POPUP.length; _i20++) {
-          CLOSESTATE_POPUP[_i20].setAttribute('aria-hidden', false);
+        if (CLOSESTATE_POPUP.length > 0) for (var _i21 = 0; _i21 < CLOSESTATE_POPUP.length; _i21++) {
+          CLOSESTATE_POPUP[_i21].setAttribute('aria-hidden', false);
         }
 
-        var TARGET = _popupCloseEl[_i19].closest('.kmi-popup');
+        var TARGET = _popupCloseEl[_i20].closest('.kmi-popup');
 
         TARGET.classList.remove('show');
         TARGET.setAttribute('aria-hidden', true); // 접근성: popup close 시 #container focus 풀기
@@ -1127,8 +1155,8 @@ function commonInit() {
       });
     };
 
-    for (var _i19 = 0; _i19 < _popupCloseEl.length; _i19++) {
-      _loop2(_i19);
+    for (var _i20 = 0; _i20 < _popupCloseEl.length; _i20++) {
+      _loop2(_i20);
     }
   }
 
@@ -1164,9 +1192,9 @@ function commonInit() {
     var FULL_POP_ELEM = document.querySelectorAll('.c-full-layer.show');
 
     if (FULL_POP_ELEM.length > 0) {
-      for (var _i21 = 0; _i21 < FULL_POP_ELEM.length; _i21++) {
-        if (FULL_POP_ELEM[_i21].classList.contains('type-full')) fullPopupScrollHeightCheck('full', FULL_POP_ELEM[_i21]);
-        if (FULL_POP_ELEM[_i21].classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', FULL_POP_ELEM[_i21]);
+      for (var _i22 = 0; _i22 < FULL_POP_ELEM.length; _i22++) {
+        if (FULL_POP_ELEM[_i22].classList.contains('type-full')) fullPopupScrollHeightCheck('full', FULL_POP_ELEM[_i22]);
+        if (FULL_POP_ELEM[_i22].classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', FULL_POP_ELEM[_i22]);
       }
     }
   } // + resize: DOM에 팝업이 있는 경우
@@ -1216,8 +1244,8 @@ function commonInit() {
 
   function modalHeaderPopupShadow() {
     var MODAL_HEADER_POPUP = document.querySelectorAll('.c-layer-popup.kmi-popup.type-modal.show');
-    if (MODAL_HEADER_POPUP.length > 0) for (var _i22 = 0; _i22 < MODAL_HEADER_POPUP.length; _i22++) {
-      customScrollbar(MODAL_HEADER_POPUP[_i22], 'modal');
+    if (MODAL_HEADER_POPUP.length > 0) for (var _i23 = 0; _i23 < MODAL_HEADER_POPUP.length; _i23++) {
+      customScrollbar(MODAL_HEADER_POPUP[_i23], 'modal');
     }
   } // resize: full popup
 
@@ -1226,9 +1254,9 @@ function commonInit() {
     var FULL_POPUP = document.querySelectorAll('.c-full-layer.kmi-popup.show');
 
     if (FULL_POPUP.length > 0) {
-      for (var _i23 = 0; _i23 < FULL_POPUP.length; _i23++) {
-        if (FULL_POPUP[_i23].classList.contains('type-full')) customScrollbar(FULL_POPUP[_i23], 'full');
-        if (FULL_POPUP[_i23].classList.contains('type-full-footer')) customScrollbar(FULL_POPUP[_i23], 'full-footer');
+      for (var _i24 = 0; _i24 < FULL_POPUP.length; _i24++) {
+        if (FULL_POPUP[_i24].classList.contains('type-full')) customScrollbar(FULL_POPUP[_i24], 'full');
+        if (FULL_POPUP[_i24].classList.contains('type-full-footer')) customScrollbar(FULL_POPUP[_i24], 'full-footer');
       }
     }
   } // 팝업 열림 버튼을 직접 click할 경우
@@ -1244,21 +1272,24 @@ function commonInit() {
 
   var ACCORDION_ELEM = document.querySelectorAll('.accordion');
 
-  if (ACCORDION_ELEM.length > 0) {
-    for (var _i24 = 0; _i24 < ACCORDION_ELEM.length; _i24++) {
-      // 아코디언 타입체크
-      var accordionType = accordionTypeCheck(ACCORDION_ELEM[_i24]); // 접근성
+  function accInit() {
+    if (ACCORDION_ELEM.length > 0) {
+      for (var _i25 = 0; _i25 < ACCORDION_ELEM.length; _i25++) {
+        // 아코디언 타입체크
+        var accordionType = accordionTypeCheck(ACCORDION_ELEM[_i25]); // 접근성
 
-      accordionAltTxt(ACCORDION_ELEM[_i24]);
-      accordionAccessibility(ACCORDION_ELEM[_i24]);
+        accordionAltTxt(ACCORDION_ELEM[_i25]);
+        accordionAccessibility(ACCORDION_ELEM[_i25]);
 
-      var BTN_OPEN = ACCORDION_ELEM[_i24].querySelectorAll('.accordion-header'); // acc button click event
+        var BTN_OPEN = ACCORDION_ELEM[_i25].querySelectorAll('.accordion-header'); // acc button click event
 
 
-      if (BTN_OPEN.length > 0) accButtonClickEvent(ACCORDION_ELEM[_i24], BTN_OPEN[0], accordionType);
+        if (BTN_OPEN.length > 0) accButtonClickEvent(ACCORDION_ELEM[_i25], BTN_OPEN[0], accordionType);
+      }
     }
-  } // + 아코디언 타입 체크: 하나만 보이는 타입, 모두 보이는 타입
+  }
 
+  accInit(); // + 아코디언 타입 체크: 하나만 보이는 타입, 모두 보이는 타입
 
   function accordionTypeCheck(_accEl) {
     if (_accEl.classList.contains('type-open-one')) return 'type-one-open';
@@ -1361,16 +1392,16 @@ function commonInit() {
       // 아코디언 모두 닫기
       var accOneList = ACC_WRAP.querySelectorAll('.accordion');
 
-      for (var _i25 = 0; _i25 < accOneList.length; _i25++) {
-        accOneList[_i25].classList.remove('open');
+      for (var _i26 = 0; _i26 < accOneList.length; _i26++) {
+        accOneList[_i26].classList.remove('open');
 
-        accOneList[_i25].querySelector('.accordion-body').style.maxHeight = 0;
+        accOneList[_i26].querySelector('.accordion-body').style.maxHeight = 0;
 
-        accOneList[_i25].querySelector('.accordion-body').setAttribute('tabindex', -1);
+        accOneList[_i26].querySelector('.accordion-body').setAttribute('tabindex', -1);
 
-        accOneList[_i25].querySelector('.accordion-body').setAttribute('aria-hidden', true);
+        accOneList[_i26].querySelector('.accordion-body').setAttribute('aria-hidden', true);
 
-        accOneList[_i25].querySelector('.accordion-header').setAttribute('aria-expanded', false);
+        accOneList[_i26].querySelector('.accordion-header').setAttribute('aria-expanded', false);
       }
     }
   }
@@ -1389,14 +1420,14 @@ function commonInit() {
 
 
   function accordionAllClose(_accEl) {
-    for (var _i26 = 0; _i26 < _accEl.length; _i26++) {
-      _accEl[_i26].classList.remove('open');
+    for (var _i27 = 0; _i27 < _accEl.length; _i27++) {
+      _accEl[_i27].classList.remove('open');
 
-      _accEl[_i26].querySelector('.accordion-body').setAttribute('tabindex', -1);
+      _accEl[_i27].querySelector('.accordion-body').setAttribute('tabindex', -1);
 
-      _accEl[_i26].querySelector('.accordion-body').setAttribute('aria-hidden', true);
+      _accEl[_i27].querySelector('.accordion-body').setAttribute('aria-hidden', true);
 
-      _accEl[_i26].querySelector('.accordion-body').style.maxHeight = 0;
+      _accEl[_i27].querySelector('.accordion-body').style.maxHeight = 0;
     }
   }
   /**
@@ -1408,10 +1439,10 @@ function commonInit() {
   if (TERMS_ELEM.length > 0) termsComn(TERMS_ELEM); // + 약관이 있으면
 
   function termsComn(_elem) {
-    for (var _i27 = 0; _i27 < TERMS_ELEM.length; _i27++) {
-      var TERMS_INNER = TERMS_ELEM[_i27].querySelectorAll('.inner');
+    for (var _i28 = 0; _i28 < TERMS_ELEM.length; _i28++) {
+      var TERMS_INNER = TERMS_ELEM[_i28].querySelectorAll('.inner');
 
-      termsInner(TERMS_INNER, TERMS_ELEM[_i27]);
+      termsInner(TERMS_INNER, TERMS_ELEM[_i28]);
     }
   }
 
@@ -1475,8 +1506,8 @@ function commonInit() {
 
 
   var TEXTAREA_ELEM = document.querySelectorAll('textarea');
-  if (TEXTAREA_ELEM.length > 0) for (var _i28 = 0; _i28 < TEXTAREA_ELEM.length; _i28++) {
-    textareaComn(TEXTAREA_ELEM[_i28]);
+  if (TEXTAREA_ELEM.length > 0) for (var _i29 = 0; _i29 < TEXTAREA_ELEM.length; _i29++) {
+    textareaComn(TEXTAREA_ELEM[_i29]);
   } // + textarea가 있으면
 
   function textareaComn(_elem) {
@@ -1510,8 +1541,8 @@ function commonInit() {
 
 
   var INPUT_ELEM = document.querySelectorAll('input');
-  if (INPUT_ELEM.length > 0) for (var _i29 = 0; _i29 < INPUT_ELEM.length; _i29++) {
-    inputComn(INPUT_ELEM[_i29]);
+  if (INPUT_ELEM.length > 0) for (var _i30 = 0; _i30 < INPUT_ELEM.length; _i30++) {
+    inputComn(INPUT_ELEM[_i30]);
   } // input 공통 scritp
 
   function inputComn(_elem) {
@@ -1546,28 +1577,32 @@ function commonInit() {
       inputFocusEvtModal();
       var elTop = 0;
       setTimeout(function () {
-        elTop = _inputEl.closest('*[class^="c-input-"]').offsetTop; // type-fulld
+        var elTopElem = _inputEl.closest('*[class^="c-input-"]');
 
-        var PARENT_EL_FULL = _inputEl.closest('.c-container');
+        if (elTopElem) {
+          elTop = elTopElem.offsetTop; // type-fulld
 
-        if (PARENT_EL_FULL) {
-          var PARENT_EL_HEADER = PARENT_EL_FULL.querySelector('.full-header');
-          if (PARENT_EL_HEADER) PARENT_EL_FULL.scrollTop = elTop - PARENT_EL_HEADER.clientHeight;
-        } // type-modal
+          var PARENT_EL_FULL = _inputEl.closest('.c-container');
+
+          if (PARENT_EL_FULL) {
+            var PARENT_EL_HEADER = PARENT_EL_FULL.querySelector('.full-header');
+            if (PARENT_EL_HEADER) PARENT_EL_FULL.scrollTop = elTop - PARENT_EL_HEADER.clientHeight;
+          } // type-modal
 
 
-        var PARENT_EL_MODAL = _inputEl.closest('.c-layer-popup.kmi-popup.type-modal.show');
+          var PARENT_EL_MODAL = _inputEl.closest('.c-layer-popup.kmi-popup.type-modal.show');
 
-        if (PARENT_EL_MODAL) {
-          var MODAL_INNER = PARENT_EL_MODAL.querySelector('.modal-field');
+          if (PARENT_EL_MODAL) {
+            var MODAL_INNER = PARENT_EL_MODAL.querySelector('.modal-field');
 
-          if (MODAL_INNER) {
-            var MODAL_HEADER = MODAL_INNER.querySelector('.c-modal-header');
-            if (MODAL_HEADER) MODAL_INNER.scrollTop = elTop - MODAL_HEADER.clientHeight;
+            if (MODAL_INNER) {
+              var MODAL_HEADER = MODAL_INNER.querySelector('.c-modal-header');
+              if (MODAL_HEADER) MODAL_INNER.scrollTop = elTop - MODAL_HEADER.clientHeight;
+            }
           }
-        }
 
-        elTop = 0;
+          elTop = 0;
+        }
       }, INTERVAL_100);
       return false;
     });

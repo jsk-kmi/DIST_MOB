@@ -471,11 +471,11 @@
   padding: 0.75rem 1.25rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   li {
-    &:first-child {
-      flex-grow: 1;
-    }
+    flex-grow: 1;
+    width: 100%;
     .card-tit {
       @include coTxtLabelMedium;
       color: $color-sub-02;
@@ -485,13 +485,27 @@
       .co-tooltip {
         margin-left: 0.5rem;
       }
-      & + .card-res {
-        margin-top: 0.25rem;
-      }
     }
-    .card-res {
-      @include coTxtBody;
-      color: $color-black-80;
+    & ~ li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .card-res {
+        @include coTxtBody;
+        color: $color-black-80;
+        padding-right: 0.25rem;
+        @include shortening-one;
+      }
+      .co-btn {
+        background: $color-bg-03;
+        border-radius: 0.5rem;
+        border:0 none;
+        white-space: nowrap;
+        span {
+          color: $color-main;
+        }
+      }
     }
   }
   & ~ .card_06 {
@@ -543,6 +557,33 @@
   }
   & ~ .card_07 {
     margin-top: 1.25rem;
+  }
+}
+
+// + card_08
+.card_08 {
+  position: relative;
+  background: $color-white-100;
+  border: 1px solid $color-black-05;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.75rem;
+  padding: 2rem 1.25rem;
+  .card-date {
+    @include coTxtLabelMedium;
+    color: $color-sub-02;
+  }
+  .card-tit {
+    @include coTxtBody;
+    color: $color-black-100;
+  }
+  .list {
+    margin-top: 1.25rem;
+    li {
+      margin-top: 0.5rem;
+    }
+  }
+  & + .card_08 {
+    margin-top: 2.5rem;
   }
 }
 

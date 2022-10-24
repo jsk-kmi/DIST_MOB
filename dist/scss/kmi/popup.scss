@@ -691,6 +691,17 @@
       }
     }
   }
+
+  // datepicker
+  &.type-datepicker {
+    .cont-box {
+      padding: {
+        top: 2rem;
+        right: 0;
+        left: 0;
+      }
+    }
+  }
 }
 
 // = close button

@@ -22,6 +22,14 @@ header {
               min-height: 24px;
             }
           }
+          &.type-color {
+            a {
+              padding: 0.5rem 0.75rem;
+              background-color: $color-white-100;
+              border-radius: 0.5rem;
+              overflow: hidden;
+            }
+          }
         }
       }
       .menu {

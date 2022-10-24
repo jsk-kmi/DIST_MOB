@@ -48,6 +48,12 @@
       }
       .co-btn {
         margin-right: 1.25rem;
+        background: $color-bg-03;
+        border-radius: 1.25rem;
+        border:0 none;
+        span {
+          color: $color-main;
+        }
       }
       img {
         &.img-acc-arrow {

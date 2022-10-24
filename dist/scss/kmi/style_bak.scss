@@ -1349,6 +1349,26 @@ button {
       height: 0;
     }
   }
+
+  .thumbnail {
+    padding-bottom: 59.21%;
+    // height: 140px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    .img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: {
+        size: cover;
+        position: center;
+        repeat: no-repeat;
+      }
+    }
+  }
 }
 // + 검진기관 상세 full 팝업
 #popupInstitutionDetails {
@@ -1411,77 +1431,6 @@ button {
 
 // 검진결과 (RI)
 .ri-block {
-  .tit {
-    & + .c-select {
-      margin-top: 1.25rem;
-      & + .swiper {
-        margin-top: 1.25rem;
-        margin-bottom: 2.25rem;
-      }
-    }
-    &.type-floating {
-      & ~ .tab-floating {
-        & ~ .tab-panel {
-          &.show {
-            padding-top: 0 !important;
-            margin-top: 0.5rem;
-          }
-        }
-      }
-    }
-  }
-  .accordion {
-    &.type1 {
-      &.open {
-        .accordion-body {
-          position: relative;
-          border-top: 0 none;
-          .card_06,
-          .list {
-            &:first-child {
-              &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 1px;
-                background-color: $color-black-20;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-// + 검진결과 더보기
-#popupViewMoreExam {
-  .in-cont {
-    .c-input-sub-group {
-      margin-top: 0;
-      .per-column {
-        margin-top: 0;
-        & ~ .per-column {
-          margin-top: 0.5rem;
-        }
-      }
-    }
-    .c-rdochk {
-      display: block;
-      width: 100%;
-      margin-top: 1.25rem;
-      label {
-        display: inline-flex;
-        span {
-          max-width: calc(100% - 20px);
-          margin-left: 0;
-          padding-left: 0.5rem;
-        }
-      }
-    }
-  }
 }
 
 // 결과상담(RC)
@@ -1567,28 +1516,19 @@ button {
 
       .thumbnail {
         margin-top: 1.25rem;
+        position: relative;
         padding-bottom: 52.631%;
+        overflow: hidden;
+        border: 1px solid $color-black-05;
+        border-radius: 0.75rem;
         > img {
+          min-width: 100%;
+          min-height: 100%;
           margin-top: 0;
+          position: absolute;
+          @include position(50%, 50%);
+          object-fit: cover;
         }
-      }
-    }
-    .thumbnail {
-      &.type01 {
-        padding-bottom: 52.631%;
-      }
-      &.type02 {
-        padding-bottom: 55.263%;
-      }
-      position: relative;
-      overflow: hidden;
-      border: 1px solid $color-black-05;
-      border-radius: 0.75rem;
-      > img {
-        min-width: 100%;
-        min-height: 100%;
-        @include position(50%, 50%);
-        object-fit: cover;
       }
     }
   }
@@ -1616,14 +1556,6 @@ button {
           width: 0;
           height: 0;
         }
-      }
-    }
-  }
-
-  &.disease {
-    .co-img-card {
-      .thumbnail {
-        padding-bottom: 59.868%;
       }
     }
   }
@@ -1657,20 +1589,6 @@ button {
       }
       &:first-child {
         margin-top: 0;
-      }
-    }
-    .thumbnail {
-      position: relative;
-      padding-bottom: 59.896%;
-      overflow: hidden;
-      border: 1px solid $color-black-05;
-      border-radius: 0.75rem;
-      > img {
-        min-width: 100%;
-        min-height: 100%;
-        margin-top: 0;
-        @include position(50%, 50%);
-        object-fit: cover;
       }
     }
   }
@@ -1958,8 +1876,18 @@ button {
   }
 }
 
-.tab-panel {
-  &[aria-labelledby='event-end-tab-panel'] {
-    padding-top: 3rem;
+.media-list {
+  .thumbnail {
+    padding-bottom: 55.263%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid #f3f3f3;
+    > img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 }

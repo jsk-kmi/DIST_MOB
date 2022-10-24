@@ -83,6 +83,8 @@
   // + c-full-layer
   .c-full-layer {
     .cont-box,
+    .full-header,
+    .full-footer,
     .full-body .top-title-box,
     .btn-floating,
     .btn-floating.isScroll {
@@ -125,8 +127,15 @@
   }
 
   // = Button
+
   button,
   a {
+    &.co-btn {
+      padding : {
+        left: 0;
+        right: 0;
+      }
+    }
     &.is-prev,
     &.is-next {
       > span {
@@ -200,5 +209,23 @@
         }
       }
     }
+  }
+}
+
+// =Style
+.login-block,
+.ti-block,
+.rv-block,
+.rc-block,
+.vgt-block,
+.main-block,
+.hi-block,
+.ni-block,
+.mi-block,
+.em-block,
+.terms-block,
+.guide-block {
+  .tit {
+    font-size: 1.866rem;
   }
 }
