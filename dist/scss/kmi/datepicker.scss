@@ -2,16 +2,19 @@
 
 // + common variable
 $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-black-20);
-
+// datepicker reset
+.ui-widget {
+  font-family: $font-name;
+}
 // + datepicker
 #c-datepicker {
   &.hasDatepicker {
     .ui-datepicker-inline {
       padding: {
         top: 0;
-        right: 0.75rem;
+        right: 0.5rem;
         bottom: 0.75rem;
-        left: 0.75rem;
+        left: 0.5rem;
       }
       width: 100%;
       border: 0 none;
@@ -53,19 +56,19 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
           }
         }
         .ui-datepicker-prev {
-          margin-right: 1rem;
+          margin-right: 0.5rem;
           .ui-icon {
             background-image: url('../../images/ico/datepicker/ico_arrow_year_prev_34x34.svg');
           }
         }
         .ui-datepicker-next {
-          margin-left: 1rem;
+          margin-left: 0.5rem;
           .ui-icon {
             background-image: url('../../images/ico/datepicker/ico_arrow_year_next_34x34.svg');
           }
         }
         .ui-datepicker-title {
-          @include coTxtTitleHeadingLarge;
+          @include coTxtTitleHeadingSmall;
           margin: 0;
           a,
           a span {
@@ -73,7 +76,16 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
             display: inline-block;
           }
           .ui-datepicker-month {
-            margin-left: 0.375rem;
+            margin-left: 0.5rem;
+          }
+          a {
+            &.ui-datepicker-title {
+              span {
+                color: $color-black-40; 
+                display: inline-block;
+                margin: 0 0.5rem;
+              }
+            }
           }
         }
       }
@@ -84,7 +96,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
         }
       }
       .ui-datepicker-calendar {
-        margin: 1.25rem 0 0 0;
+        margin: 0.625rem 0 0 0;
         thead tr th,
         tbody tr td,
         tbody tr td a {
@@ -173,12 +185,6 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                   line-height: 1rem;
                   color: $color-white-100;
                 }
-                &.ui-datepicker-current-day {
-                  a {
-                    // box-shadow: none;
-                    // color: $color-white-100;
-                  }
-                }
                 &.ui-datepicker-days-reservation-closed {
                   a, span {
                     box-shadow: none;
@@ -213,15 +219,15 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                   @include coTxtBody;
                   color: $color-black-80;
                   text-align: center;
-                  padding: 0.625rem 0;
+                  padding: 1.25rem 0;
                   border: 0 none;
                   background-color: transparent;
                 }
                 &.ui-datepicker-today {
                   a {
-                    background-color: $color-main;
-                    color: $color-white-100;
+                    box-shadow: 0 0 0 0.1875rem $color-sub-02 inset; 
                     border-radius: 0.5rem;
+                    color: $color-sub-02;
                   }
                 }
               }
@@ -251,7 +257,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
   display: flex;
   align-items: center;
   justify-content: right;
-  padding: 0.75rem 1.75rem;
+  padding: 0 1.75rem;
   ul {
     position: relative;
     & ~ ul {
@@ -284,21 +290,5 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
         }
       }
     }
-  }
-  &::after,
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: $color-black-10;
-  }
-  &::before {
-    top: 0;
-  }
-  &::after {
-    bottom: 0;
   }
 }

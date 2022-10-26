@@ -27,6 +27,18 @@
         margin-top: 12px;
       }
     }
+    &.type-detail {
+      text-align: left;
+      h1 {
+        @include coTxtTitleSmall;
+        color: $color-black-80;
+        & + p {
+          @include coTxtBody;
+          color: $color-black-80;
+          margin-top: 0.75rem;
+        }
+      }
+    }
   }
 
   .c-modal-body {
@@ -444,6 +456,7 @@
     }
     &.type-swiper {
       padding-top: 1.25rem;
+      padding-bottom: 2rem;
       .swiper {
         & + .c-tab {
           margin-top: 2.5rem;

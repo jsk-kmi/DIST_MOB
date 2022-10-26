@@ -280,6 +280,23 @@
   transition: opacity $transition-3 ease-in-out;
 }
 
+// + thumbnail
+@mixin listThumbnailType($btmpadding) {
+  @if $btmpadding != null {
+    padding-bottom: #{$btmpadding} + '%';
+  }
+  position: relative;
+  overflow: hidden;
+  border: 1px solid $color-black-05;
+  border-radius: $thumbnail-radius;
+  > img {
+    min-width: 100%;
+    min-height: 100%;
+    @include position(50%, 50%);
+    object-fit: cover;
+  }
+}
+
 // = Media query
 
 @mixin devices($breakpoint) {

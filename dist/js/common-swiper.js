@@ -4,7 +4,6 @@
  * swiper variable
 */
 
-var swiper = new Object();
 var autoPlayState = true;
 var SWIPER_ALT_TXT = {
   rolling: {
@@ -19,7 +18,6 @@ var SWIPER_ALT_TXT = {
 // + init
 
 function swiperInitEvt(_elem) {
-  swiper = _elem;
   swiperInitAriaExpanded(_elem);
 } // 접근성: aria-expanded, aria-hidden
 
@@ -93,8 +91,14 @@ function arrow(_arrow) {
 
 
 function rollingSwiper(_this) {
+  var swiper = _this.parentElement.swiper;
   autoPlayState ? swiper.autoplay.stop() : swiper.autoplay.start();
   autoPlayState ? _this.setAttribute('aria-label', SWIPER_ALT_TXT.rolling.stop) : _this.setAttribute('aria-label', SWIPER_ALT_TXT.rolling.start);
   autoPlayState = autoPlayState ? false : true;
+} // swiper update
+
+
+function swiperUpdate(_updateSwiper) {
+  _updateSwiper.update();
 }
 //# sourceMappingURL=maps/common-swiper.js.map

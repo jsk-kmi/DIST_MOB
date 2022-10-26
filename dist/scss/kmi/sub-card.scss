@@ -102,7 +102,24 @@
               }
             }
             &.tag-list {
-              margin-top: 0.75rem;
+              margin: {
+                top: 0.75rem;
+                right: 0;
+                bottom: 0.75rem;
+                left: 0;
+              }
+              width: 100%;
+              max-height: 24px;
+              overflow-y: hidden;
+              overflow-x: scroll;
+              flex-wrap: nowrap;
+              li {
+                margin: 0;
+                flex: 0 0 auto;
+                & ~ li {
+                  margin-left: 0.75rem;
+                }
+              }
             }
           }
           dl {

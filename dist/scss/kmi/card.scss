@@ -2,7 +2,8 @@
 // + card_01
 .card_01 {
   position: relative;
-  input[type='checkbox'] {
+  input[type='checkbox'],
+  input[type='radio'] {
     @include hide-input;
     & + label {
       @include card-check-type-off;
@@ -584,6 +585,51 @@
   }
   & + .card_08 {
     margin-top: 2.5rem;
+  }
+}
+
+// + card_09
+.card_09 {
+  position: relative;
+  display: block;
+  box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  background-color: $color-white-100;
+  padding: {
+    top: 1.5rem;
+    right: 1.25rem;
+    bottom: 1.5rem;
+    left: 5.375rem;
+  }
+  img {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    width: 2.875rem;
+    height: 2.875rem;
+    transform: translateY(-50%);
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+  p {
+    @include coTxtTitleSmall;
+    color: $color-main;
+    & ~ p {
+      @include coTxtLabelLarge;
+      color: $color-sub-01;
+    }
+  }
+  & ~ .card_09 {
+    margin-top: 1rem;
+  }
+}
+a {
+  &.card_09 {
+    padding-right: 4.125rem;
+    background-image: url('../../images/ico/ico_arrow_main_result_34x34.svg');
+    background-size: 2.125rem 2.125rem;
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
   }
 }
 

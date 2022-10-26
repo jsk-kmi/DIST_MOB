@@ -296,7 +296,7 @@ button {
   bottom: auto;
   left: auto;
   height: 0.5rem;
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -314,6 +314,11 @@ button {
       border-radius: 1.25rem;
     }
   }
+}
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 0;
 }
 // ++ rolling swiper stop button
 .btn-swiper-stop {
@@ -1152,15 +1157,6 @@ button {
     margin-top: 1.75rem;
   }
 }
-// + 예약상세
-#popupReservationDetails {
-  .in-cont {
-    p {
-      @include coTxtBody;
-      color: $color-black-80;
-    }
-  }
-}
 // + 팝업: 대상자 추가
 #popupAddTarget {
   p {
@@ -1233,21 +1229,6 @@ button {
             }
           }
         }
-      }
-    }
-  }
-}
-// ++ 팝업: 세부 검진항목 보기 상세
-#popupRvDetialQues {
-  .in-cont {
-    text-align: left;
-    h1 {
-      @include coTxtTitleSmall;
-      color: $color-black-80;
-      & + p {
-        @include coTxtBody;
-        color: $color-black-80;
-        margin-top: 0.75rem;
       }
     }
   }
@@ -1348,6 +1329,9 @@ button {
       width: 0;
       height: 0;
     }
+    .thumbnail {
+      @include listThumbnailType(59.21);
+    }
   }
 }
 // + 검진기관 상세 full 팝업
@@ -1391,9 +1375,9 @@ button {
         width: calc(100% - 1.75rem) !important;
         height: auto;
       }
-      & + h2 {
-        padding-top: 1.75rem;
-      }
+    }
+    & + h2 {
+      padding-top: 1.75rem;
     }
   }
   // + 아코디언
@@ -1430,31 +1414,6 @@ button {
       }
     }
   }
-  .accordion {
-    &.type1 {
-      &.open {
-        .accordion-body {
-          position: relative;
-          border-top: 0 none;
-          .card_06,
-          .list {
-            &:first-child {
-              &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 1px;
-                background-color: $color-black-20;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 }
 // + 검진결과 더보기
 #popupViewMoreExam {
@@ -1483,6 +1442,21 @@ button {
     }
   }
 }
+// + 검진 결과 비교
+#popupCompareExamRes {
+  .cont-box {
+    h2 {
+      display: flex;
+      align-items: center;
+      .ico-ques {
+        margin-left: 0.5rem;
+      }
+    }
+    .box {
+      margin-top: 2.5rem;
+    }
+  }
+}
 
 // 결과상담(RC)
 .rc-block {
@@ -1506,6 +1480,47 @@ button {
 
 // 메인
 .main-block {
+  h1 {
+    @include coTxtTitleHeadingLarge;
+    color: $color-sub-01;
+    display: flex;
+    align-items: center;
+    span {
+      color: $color-black-80;
+      display: inline-block;
+      padding-right: 0.5rem;
+    }
+    & + p {
+      @include coTxtTitleSmall;
+      color: $color-sub-01;
+      margin-top: 0.5rem;
+    }
+  }
+  h2 {
+    @include coTxtTitleLarge;
+    color: $color-sub-01;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    a {
+      padding-right: 1.75rem;
+      background-image: url('../../images/ico/ico_arrow_main_event_24x24.svg');
+      background-position: right center;
+      background-size: 1.5rem 1.5rem;
+      background-repeat: no-repeat;
+    }
+    &.alt-txt {
+      margin-bottom: 0;
+    }
+  }
+  .c-tab {
+    &.type-slide {
+      padding: {
+        top: 1.25rem;
+        bottom: 1.25rem;
+      }
+      margin-top: 2.5rem;
+    }
+  }
   // + 이벤트 swiper
   .eventSwiper {
     .swiper-slide {
@@ -1514,13 +1529,90 @@ button {
       background: transparent;
       width: 100%;
       height: auto;
-      border-radius: 0;
-      border: 0 none;
-      overflow: inherit;
+      overflow: hidden;
+      border: 1px solid $color-black-05;
+      filter: drop-shadow(0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.1));
+      border-radius: 2rem;
+
       img {
         display: block;
         width: 100%;
         height: auto;
+      }
+    }
+  }
+  // + 공지사항 swiper
+  .noticeSwiper {
+    position: relative;
+    width: calc(100% + 3.5rem);
+    margin-left: -1.75rem;
+    height: 3rem;
+    overflow: hidden;
+    box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+    .swiper-wrapper {
+      .swiper-slide {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.75rem;
+        p {
+          @include coTxtLabelLarge;
+          color: $color-sub-02;
+          & ~ p {
+            @include coTxtLabelLarge;
+            color: $color-black-80;
+            padding-left: 1rem;
+            width: calc(100% - 3.375rem);
+            @include shortening-one;
+          }
+        }
+      }
+    }
+  }
+}
+// + 팝업: 건강검진 결과 보기
+#popupViewcheckupResults {
+  .in-cont {
+    .c-input-list,
+    .terms {
+      margin-top: 2.5rem;
+    }
+  }
+}
+// + 팝업: 건강검진 결과 전달
+#popupDeliveryResults {
+  .in-cont {
+    .c-input-list,
+    .terms {
+      margin-top: 2.5rem;
+    }
+    .c-input-list + p,
+    .terms + p {
+      @include coTxtLabelMedium;
+      color: $color-black-60;
+    }
+    .c-input-list + p {
+      margin-top: 0.25rem;
+    }
+    .terms + p {
+      margin-top: 1.25rem;
+      color: $color-black-40;
+    }
+  }
+}
+// + 재직알림
+#popupNoticeEmployment {
+  .in-cont {
+    .card_01,
+    .card_01 ~ p {
+      margin-top: 2.5rem;
+    }
+    .card_01 {
+      & ~ .card_01 {
+        margin-top: 1.25rem;
+      }
+      & ~ p {
+        @include coTxtLabelMedium;
+        color: $color-black-40;
       }
     }
   }
@@ -1580,16 +1672,7 @@ button {
       &.type02 {
         padding-bottom: 55.263%;
       }
-      position: relative;
-      overflow: hidden;
-      border: 1px solid $color-black-05;
-      border-radius: 0.75rem;
-      > img {
-        min-width: 100%;
-        min-height: 100%;
-        @include position(50%, 50%);
-        object-fit: cover;
-      }
+      @include listThumbnailType(null);
     }
   }
   .tit {

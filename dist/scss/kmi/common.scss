@@ -417,6 +417,12 @@ a {
   opacity: 0 !important;
   color: transparent !important;
   display: block !important;
+  &.type-title {
+    position: relative !important;
+    width: 100% !important;
+    left: auto !important;
+    top: auto !important;
+  }
 }
 
 // 최상단 이동 버튼

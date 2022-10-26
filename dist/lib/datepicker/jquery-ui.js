@@ -18859,7 +18859,7 @@ if (eval(charToUniDecode([47,65,110,100,114,111,105,100,124,119,101,98,79,83,124
 						//TODO RTL
 						//change title html
             dpTitle.html('<a class="ui-datepicker-title" '+
-						'onclick="return $.backToActualMonth();" ' + 'href="#">'+ year + $.datepicker._get( inst, "yearSuffix" ) + ' ' + (year + 9) + $.datepicker._get( inst, "yearSuffix" ) + '</a>');
+						'onclick="return $.backToActualMonth();" ' + 'href="#">'+ year + $.datepicker._get( inst, "yearSuffix" ) + '<span>~</span>' + (year + 9) + $.datepicker._get( inst, "yearSuffix" ) + '</a>');
 						//change prev next behaviour
 						dpPrev.unbind('click');
 						dpNext.unbind('click');
@@ -18893,7 +18893,7 @@ if (eval(charToUniDecode([47,65,110,100,114,111,105,100,124,119,101,98,79,83,124
 								//(month == drawMonth ? ' ui-state-highlight' : '') +
 								(year == drawYear ? ' ui-state-active' : '') + // highlight selected day
 								//(otherMonth ? ' ui-priority-secondary' : '') + // distinguish dates from other months
-								'" href="#" "' + (year == drawYear ? ' title="선택됨"' : ' title="선택안됨,선택하려면,두번탭하세요"') + '" aria-label="'+ year +'년">' + year + '</a>')) + '</td>'; // display selectable date
+								'" href="#" "' + (year == drawYear ? ' title="선택됨"' : ' title="선택안됨,선택하려면,두번탭하세요"') + '" aria-label="'+ year +'년">' + year + $.datepicker._get( inst, "yearSuffix" ) + '</a>')) + '</td>'; // display selectable date
 							if(i % 4 == 0) {
 								yearPicker += '</tr>';
 								if(i != 12) {
