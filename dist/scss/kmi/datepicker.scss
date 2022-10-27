@@ -126,39 +126,22 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
               opacity: 1;
               padding: 0;
               width: calc(100vw / 7 - 1.5rem);
-              a,
-              span {
+              .ui-state-default {
+                @include coTxtBody;
                 text-align: center;
                 border: 0 none;
                 box-sizing: border-box;
                 background-color: transparent;
-              }
-              span {
-                color: $color-black-20;
-              }
-              &.ui-datepicker-week-end {
-                a {
-                  color: $color-sub-03;
-                }
-                & ~ .ui-datepicker-week-end {
-                  a {
-                    color: $color-black-80;
-                  }
-                  &.ui-datepicker-current-day {
-                    a {
-                      color: $color-sub-02;
-                    }
-                  }
-                }
+                color: $color-black-80;
               }
               &.ui-datepicker-current-day {
-                a {
+                .ui-state-default {
                   box-shadow: 0 0 0 0.1875rem $color-sub-02 inset; 
                   border-radius: 0.5rem;
                   color: $color-sub-02;
                 }
-                &.ui-datepicker-days-reservation-closed {
-                  a {
+                &.reservation-closed {
+                  .ui-state-default {
                     box-shadow: none;
                   }
                 }
@@ -167,7 +150,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                 position: relative;
                 background-color: $color-main;
                 border-radius: 0.5rem;
-                a, span {
+                .ui-state-default {
                   color: $color-white-100;
                   border: 0 none;
                 }
@@ -185,19 +168,69 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                   line-height: 1rem;
                   color: $color-white-100;
                 }
-                &.ui-datepicker-days-reservation-closed {
-                  a, span {
+                &.reservation-closed {
+                  .ui-state-default {
                     box-shadow: none;
                   }
                 }
               }
-            }
-            .ui-datepicker-week-end {
-              span {
-                color: $color-sub-03;
+              &.holidays-before {
+                .ui-state-default {
+                  color: $color-black-20;
+                }
               }
-              & ~ .ui-datepicker-week-end {
-                span {
+              &.holidays-after {
+                .ui-state-default {
+                  color: $color-sub-03;
+                }
+              }
+              &.ui-datepicker-week-end {
+                .ui-state-default {
+                  color: $color-sub-03;
+                }
+                &.holidays-before {
+                  .ui-state-default {
+                    color: $color-black-20;
+                  }
+                }
+                & ~ .ui-datepicker-week-end {
+                  .ui-state-default {
+                    color: $color-black-80;
+                  }
+                  &.reservation-closed {
+                    .ui-state-default {
+                      color: $color-black-20;
+                    }
+                  }
+                  &.holidays-before {
+                    .ui-state-default {
+                      color: $color-black-20;
+                    }
+                  }
+                  &.holidays-after {
+                    .ui-state-default {
+                      color: $color-sub-03;
+                    }
+                  }
+                  &.ui-datepicker-other-month {
+                    .ui-state-default {
+                      color: $color-black-20;
+                    }
+                  }
+                }
+              }
+              &.ui-datepicker-other-month {
+                .ui-state-default {
+                  color: $color-black-20;
+                }
+                & ~ .ui-datepicker-other-month {
+                  .ui-state-default {
+                    color: $color-black-20;
+                  }
+                }
+              }
+              &.reservation-closed {
+                .ui-state-default {
                   color: $color-black-20;
                 }
               }

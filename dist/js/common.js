@@ -1272,24 +1272,21 @@ function commonInit() {
 
   var ACCORDION_ELEM = document.querySelectorAll('.accordion');
 
-  function accInit() {
-    if (ACCORDION_ELEM.length > 0) {
-      for (var _i25 = 0; _i25 < ACCORDION_ELEM.length; _i25++) {
-        // 아코디언 타입체크
-        var accordionType = accordionTypeCheck(ACCORDION_ELEM[_i25]); // 접근성
+  if (ACCORDION_ELEM.length > 0) {
+    for (var _i25 = 0; _i25 < ACCORDION_ELEM.length; _i25++) {
+      // 아코디언 타입체크
+      var accordionType = accordionTypeCheck(ACCORDION_ELEM[_i25]); // 접근성
 
-        accordionAltTxt(ACCORDION_ELEM[_i25]);
-        accordionAccessibility(ACCORDION_ELEM[_i25]);
+      accordionAltTxt(ACCORDION_ELEM[_i25]);
+      accordionAccessibility(ACCORDION_ELEM[_i25]);
 
-        var BTN_OPEN = ACCORDION_ELEM[_i25].querySelectorAll('.accordion-header'); // acc button click event
+      var BTN_OPEN = ACCORDION_ELEM[_i25].querySelectorAll('.accordion-header'); // acc button click event
 
 
-        if (BTN_OPEN.length > 0) accButtonClickEvent(ACCORDION_ELEM[_i25], BTN_OPEN[0], accordionType);
-      }
+      if (BTN_OPEN.length > 0) accButtonClickEvent(ACCORDION_ELEM[_i25], BTN_OPEN[0], accordionType);
     }
-  }
+  } // + 아코디언 타입 체크: 하나만 보이는 타입, 모두 보이는 타입
 
-  accInit(); // + 아코디언 타입 체크: 하나만 보이는 타입, 모두 보이는 타입
 
   function accordionTypeCheck(_accEl) {
     if (_accEl.classList.contains('type-open-one')) return 'type-one-open';
@@ -1355,9 +1352,9 @@ function commonInit() {
 
       if (_accWrap.classList.contains('open')) _accWrap.querySelector('.accordion-body').style.maxHeight = bodyHeight + 'px';
 
-      _elem.addEventListener('click', function (e) {
+      _elem.onclick = function (e) {
         accButtonClickEvtComn(e, _accType, _accWrap, accBodyEl, bodyHeight);
-      });
+      };
     }, INTERVAL_100);
   }
 

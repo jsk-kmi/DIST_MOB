@@ -157,7 +157,7 @@
               padding: 0.75rem 1.75rem;
               transition: padding $transition-3 ease-in-out;
             }
-            & + .tab-panel {
+            & ~ .tab-panel {
               &.show {
                 padding-top: 3rem;
               }
@@ -625,7 +625,8 @@ button {
 }
 // 결과 완료 페이지
 .rv-block,
-.rc-block {
+.rc-block,
+.em-block {
   .tit {
     & + img {
       display: block;
@@ -640,6 +641,9 @@ button {
         margin-top: 2.5rem;
         & + .box {
           margin-top: 1.25rem;
+          & + .c-input-list {
+            margin-top: 3.75rem;
+          }
         }
       }
     }
@@ -1845,6 +1849,40 @@ button {
   // 검진기관 리스트
   .region-list {
     margin-top: 3.75rem;
+  }
+
+  .tab-panel {
+    &[aria-labelledby='hs-day-tab-panel'] {
+      .terms {
+        margin-top: 3.75rem;
+        & + .terms {
+          margin-top: 2.5rem;
+        }
+        & ~ p {
+          @include coTxtBody;
+          color: $color-black-60;
+          margin-top: 2.5rem;
+          & ~ p {
+            margin-top: 0.5rem;
+          }
+        }
+      }
+    }
+    &[aria-labelledby='hs-confirm-tab-panel'] {
+      h2 {
+        @include coTxtTitleLarge;
+        color: $color-black-80;
+        & + .c-input-list {
+          margin-top: 1.25rem;
+        }
+      }
+      & > h2 {
+        margin-top: 0;
+        & ~ h2 {
+          padding-top: 3.75rem;
+        }
+      }
+    }
   }
 
   // 다음 버튼
