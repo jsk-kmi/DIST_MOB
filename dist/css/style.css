@@ -2220,7 +2220,7 @@ textarea textarea[readonly=readonly]:focus,
 .c-tab.type-slide li > a.is-disable {
 		pointer-events: none;
 		background: rgba(28, 28, 28, 0.05);
-		box-shadow: 0.25rem 0.25rem 0.5 rgba(0, 0, 0, 0.1);
+		box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 .c-tab.type-slide li > a.is-disable span {
 		color: rgba(28, 28, 28, 0.6);
@@ -2866,7 +2866,7 @@ textarea textarea[readonly=readonly]:focus,
 		border-radius: 1.25rem;
 		background-color: #fff;
 		padding: 0.1875rem;
-		box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.1);
+		box-shadow: 0.125rem 0.125rem 0.625rem 0 rgba(0, 0, 0, 0.1);
 		overflow: hidden;
 }
 .card_04.swiper-slide {
@@ -5065,11 +5065,10 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 .co-main-card {
 		position: relative;
 		width: 100%;
-		height: 11.75rem;
+		height: 12.25em;
 		border-radius: 1.25rem;
 		background: -webkit-linear-gradient(13.79deg, #ffffff -39.15%, #2f7ad3 12.07%, #253981 99.51%);
 		background: linear-gradient(76.21deg, #ffffff -39.15%, #2f7ad3 12.07%, #253981 99.51%);
-		border: 1px solid rgba(28, 28, 28, 0.05);
 		padding: 1.25rem;
 		overflow: hidden;
 		box-sizing: border-box;
@@ -5178,7 +5177,7 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		        justify-content: center;
 		width: 100%;
 		height: 3rem;
-		margin-top: 1.25rem;
+		margin-top: 1.75rem;
 }
 .co-main-card a.result span,
 .co-main-card p.result span {
@@ -5193,11 +5192,125 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		height: 1.25rem;
 }
 
-.ui-widget {
+#popupDatePicker .cont-box {
+		padding-bottom: 2.5rem;
+}
+#popupDatePicker .cont-box h1,
+#popupDatePicker .cont-box h1 ~ p,
+#popupDatePicker .cont-box h1 ~ p ~ .datepicker-list {
+		padding-left: 1.75rem;
+		padding-right: 1.75rem;
+}
+#popupDatePicker .cont-box h1 {
+		font-size: 1.125rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+		color: rgba(28, 28, 28, 0.8);
+		position: relative;
+}
+#popupDatePicker .cont-box h1 ~ p {
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.25rem;
+		color: rgba(28, 28, 28, 0.6);
+		margin-top: 0.5rem;
+}
+#popupDatePicker .cont-box h1 ~ p span {
+		color: #2f7ad3;
+}
+#popupDatePicker .cont-box h1 ~ h1 {
+		margin-top: 3.5rem;
+}
+#popupDatePicker .cont-box h1 ~ h1::after {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 1.75rem;
+		top: -1.75rem;
+		width: calc(100% - 2.5rem);
+		height: 1px;
+		background-color: rgba(28, 28, 28, 0.1);
+}
+#popupDatePicker .cont-box .datepicker-list {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+		margin-top: 1.25rem;
+}
+#popupDatePicker .cont-box .datepicker-list .input-block {
+		-webkit-box-flex: 1;
+		-webkit-flex-grow: 1;
+		    -ms-flex-positive: 1;
+		        flex-grow: 1;
+		position: relative;
+}
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=radio],
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=checkbox] {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 1px;
+		height: 1px;
+		background-color: transparent;
+		color: transparent;
+		border: 0 none;
+}
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=radio] + label,
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=checkbox] + label {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+		border: 1px solid #253981;
+		border-radius: 1.75rem;
+		padding: 0.5rem;
+}
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=radio] + label span,
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=checkbox] + label span {
+		font-size: 0.875rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.5rem;
+		color: rgba(28, 28, 28, 0.6);
+		color: #253981;
+}
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=radio]:checked + label,
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=checkbox]:checked + label {
+		background-color: #253981;
+}
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=radio]:checked + label span,
+#popupDatePicker .cont-box .datepicker-list .input-block input[type=checkbox]:checked + label span {
+		color: #fff;
+}
+#popupDatePicker .cont-box .datepicker-list .input-block ~ .input-block {
+		margin-left: 0.5rem;
+}
+#popupDatePicker .cont-box .ui-widget {
 		font-family: "NotoSansKR";
 }
-
-#c-datepicker.hasDatepicker .ui-datepicker-inline {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker {
+		margin-top: 1.25rem;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline {
 		padding-top: 0;
 		padding-right: 0.5rem;
 		padding-bottom: 0.75rem;
@@ -5206,7 +5319,7 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		border: 0 none;
 		border-radius: 0;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header {
 		font-size: 2rem;
 		font-weight: 500;
 		letter-spacing: -0.0313rem;
@@ -5231,8 +5344,8 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		    -ms-flex-pack: center;
 		        justify-content: center;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next {
 		width: 2.125rem;
 		height: 2.125rem;
 		position: relative;
@@ -5241,8 +5354,8 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		top: 0;
 		display: inline-block;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev .ui-icon,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next .ui-icon {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev .ui-icon,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next .ui-icon {
 		width: 2.125rem;
 		height: 2.125rem;
 		left: 0;
@@ -5252,55 +5365,55 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		background-position: center center;
 		background-repeat: no-repeat;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev:hover,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next:hover {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev:hover,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next:hover {
 		background-color: transparent;
 		border: 0 none;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev {
 		margin-right: 0.5rem;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev .ui-icon {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev .ui-icon {
 		background-image: url("../../images/ico/datepicker/ico_arrow_year_prev_34x34.svg");
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next {
 		margin-left: 0.5rem;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next .ui-icon {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next .ui-icon {
 		background-image: url("../../images/ico/datepicker/ico_arrow_year_next_34x34.svg");
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title {
 		font-size: 1.5rem;
 		font-weight: 500;
 		letter-spacing: -0.0313rem;
 		line-height: 2rem;
 		margin: 0;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title a,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title a span {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title a,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title a span {
 		color: #253981;
 		display: inline-block;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title .ui-datepicker-month {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title .ui-datepicker-month {
 		margin-left: 0.5rem;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title a.ui-datepicker-title span {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title a.ui-datepicker-title span {
 		color: rgba(28, 28, 28, 0.4);
 		display: inline-block;
 		margin: 0 0.5rem;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline table {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline table {
 		border-spacing: 0;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline table td {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline table td {
 		position: relative;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar {
 		margin: 0.625rem 0 0 0;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td a {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td a {
 		font-size: 1rem;
 		font-weight: 300;
 		letter-spacing: -0.0187rem;
@@ -5308,22 +5421,25 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		color: rgba(28, 28, 28, 0.8);
 		text-align: center;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td a {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td a {
 		padding: 0.625rem 0;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th.ui-datepicker-week-end {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th.ui-datepicker-week-end {
 		color: #ba1d3c;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th.ui-datepicker-week-end ~ .ui-datepicker-week-end {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th.ui-datepicker-week-end ~ .ui-datepicker-week-end {
 		color: rgba(28, 28, 28, 0.8);
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td {
 		opacity: 1;
 		padding: 0;
 		width: calc(14.2857142857vw - 1.5rem);
+		border: 0 none;
+		box-sizing: border-box;
+		background-color: transparent;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td .ui-state-default {
 		font-size: 1rem;
 		font-weight: 300;
 		letter-spacing: -0.0187rem;
@@ -5334,24 +5450,27 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		background-color: transparent;
 		color: rgba(28, 28, 28, 0.8);
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-current-day .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-current-day {
 		box-shadow: 0 0 0 0.1875rem #2f7ad3 inset;
+		border-radius: 0.5rem;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-current-day .ui-state-default {
 		border-radius: 0.5rem;
 		color: #2f7ad3;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-current-day.reservation-closed .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-current-day.reservation-closed .ui-state-default {
 		box-shadow: none;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-today {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-today {
 		position: relative;
 		background-color: #253981;
 		border-radius: 0.5rem;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-today .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-today .ui-state-default {
 		color: #fff;
 		border: 0 none;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-today em {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-today em {
 		position: absolute;
 		display: block;
 		width: 100%;
@@ -5365,57 +5484,110 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		line-height: 1rem;
 		color: #fff;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-today.reservation-closed .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-today.reservation-closed .ui-state-default {
 		box-shadow: none;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.holidays-before .ui-state-default {
-		color: rgba(28, 28, 28, 0.2);
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.holidays-before .ui-state-default {
+		color: #ba1d3c;
+		opacity: 0.2;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.holidays-after .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.holidays-after .ui-state-default {
+		color: #ba1d3c;
+		opacity: 0.2;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end .ui-state-default {
 		color: #ba1d3c;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end.holidays-before .ui-state-default {
 		color: #ba1d3c;
+		opacity: 0.2;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end.holidays-before .ui-state-default {
-		color: rgba(28, 28, 28, 0.2);
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end.another-month .ui-state-default {
+		color: #ba1d3c;
+		opacity: 0.2;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end.ui-datepicker-current-day.another-month .ui-state-default {
+		color: #ba1d3c;
+		opacity: 0.2;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end .ui-state-default {
 		color: rgba(28, 28, 28, 0.8);
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.reservation-closed .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.reservation-closed .ui-state-default {
 		color: rgba(28, 28, 28, 0.2);
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.holidays-before .ui-state-default {
-		color: rgba(28, 28, 28, 0.2);
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.holidays-before .ui-state-default {
+		color: #ba1d3c;
+		opacity: 0.2;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.holidays-after .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.holidays-after .ui-state-default {
 		color: #ba1d3c;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.ui-datepicker-other-month .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.ui-datepicker-other-month .ui-state-default {
 		color: rgba(28, 28, 28, 0.2);
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.another-month .ui-state-default {
+		color: rgba(28, 28, 28, 0.8);
+		opacity: 1;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.another-month.ui-datepicker-other-month .ui-state-default, #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.another-month.ui-datepicker-unselectable .ui-state-default {
+		color: rgba(28, 28, 28, 0.2);
+		opacity: 1;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.another-month.holidays-before .ui-state-default {
+		color: #ba1d3c;
+		opacity: 0.2;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month .ui-state-default {
+		opacity: 1;
 		color: rgba(28, 28, 28, 0.2);
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month ~ .ui-datepicker-other-month .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month ~ .ui-datepicker-other-month .ui-state-default {
 		color: rgba(28, 28, 28, 0.2);
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.reservation-closed .ui-state-default {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month.holidays-after .ui-state-default {
+		color: #ba1d3c;
+		opacity: 0.2;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month.holidays-before .ui-state-default {
+		color: rgba(28, 28, 28, 0.2);
+		opacity: 1;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month.ui-datepicker-today {
+		background-color: transparent;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month.ui-datepicker-today span {
+		box-shadow: none;
 		color: rgba(28, 28, 28, 0.2);
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-month,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-year {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month.ui-datepicker-today em {
+		color: rgba(28, 28, 28, 0.2);
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month.ui-datepicker-current-day {
+		background-color: transparent;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month.ui-datepicker-current-day span {
+		box-shadow: none;
+		color: rgba(28, 28, 28, 0.2);
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month.ui-datepicker-current-day em {
+		color: rgba(28, 28, 28, 0.2);
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.reservation-closed .ui-state-default {
+		color: rgba(28, 28, 28, 0.2);
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-month,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-year {
 		margin: 1.25rem 0 0 0;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-month table tbody tr td,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-year table tbody tr td {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-month table tbody tr td,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-year table tbody tr td {
 		opacity: 1;
 		padding: 0;
 		width: calc(25vw - 1.5rem);
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-month table tbody tr td a,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-year table tbody tr td a {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-month table tbody tr td a,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-year table tbody tr td a {
 		font-size: 1rem;
 		font-weight: 300;
 		letter-spacing: -0.0187rem;
@@ -5426,13 +5598,13 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		border: 0 none;
 		background-color: transparent;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-month table tbody tr td.ui-datepicker-today a,
-#c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-year table tbody tr td.ui-datepicker-today a {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-month table tbody tr td.ui-datepicker-today a,
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-year table tbody tr td.ui-datepicker-today a {
 		box-shadow: 0 0 0 0.1875rem #2f7ad3 inset;
 		border-radius: 0.5rem;
 		color: #2f7ad3;
 }
-#c-datepicker.hasDatepicker .ui-datepicker-inline i {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline i {
 		position: absolute !important;
 		left: 0 !important;
 		top: 0 !important;
@@ -5444,8 +5616,7 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		color: transparent !important;
 		display: block !important;
 }
-
-.c-datepicker-info {
+#popupDatePicker .cont-box .c-datepicker-info {
 		position: relative;
 		display: -webkit-box;
 		display: -webkit-flex;
@@ -5461,13 +5632,13 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		        justify-content: right;
 		padding: 0 1.75rem;
 }
-.c-datepicker-info ul {
+#popupDatePicker .cont-box .c-datepicker-info ul {
 		position: relative;
 }
-.c-datepicker-info ul ~ ul {
+#popupDatePicker .cont-box .c-datepicker-info ul ~ ul {
 		margin-left: 1.25rem;
 }
-.c-datepicker-info ul li ~ li {
+#popupDatePicker .cont-box .c-datepicker-info ul li ~ li {
 		position: relative;
 		font-size: 0.75rem;
 		font-weight: 400;
@@ -5475,7 +5646,7 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		line-height: 1.25rem;
 		padding-left: 0.75rem;
 }
-.c-datepicker-info ul li ~ li::after {
+#popupDatePicker .cont-box .c-datepicker-info ul li ~ li::after {
 		content: "";
 		display: block;
 		position: absolute;
@@ -5485,22 +5656,22 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		height: 0.5rem;
 		border-radius: 0.125rem;
 }
-.c-datepicker-info ul.is-selected li {
+#popupDatePicker .cont-box .c-datepicker-info ul.is-selected li {
 		color: #2f7ad3;
 }
-.c-datepicker-info ul.is-selected li::after {
+#popupDatePicker .cont-box .c-datepicker-info ul.is-selected li::after {
 		background-color: #2f7ad3;
 }
-.c-datepicker-info ul.is-holiday li {
+#popupDatePicker .cont-box .c-datepicker-info ul.is-holiday li {
 		color: #ba1d3c;
 }
-.c-datepicker-info ul.is-holiday li::after {
+#popupDatePicker .cont-box .c-datepicker-info ul.is-holiday li::after {
 		background-color: #ba1d3c;
 }
-.c-datepicker-info ul.is-disabled li {
+#popupDatePicker .cont-box .c-datepicker-info ul.is-disabled li {
 		color: rgba(28, 28, 28, 0.2);
 }
-.c-datepicker-info ul.is-disabled li::after {
+#popupDatePicker .cont-box .c-datepicker-info ul.is-disabled li::after {
 		background-color: rgba(28, 28, 28, 0.2);
 }
 
@@ -5810,6 +5981,15 @@ header.header.co-header {
 		-webkit-transition: top 0.3s ease-in-out;
 		transition: top 0.3s ease-in-out;
 }
+header.header.co-header h1.logo {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+}
+header.header.co-header h1.logo a {
+		display: block;
+}
 header.header.co-header h1.logo a img {
 		width: auto;
 		height: 1.5rem;
@@ -5834,7 +6014,10 @@ header.header.co-header.scroll-hide {
 		text-align: center;
 		padding: 3.75rem 0.75rem 2rem;
 }
-.footer.type-default .img-logo {
+.footer.type-default a.img-logo {
+		display: inline-block;
+}
+.footer.type-default a.img-logo img {
 		width: 11.25rem;
 		height: auto;
 }
@@ -6086,10 +6269,6 @@ header.header.co-header.scroll-hide {
 .c-modal-header .c-modal-title-field .c-title {
 		margin-right: 2.875rem;
 		text-align: left;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		word-wrap: break-word;
 		font-size: 1.5rem;
 		font-weight: 500;
 		letter-spacing: -0.0313rem;
@@ -6264,7 +6443,7 @@ header.header.co-header.scroll-hide {
 		z-index: 101;
 		padding-left: 1.25rem;
 		padding-right: 1.25rem;
-		box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+		box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.25);
 }
 .c-full-layer .full-body {
 		position: relative;
@@ -8136,6 +8315,9 @@ button.ico-plus::after {
 .rv-block .tab-panel[aria-labelledby=ap-step-4-panel] .c-input-list .col.per-column.label-input .col ~ .col {
 		margin-top: 0.75rem;
 }
+.rv-block .tab-panel[aria-labelledby=ap-step-4-panel] .box + .c-input-list {
+		margin-top: 1.25rem;
+}
 .rv-block .tab-panel[aria-labelledby=ap-step-6-panel] > h2 {
 		margin-top: 0;
 }
@@ -9085,6 +9267,15 @@ button.ico-plus::after {
 				left: 10.933rem;
 		}
 }
+@media (max-width: 370px) {
+		.co-main-card {
+				height: 11.75rem;
+		}
+		.co-main-card a.result,
+.co-main-card p.result {
+				margin-top: 1.25rem;
+		}
+}
 @media screen and (max-width: 280px) {
 		html,
 body {
@@ -9166,7 +9357,8 @@ textarea::placeholder {
 .mi-block,
 .em-block,
 .terms-block,
-.guide-block {
+.guide-block,
+.main-block {
 				padding-left: 1.066rem;
 				padding-right: 1.066rem;
 		}
@@ -9214,6 +9406,22 @@ a.is-next > span {
 		header.header.co-header {
 				padding-left: 1.066rem;
 				padding-right: 1.066rem;
+		}
+		#popupInstitutionDetails .instDetailsCenter.swiper-ready .swiper-slide {
+				width: 100% !important;
+		}
+		.main-card-rsv-inquiry .hide-txt {
+				position: absolute;
+				overflow: hidden;
+				clip: rect(0 0 0 0);
+				margin: -1px;
+				padding: 0;
+				width: 1px;
+				height: 1px;
+				border: 0;
+				font-size: 1px;
+				line-height: 1px;
+				color: transparent;
 		}
 }
 .login-block .tit,

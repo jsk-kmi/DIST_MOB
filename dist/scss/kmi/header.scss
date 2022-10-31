@@ -15,7 +15,9 @@ header {
       transition: top $transition-3 ease-in-out;
       h1 {
         &.logo {
+          display: flex;
           a {
+            display: block;
             img {
               width: auto;
               height: 1.5rem;

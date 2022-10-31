@@ -256,7 +256,6 @@ input::placeholder {
     padding: 1rem 1.25rem;
     background-color: $color-main;
     border-radius: 0 $input-border-radius $input-border-radius 0;
-    // box-shadow: 0 0 0 1px #24346d;
     background: url($image-ico-path + 'btn_overlay_01.png') $color-main right bottom/60px auto no-repeat;
 
     > span {

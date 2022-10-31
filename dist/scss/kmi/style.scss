@@ -1066,6 +1066,11 @@ button {
           }
         }
       }
+      .box {
+        & + .c-input-list {
+          margin-top: 1.25rem;
+        }
+      }
     }
     &[aria-labelledby='ap-step-6-panel'] {
       & > h2 {

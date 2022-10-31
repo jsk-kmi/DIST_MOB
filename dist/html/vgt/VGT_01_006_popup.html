@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <!-- BUTTON - 퇴직하실 회사를 선택하지 않았습니다. 선택하신 후 눌러 주시기 바랍니다. -->
+                <a href="javascript:void(0);" title="팝업열림" class="btn-open-popup" data-toggle="modal" data-target="popupRetirementCompany">팝업열림: 퇴직하실 회사를 선택하지 않았습니다. 선택하신 후 눌러 주시기 바랍니다.</a>
+                <br /><br /><br />
+                <!-- BUTTON - 퇴직 처리되었습니다. -->
+                <a href="javascript:void(0);" title="팝업열림" class="btn-open-popup" data-toggle="modal" data-target="popupRetirementTreatment">팝업열림: 퇴직 처리되었습니다.</a>
+                <br /><br /><br />
+                <!-- BUTTON - 퇴직 처리 시 해당 회사의 검진 예약은... -->
+                <a href="javascript:void(0);" title="팝업열림" class="btn-open-popup" data-toggle="modal" data-target="popupWantRetire">팝업열림: 퇴직 처리 시 해당 회사의 검진 예약은...</a>
+                <br /><br /><br />
+            </div>
+        </div>
+
+        <!-- POPUP - 퇴직하실 회사를 선택하지 않았습니다. 선택하신 후 눌러 주시기 바랍니다. -->
+        <div class="c-layer-popup kmi-popup type-modal" id="popupRetirementCompany" role="dialog" aria-labelledby="popupRetirementCompany_Label" aria-modal="true" aria-hidden="true">
+            <div class="modal-wrap">
+                <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+                <div class="modal-field" tabindex="0">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                    <div class="c-modal-body">
+                        <div class="c-modal-inner">
+                            <div class="in-cont">
+                                <p id="popupRetirementCompany_Label">퇴직하실 회사를 선택하지 않았습니다.<br />선택하신 후 눌러 주시기 바랍니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-modal-footer">
+                        <div class="inner">
+                            <div class="buttons">
+                                <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>확인</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- POPUP - 퇴직 처리되었습니다. -->
+        <div class="c-layer-popup kmi-popup type-modal" id="popupRetirementTreatment" role="dialog" aria-labelledby="popupRetirementTreatment_Label" aria-modal="true" aria-hidden="true">
+            <div class="modal-wrap">
+                <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+                <div class="modal-field" tabindex="0">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                    <div class="c-modal-body">
+                        <div class="c-modal-inner">
+                            <div class="in-cont">
+                                <p id="popupRetirementTreatment_Label">퇴직 처리되었습니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-modal-footer">
+                        <div class="inner">
+                            <div class="buttons">
+                                <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>확인</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- POPUP - 퇴직 처리 시 해당 회사의 검진 예약은.. -->
+        <div class="c-layer-popup kmi-popup type-modal" id="popupWantRetire" role="dialog" aria-labelledby="popupWantRetire_Label" aria-modal="true" aria-hidden="true">
+            <div class="modal-wrap">
+                <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+                <div class="modal-field" tabindex="0">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                    <div class="c-modal-body">
+                        <div class="c-modal-inner">
+                            <div class="in-cont" id="popupWantRetire_Label">
+                                <p>퇴직 처리 시 해당 회사의 검진 예약은 이용 불가하며, 예약 진행 중인 퇴직자의 검진 예약은 자동 취소됩니다.</p>
+                                <p>해당 회사에서 퇴직 처리하시겠습니까?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-modal-footer">
+                        <div class="inner">
+                            <div class="buttons">
+                                <button class="co-btn is-outline-navy-1 popup-btn-close"><span class="alt-txt">팝업 닫기</span><span>취소</span></button>
+                                <a href="javascript:void(0);" title="페이지이동" class="co-btn bg-navy-1"><span>확인</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

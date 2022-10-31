@@ -3,9 +3,14 @@
     background-color: $color-black-100;
     text-align: center;
     padding: 3.75rem 0.75rem 2rem;
-    .img-logo {
-      width: 11.25rem;
-      height: auto;
+    a {
+      &.img-logo {
+        display: inline-block;
+        img {
+          width: 11.25rem;
+          height: auto;
+        }
+      }
     }
     .footer-txt,
     .copyright {

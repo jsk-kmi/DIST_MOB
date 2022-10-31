@@ -9,6 +9,16 @@
   }
 }
 
+@media (max-width: 370px) {
+  .co-main-card {
+    height: 11.75rem;
+    a.result,
+    p.result {
+      margin-top: 1.25rem;
+    }
+  }
+}
+
 @include devices(mobileSm) {
   html,
   body {
@@ -113,7 +123,8 @@
   .mi-block,
   .em-block,
   .terms-block,
-  .guide-block {
+  .guide-block,
+  .main-block {
     @include mSmHorizonSpacing;
   }
 
@@ -209,6 +220,24 @@
           right: $mq-sm-default-h-spacing;
         }
       }
+    }
+  }
+
+  // + 검진기관 상세 full 팝업
+  #popupInstitutionDetails {
+    .instDetailsCenter {
+      &.swiper-ready {
+        .swiper-slide {
+          width: 100% !important;
+        }
+      }
+    }
+  }
+
+  // = Main
+  .main-card-rsv-inquiry {
+    .hide-txt {
+      @include skipTxt;
     }
   }
 }

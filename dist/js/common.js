@@ -1363,7 +1363,7 @@ function commonInit() {
     // 터치하는 영역이 물음표 아이콘이 아닐 경우 - 아코디언 hide / show
     if (!_e.target.parentElement.classList.contains('co-btn') && !_e.target.classList.contains('co-btn') && !_e.target.classList.contains('ico-ques')) {
       accButtonTypeOneOpen(_accType, _accWrap);
-      accButtonOpenClose(_accWrap, _accBodyEl, _bodyHeight); // 접근성
+      accButtonOpenClose(_accWrap, _accBodyEl); // 접근성
 
       accordionAccessibility(_accWrap); // btn-bottom-floating check
 
@@ -1403,7 +1403,7 @@ function commonInit() {
     }
   }
 
-  function accButtonOpenClose(_accWrap, _accBodyEl, _bodyHeight) {
+  function accButtonOpenClose(_accWrap, _accBodyEl) {
     if (_accWrap.classList.contains('open')) {
       _accWrap.classList.remove('open');
 
@@ -1411,7 +1411,7 @@ function commonInit() {
     } else {
       _accWrap.classList.add('open');
 
-      _accBodyEl.style.maxHeight = _bodyHeight + 'px';
+      _accBodyEl.style.maxHeight = _accBodyEl.scrollHeight + 'px';
     }
   } // + 아코디언 모두닫힘
 
@@ -1727,7 +1727,7 @@ function commonInit() {
         lastScrollTop = st <= 0 ? 0 : st;
       }
 
-      if (this.scrollTop <= 0) {
+      if (this.scrollTop <= _moveHeader.clientHeight) {
         _moveHeader.classList.remove('scroll-hide');
 
         scrollArr = [];
