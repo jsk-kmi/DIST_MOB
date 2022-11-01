@@ -5413,7 +5413,7 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th,
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td,
-#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td a {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td .ui-state-default {
 		font-size: 1rem;
 		font-weight: 300;
 		letter-spacing: -0.0187rem;
@@ -5422,7 +5422,7 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		text-align: center;
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th,
-#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td a {
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td .ui-state-default {
 		padding: 0.625rem 0;
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar thead tr th.ui-datepicker-week-end {
@@ -5534,6 +5534,10 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		color: rgba(28, 28, 28, 0.2);
 		opacity: 1;
 }
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.another-month.ui-datepicker-other-month.holidays-after .ui-state-default, #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.another-month.ui-datepicker-unselectable.holidays-after .ui-state-default {
+		color: #ba1d3c;
+		opacity: 0.2;
+}
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end ~ .ui-datepicker-week-end.another-month.holidays-before .ui-state-default {
 		color: #ba1d3c;
 		opacity: 0.2;
@@ -5574,6 +5578,15 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		color: rgba(28, 28, 28, 0.2);
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.reservation-closed .ui-state-default {
+		color: rgba(28, 28, 28, 0.2);
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.reservation-closed.ui-datepicker-today .ui-state-default {
+		color: #fff;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.reservation-closed.ui-datepicker-today.ui-datepicker-current-day {
+		box-shadow: none;
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.reservation-closed.ui-datepicker-today.ui-datepicker-other-month .ui-state-default {
 		color: rgba(28, 28, 28, 0.2);
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-select-month,

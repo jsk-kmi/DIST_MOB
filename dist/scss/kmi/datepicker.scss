@@ -184,13 +184,13 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
             margin: 0.625rem 0 0 0;
             thead tr th,
             tbody tr td,
-            tbody tr td a {
+            tbody tr td .ui-state-default {
               @include coTxtBody;
               color: $color-black-80;
               text-align: center;
             }
             thead tr th,
-            tbody tr td a {
+            tbody tr td .ui-state-default {
               padding: 0.625rem 0;
             }
             thead {
@@ -335,6 +335,12 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                             color: $color-black-20;
                             opacity: 1;
                           }
+                          &.holidays-after {
+                            .ui-state-default {
+                              color: $color-sub-03;
+                              opacity: .2;
+                            }
+                          }
                         }
                         &.holidays-before {
                           .ui-state-default {
@@ -392,6 +398,19 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                   &.reservation-closed {
                     .ui-state-default {
                       color: $color-black-20;
+                    }
+                    &.ui-datepicker-today {
+                      .ui-state-default {
+                        color: $color-white-100;
+                      }
+                      &.ui-datepicker-current-day {
+                        box-shadow: none;
+                      }
+                      &.ui-datepicker-other-month {
+                        .ui-state-default {
+                          color: $color-black-20;
+                        }
+                      }
                     }
                   }
                 }
