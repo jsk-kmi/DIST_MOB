@@ -240,7 +240,23 @@
       @include skipTxt;
     }
   }
-}
+
+  .main-block {
+    .card_09 {
+      padding: {
+        left: 5.2rem;
+        right: 0.937rem;
+      }
+    }
+  }
+
+  // + subjectSwiper
+  .subjectSwiper,
+  .eventSwiper,
+  .resultSwiper {
+    @include swiperFullWidth;
+  }
+} // E - media
 
 // =Style
 .login-block,

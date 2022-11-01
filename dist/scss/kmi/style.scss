@@ -2089,3 +2089,33 @@ button {
     padding-top: 3rem;
   }
 }
+
+// + 검진 결과 비교
+.c-full-layer {
+  &.popup-chkupresult-compare {
+    .cont-box {
+      padding: {
+        left: 0;
+        right: 0;
+      }
+    }
+    .chart-area {
+      padding: {
+        left: 0.75rem;
+        right: 0.75rem;
+      }
+    }
+    .cont-title,
+    .btm-cont-box {
+      padding : {
+        left: 1.75rem;
+        right: 1.75rem;
+      }
+    }
+  }
+
+  .chart-area {
+    width: 100%;
+    height: auto;
+  }
+}

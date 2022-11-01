@@ -334,3 +334,10 @@
     right: $mq-sm-gnb-h-spacing;
   }
 }
+
+@mixin swiperFullWidth {
+  .swiper-slide {
+    width: 100%;
+  }
+  overflow: hidden;
+}

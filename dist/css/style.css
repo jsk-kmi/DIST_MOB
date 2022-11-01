@@ -6856,7 +6856,8 @@ header.header.co-header.scroll-hide {
 .type-update > img {
 		height: auto;
 }
-.type-404 h4, .type-404 p,
+.type-404 h4,
+.type-404 p,
 .type-update h4,
 .type-update p {
 		text-align: center;
@@ -6917,6 +6918,8 @@ header.header.co-header.scroll-hide {
 		    -ms-flex-direction: column;
 		        flex-direction: column;
 		z-index: 3001;
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
 }
 .type-loading > img {
 		width: 17.5rem;
@@ -9274,6 +9277,24 @@ button.ico-plus::after {
 		padding-top: 3rem;
 }
 
+.c-full-layer.popup-chkupresult-compare .cont-box {
+		padding-left: 0;
+		padding-right: 0;
+}
+.c-full-layer.popup-chkupresult-compare .chart-area {
+		padding-left: 0.75rem;
+		padding-right: 0.75rem;
+}
+.c-full-layer.popup-chkupresult-compare .cont-title,
+.c-full-layer.popup-chkupresult-compare .btm-cont-box {
+		padding-left: 1.75rem;
+		padding-right: 1.75rem;
+}
+.c-full-layer .chart-area {
+		width: 100%;
+		height: auto;
+}
+
 @media (max-width: 280px) {
 		.login-banner img {
 				right: auto;
@@ -9435,6 +9456,20 @@ a.is-next > span {
 				font-size: 1px;
 				line-height: 1px;
 				color: transparent;
+		}
+		.main-block .card_09 {
+				padding-left: 5.2rem;
+				padding-right: 0.937rem;
+		}
+		.subjectSwiper,
+.eventSwiper,
+.resultSwiper {
+				overflow: hidden;
+		}
+		.subjectSwiper .swiper-slide,
+.eventSwiper .swiper-slide,
+.resultSwiper .swiper-slide {
+				width: 100%;
 		}
 }
 .login-block .tit,

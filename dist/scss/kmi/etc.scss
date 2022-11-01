@@ -8,7 +8,8 @@
   > img {
     height: auto;
   }
-  h4, p {
+  h4,
+  p {
     text-align: center;
     word-break: keep-all;
   }
@@ -34,7 +35,6 @@
 }
 // /etc/under_construction.html
 .type-update {
-
   > img {
     width: 12.25rem;
   }
@@ -52,6 +52,10 @@
   justify-content: center;
   flex-direction: column;
   z-index: 3001;
+  padding: {
+    left: 2.5rem;
+    right: 2.5rem;
+  }
   > img {
     width: 17.5rem;
   }
