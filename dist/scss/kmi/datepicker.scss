@@ -1,7 +1,11 @@
 // datepicker
 
 // + common variable
-$colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-black-20);
+$colors: (
+  selected: $color-sub-02,
+  holiday: $color-sub-03,
+  disabled: $color-black-20,
+);
 
 #popupDatePicker {
   .cont-box {
@@ -85,7 +89,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
         }
       }
     }
-  
+
     // datepicker reset
     .ui-widget {
       font-family: $font-name;
@@ -166,7 +170,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
               a {
                 &.ui-datepicker-title {
                   span {
-                    color: $color-black-40; 
+                    color: $color-black-40;
                     display: inline-block;
                     margin: 0 0.5rem;
                   }
@@ -223,7 +227,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                     color: $color-black-80;
                   }
                   &.ui-datepicker-current-day {
-                    box-shadow: 0 0 0 0.1875rem $color-sub-02 inset; 
+                    box-shadow: 0 0 0 0.1875rem $color-sub-02 inset;
                     border-radius: 0.5rem;
                     .ui-state-default {
                       border-radius: 0.5rem;
@@ -266,13 +270,13 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                   &.holidays-before {
                     .ui-state-default {
                       color: $color-sub-03;
-                      opacity: .2;
+                      opacity: 0.2;
                     }
                   }
                   &.holidays-after {
                     .ui-state-default {
                       color: $color-sub-03;
-                      opacity: .2;
+                      opacity: 0.2;
                     }
                   }
                   &.ui-datepicker-week-end {
@@ -282,20 +286,20 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                     &.holidays-before {
                       .ui-state-default {
                         color: $color-sub-03;
-                        opacity: .2;
+                        opacity: 0.2;
                       }
                     }
                     &.another-month {
                       .ui-state-default {
                         color: $color-sub-03;
-                        opacity: .2;
+                        opacity: 0.2;
                       }
                     }
                     &.ui-datepicker-current-day {
                       &.another-month {
                         .ui-state-default {
                           color: $color-sub-03;
-                          opacity: .2;
+                          opacity: 0.2;
                         }
                       }
                     }
@@ -311,7 +315,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                       &.holidays-before {
                         .ui-state-default {
                           color: $color-sub-03;
-                          opacity: .2;
+                          opacity: 0.2;
                         }
                       }
                       &.holidays-after {
@@ -338,24 +342,29 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                           &.holidays-after {
                             .ui-state-default {
                               color: $color-sub-03;
-                              opacity: .2;
+                              opacity: 0.2;
                             }
                           }
                         }
                         &.holidays-before {
                           .ui-state-default {
                             color: $color-sub-03;
-                            opacity: .2;
+                            opacity: 0.2;
                           }
                         }
                       }
                     }
-                    
                   }
                   &.ui-datepicker-other-month {
                     .ui-state-default {
                       opacity: 1;
                       color: $color-black-20;
+                    }
+                    &.ui-datepicker-week-end {
+                      .ui-state-default {
+                        color: $color-sub-03;
+                        opacity: 0.2;
+                      }
                     }
                     & ~ .ui-datepicker-other-month {
                       .ui-state-default {
@@ -365,7 +374,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                     &.holidays-after {
                       .ui-state-default {
                         color: $color-sub-03;
-                        opacity: .2;
+                        opacity: 0.2;
                       }
                     }
                     &.holidays-before {
@@ -437,7 +446,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
                     }
                     &.ui-datepicker-today {
                       a {
-                        box-shadow: 0 0 0 0.1875rem $color-sub-02 inset; 
+                        box-shadow: 0 0 0 0.1875rem $color-sub-02 inset;
                         border-radius: 0.5rem;
                         color: $color-sub-02;
                       }
@@ -462,7 +471,7 @@ $colors: (selected: $color-sub-02, holiday: $color-sub-03, disabled: $color-blac
         }
       }
     }
-    
+
     // + datepicker bottom info
     .c-datepicker-info {
       position: relative;

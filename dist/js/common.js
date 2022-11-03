@@ -2,7 +2,7 @@
 
 /**
  * common variable
-*/
+ */
 // animation time
 
 var ANI_TIME_300 = 301; // interval time
@@ -18,7 +18,7 @@ var SCROLL_TIME = 0.5; // 초(second), 이 숫자만큼의 스피드로 scroll t
 var INVERTED = 55;
 /**
  * common interface
-*/
+ */
 // POPUP
 
 var IPOPUP = {
@@ -45,7 +45,7 @@ var elTopArr = [];
 var elTopRes = 0;
 /**
  * HTML element length check
-*/
+ */
 
 function elemLenCheck() {
   var okEl = 1;
@@ -67,13 +67,13 @@ function elemLenCheck() {
 }
 /**
  * load event
-*/
+ */
 
 
 document.addEventListener('readystatechange', function (event) {
   // does same as:  ..addEventListener("DOMContentLoaded"..
   // When HTML/DOM elements are ready:
-  if (event.target.readyState === 'interactive') {} // When window loaded ( external resources are loaded too- css, src, etc...) 
+  if (event.target.readyState === 'interactive') {} // When window loaded ( external resources are loaded too- css, src, etc...)
 
 
   if (event.target.readyState === 'complete') {
@@ -82,7 +82,7 @@ document.addEventListener('readystatechange', function (event) {
 });
 /**
  * 접근성 공통
-*/
+ */
 // #container -> aria-hidden: true || false
 
 function containerHidden(_state) {
@@ -99,13 +99,13 @@ function containerHidden(_state) {
 }
 /**
  * common function
-*/
+ */
 
 
 function commonInit() {
   /**
    * resize event
-  */
+   */
   var rtime;
   var timeout = false;
   var DELTA = 10;
@@ -138,7 +138,7 @@ function commonInit() {
   }
   /**
    * GNB
-  */
+   */
 
 
   var GNB_ELEM = document.querySelectorAll('.btn-open-gnb');
@@ -244,7 +244,7 @@ function commonInit() {
   }
   /**
    * tab
-  */
+   */
 
 
   var TAB_EL = document.querySelectorAll('ul.c-tab');
@@ -403,7 +403,6 @@ function commonInit() {
         self = self.previousElementSibling;
       }
 
-      ;
       return this.parentNode === parent.children[i] ? i : -1;
     };
 
@@ -737,7 +736,7 @@ function commonInit() {
   }
   /**
    * popup
-  */
+   */
   // 화면에 팝업이 있을 경우 공통 스타일 적용
   // 팝업 필수 class: kmi-popup
 
@@ -1185,7 +1184,7 @@ function commonInit() {
         focus_el[0].focus();
       }, INTERVAL_1);
     }, ANI_TIME_300);
-  } // DOM에 풀팝업이 있을 경우 
+  } // DOM에 풀팝업이 있을 경우
 
 
   function fullPopupState() {
@@ -1267,7 +1266,7 @@ function commonInit() {
   }
   /**
    * accordion
-  */
+   */
 
 
   var ACCORDION_ELEM = document.querySelectorAll('.accordion');
@@ -1429,7 +1428,7 @@ function commonInit() {
   }
   /**
    * terms
-  */
+   */
 
 
   var TERMS_ELEM = document.querySelectorAll('.terms-box');
@@ -1499,7 +1498,7 @@ function commonInit() {
   }
   /**
    * textarea
-  */
+   */
 
 
   var TEXTAREA_ELEM = document.querySelectorAll('textarea');
@@ -1534,7 +1533,7 @@ function commonInit() {
   }
   /**
    * input
-  */
+   */
 
 
   var INPUT_ELEM = document.querySelectorAll('input');
@@ -1660,7 +1659,7 @@ function commonInit() {
   }
   /**
    * #container scroll event
-  */
+   */
 
 
   var CONTAINER_ELEM = document.querySelector('#container');
@@ -1835,7 +1834,7 @@ function commonInit() {
   }
   /**
    * 최상단 스크롤 이동 버튼 click event
-  */
+   */
 
 
   var BTN_MOVE_TOP_ELEM = document.querySelector('.btn-move-top');
@@ -1878,7 +1877,7 @@ function commonInit() {
   }
   /**
    * floating tab
-  */
+   */
 
 
   var STICKYELM = document.querySelector('.tab-floating');
@@ -1901,7 +1900,7 @@ function commonInit() {
   }
   /**
    * custom scrollbar
-  */
+   */
   // common formula
   // + popup: modal header
 

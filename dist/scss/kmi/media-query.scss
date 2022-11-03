@@ -128,6 +128,12 @@
     @include mSmHorizonSpacing;
   }
 
+  .rv-block {
+    &.type-floating-btn {
+      @include mSmHorizonSpacing;
+    }
+  }
+
   // = Form
   input {
     &[type='text'],

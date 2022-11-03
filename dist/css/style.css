@@ -4469,7 +4469,16 @@ a.card_09 {
 		top: 0.75rem;
 }
 .accordion.type-equipment .accordion-header {
+		width: 100%;
 		position: relative;
+		display: block;
+}
+.accordion.type-equipment .accordion-header .in-cont {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
 }
 .accordion.type-equipment .accordion-header img,
 .accordion.type-equipment .accordion-header ul {
@@ -4491,6 +4500,7 @@ a.card_09 {
 		border-bottom-left-radius: 0.75rem;
 		border-bottom-right-radius: 0.75rem;
 		border: 1px solid rgba(28, 28, 28, 0.1);
+		position: relative;
 }
 .accordion.type-equipment .accordion-header ul li {
 		text-align: left;
@@ -4503,18 +4513,26 @@ a.card_09 {
 		line-height: 1.25rem;
 		color: #2f7ad3;
 }
-.accordion.type-equipment .accordion-header ul li:nth-child(2) {
+.accordion.type-equipment .accordion-header ul li.info-txt {
 		font-size: 1rem;
 		font-weight: 300;
 		letter-spacing: -0.0187rem;
 		line-height: 1.75rem;
 		color: rgba(28, 28, 28, 0.8);
 		margin-top: 0.25rem;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+}
+.accordion.type-equipment .accordion-header ul li.info-txt > div {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		display: -webkit-box;
-		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		line-height: 1.75rem;
+		max-height: 3.5rem;
 }
 .accordion.type-equipment .accordion-header::after {
 		content: "";
@@ -5545,6 +5563,10 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month .ui-state-default {
 		opacity: 1;
 		color: rgba(28, 28, 28, 0.2);
+}
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month.ui-datepicker-week-end .ui-state-default {
+		color: #ba1d3c;
+		opacity: 0.2;
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month ~ .ui-datepicker-other-month .ui-state-default {
 		color: rgba(28, 28, 28, 0.2);
@@ -6982,7 +7004,7 @@ header.header.co-header.scroll-hide {
 		display: inline-block;
 		width: 1rem;
 		height: 1rem;
-		background-image: url("../images/ico/ico_tooltip_question.png");
+		background-image: url("../images/ico/ico_tooltip_question.svg");
 		background-size: 1rem 1rem;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -7438,7 +7460,6 @@ button.ico-plus::after {
 		-webkit-justify-content: space-between;
 		    -ms-flex-pack: justify;
 		        justify-content: space-between;
-		height: 2.25rem;
 		padding: 0.5rem 1.25rem;
 		position: relative;
 }
@@ -8614,52 +8635,52 @@ button.ico-plus::after {
 		object-fit: cover;
 }
 
-#popupInstitutionDetails h2 {
+.popup-institution-details h2 {
 		font-size: 0.875rem;
 		font-weight: 400;
 		letter-spacing: -0.0313rem;
 		line-height: 1.5rem;
 		color: rgba(28, 28, 28, 0.8);
 }
-#popupInstitutionDetails h2 ~ h2 {
+.popup-institution-details h2 ~ h2 {
 		padding-top: 0.5rem;
 }
-#popupInstitutionDetails h2 + .box {
+.popup-institution-details h2 + .box {
 		margin-top: 0.75rem;
 		margin-bottom: 1.25rem;
 }
-#popupInstitutionDetails h2 + .box + .map {
+.popup-institution-details h2 + .box + .map {
 		margin-top: 1.75rem;
 		width: 100%;
 }
-#popupInstitutionDetails h2 + .box + .map img {
+.popup-institution-details h2 + .box + .map img {
 		width: 100%;
 		height: auto;
 }
-#popupInstitutionDetails h2 + .box + .map + h2 {
+.popup-institution-details h2 + .box + .map + h2 {
 		padding-top: 1.75rem;
 }
-#popupInstitutionDetails .instDetailsCenter .swiper-slide {
+.popup-institution-details .instDetailsCenter .swiper-slide {
 		width: 100%;
 		height: auto;
 		border-radius: 0.75rem;
 		overflow: hidden;
 }
-#popupInstitutionDetails .instDetailsCenter .swiper-slide img {
+.popup-institution-details .instDetailsCenter .swiper-slide img {
 		width: 100%;
 		height: auto;
 }
-#popupInstitutionDetails .instDetailsCenter.swiper-ready .swiper-slide {
+.popup-institution-details .instDetailsCenter.swiper-ready .swiper-slide {
 		width: calc(100% - 1.75rem) !important;
 		height: auto;
 }
-#popupInstitutionDetails .instDetailsCenter + h2 {
+.popup-institution-details .instDetailsCenter + h2 {
 		padding-top: 1.75rem;
 }
-#popupInstitutionDetails .accordion-list .accordion ~ .accordion {
+.popup-institution-details .accordion-list .accordion ~ .accordion {
 		margin-top: 1.25rem;
 }
-#popupInstitutionDetails .full-body {
+.popup-institution-details .full-body {
 		padding-bottom: 2.5rem;
 }
 
@@ -9393,6 +9414,10 @@ textarea::placeholder {
 .terms-block,
 .guide-block,
 .main-block {
+				padding-left: 1.066rem;
+				padding-right: 1.066rem;
+		}
+		.rv-block.type-floating-btn {
 				padding-left: 1.066rem;
 				padding-right: 1.066rem;
 		}
