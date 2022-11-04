@@ -8679,6 +8679,9 @@ button.ico-plus::after {
 .popup-institution-details .instDetailsCenter .swiper-slide .swiper-wrapper {
 		height: auto;
 }
+.popup-institution-details .instDetailsCenter .swiper-slide .swiper-wrapper .swiper-slide {
+		height: auto;
+}
 .popup-institution-details .instDetailsCenter .swiper-slide .image {
 		position: relative;
 		padding-bottom: 57.971%;

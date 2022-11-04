@@ -1378,6 +1378,9 @@ button {
 
       .swiper-wrapper {
         height: auto;
+        .swiper-slide {
+          height: auto;
+        }
       }
 
       .image {
