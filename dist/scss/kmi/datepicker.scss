@@ -57,6 +57,7 @@ $colors: (
           position: absolute;
           left: 0;
           top: 0;
+          @include position(50%, 50%);
           width: 1px;
           height: 1px;
           background-color: transparent;

@@ -281,3 +281,23 @@
     font-size: 1.866rem;
   }
 }
+
+// = 검진예약(RV)
+.c-full-layer {
+  &.popup-prd-additional-amount {
+    &#popupProductAdditionalAmount {
+      .top-title-box {
+        font-size: 1.466rem;
+      }
+      .cont-box {
+        dl {
+          dd {
+            &:first-of-type {
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

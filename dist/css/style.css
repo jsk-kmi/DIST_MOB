@@ -5278,6 +5278,12 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		position: absolute;
 		left: 0;
 		top: 0;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		    -ms-transform: translate(-50%, -50%);
+		        transform: translate(-50%, -50%);
 		width: 1px;
 		height: 1px;
 		background-color: transparent;
@@ -7140,6 +7146,7 @@ header.header.co-header.scroll-hide {
 		background-color: rgba(28, 28, 28, 0.05);
 		color: rgba(28, 28, 28, 0.6);
 		padding: 0.125rem 0.75rem;
+		text-align: left;
 }
 
 .header.co-header ~ .flex-container .tit.type-floating {
@@ -8660,18 +8667,36 @@ button.ico-plus::after {
 .popup-institution-details h2 + .box + .map + h2 {
 		padding-top: 1.75rem;
 }
+.popup-institution-details .instDetailsCenter {
+		overflow: hidden;
+}
 .popup-institution-details .instDetailsCenter .swiper-slide {
 		width: 100%;
 		height: auto;
 		border-radius: 0.75rem;
 		overflow: hidden;
 }
-.popup-institution-details .instDetailsCenter .swiper-slide img {
-		width: 100%;
+.popup-institution-details .instDetailsCenter .swiper-slide .swiper-wrapper {
 		height: auto;
 }
+.popup-institution-details .instDetailsCenter .swiper-slide .image {
+		position: relative;
+		padding-bottom: 57.971%;
+		overflow: hidden;
+		width: 100%;
+}
+.popup-institution-details .instDetailsCenter .swiper-slide .image > img {
+		position: absolute;
+		min-width: 100%;
+		min-height: 100%;
+}
+.popup-institution-details .instDetailsCenter .swiper-slide img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+}
 .popup-institution-details .instDetailsCenter.swiper-ready .swiper-slide {
-		width: calc(100% - 1.75rem) !important;
 		height: auto;
 }
 .popup-institution-details .instDetailsCenter + h2 {
@@ -8694,6 +8719,10 @@ button.ico-plus::after {
 .ri-block .tit.type-floating ~ .tab-floating ~ .tab-panel.show {
 		padding-top: 0 !important;
 		margin-top: 0.5rem;
+}
+
+.appointment-checkup-panel .box.type3 + .c-input-list {
+		margin-top: 1.25rem;
 }
 
 #popupViewMoreExam .in-cont .c-input-sub-group {
@@ -9510,5 +9539,12 @@ a.is-next > span {
 .terms-block .tit,
 .guide-block .tit {
 		font-size: 1.866rem;
+}
+
+.c-full-layer.popup-prd-additional-amount#popupProductAdditionalAmount .top-title-box {
+		font-size: 1.466rem;
+}
+.c-full-layer.popup-prd-additional-amount#popupProductAdditionalAmount .cont-box dl dd:first-of-type {
+		padding-right: 0;
 }
 /*# sourceMappingURL=maps/style.css.map */
