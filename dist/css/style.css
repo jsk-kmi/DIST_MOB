@@ -2885,6 +2885,8 @@ textarea textarea[readonly=readonly]:focus,
 		opacity: 0;
 		-webkit-transition: opacity 0.3s ease-in-out;
 		transition: opacity 0.3s ease-in-out;
+		-webkit-transition: none;
+		transition: none;
 }
 .card_04.swiper-slide.swiper-slide-active::before {
 		opacity: 1;
@@ -3918,7 +3920,7 @@ a.card_09 {
 .accordion.type1 .accordion-header .acc-tit {
 		font-size: 0.875rem;
 		line-height: 1.75rem;
-		letter-spacing: -0.01875;
+		letter-spacing: -0.01875rem;
 		color: rgba(28, 28, 28, 0.8);
 		text-align: left;
 		-webkit-box-flex: 1;
@@ -7271,13 +7273,10 @@ button.ico-plus::after {
 		position: relative;
 }
 .swiper.examResSwiper .swiper-wrapper .swiper-slide {
-		width: 100%;
+		width: auto;
 }
 .swiper.examResSwiper .swiper-wrapper + .swiper-pagination {
 		display: none;
-}
-.swiper.examResSwiper.swiper-ready .swiper-wrapper .swiper-slide {
-		width: 16.25rem;
 }
 .swiper.examResSwiper.swiper-ready .swiper-wrapper + .swiper-pagination {
 		display: -webkit-box;
@@ -7853,7 +7852,7 @@ button.ico-plus::after {
 .guide-block .detail-editor .dummy-area {
 		background: url("../images//dummy/dummy_editorarea.png") center/contain rgba(28, 28, 28, 0.05) no-repeat;
 		width: 100%;
-		height: 320px;
+		min-height: 320px;
 }
 .login-block .detail-btn,
 .ti-block .detail-btn,
@@ -8723,8 +8722,30 @@ button.ico-plus::after {
 		padding-top: 0 !important;
 		margin-top: 0.5rem;
 }
+.ri-block .no-data img {
+		display: block;
+		width: 10.937rem;
+		height: auto;
+		text-align: center;
+		margin: 5rem auto 0;
+}
+.ri-block .no-data img + h2 {
+		font-size: 1.25rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+		color: #2f7ad3;
+		text-align: center;
+		margin-top: 2.5rem;
+}
+.ri-block .no-data img + h2 + .box {
+		margin-top: 1.25rem;
+}
+.ri-block .no-data img + h2 + .box + .c-input-list {
+		margin-top: 3.75rem;
+}
 
-.appointment-checkup-panel .box.type3 + .c-input-list {
+examResSwiper .appointment-checkup-panel .box.type3 + .c-input-list {
 		margin-top: 1.25rem;
 }
 
@@ -9335,6 +9356,7 @@ button.ico-plus::after {
 		padding-right: 0;
 }
 .c-full-layer.popup-chkupresult-compare .chart-area {
+		margin-top: 1.25rem;
 		padding-left: 0.75rem;
 		padding-right: 0.75rem;
 }

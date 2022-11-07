@@ -22,26 +22,36 @@
 <body>
     <div id="container">
         <div class="flex-wrap">
+            <!-- Header -->
+            <header class="header co-header">
+                <!-- 기업 로고에 따른 alt값 부여 -->
+                <!-- 흑백로고 -->
+                <h1 class="logo">
+                    <a href="javascrpit:void(0);"><img src="../../images/dummy/dummy_logo01.png" alt="LG화학 로고" /></a>
+                </h1>
+                <!-- 컬러로고: type-color -->
+                <!-- <h1 class="logo type-color">
+    <a href="javascrpit:void(0);"><img src="../../images/dummy/dummy_logo02.png" alt="LG화학 로고" /></a>
+  </h1> -->
+                <div class="menu">
+                    <button type="button" class="btn-open-gnb">
+                        <span class="skip">전체 메뉴 열기</span>
+                        <img src="../../images/ico/ico_gnb_hamberger.svg" alt="전체메뉴 아이콘" />
+                    </button>
+                </div>
+            </header>
+
             <div class="flex-container">
-                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupExaminationResult"><em class="alt-txt">터치시팝업열림</em><span>팝업열림 - 검진결과</span></button>
-            </div>
-        </div>
-    </div>
+                <div class="ri-block">
+                    <h1 class="tit type-floating">검진 결과</h1>
 
-    <!-- full popup - 검진결과 -->
-    <div class="c-full-layer kmi-popup type-full-footer" id="popupExaminationResult" role="dialog" aria-labelledby="popupExaminationResult_Label" aria-modal="true" aria-hidden="true">
-        <div class="c-container" tabindex="0">
-            <div class="full-header">
-                <button class="btn-go-back">
-                    <span>뒤로 가기</span>
-                </button>
-            </div>
+                    <div class="c-select">
+                        <select title="전체">
+                            <option selected>전체</option>
+                            <option>option</option>
+                        </select>
+                    </div>
 
-            <div class="full-body">
-                <!-- 검진결과 -->
-                <h4 id="popupExaminationResult_Label" class="top-title-box">검진 결과</h4>
-
-                <div class="cont-box type-swiper">
                     <!-- swiper -->
                     <div class="swiper examResSwiper">
                         <div class="skip">검진 받은 병원 리스트입니다. 리스트는 슬라이드 방식입니다.</div>
@@ -76,33 +86,55 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="swiper-slide card_04">
+                                <div class="inner">
+                                    <em class="alt-txt">2022년3월15일</em>
+                                    <p class="hospital-date" aria-hidden="true">2022-03-15</p>
+                                    <p class="hospital-name">한국의학연구소 광화문4</p>
+                                    <div class="badges">
+                                        <span>정밀종합검진 - 일반형</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide card_04">
+                                <div class="inner">
+                                    <em class="alt-txt">2022년3월15일</em>
+                                    <p class="hospital-date" aria-hidden="true">2022-03-15</p>
+                                    <p class="hospital-name">한국의학연구소 광화문5</p>
+                                    <div class="badges">
+                                        <span>정밀종합검진 - 일반형</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
 
                     <!-- tab -->
-                    <ul class="c-tab type-slide type-panel" role="tablist">
-                        <li role="tab" aria-controls="general-opinion-tab-panel">
-                            <input type="radio" name="examinationResult" id="examAll" checked />
-                            <label for="examAll">종합소견</label>
-                        </li>
-                        <li role="tab" aria-controls="basic-inspection-tab-panel">
-                            <input type="radio" name="examinationResult" id="examBasic" />
-                            <label for="examBasic">기본검사</label>
-                        </li>
-                        <li role="tab" aria-controls="blood-test-tab-panel">
-                            <input type="radio" name="examinationResult" id="examBlood" />
-                            <label for="examBlood">혈액검사</label>
-                        </li>
-                        <li role="tab" aria-controls="exam-equipment-tab-panel">
-                            <input type="radio" name="examinationResult" id="examEquipment" />
-                            <label for="examEquipment">장비검사</label>
-                        </li>
-                        <li role="tab" aria-controls="exam-etc-tab-panel">
-                            <input type="radio" name="examinationResult" id="examEtc" />
-                            <label for="examEtc">기타검사</label>
-                        </li>
-                    </ul>
+                    <div class="tab-floating">
+                        <ul class="c-tab type-slide type-panel" role="tablist">
+                            <li role="tab" aria-controls="general-opinion-tab-panel">
+                                <input type="radio" name="examinationResult" id="examAll" checked />
+                                <label for="examAll">종합소견</label>
+                            </li>
+                            <li role="tab" aria-controls="basic-inspection-tab-panel">
+                                <input type="radio" name="examinationResult" id="examBasic" />
+                                <label for="examBasic">기본검사</label>
+                            </li>
+                            <li role="tab" aria-controls="blood-test-tab-panel">
+                                <input type="radio" name="examinationResult" id="examBlood" />
+                                <label for="examBlood">혈액검사</label>
+                            </li>
+                            <li role="tab" aria-controls="exam-equipment-tab-panel">
+                                <input type="radio" name="examinationResult" id="examEquipment" />
+                                <label for="examEquipment">장비검사</label>
+                            </li>
+                            <li role="tab" aria-controls="exam-etc-tab-panel">
+                                <input type="radio" name="examinationResult" id="examEtc" />
+                                <label for="examEtc">기타검사</label>
+                            </li>
+                        </ul>
+                    </div>
 
                     <!-- 종합소견 panel -->
                     <div class="tab-panel show" role="tabpanel" aria-labelledby="general-opinion-tab-panel">
@@ -762,9 +794,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- // 검진결과 -->
-            </div>
 
+                <button class="btn-move-top"><span class="skip">터치시최상단으로이동</span></button>
+            </div>
             <!-- footer -->
             <footer class="footer type-default">
                 <a href="javascript:void(0);" title="페이지이동" class="img-logo"><img src="../../images/logo/footer_logo_01.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE" /></a>
@@ -789,6 +821,8 @@
 
         </div>
     </div>
+    <!-- GNB -->
+    <!-- // GNB -->
 
     <!-- script - swiper -->
     <script src="../../js/common-swiper.js"></script>

@@ -311,6 +311,7 @@
     position: relative;
     &::before {
       @include card-check-type-on-before;
+      transition: none;
     }
     &.swiper-slide-active {
       &::before {
@@ -501,7 +502,7 @@
       .co-btn {
         background: $color-bg-03;
         border-radius: 0.5rem;
-        border:0 none;
+        border: 0 none;
         white-space: nowrap;
         span {
           color: $color-main;
