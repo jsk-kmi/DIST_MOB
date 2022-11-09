@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupProductAdditionalAmount"><em class="alt-txt">두번탭하면,팝업열림</em><span>팝업열림 - 상품 추가금</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- full popup - 상품 추가금 -->
+    <div class="c-full-layer kmi-popup type-full popup-prd-additional-amount" id="popupProductAdditionalAmount" role="dialog" aria-labelledby="popupProductAdditionalAmount_Label" aria-modal="true" aria-hidden="true">
+        <div class="c-container" tabindex="0">
+            <div class="full-header">
+                <button class="btn-go-back popup-btn-close">
+                    <span>뒤로 가기</span>
+                </button>
+            </div>
+
+            <div class="full-body">
+                <h1 id="popupProductAdditionalAmount_Label" class="top-title-box">개인 추가금 전체 내역</h1>
+
+                <div class="cont-box">
+                    <dl>
+                        <dt class="alt-txt">검진상품추가금,0원</dt>
+                        <dd aria-hidden="true">검진상품 추가금</dd>
+                        <dd aria-hidden="true"><span>0</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택1,대장내시경,0원</dt>
+                        <dd aria-hidden="true">선택1) 대장내시경</dd>
+                        <dd aria-hidden="true"><span>0</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택1,위내시경,수면,0원</dt>
+                        <dd aria-hidden="true">선택1) 위 내시경 (수면)</dd>
+                        <dd aria-hidden="true"><span>0</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택1,갑상선초음파,0원</dt>
+                        <dd aria-hidden="true">선택1) 갑상선초음파</dd>
+                        <dd aria-hidden="true"><span>0</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택1,대장내시경,0원</dt>
+                        <dd aria-hidden="true">선택1) 대장내시경</dd>
+                        <dd aria-hidden="true"><span>0</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택1,위내시경,수면,100000원</dt>
+                        <dd aria-hidden="true">선택1) 위 내시경 (수면)</dd>
+                        <dd aria-hidden="true"><span>100,000</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택2,갑상선초음파,0원</dt>
+                        <dd aria-hidden="true">선택2) 갑상선초음파</dd>
+                        <dd aria-hidden="true"><span>0</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택2,대장내시경,500000원</dt>
+                        <dd aria-hidden="true">선택2) 대장내시경</dd>
+                        <dd aria-hidden="true"><span>500,000</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택2,위내시경,수면,500000원</dt>
+                        <dd aria-hidden="true">선택2) 위 내시경 (수면)</dd>
+                        <dd aria-hidden="true"><span>500,000</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택3,L-Spine,CT,0원</dt>
+                        <dd aria-hidden="true">선택3) L-Spine CT</dd>
+                        <dd aria-hidden="true"><span>0</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">선택3,갑상선초음파,0원</dt>
+                        <dd aria-hidden="true">선택3) 갑상선초음파</dd>
+                        <dd aria-hidden="true"><span>0</span>원</dd>
+                    </dl>
+                    <dl>
+                        <dt class="alt-txt">추가,대장내시경,0원</dt>
+                        <dd aria-hidden="true">추가) 대장내시경</dd>
+                        <dd aria-hidden="true"><span>0</span>원</dd>
+                    </dl>
+                    <dl class="sum">
+                        <dt class="alt-txt">개인,추가금,합계,1100000원</dt>
+                        <dd aria-hidden="true">개인 추가금 합계</dd>
+                        <dd aria-hidden="true"><span>1,100,000</span>원</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

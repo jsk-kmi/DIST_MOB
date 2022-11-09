@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <!-- BUTTON - 예약 내역 필터 -->
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupReservationFilter"><em class="alt-txt">두번탭하면,팝업열림</em><span>팝업열림 - 예약 내역 필터</span></button><br /><br />
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP - 예약 내역 필터 -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupReservationFilter" role="dialog" aria-labelledby="popupReservationFilter_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg"></div>
+            <div class="modal-field" tabindex="0">
+                <div class="c-modal-header">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+                    <div class="c-modal-title-field">
+                        <h3 id="popupReservationFilter_Label" class="c-title">예약 내역 필터</h3>
+                    </div>
+                </div>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            <div class="c-input-list type01">
+                                <div class="row">
+                                    <div class="col per-column label-input">
+                                        <label for="dayStart">시작 날짜</label>
+                                        <div class="c-input-date">
+                                            <input type="text" class="c-input btn-date-picker" value="2022-06-27" autocomplete="off" id="dayStart" />
+                                            <span><i class="date-btn"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="col per-column label-input">
+                                        <label for="dayEnd">종료 날짜</label>
+                                        <div class="c-input-date">
+                                            <input type="text" class="c-input btn-date-picker" value="2022-06-27" autocomplete="off" id="dayEnd" />
+                                            <span><i class="date-btn"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="co-chk-list type01">
+                                <div class="c-rdochk type01">
+                                    <input type="radio" id="week1" name="period" />
+                                    <label for="week1" class="chk-label"><i></i><span>1주</span></label>
+                                </div>
+                                <div class="c-rdochk type01">
+                                    <input type="radio" id="month1" name="period" />
+                                    <label for="month1" class="chk-label"><i></i><span>1개월</span></label>
+                                </div>
+                                <div class="c-rdochk type01">
+                                    <input type="radio" id="month2" name="period" />
+                                    <label for="month2" class="chk-label"><i></i><span>3개월</span></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <a href="javascript:void(0);" class="co-btn" title="두번탭하면,팝업닫히고,필터링한,조건의,페이지로바뀜"><span>조회하기</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

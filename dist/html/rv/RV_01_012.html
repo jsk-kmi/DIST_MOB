@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <!-- Header -->
+            <header class="header co-header">
+                <!-- 기업 로고에 따른 alt값 부여 -->
+                <!-- 흑백로고 -->
+                <h1 class="logo">
+                    <a href="javascrpit:void(0);"><img src="../../images/dummy/dummy_logo01.png" alt="LG화학 로고" /></a>
+                </h1>
+                <!-- 컬러로고: type-color -->
+                <!-- <h1 class="logo type-color">
+    <a href="javascrpit:void(0);"><img src="../../images/dummy/dummy_logo02.png" alt="LG화학 로고" /></a>
+  </h1> -->
+                <div class="menu">
+                    <button type="button" class="btn-open-gnb">
+                        <span class="skip">전체 메뉴 열기</span>
+                        <img src="../../images/ico/ico_gnb_hamberger.svg" alt="전체메뉴 아이콘" />
+                    </button>
+                </div>
+            </header>
+
+            <div class="flex-container">
+                <div class="rv-block type-btn-floating">
+                    <h1 class="tit type-step type-floating">
+                        검사 항목
+                        <i class="skip">6단계 중 3단게</i>
+                        <div class="step" aria-hidden="true">(<span>3</span>/<span>6</span>)</div>
+                    </h1>
+
+                    <div class="tab-floating">
+                        <ul class="c-tab type-slide type-panel type-move type-step" role="tablist" data-tablist="appointmentCheckup">
+                            <li role="tab" aria-controls="ap-step-1-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab is-disable">검진 대상자</a>
+                            </li>
+                            <li role="tab" aria-controls="ap-step-2-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab is-disable">검진기관</a>
+                            </li>
+                            <li role="tab" aria-controls="ap-step-3-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab active">검사 항목</a>
+                            </li>
+                            <li role="tab" aria-controls="ap-step-4-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab">검진 일자</a>
+                            </li>
+                            <li role="tab" aria-controls="ap-step-5-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab">개인 정보 입력</a>
+                            </li>
+                            <li role="tab" aria-controls="ap-step-6-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab">최종 확인</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-panel show" role="tabpanel" aria-labelledby="ap-step-3-panel" data-panelname="appointmentCheckup">
+                        <div class="box type3">일부 검사는 선택 시 개인 추가 결제 금액이 발생할 수 있으며, 예약 가능일은 추가 검사 선택 및 병원 상황에 따라 변경될 수 있습니다.</div>
+
+                        <div class="accordion-list">
+                            <div class="accordion type6 type-open-one">
+                                <button class="accordion-header" id="stpe-3-1" aria-controls="stpe_3_1">
+                                    <h1 class="acc-tit">
+                                        <span aria-hidden="true">(<em class="active">2</em>/<em>2</em>)</span>
+                                        <p>선택검사 01</p>
+                                    </h1>
+                                    <img src="../../images/ico/ico_arrow_accordion_28x28.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow" />
+                                </button>
+                                <div class="accordion-body" id="stpe_3_1" role="region" aria-labelledby="stpe-3-1">
+                                    <ul class="info-txt" aria-hidden="true">
+                                        <li class="alt-txt">2개의 검사항목을 선택하여 주시기바랍니다</li>
+                                        <li aria-hidden="true"><span>1</span>개의 검사항목을 선택하여 주시기바랍니다.</li>
+                                    </ul>
+
+                                    <div class="card-box">
+                                        <h2 class="card-box-tit">내시경</h2>
+                                        <div class="card-inspection">
+                                            <input type="checkbox" id="card-1-1-1" />
+                                            <label for="card-1-1-1">
+                                                <div class="inner">
+                                                    <span class="alt-txt">2022년7월24일이후</span>
+                                                    <p aria-hidden="true"><em>2022-07-24</em>이후</p>
+                                                    <button class="co-tooltip" aria-label="팝업 열림"></button>
+                                                    <span class="alt-txt">50000원</span>
+                                                    <ul class="price" aria-hidden="true">
+                                                        <li>50,000</li>
+                                                        <li>원</li>
+                                                    </ul>
+                                                    <ul class="tag-list">
+                                                        <li>대장 내시경</li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-box">
+                                        <h2 class="card-box-tit">CT 촬영</h2>
+                                        <p>대장 내시경/M2-PK/얼리텍 중복 선택 가능</p>
+
+                                        <div class="card-inspection">
+                                            <input type="checkbox" id="card-1-2-1" />
+                                            <label for="card-1-2-1">
+                                                <div class="inner">
+                                                    <span class="alt-txt">2022년7월24일이후</span>
+                                                    <p aria-hidden="true"><em>2022-07-24</em>이후</p>
+                                                    <button class="co-tooltip" aria-label="팝업 열림"></button>
+                                                    <span class="alt-txt">20000원</span>
+                                                    <ul class="price" aria-hidden="true">
+                                                        <li>20,000</li>
+                                                        <li>원</li>
+                                                    </ul>
+                                                    <ul class="tag-list">
+                                                        <li>Brain CT 촬영</li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <div class="card-inspection">
+                                            <input type="checkbox" id="card-1-2-2" />
+                                            <label for="card-1-2-2">
+                                                <div class="inner">
+                                                    <i class="alt-txt">두번탭하면,팝업열림</i>
+                                                    <p><em>회사검진 기간 내 불가</em></p>
+                                                    <button class="co-tooltip" aria-label="팝업 열림"></button>
+                                                    <span class="alt-txt">50000원</span>
+                                                    <ul class="price" aria-hidden="true">
+                                                        <li>50,000</li>
+                                                        <li>원</li>
+                                                    </ul>
+                                                    <ul class="tag-list">
+                                                        <li>폐 CT 촬영</li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <p>회사 검진 기간 내 불가한 검사 항목을 선택하셨습니다. 검진 일자 단계에서 별도의 일정을 선택해 주세요.</p>
+
+                                        <div class="card-inspection">
+                                            <input type="checkbox" id="card-1-2-3" />
+                                            <label for="card-1-2-3">
+                                                <div class="inner">
+                                                    <span class="alt-txt">2022년7월24일이후</span>
+                                                    <p aria-hidden="true"><em>2022-07-24</em>이후</p>
+                                                    <button class="co-tooltip" aria-label="팝업 열림"></button>
+                                                    <span class="alt-txt">100000원</span>
+                                                    <ul class="price" aria-hidden="true">
+                                                        <li>100,000</li>
+                                                        <li>원</li>
+                                                    </ul>
+                                                    <ul class="tag-list">
+                                                        <li>허리 CT 촬영</li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-box">
+                                        <h2 class="card-box-tit">초음파</h2>
+                                        <p>수면, 비수면 중복 선택 불가</p>
+
+                                        <div class="card-inspection">
+                                            <input type="checkbox" id="card-1-3-1" />
+                                            <label for="card-1-3-1">
+                                                <div class="inner">
+                                                    <span class="alt-txt">2022년7월24일이후</span>
+                                                    <p aria-hidden="true"><em>2022-07-24</em>이후</p>
+                                                    <button class="co-tooltip" aria-label="팝업 열림"></button>
+                                                    <span class="alt-txt">0원</span>
+                                                    <ul class="price" aria-hidden="true">
+                                                        <li>0</li>
+                                                        <li>원</li>
+                                                    </ul>
+                                                    <ul class="tag-list">
+                                                        <li>전립선 초음파</li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+
+                                        <div class="card-inspection">
+                                            <input type="checkbox" id="card-1-3-2" />
+                                            <label for="card-1-3-2">
+                                                <div class="inner">
+                                                    <span class="alt-txt">2022년7월24일이후</span>
+                                                    <p aria-hidden="true"><em>2022-07-24</em>이후</p>
+                                                    <button class="co-tooltip" aria-label="팝업 열림"></button>
+                                                    <span class="alt-txt">0원</span>
+                                                    <ul class="price" aria-hidden="true">
+                                                        <li>0</li>
+                                                        <li>원</li>
+                                                    </ul>
+                                                    <ul class="tag-list">
+                                                        <li>갑상선 초음파</li>
+                                                    </ul>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion type6 type-open-one">
+                                <button class="accordion-header" id="stpe-3-2" aria-controls="stpe_3_2">
+                                    <h1 class="acc-tit">
+                                        <span aria-hidden="true">(<em class="active">1</em>/<em>2</em>)</span>
+                                        <p>선택검사 02</p>
+                                    </h1>
+                                    <img src="../../images/ico/ico_arrow_accordion_28x28.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow" />
+                                </button>
+                                <div class="accordion-body" id="stpe_3_2" role="region" aria-labelledby="stpe-3-2"></div>
+                            </div>
+
+                            <div class="accordion type6 type-open-one">
+                                <button class="accordion-header" id="stpe-3-3" aria-controls="stpe_3_3">
+                                    <h1 class="acc-tit">
+                                        <span aria-hidden="true">(<em class="active">2</em>/<em>3</em>)</span>
+                                        <p>선택검사 03</p>
+                                    </h1>
+                                    <img src="../../images/ico/ico_arrow_accordion_28x28.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow" />
+                                </button>
+                                <div class="accordion-body" id="stpe_3_3" role="region" aria-labelledby="stpe-3-3"></div>
+                            </div>
+
+                            <div class="accordion type6 type-open-one">
+                                <button class="accordion-header" id="stpe-3-4" aria-controls="stpe_3_4">
+                                    <h1 class="acc-tit">
+                                        <span aria-hidden="true">(<em class="active">6</em>/<em>6</em>)</span>
+                                        <p>선택검사 04</p>
+                                    </h1>
+                                    <img src="../../images/ico/ico_arrow_accordion_28x28.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow" />
+                                </button>
+                                <div class="accordion-body" id="stpe_3_4" role="region" aria-labelledby="stpe-3-4"></div>
+                            </div>
+
+                            <div class="accordion type6 type-open-one">
+                                <button class="accordion-header" id="stpe-3-5" aria-controls="stpe_3_5">
+                                    <h1 class="acc-tit">
+                                        <span aria-hidden="true">(<em class="active">6</em>/<em>8</em>)</span>
+                                        <p>선택검사 05</p>
+                                    </h1>
+                                    <img src="../../images/ico/ico_arrow_accordion_28x28.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow" />
+                                </button>
+                                <div class="accordion-body" id="stpe_3_5" role="region" aria-labelledby="stpe-3-5"></div>
+                            </div>
+
+                            <div class="accordion type6 type-open-one">
+                                <button class="accordion-header" id="stpe-3-6" aria-controls="stpe_3_6">
+                                    <h1 class="acc-tit">
+                                        <p>추가검사</p>
+                                    </h1>
+                                    <img src="../../images/ico/ico_arrow_accordion_28x28.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow" />
+                                </button>
+                                <div class="accordion-body" id="stpe_3_6" role="region" aria-labelledby="stpe-3-6"></div>
+                            </div>
+                        </div>
+
+                        <div class="c-input-list type01">
+                            <div class="row">
+                                <div class="col per-column label-input type-link">
+                                    <div class="label-block">
+                                        <label for="personalPaymentAmount">개인 결제 금액</label>
+                                        <a href="javascript:void(0);" title="개인추가금전체내역팝업열림">전체내역 보기</a>
+                                    </div>
+                                    <div class="c-input-unit">
+                                        <input type="text" class="c-input" id="personalPaymentAmount" value="0" disabled />
+                                        <span class="unit">원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn-bottom-floating">
+                            <a href="javascript:void(0);" class="co-btn btn-next" title="페이지이동"><span>다음</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-move-top"><span class="skip">터치시최상단으로이동</span></button>
+            </div>
+            <!-- footer -->
+            <footer class="footer type-default">
+                <a href="javascript:void(0);" title="페이지이동" class="img-logo"><img src="../../images/logo/footer_logo_01.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE" /></a>
+
+                <div class="btn-list type-footer">
+                    <a href="javascript:void(0);" title="페이지 이동">이용약관</a>
+                    <a href="javascript:void(0);" title="페이지 이동">개인정보처리방침</a>
+                    <a href="javascript:void(0);" title="페이지 이동">이용가이드</a>
+                </div>
+
+                <div class="footer-txt">
+                    상호 : 재단법인 한국의학연구소 ㅣ 대표자 : 이상호<br />
+                    03173 서울시 종로구 세종대로 23길 54(당주동, 세종빌딩)<br />
+                    전화 : <a href="tel:1599-7070">1599-7070</a> ㅣ 전자우편주소 : <a href="mailto:webmaster@kmi.or.kr">webmaster@kmi.or.kr</a><br />
+                    사업자등록번호 : 130-82-06960
+                </div>
+
+                <div class="copyright">
+                    Copyright© KMI.All Rights Reserved.
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- GNB -->
+    <!-- // GNB -->
+</body>
+
+</html>

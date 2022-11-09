@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <button class="btn-open-popup" data-toggle="modal" data-target="popupAddTarget">팝업 확인용 버튼</button>
+
+    <!-- POPUP - 대상자 추가 -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupAddTarget" role="dialog" aria-labelledby="popupAddTarget_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg"></div>
+            <div class="modal-field" tabindex="0">
+                <div class="c-modal-header">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+                    <div class="c-modal-title-field">
+                        <h3 id="popupAddTarget_Label" class="c-title">대상자 추가</h3>
+                    </div>
+                </div>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+
+                            <p>가족 검진은 임직원과 동일한 검진 할인이 적용되며 검진 비용은 개인 결제 처리 하셔야 합니다.</p>
+
+
+                            <div class="c-input-list type01">
+                                <div class="row">
+                                    <div class="col per-column label-input">
+                                        <label for="relation">임직원과의 관계<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                                        <div class="c-select">
+                                            <select title="선택" id="relation">
+                                                <option selected>선택</option>
+                                                <option>배우자</option>
+                                                <option>자녀</option>
+                                                <option>본인의 부</option>
+                                                <option>본인의 모</option>
+                                                <option>배우자의 부</option>
+                                                <option>배우자의 모</option>
+                                                <option>기타</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col per-column label-input">
+                                        <label for="relationName">검진자 이름<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                                        <input type="text" class="c-input" id="relationName" placeholder="이름을 입력하세요" />
+                                    </div>
+                                    <div class="col per-column label-input">
+                                        <label for="relationBirth">생년월일<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                                        <input type="number" class="c-input" id="relationBirth" placeholder="ex) 19850101" pattern="\d*" />
+                                    </div>
+                                    <div class="col per-column label-input">
+                                        <label for="relationGender">성별<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                                        <div class="c-select">
+                                            <select title="선택" id="relationGender">
+                                                <option selected>선택</option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col per-column label-input">
+                                        <label for="relationForeigner">내/외국인<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                                        <div class="c-select">
+                                            <select title="선택" id="relationForeigner">
+                                                <option selected>선택</option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col per-column label-input">
+                                        <label for="relationNationality">국적 (외국인일 경우)</label>
+                                        <div class="c-select">
+                                            <select title="선택" id="relationNationality">
+                                                <option selected>선택</option>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col per-column label-input">
+                                        <label for="relationMobile">휴대폰 전화번호<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                                        <input type="number" class="c-input" id="relationMobile" placeholder="'-'를 제외하고 입력" pattern="\d*" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="terms type-box">
+                                <div class="c-chkbox type01">
+                                    <input type="checkbox" id="relationTermsPrivacy" />
+                                    <label for="relationTermsPrivacy" class="chk-label"><i></i><span>[필수] 개인정보 정보 수집 이용동의</span></label>
+                                </div>
+                                <div class="terms-box">
+                                    <div class="inner">
+                                        <div class="terms-row">
+                                            수집항목<br />
+                                            이름, 성별, 휴대전화 번호, 이메일, 요청사항<br /><br />
+                                            이용목적<br />
+                                            검진 예약 시 귀하의 개인 정보를 수집 이용합니다.<br /><br />
+                                            보유 및 이용 기간<br />
+                                            "회사"는 원칙적으로 회원의 정보를 다음의 사유 발생 시 지체 없이 파기하고 있습니다.<br />
+                                            1. 회원 탈퇴 시<br />
+                                            2. 서비스 종료 시
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <a href="javascript:void(0);" class="co-btn bg-navy-1" title="팝업닫힘"><span>대상자 추가</span></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

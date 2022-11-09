@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <!-- BUTTON - 예약상세 -->
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupReservationDetails"><span>팝업확인용 버튼</span></button><br /><br />
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP - 예약상세 -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupReservationDetails" role="dialog" aria-labelledby="popupReservationDetails_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg"></div>
+            <div class="modal-field" tabindex="0">
+                <div class="c-modal-header">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+                    <div class="c-modal-title-field">
+                        <h3 id="popupReservationDetails_Label" class="c-title">예약상세</h3>
+                    </div>
+                </div>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            김크미 (본인)<br />
+                            장소 : 한국의학연구소 광화문센터<br />
+                            1차 : 2022-05-23 / 오전<br />
+                            2차 : 2022-05-23 / 오전<br />
+                            연기 : 2022-05-23 / 오전
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <a href="javascript:void(0);" class="co-btn bg-navy-1 popup-btn-close" title="팝업닫힘"><span>확인</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

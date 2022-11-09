@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <!-- BUTTON - 해당 일자에 대장내시경이 검사가 불가합니다. 해당 검사는 다른 날짜 선택이 필요 합니다. -->
+                <a href="javascript:void(0);" class="btn-open-popup" title="팝업열림" data-toggle="modal" data-target="popupUnableInspect"><span>팝업열림 - 해당 일자에 대장내시경이 검사가 불가합니다. 해당 검사는 다른 날짜 선택이 필요 합니다.</span></a>
+            </div>
+        </div>
+
+
+        <!-- POPUP - 해당 일자에 대장내시경이 검사가 불가합니다. 해당 검사는 다른 날짜 선택이 필요 합니다. -->
+        <div class="c-layer-popup kmi-popup type-modal" id="popupUnableInspect" role="dialog" aria-labelledby="popupUnableInspect_Label" aria-modal="true" aria-hidden="true">
+            <div class="modal-wrap">
+                <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+                <div class="modal-field" tabindex="0">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                    <div class="c-modal-body">
+                        <div class="c-modal-inner">
+                            <div class="in-cont">
+
+                                <p id="popupUnableInspect_Label">
+                                    해당 일자에 대장내시경이 검사가 불가합니다. 해당 검사는 다른 날짜 선택이 필요 합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-modal-footer">
+                        <div class="inner">
+                            <div class="buttons">
+                                <a href="javascript:void(0);" title="팝업닫힘" class="co-btn bg-navy-1 popup-btn-close"><span>확인</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>
