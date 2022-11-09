@@ -287,11 +287,15 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(62deg, $color-sub-02 1%, $color-main 113%);
+  right: 0;
+  bottom: 0;
   opacity: 0;
   transition: opacity $transition-3 ease-in-out;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  background-image: linear-gradient(to bottom, $color-white-100, $color-white-100), linear-gradient(65deg, $color-sub-02 1%, $color-main 113%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 }
 
 // + thumbnail

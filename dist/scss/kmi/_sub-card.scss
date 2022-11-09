@@ -49,6 +49,7 @@
         @include card-check-type-off;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
         border-radius: 1.25rem;
+        overflow: hidden;
         display: flex;
         flex-direction: column;
         overflow: hidden;
@@ -136,6 +137,7 @@
         }
         &::before {
           @include card-check-type-on-before;
+
           border-radius: 1.25rem;
         }
       }
@@ -190,7 +192,8 @@
         }
         dd {
           position: relative;
-          width: calc(100% - 4.5rem);
+          padding-left: 0.625rem;
+          //width: calc(100% - 4.5rem);
           display: flex;
           align-items: center;
           justify-content: flex-start;

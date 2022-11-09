@@ -76,17 +76,17 @@
                         <div class="row">
                             <div class="col per-column label-input">
                                 <label for="profileId">아이디</label>
-                                <input type="text" id="profileId" class="c-input" value="2021020020" disabled />
+                                <input type="text" id="profileId" class="c-input" value="2021020020" pattern="\d*" disabled />
                             </div>
                             <div class="col per-column label-input">
                                 <label for="profileBirthday">생년월일</label>
-                                <input type="text" id="profileBirthday" class="c-input" value="1978-05-12" disabled />
+                                <input type="number" id="profileBirthday" class="c-input" value="19780512" disabled />
                             </div>
                             <div class="col per-column">
-                                <input type="text" class="c-input type-white" placeholder="(필수) 휴대폰 전화번호" disabled />
+                                <input type="number" class="c-input type-white" placeholder="(필수) 휴대폰 전화번호" pattern="\d*" disabled />
                             </div>
                             <div class="col per-column">
-                                <input type="text" class="c-input" placeholder="유선전화" />
+                                <input type="number" pattern="\d*" class="c-input" placeholder="유선전화" />
                             </div>
                             <div class="col per-column">
                                 <input type="text" class="c-input" placeholder="(필수) 이메일 주소" />
