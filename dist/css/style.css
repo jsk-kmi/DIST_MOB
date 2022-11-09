@@ -2576,7 +2576,7 @@ textarea textarea[readonly=readonly]:focus,
 		-webkit-transition: opacity 0.3s ease-in-out;
 		transition: opacity 0.3s ease-in-out;
 		border: 3px solid transparent;
-		border-radius: 50%;
+		border-radius: 1.25rem;
 		background-image: -webkit-linear-gradient(top, #fff, #fff), -webkit-linear-gradient(25deg, #2f7ad3 1%, #253981 113%);
 		background-image: linear-gradient(to bottom, #fff, #fff), linear-gradient(65deg, #2f7ad3 1%, #253981 113%);
 		background-origin: border-box;
@@ -2734,7 +2734,7 @@ textarea textarea[readonly=readonly]:focus,
 		-webkit-transition: opacity 0.3s ease-in-out;
 		transition: opacity 0.3s ease-in-out;
 		border: 3px solid transparent;
-		border-radius: 50%;
+		border-radius: 1.25rem;
 		background-image: -webkit-linear-gradient(top, #fff, #fff), -webkit-linear-gradient(25deg, #2f7ad3 1%, #253981 113%);
 		background-image: linear-gradient(to bottom, #fff, #fff), linear-gradient(65deg, #2f7ad3 1%, #253981 113%);
 		background-origin: border-box;
@@ -2892,7 +2892,7 @@ textarea textarea[readonly=readonly]:focus,
 		-webkit-transition: opacity 0.3s ease-in-out;
 		transition: opacity 0.3s ease-in-out;
 		border: 3px solid transparent;
-		border-radius: 50%;
+		border-radius: 1.25rem;
 		background-image: -webkit-linear-gradient(top, #fff, #fff), -webkit-linear-gradient(25deg, #2f7ad3 1%, #253981 113%);
 		background-image: linear-gradient(to bottom, #fff, #fff), linear-gradient(65deg, #2f7ad3 1%, #253981 113%);
 		background-origin: border-box;
@@ -3123,7 +3123,7 @@ textarea textarea[readonly=readonly]:focus,
 		-webkit-transition: opacity 0.3s ease-in-out;
 		transition: opacity 0.3s ease-in-out;
 		border: 3px solid transparent;
-		border-radius: 50%;
+		border-radius: 1.25rem;
 		background-image: -webkit-linear-gradient(top, #fff, #fff), -webkit-linear-gradient(25deg, #2f7ad3 1%, #253981 113%);
 		background-image: linear-gradient(to bottom, #fff, #fff), linear-gradient(65deg, #2f7ad3 1%, #253981 113%);
 		background-origin: border-box;
@@ -3522,12 +3522,11 @@ a.card_09 {
 		-webkit-transition: opacity 0.3s ease-in-out;
 		transition: opacity 0.3s ease-in-out;
 		border: 3px solid transparent;
-		border-radius: 50%;
+		border-radius: 0.75rem;
 		background-image: -webkit-linear-gradient(top, #fff, #fff), -webkit-linear-gradient(25deg, #2f7ad3 1%, #253981 113%);
 		background-image: linear-gradient(to bottom, #fff, #fff), linear-gradient(65deg, #2f7ad3 1%, #253981 113%);
 		background-origin: border-box;
 		background-clip: content-box, border-box;
-		border-radius: 0.75rem;
 }
 .card-inspection input[type=checkbox]:checked + label,
 .card-inspection input[type=radio]:checked + label {
@@ -3763,7 +3762,7 @@ a.card_09 {
 		-webkit-transition: opacity 0.3s ease-in-out;
 		transition: opacity 0.3s ease-in-out;
 		border: 3px solid transparent;
-		border-radius: 50%;
+		border-radius: 1.25rem;
 		background-image: -webkit-linear-gradient(top, #fff, #fff), -webkit-linear-gradient(25deg, #2f7ad3 1%, #253981 113%);
 		background-image: linear-gradient(to bottom, #fff, #fff), linear-gradient(65deg, #2f7ad3 1%, #253981 113%);
 		background-origin: border-box;
@@ -8343,6 +8342,7 @@ button.ico-plus::after {
 .rv-block .c-txtarea-field textarea:disabled {
 		border-color: rgba(28, 28, 28, 0.1);
 		background-color: rgba(28, 28, 28, 0.05);
+		opacity: 1;
 }
 .rv-block .tab-panel[aria-labelledby=ap-step-1-panel] p {
 		font-size: 1rem;

@@ -65,7 +65,7 @@
         }
       }
       &::before {
-        @include card-check-type-on-before;
+        @include card-check-type-on-before(1.25rem);
         border-radius: 1.25rem;
       }
     }
@@ -174,7 +174,7 @@
         }
       }
       &::before {
-        @include card-check-type-on-before;
+        @include card-check-type-on-before(1.25rem);
         border-radius: 1.25rem;
       }
     }
@@ -310,7 +310,8 @@
   &.swiper-slide {
     position: relative;
     &::before {
-      @include card-check-type-on-before;
+      @include card-check-type-on-before(1.25rem);
+
       transition: none;
     }
     &.swiper-slide-active {
@@ -438,7 +439,7 @@
         }
       }
       &::before {
-        @include card-check-type-on-before;
+        @include card-check-type-on-before(1.25rem);
         border-radius: 1.25rem;
       }
     }
@@ -716,8 +717,7 @@ a {
         }
       }
       &::before {
-        @include card-check-type-on-before;
-        border-radius: 0.75rem;
+        @include card-check-type-on-before(0.75rem);
       }
     }
     &:checked {
