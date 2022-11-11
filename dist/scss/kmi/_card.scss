@@ -628,7 +628,7 @@
 a {
   &.card_09 {
     padding-right: 4.125rem;
-    background-image: url('../../images/ico/ico_arrow_main_result_34x34.svg');
+    background-image: url($image-ico-path + 'ico_arrow_main_result_34x34.svg');
     background-size: 2.125rem 2.125rem;
     background-position: right 0.75rem center;
     background-repeat: no-repeat;

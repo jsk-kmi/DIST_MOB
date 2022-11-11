@@ -1567,7 +1567,7 @@ button {
     margin-bottom: 1rem;
     a {
       padding-right: 1.75rem;
-      background-image: url('../../images/ico/ico_arrow_main_event_24x24.svg');
+      background-image: url($image-ico-path + 'ico_arrow_main_event_24x24.svg');
       background-position: right center;
       background-size: 1.5rem 1.5rem;
       background-repeat: no-repeat;

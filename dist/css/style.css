@@ -3371,7 +3371,7 @@ textarea textarea[readonly=readonly]:focus,
 
 a.card_09 {
 		padding-right: 4.125rem;
-		background-image: url("../../images/ico/ico_arrow_main_result_34x34.svg");
+		background-image: url("../images/ico/ico_arrow_main_result_34x34.svg");
 		background-size: 2.125rem 2.125rem;
 		background-position: right 0.75rem center;
 		background-repeat: no-repeat;
@@ -5424,13 +5424,13 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		margin-right: 0.5rem;
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-prev .ui-icon {
-		background-image: url("../../images/ico/datepicker/ico_arrow_year_prev_34x34.svg");
+		background-image: url("../images/ico/datepicker/ico_arrow_year_prev_34x34.svg");
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next {
 		margin-left: 0.5rem;
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-next .ui-icon {
-		background-image: url("../../images/ico/datepicker/ico_arrow_year_next_34x34.svg");
+		background-image: url("../images/ico/datepicker/ico_arrow_year_next_34x34.svg");
 }
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-header .ui-datepicker-title {
 		font-size: 1.5rem;
@@ -8873,7 +8873,7 @@ button.ico-plus::after {
 }
 .main-block h2 a {
 		padding-right: 1.75rem;
-		background-image: url("../../images/ico/ico_arrow_main_event_24x24.svg");
+		background-image: url("../images/ico/ico_arrow_main_event_24x24.svg");
 		background-position: right center;
 		background-size: 1.5rem 1.5rem;
 		background-repeat: no-repeat;
