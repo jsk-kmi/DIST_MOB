@@ -1,13 +1,4 @@
 // media query test
-@media (max-width: 280px) {
-  // 로그인 상단 배너
-  .login-banner {
-    img {
-      right: auto;
-      left: 10.933rem;
-    }
-  }
-}
 
 @media (max-width: 370px) {
   .co-main-card {
@@ -58,9 +49,25 @@
         }
       }
     }
+		
   }
 
   // = Login
+
+  // banner
+  .login-banner {
+    img {
+      right: auto;
+      left: 10.933rem;
+    }
+  }
+  .login-banner02 {
+    padding-left: 0.625rem;
+    img {
+      right: auto;
+      left: 12.3rem;
+    }
+  }
   .login-block {
     @include mSmHorizonSpacing;
 

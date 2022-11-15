@@ -19,24 +19,24 @@
     <title>KMI 한국의학연구소</title>
 </head>
 
+
 <body>
     <div id="container">
         <div class="flex-wrap">
             <div class="flex-container">
-
-                <a href="javascript:void(0);" title="페이지 이동" class="login-banner">
-                    <p>Since 1985</p>
-                    <p>평생을 건강하게</p>
-                    <img src="../../images/login_top_banner.png" alt="하트 사이로 의사 두 명이 서있는 일러스트" />
+                <a href="javascript:void(0);" title="페이지 이동" class="login-banner02">
+                    <p>임직원 건강검진 위탁 운영은 </p>
+                    <p>WITH KMI가 함께합니다</p>
+                    <img src="../../images/login_top_banner02.png" alt="KMI 캐릭터" />
                 </a>
 
                 <div class="login-block">
-                    <img src="../../images/dummy/dummy_logo03.png" alt="KMI 로고" class="login-logo" />
+                    <img src="../../images/dummy/dummy_logo02.png" alt="LG화학 로고" class="login-logo" />
 
                     <div class="c-input-list type01">
                         <div class="row">
                             <div class="col per-column">
-                                <input type="text" class="c-input" placeholder="사번을 입력해 주세요" />
+                                <input type="text" class="c-input" placeholder="아이디를 입력해 주세요" />
                             </div>
                             <div class="col per-column">
                                 <input type="password" class="c-input" placeholder="비밀번호를 입력해 주세요" />
@@ -44,19 +44,21 @@
                         </div>
                     </div>
 
-                    <p class="info-txt">처음 로그인하시는 분은 비밀 번호란 생년월일(주민등록 번호 앞 6자리)를 입력하여 주시기 바랍니다.</p>
+                    <p class="info-txt">처음 로그인하시는 분은 [아이디]에 휴대폰 전화번호를 [비밀번호]에 생년월일을 입력하여 주시기 바랍니다.</p>
 
                     <div class="c-chkbox type01">
                         <input type="checkbox" id="rememberID">
-                        <label for="rememberID" class="chk-label"><i></i><span>사번 기억하기</span></label>
+                        <label for="rememberID" class="chk-label"><i></i><span>아이디 기억하기</span></label>
                     </div>
 
                     <a href="javascript:void(0);" title="페이지 이동" class="co-btn"><span>로그인</span></a>
+                    <!-- 팝업열림 - 퇴직 처리된 임직원 입니다. -->
+                    <!-- <button type="button" class="co-btn btn-open-popup" data-toggle="modal" data-target="popupRetirement" onclick="popupDirectClick(this)"><em class="alt-txt">팝업열림</em><span>로그인</span></button> -->
 
                     <div class="btn-list">
-                        <a href="javascript:void(0);" target="_self" title="페이지 이동">사번/아이디 찾기</a>
-                        <a href="javascript:void(0);" target="_self" title="페이지 이동">비밀번호 찾기</a>
-                        <a href="javascript:void(0);" target="_self" title="페이지 이동">이용가이드</a>
+                        <a href="javascript:void(0);" title="페이지 이동">사번/아이디 찾기</a>
+                        <a href="javascript:void(0);" title="페이지 이동">비밀번호 찾기</a>
+                        <a href="javascript:void(0);" title="페이지 이동">이용가이드</a>
                     </div>
 
                     <div class="info-box">
@@ -71,6 +73,34 @@
                 <img src="../../images/logo/footer_logo_02.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE" />
                 <p class="copyright">Copyright© KMI.All Rights Reserved.</p>
             </footer>
+        </div>
+    </div>
+
+    <!-- POPUP - 퇴직 처리된 임직원 입니다. -->
+    <div class="c-layer-popup kmi-popup type-modal" id="popupRetirement" role="dialog" aria-labelledby="popuppopupRetirement_Label" aria-modal="true" aria-hidden="true">
+        <div class="modal-wrap">
+            <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+            <div class="modal-field" tabindex="0">
+                <!-- 닫힘버튼 class: popup-btn-close -->
+                <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                <div class="c-modal-body">
+                    <div class="c-modal-inner">
+                        <div class="in-cont">
+                            <p id="popuppopupRetirement_Label">퇴직 처리된 임직원 입니다.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-modal-footer">
+                    <div class="inner">
+                        <div class="buttons">
+                            <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업
+                                    닫기</span><span>확인</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
