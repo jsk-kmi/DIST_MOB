@@ -8508,7 +8508,7 @@ button.ico-plus::after {
 		margin-top: 1.75rem;
 }
 
-#popupAddTarget p {
+#popupAddTarget .in-cont > p {
 		font-size: 1rem;
 		font-weight: 300;
 		letter-spacing: -0.0187rem;
@@ -8856,19 +8856,19 @@ button.ico-plus::after {
 		margin-top: 2.5rem;
 }
 
-.rc-block .tab-panel[aria-labelledby=rc-consulting-panel] p {
+.rc-block .tab-panel[aria-labelledby54=rc-consulting-panel] p {
 		font-size: 1rem;
 		font-weight: 300;
 		letter-spacing: -0.0187rem;
 		line-height: 1.75rem;
 		color: rgba(28, 28, 28, 0.8);
 }
-.rc-block .tab-panel[aria-labelledby=rc-consulting-panel] p ~ p {
+.rc-block .tab-panel[aria-labelledby54=rc-consulting-panel] p ~ p {
 		margin-top: 0.75rem;
 }
-.rc-block .tab-panel[aria-labelledby=rc-consulting-panel] .c-input-list,
-.rc-block .tab-panel[aria-labelledby=rc-consulting-panel] .terms,
-.rc-block .tab-panel[aria-labelledby=rc-consulting-panel] .box {
+.rc-block .tab-panel[aria-labelledby54=rc-consulting-panel] .c-input-list,
+.rc-block .tab-panel[aria-labelledby54=rc-consulting-panel] .terms,
+.rc-block .tab-panel[aria-labelledby54=rc-consulting-panel] .box {
 		margin-top: 2.5rem;
 }
 

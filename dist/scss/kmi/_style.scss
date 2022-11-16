@@ -1170,9 +1170,11 @@ button {
 }
 // + 팝업: 대상자 추가
 #popupAddTarget {
-  p {
-    @include coTxtBody;
-    color: $color-black-60;
+  .in-cont {
+    > p {
+      @include coTxtBody;
+      color: $color-black-60;
+    }
   }
   .c-input-list {
     margin-top: 2.5rem;
@@ -1525,7 +1527,7 @@ button {
 // 결과상담(RC)
 .rc-block {
   .tab-panel {
-    &[aria-labelledby='rc-consulting-panel'] {
+    &[aria-labelledby54='rc-consulting-panel'] {
       p {
         @include coTxtBody;
         color: $color-black-80;
