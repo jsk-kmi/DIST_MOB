@@ -362,6 +362,11 @@ $colors: (
                       color: $color-black-20;
                     }
                     &.ui-datepicker-week-end {
+                      &.ui-state-disabled {
+                        > span {
+                          opacity: 0.2;
+                        }
+                      }
                       .ui-state-default {
                         color: $color-sub-03;
                         opacity: 0.2;
@@ -405,6 +410,7 @@ $colors: (
                       }
                     }
                   }
+
                   &.reservation-closed {
                     .ui-state-default {
                       color: $color-black-20;
@@ -421,6 +427,11 @@ $colors: (
                           color: $color-black-20;
                         }
                       }
+                    }
+                  }
+                  &.ui-state-disabled {
+                    > span {
+                      color: $color-black-20;
                     }
                   }
                 }
