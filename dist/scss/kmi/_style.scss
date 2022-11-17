@@ -1170,11 +1170,9 @@ button {
 }
 // + 팝업: 대상자 추가
 #popupAddTarget {
-  .in-cont {
-    > p {
-      @include coTxtBody;
-      color: $color-black-60;
-    }
+  p {
+    @include coTxtBody;
+    color: $color-black-60;
   }
   .c-input-list {
     margin-top: 2.5rem;
@@ -1527,7 +1525,7 @@ button {
 // 결과상담(RC)
 .rc-block {
   .tab-panel {
-    &[aria-labelledby54='rc-consulting-panel'] {
+    &[aria-labelledby='rc-consulting-panel'] {
       p {
         @include coTxtBody;
         color: $color-black-80;
@@ -1569,7 +1567,7 @@ button {
     margin-bottom: 1rem;
     a {
       padding-right: 1.75rem;
-      background-image: url($image-ico-path + 'ico_arrow_main_event_24x24.svg');
+      background-image: url('../../images/ico/ico_arrow_main_event_24x24.svg');
       background-position: right center;
       background-size: 1.5rem 1.5rem;
       background-repeat: no-repeat;

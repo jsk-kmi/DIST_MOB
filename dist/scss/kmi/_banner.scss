@@ -29,35 +29,3 @@
     z-index: 1;
   }
 }
-
-.login-banner02 {
-  height: 6.875rem;
-  background-color: #e0ebfa;
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: {
-    left: 1.75rem;
-    right: 1.75rem;
-    top: 2rem;
-  }
-
-  p {
-    &:first-of-type {
-      @include fontStyle(0.875rem, 1.25rem, 400, -0.0313rem);
-      color: $color-black-40;
-    }
-    &:last-of-type {
-      @include fontStyle(1.125rem, 1.625rem, 500);
-      color: $color-main;
-    }
-  }
-  img {
-    position: absolute;
-    right: 1.75rem;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    width: auto;
-  }
-}
