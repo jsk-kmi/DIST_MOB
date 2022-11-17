@@ -5548,6 +5548,9 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end .ui-state-default {
 		color: #ba1d3c;
 }
+#popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end.ui-state-disabled .ui-state-default {
+		opacity: 0.2;
+}
 #popupDatePicker .cont-box #c-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end.holidays-before .ui-state-default {
 		color: #ba1d3c;
 		opacity: 0.2;

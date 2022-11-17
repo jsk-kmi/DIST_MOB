@@ -284,6 +284,12 @@ $colors: (
                     .ui-state-default {
                       color: $color-sub-03;
                     }
+
+                    &.ui-state-disabled {
+                      .ui-state-default {
+                        opacity: 0.2;
+                      }
+                    }
                     &.holidays-before {
                       .ui-state-default {
                         color: $color-sub-03;
