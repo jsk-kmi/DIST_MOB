@@ -5810,6 +5810,14 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		font-size: 1rem;
 }
 
+.ui-datepicker-year + .ui-datepicker-month {
+		position: relative;
+}
+.ui-datepicker-year + .ui-datepicker-month:before {
+		content: "-";
+		margin-left: -12px;
+}
+
 .swiper.type-hide-arr .swiper-button-prev,
 .swiper.type-hide-arr .swiper-button-next {
 		width: 1px;

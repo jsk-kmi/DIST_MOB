@@ -584,3 +584,13 @@ $colors: (
     }
   }
 }
+
+.ui-datepicker-year {
+  & + .ui-datepicker-month {
+    position: relative;
+    &:before {
+      content: '-';
+      margin-left: -12px;
+    }
+  }
+}
