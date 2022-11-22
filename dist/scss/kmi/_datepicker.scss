@@ -125,9 +125,9 @@ $colors: (
             .ui-datepicker-next {
               width: 2.125rem;
               height: 2.125rem;
-              position: relative;
-              right: auto;
-              left: auto;
+              //position: relative;
+              //right: auto;
+              //left: auto;
               top: 0;
               display: inline-block;
               .ui-icon {
@@ -171,7 +171,7 @@ $colors: (
               a {
                 &.ui-datepicker-title {
                   span {
-									color: $color-black-40;
+                    color: $color-black-40;
                     display: inline-block;
                     margin: 0 0.5rem;
                   }
@@ -244,6 +244,22 @@ $colors: (
                     position: relative;
                     background-color: $color-main;
                     border-radius: 0.5rem;
+                    position: relative;
+                    &:after {
+                      content: '오늘';
+                      position: absolute;
+                      display: block;
+                      width: 100%;
+                      height: 1rem;
+                      left: 0;
+                      bottom: 0;
+                      padding: 0;
+                      text-align: center;
+                      font-weight: 400;
+                      font-size: 0.625rem;
+                      line-height: 1rem;
+                      color: $color-white-100;
+                    }
                     .ui-state-default {
                       color: $color-white-100;
                       border: 0 none;
@@ -511,6 +527,58 @@ $colors: (
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+.ui-datepicker-select-month,
+.ui-datepicker-select-year {
+  margin: 1.25rem 0 0 0;
+  table {
+    tbody {
+      tr {
+        td {
+          opacity: 1;
+          padding: 0;
+          width: calc(100vw / 4 - 1.5rem);
+          a,
+          span {
+            @include coTxtBody;
+            color: $color-black-80;
+            text-align: center;
+            padding: 1.25rem 0;
+            border: 0 none;
+            background-color: transparent;
+          }
+          &.ui-datepicker-today {
+            a {
+              box-shadow: 0 0 0 0.1875rem $color-sub-02 inset;
+              border-radius: 0.5rem;
+              color: $color-sub-02;
+            }
+          }
+        }
+      }
+      .ui-state-default {
+        font-size: 1rem;
+        font-weight: 300;
+        letter-spacing: -0.0187rem;
+        line-height: 1.75rem;
+        color: rgba(28, 28, 28, 0.8);
+        text-align: center;
+        padding: 1.25rem 0;
+        border: 0 none;
+        background-color: transparent;
+      }
+
+      .ui-state-disabled {
+        color: $color-black-20;
+        a,
+        span {
+          color: $color-black-20;
+          font-size: 1rem;
         }
       }
     }

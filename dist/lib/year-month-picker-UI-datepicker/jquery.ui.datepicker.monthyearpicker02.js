@@ -5,7 +5,6 @@ Written by Anton Ludescher (silverskater{at}gmail.com).
 Dual licensed under the GPL (http://dev.jquery.com/browser/trunk/jquery/GPL-LICENSE.txt) and
 MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses. */
 
-
 (function($, undefined ) {
 
 	//overriding functions meant to be private (starting with an underscore)
@@ -66,10 +65,6 @@ MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses. */
 			inst.dpDiv.children('table.ui-datepicker-calendar').after(this._generateExtraHTML_MonthYearPicker(inst));
 
 			this._reposition_MonthYearPicker(inst);
-
-				return console.log('numMonths : ' + numMonths);
-
-
 		},
 
 		//focus the date input field
@@ -227,7 +222,7 @@ MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses. */
 						}
 					};
 					//change title link behaviour
-					dpTitle.html('<a href="#" class="ui-datepicker-yearpicker" onclick="jQuery.datepicker._toggleDisplay_MonthYearPicker(\'#' + inst.id + '\', 3);return false;">' + drawYear +'</a>');
+					dpTitle.html('<a href="#" class="ui-datepicker-yearpicker" onclick="jQuery.datepicker._toggleDisplay_MonthYearPicker(\'#' + inst.id + '\', 3);return false;">' + drawYear +'년</a>');
 					//change prev next behaviour
 					dpPrev.removeAttr('onclick');  //remove DatePicker's onclick event
 					dpNext.removeAttr('onclick');  //remove DatePicker's onclick event
@@ -260,7 +255,7 @@ MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses. */
 						//change title html
                         dpTitle.html('<a class="ui-datepicker-title" '+
 						'onclick="return $.backToActualMonth();" '+
-					    'href="#">'+ year + '-' + (year + 9) + '</a>');
+					    'href="#">'+ year + '년 - ' + (year + 9) + '년</a>');
 						//change prev next behaviour
 						dpPrev.unbind('click');
 						dpNext.unbind('click');
@@ -290,11 +285,11 @@ MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses. */
 								((!unselectable && (i==1 || i==12)) ? ' outoffocus' : '') +
 								(year == drawYear ? ' ui-datepicker-today' : '') + '"' +
 								(unselectable ? '' : ' onclick="jQuery.datepicker._pickMonthYear_MonthYearPicker(\'#' + inst.id + '\', ' + year + ', \'Y\');return false;"') + '>' + // actions
-								((unselectable ? '<span class="ui-state-default">' + year + '</span>' : '<a class="ui-state-default ' +
+								((unselectable ? '<span class="ui-state-default">' + year + '년</span>' : '<a class="ui-state-default ' +
 								//(month == drawMonth ? ' ui-state-highlight' : '') +
 								(year == drawYear ? ' ui-state-active' : '') + // highlight selected day
 								//(otherMonth ? ' ui-priority-secondary' : '') + // distinguish dates from other months
-								'" href="#">' + year + '</a>')) + '</td>'; // display selectable date
+								'" href="#">' + year + '년</a>')) + '</td>'; // display selectable date
 							if(i % 4 == 0) {
 								yearPicker += '</tr>';
 								if(i != 12) {

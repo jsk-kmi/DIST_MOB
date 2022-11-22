@@ -66,6 +66,10 @@ MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses. */
 			inst.dpDiv.children('table.ui-datepicker-calendar').after(this._generateExtraHTML_MonthYearPicker(inst));
 
 			this._reposition_MonthYearPicker(inst);
+
+				return console.log('numMonths : ' + numMonths);
+
+
 		},
 
 		//focus the date input field
