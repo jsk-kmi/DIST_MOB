@@ -7,7 +7,7 @@ $colors: (
   disabled: $color-black-20,
 );
 
-#popupDatePicker {
+.co-popup-datepicker {
   .cont-box {
     padding-bottom: 2.5rem;
     h1,
@@ -171,7 +171,7 @@ $colors: (
               a {
                 &.ui-datepicker-title {
                   span {
-									color: $color-black-40;
+                    color: $color-black-40;
                     display: inline-block;
                     margin: 0 0.5rem;
                   }

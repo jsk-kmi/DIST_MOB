@@ -7,7 +7,7 @@ $colors: (
   disabled: $color-black-20,
 );
 
-#popupDatePicker {
+.co-popup-datepicker {
   .cont-box {
     padding-bottom: 2.5rem;
     h1,
@@ -96,7 +96,7 @@ $colors: (
       font-family: $font-name;
     }
     // + datepicker
-    #c-datepicker {
+    .co-datepicker {
       &.hasDatepicker {
         margin-top: 1.25rem;
         .ui-datepicker-inline {
@@ -300,6 +300,11 @@ $colors: (
                     .ui-state-default {
                       color: $color-sub-03;
                     }
+                    &.ui-state-disabled {
+                      .ui-state-default {
+                        opacity: 0.2;
+                      }
+                    }
                     &.holidays-before {
                       .ui-state-default {
                         color: $color-sub-03;
@@ -370,6 +375,16 @@ $colors: (
                           }
                         }
                       }
+                    }
+                  }
+                  &:not(.ui-datepicker-week-end).ui-state-disabled {
+                    .ui-state-default {
+                      color: $color-black-20;
+                    }
+                    a,
+                    span {
+                      color: $color-black-20;
+                      font-size: 1rem;
                     }
                   }
                   &.ui-datepicker-other-month {
@@ -571,15 +586,6 @@ $colors: (
         padding: 1.25rem 0;
         border: 0 none;
         background-color: transparent;
-      }
-
-      .ui-state-disabled {
-        color: $color-black-20;
-        a,
-        span {
-          color: $color-black-20;
-          font-size: 1rem;
-        }
       }
     }
   }

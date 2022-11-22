@@ -20,5 +20,4 @@ $.datepicker.setDefaults({
   // minDate: 0,
 
 });
-$('#c-datepicker').datepicker({});
 //# sourceMappingURL=maps/date.js.map
