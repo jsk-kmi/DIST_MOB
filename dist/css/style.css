@@ -5559,10 +5559,8 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		color: #ba1d3c;
 		opacity: 0.2;
 }
-.co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end .ui-state-default {
-		color: #ba1d3c;
-}
 .co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end.ui-state-disabled .ui-state-default {
+		color: #ba1d3c;
 		opacity: 0.2;
 }
 .co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-week-end.holidays-before .ui-state-default {
@@ -5616,6 +5614,9 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 .co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-state-disabled span {
 		color: rgba(28, 28, 28, 0.2);
 		font-size: 1rem;
+}
+.co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-state-disabled.ui-datepicker-week-end .ui-stat-default {
+		color: #ba1d3c;
 }
 .co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-datepicker-other-month .ui-state-default {
 		opacity: 1;
