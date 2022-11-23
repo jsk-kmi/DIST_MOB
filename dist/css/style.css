@@ -6186,10 +6186,8 @@ header.header.co-header.scroll-hide {
 		padding-right: 0;
 		padding-bottom: 1.75rem;
 		padding-left: 0;
-		display: -webkit-box;
-		display: -webkit-flex;
-		display: -ms-flexbox;
-		display: flex;
+		display: block;
+		text-align: center;
 		-webkit-box-align: center;
 		-webkit-align-items: center;
 		    -ms-flex-align: center;
@@ -6201,7 +6199,7 @@ header.header.co-header.scroll-hide {
 		background-color: #fff;
 }
 .footer.type-login img {
-		width: 10rem;
+		width: 12.5rem;
 		height: auto;
 }
 .footer.type-login.bottom-fixed {
@@ -6212,6 +6210,14 @@ header.header.co-header.scroll-hide {
 }
 .footer.type-login.border-top-type {
 		border-top: 1px solid rgba(28, 28, 28, 0.1);
+}
+.footer.type-login .copyright {
+		margin-top: 0.75rem;
+		font-size: 0.75rem;
+		font-weight: 300;
+		letter-spacing: -0.0313rem;
+		line-height: 1.25rem;
+		color: rgba(28, 28, 28, 0.4);
 }
 .footer.type-popup {
 		margin-left: -1.75rem;
@@ -7102,6 +7108,38 @@ header.header.co-header.scroll-hide {
 		width: auto;
 		height: 6.875rem;
 		z-index: 1;
+}
+
+.login-banner02 {
+		height: 6.875rem;
+		background-color: #e0ebfa;
+		position: relative;
+		display: block;
+		width: 100%;
+		padding-left: 1.75rem;
+		padding-right: 1.75rem;
+		padding-top: 2rem;
+}
+.login-banner02 p:first-of-type {
+		font-size: 0.875rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.25rem;
+		color: rgba(28, 28, 28, 0.4);
+}
+.login-banner02 p:last-of-type {
+		font-size: 1.125rem;
+		font-weight: 500;
+		line-height: 1.625rem;
+		color: #253981;
+}
+.login-banner02 img {
+		position: absolute;
+		right: 1.75rem;
+		top: 0;
+		bottom: 0;
+		height: 100%;
+		width: auto;
 }
 
 .btn-view-more {
@@ -8763,8 +8801,6 @@ button.ico-plus::after {
 		min-width: 100%;
 		padding-bottom: 65.8%;
 		border-radius: 0.75rem;
-		overflow: hidden;
-		backgrond-position: center;
 }
 .popup-institution-details h2 + .box + .map img {
 		width: 100%;
@@ -9474,12 +9510,6 @@ button.ico-plus::after {
 		height: auto;
 }
 
-@media (max-width: 280px) {
-		.login-banner img {
-				right: auto;
-				left: 10.933rem;
-		}
-}
 @media (max-width: 370px) {
 		.co-main-card {
 				height: 11.75rem;
@@ -9532,6 +9562,17 @@ textarea::placeholder {
 		.co-gnb .gnb-body li .gnb-list a {
 				padding-left: 0.8rem;
 				padding-right: 0.8rem;
+		}
+		.login-banner img {
+				right: auto;
+				left: 10.933rem;
+		}
+		.login-banner02 {
+				padding-left: 0.625rem;
+		}
+		.login-banner02 img {
+				right: auto;
+				left: 12.3rem;
 		}
 		.login-block {
 				padding-left: 1.066rem;
