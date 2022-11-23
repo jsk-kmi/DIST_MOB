@@ -377,7 +377,7 @@ $colors: (
                       }
                     }
                   }
-                  &:not(.ui-datepicker-week-end).ui-state-disabled {
+                  &.ui-state-disabled {
                     .ui-state-default {
                       color: $color-black-20;
                     }
@@ -597,6 +597,25 @@ $colors: (
     &:before {
       content: '-';
       margin-left: -12px;
+    }
+  }
+}
+
+.ui-datepicker-today {
+  &.ui-state-disabled {
+    .ui-state-default {
+      color: $color-black-80 !important;
+    }
+  }
+}
+.ui-datepicker-unselectable {
+  &.ui-state-disabled {
+    &.ui-datepicker-current-day {
+      &.ui-datepicker-today {
+        .ui-state-default {
+          color: $color-white-100 !important;
+        }
+      }
     }
   }
 }

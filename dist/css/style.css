@@ -5609,11 +5609,11 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 		color: #ba1d3c;
 		opacity: 0.2;
 }
-.co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td:not(.ui-datepicker-week-end).ui-state-disabled .ui-state-default {
+.co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-state-disabled .ui-state-default {
 		color: rgba(28, 28, 28, 0.2);
 }
-.co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td:not(.ui-datepicker-week-end).ui-state-disabled a,
-.co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td:not(.ui-datepicker-week-end).ui-state-disabled span {
+.co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-state-disabled a,
+.co-popup-datepicker .cont-box .co-datepicker.hasDatepicker .ui-datepicker-inline .ui-datepicker-calendar tbody tr td.ui-state-disabled span {
 		color: rgba(28, 28, 28, 0.2);
 		font-size: 1rem;
 }
@@ -5816,6 +5816,14 @@ h3[data-style=ButtonBtnSm] ~ .d_desc.code h1 {
 .ui-datepicker-year + .ui-datepicker-month:before {
 		content: "-";
 		margin-left: -12px;
+}
+
+.ui-datepicker-today.ui-state-disabled .ui-state-default {
+		color: rgba(28, 28, 28, 0.8) !important;
+}
+
+.ui-datepicker-unselectable.ui-state-disabled.ui-datepicker-current-day.ui-datepicker-today .ui-state-default {
+		color: #fff !important;
 }
 
 .swiper.type-hide-arr .swiper-button-prev,
