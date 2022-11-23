@@ -1359,6 +1359,13 @@ button {
       & + .map {
         margin-top: 1.75rem;
         width: 100%;
+        min-width: 100%;
+        padding-bottom: 65.8%;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        backgrond: {
+          position: center;
+        }
         img {
           width: 100%;
           height: auto;
@@ -1372,18 +1379,14 @@ button {
   // + 상세 swiper
   .instDetailsCenter {
     overflow: hidden;
+    .swiper-wrapper {
+      height: auto;
+    }
     .swiper-slide {
       width: 100%;
       height: auto;
       border-radius: 0.75rem;
       overflow: hidden;
-
-      .swiper-wrapper {
-        height: auto;
-        .swiper-slide {
-          height: auto;
-        }
-      }
 
       .image {
         position: relative;

@@ -8760,6 +8760,11 @@ button.ico-plus::after {
 .popup-institution-details h2 + .box + .map {
 		margin-top: 1.75rem;
 		width: 100%;
+		min-width: 100%;
+		padding-bottom: 65.8%;
+		border-radius: 0.75rem;
+		overflow: hidden;
+		backgrond-position: center;
 }
 .popup-institution-details h2 + .box + .map img {
 		width: 100%;
@@ -8771,17 +8776,14 @@ button.ico-plus::after {
 .popup-institution-details .instDetailsCenter {
 		overflow: hidden;
 }
+.popup-institution-details .instDetailsCenter .swiper-wrapper {
+		height: auto;
+}
 .popup-institution-details .instDetailsCenter .swiper-slide {
 		width: 100%;
 		height: auto;
 		border-radius: 0.75rem;
 		overflow: hidden;
-}
-.popup-institution-details .instDetailsCenter .swiper-slide .swiper-wrapper {
-		height: auto;
-}
-.popup-institution-details .instDetailsCenter .swiper-slide .swiper-wrapper .swiper-slide {
-		height: auto;
 }
 .popup-institution-details .instDetailsCenter .swiper-slide .image {
 		position: relative;
