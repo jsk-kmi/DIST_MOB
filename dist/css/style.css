@@ -7452,8 +7452,7 @@ button.ico-plus::after {
 		        justify-content: center;
 }
 .swiper-pagination .swiper-pagination-bullet {
-		width: 0.5rem;
-		height: 0.5rem;
+		min-width: 8px;
 		border: 0 none;
 		border-radius: 0.5rem;
 		background: rgba(28, 28, 28, 0.1);
@@ -7462,7 +7461,7 @@ button.ico-plus::after {
 		transition: background-color 0.3s ease-in-out, width 0.3s ease-in-out;
 }
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-		width: 1rem;
+		min-width: 16px;
 		background: #253981;
 		border-radius: 1.25rem;
 }
@@ -8599,6 +8598,18 @@ button.ico-plus::after {
 		letter-spacing: -0.0187rem;
 		line-height: 1.75rem;
 		color: rgba(28, 28, 28, 0.6);
+}
+#popupAddTarget p.input-err-txt {
+		color: #ba1d3c;
+}
+#popupAddTarget p.input-ref-txt {
+		color: rgba(28, 28, 28, 0.6);
+}
+#popupAddTarget p.input-err-txt, #popupAddTarget p.input-ref-txt {
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.25rem;
 }
 #popupAddTarget .c-input-list {
 		margin-top: 2.5rem;

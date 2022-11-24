@@ -302,15 +302,14 @@ button {
   align-items: center;
   justify-content: center;
   .swiper-pagination-bullet {
-    width: 0.5rem;
-    height: 0.5rem;
+    min-width: 8px;
     border: 0 none;
     border-radius: 0.5rem;
     background: $color-black-10;
     opacity: 1;
     transition: background-color $transition-3 ease-in-out, width $transition-3 ease-in-out;
     &.swiper-pagination-bullet-active {
-      width: 1rem;
+      min-width: 16px;
       background: $color-main;
       border-radius: 1.25rem;
     }
@@ -1173,6 +1172,16 @@ button {
   p {
     @include coTxtBody;
     color: $color-black-60;
+    &.input-err-txt {
+      color: $color-sub-03;
+    }
+    &.input-ref-txt {
+      color: $color-black-60;
+    }
+    &.input-err-txt,
+    &.input-ref-txt {
+      @include coTxtLabelMedium;
+    }
   }
   .c-input-list {
     margin-top: 2.5rem;
@@ -1362,6 +1371,7 @@ button {
         min-width: 100%;
         padding-bottom: 65.8%;
         border-radius: 0.75rem;
+
         img {
           width: 100%;
           height: auto;
