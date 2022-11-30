@@ -3,120 +3,128 @@
 
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
-	<meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
-	<meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
-	<link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
-	<link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
-	<link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
-	<link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
-	<link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
-	<link rel="stylesheet" href="../../css/style.css" />
-	<script src="../../lib/jquery/jquery.min.js"></script>
-	<script src="../../lib/swiper/js/swiper.min.js"></script>
-	<script defer src="../../js/common.js"></script>
-	<title>KMI 한국의학연구소</title>
-</head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
 
+    <meta name="description" content="임직원 건강검진 위탁 운영은 WITH KMI가 함께합니다.">
+    <meta name="keyword" content="WITH KMI, 위드 케이엠아이, 건강검진, KMI 한국의학연구소">
+    <meta name="Robots" content="INDEX, FOLLOW">
+
+    <meta name="og:type" content="website">
+    <meta name="og:locale" content="ko_KO">
+    <meta name="og:title" content="WITH KMI">
+    <meta name="og:url" content="">
+    <meta name="og:description" content="임직원 건강검진 위탁 운영은 WITH KMI가 함께합니다.">
+    <meta name="og:image" content="../../images/kmi_info_img.jpg">
+
+
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
 
 
 <body>
 
-	<style>
-		/* 팝업 확인용 스타일(실제 소스에 사용하지 마세요.) */
-		.c-full-layer.kmi-popup.type-full.type-datepicker {
-			top: 0px !important;
-			z-index: 2000 !important;
-			top: 0px !important;
-			z-index: 2000 !important;
-			visibility: visible !important;
-		}
-	</style>
-	<div id="container">
-		<div class="flex-wrap">
-			<div class="flex-container">
-				<button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupDatePicker"><em
-						class="alt-txt">두번탭하면,팝업열림</em><span>팝업열림</span></button>
+    <style>
+        /* 팝업 확인용 스타일(실제 소스에 사용하지 마세요.) */
+        .c-full-layer.kmi-popup.type-full.type-datepicker {
+            top: 0px !important;
+            z-index: 2000 !important;
+            top: 0px !important;
+            z-index: 2000 !important;
+            visibility: visible !important;
+        }
+    </style>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupDatePicker"><em class="alt-txt">두번탭하면,팝업열림</em><span>팝업열림</span></button>
 
-				<div class="full-body"> <input type="text" class="c-input btn-date-picker" id="rsvHopeDate01_01"
-						placeholder="YYYY-MM-DD" autocomplete="off" />
-					<br />
-					<br />
-					<br />
-				</div>
-			</div>
-		</div>
+                <div class="full-body"> <input type="text" class="c-input btn-date-picker" id="rsvHopeDate01_01" placeholder="YYYY-MM-DD" autocomplete="off" />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
 
-		<!-- full popup - DATE PICKER -->
-		<div class="c-full-layer kmi-popup type-full type-datepicker show co-popup-datepicker" id="popupDatePicker"
-			role="dialog" aria-labelledby="popupDatePicker_Label" aria-modal="true" aria-hidden="true">
-			<div class="c-container" tabindex="0">
-				<div class="full-header">
-					<button class="btn-go-back popup-btn-close">
-						<span>뒤로 가기</span>
-					</button>
-				</div>
+        <!-- full popup - DATE PICKER -->
+        <div class="c-full-layer kmi-popup type-full type-datepicker show co-popup-datepicker" id="popupDatePicker" role="dialog" aria-labelledby="popupDatePicker_Label" aria-modal="true" aria-hidden="true">
+            <div class="c-container" tabindex="0">
+                <div class="full-header">
+                    <button class="btn-go-back popup-btn-close">
+                        <span>뒤로 가기</span>
+                    </button>
+                </div>
 
-				<div class="cont-box">
+                <div class="cont-box">
 
-					<h1>검진 일자선택</h1>
-					<span class="alt-txt">대장내시경은,2023년,1월,10일,에,가장빠른,예약이,가능합니다</span>
-					<p aria-hidden="true">대장내시경은 <span>2023.01.10 가장 빠른 예약</span>이 가능합니다.</p>
-					<span class="alt-txt">예약하고싶은날짜를선택할수있는달력입니다,오늘날짜에선택되어있고,예약가능한날짜를선택한후,하단에확인버튼을누르면,희망일자에,선택한날짜가입력됩니다</span>
-					<div id="c-datepicker" class="type-popup co-datepicker"></div>
-					<div class="c-datepicker-info">
-						<ul class="is-selected">
-							<li class="alt-txt">선택된날짜는파란색글자와파란색라운드로표시됩니다</li>
-							<li aria-hidden="true">선택</li>
-						</ul>
-						<ul class="is-holiday">
-							<li class="alt-txt">휴일이나일요일은빨간색글자로표시됩니다</li>
-							<li aria-hidden="true">휴일</li>
-						</ul>
-						<ul class="is-disabled">
-							<li class="alt-txt">예약마감되어예약할수없는날짜는회색으로표시되고선택불가능합니다</li>
-							<li aria-hidden="true">예약마감</li>
-						</ul>
-					</div>
-				</div>
+                    <h1>검진 일자선택</h1>
+                    <span class="alt-txt">대장내시경은,2023년,1월,10일,에,가장빠른,예약이,가능합니다</span>
+                    <p aria-hidden="true">대장내시경은 <span>2023.01.10 가장 빠른 예약</span>이 가능합니다.</p>
+                    <span class="alt-txt">예약하고싶은날짜를선택할수있는달력입니다,오늘날짜에선택되어있고,예약가능한날짜를선택한후,하단에확인버튼을누르면,희망일자에,선택한날짜가입력됩니다</span>
+                    <div id="c-datepicker" class="type-popup co-datepicker"></div>
+                    <div class="c-datepicker-info">
+                        <ul class="is-selected">
+                            <li class="alt-txt">선택된날짜는파란색글자와파란색라운드로표시됩니다</li>
+                            <li aria-hidden="true">선택</li>
+                        </ul>
+                        <ul class="is-holiday">
+                            <li class="alt-txt">휴일이나일요일은빨간색글자로표시됩니다</li>
+                            <li aria-hidden="true">휴일</li>
+                        </ul>
+                        <ul class="is-disabled">
+                            <li class="alt-txt">예약마감되어예약할수없는날짜는회색으로표시되고선택불가능합니다</li>
+                            <li aria-hidden="true">예약마감</li>
+                        </ul>
+                    </div>
+                </div>
 
-				<div class="btn-floating">
-					<a href="javascript:void(0);" class="co-btn bg-navy-1" title="팝업닫힘"><span>확인</span></a>
-				</div>
-			</div>
-		</div>
-	</div>
+                <div class="btn-floating">
+                    <a href="javascript:void(0);" class="co-btn bg-navy-1" title="팝업닫힘"><span>확인</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-	<!-- script: datapicker -->
-	<script src="../../lib/jquery-ui/jquery-ui-1.13.0/jquery-ui.min.js"></script>
-	<script src="../../lib/year-month-picker-UI-datepicker/jquery.ui.datepicker.monthyearpicker.js"></script>
-	<script src="../../js/date.js"></script>
-	<script>
-		// 특정날짜 disabled List
-		var disabledDays = ['2022-11-7', '2022-11-8', '2022-11-13', '2022-11-23'];
+    <!-- script: datapicker -->
+    <script src="../../lib/jquery-ui/jquery-ui-1.13.0/jquery-ui.min.js"></script>
+    <script src="../../lib/year-month-picker-UI-datepicker/jquery.ui.datepicker.monthyearpicker.js"></script>
+    <script src="../../js/date.js"></script>
+    <script>
+        // 특정날짜 disabled List
+        var disabledDays = ['2022-11-7', '2022-11-8', '2022-11-13', '2022-11-29'];
 
-		function disableAllTheseDays(date) {
-			var m = date.getMonth(),
-				d = date.getDate(),
-				y = date.getFullYear();
+        function disableAllTheseDays(date) {
+            var m = date.getMonth(),
+                d = date.getDate(),
+                y = date.getFullYear();
 
-			for (let i = 0; i < disabledDays.length; i++) {
-				if ($.inArray(y + '-' + (m + 1) + '-' + d, disabledDays) != -1) {
-					return [false];
-				}
-			}
-			return [date.getDay() != 0, '']; // 일요일 제어
-			return [true];
-		}
+            for (let i = 0; i < disabledDays.length; i++) {
+                if ($.inArray(y + '-' + (m + 1) + '-' + d, disabledDays) != -1) {
+                    return [false];
+                }
+            }
+            return [date.getDay() != 0, '']; // 일요일 제어
+            return [true];
+        }
 
-		$('.co-datepicker').datepicker({
-			beforeShowDay: disableAllTheseDays,
-		});
-	</script>
+        $('.co-datepicker').datepicker({
+            beforeShowDay: disableAllTheseDays,
+        });
+    </script>
 </body>
 
 </html>

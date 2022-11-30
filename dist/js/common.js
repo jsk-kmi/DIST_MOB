@@ -73,7 +73,7 @@ function elemLenCheck() {
 document.addEventListener('readystatechange', function (event) {
   // does same as:  ..addEventListener("DOMContentLoaded"..
   // When HTML/DOM elements are ready:
-  if (event.target.readyState === 'interactive') {} // When window loaded ( external resources are loaded too- css, src, etc...) 
+  if (event.target.readyState === 'interactive') {} // When window loaded ( external resources are loaded too- css, src, etc...)
 
 
   if (event.target.readyState === 'complete') {
@@ -1185,7 +1185,7 @@ function commonInit() {
         focus_el[0].focus();
       }, INTERVAL_1);
     }, ANI_TIME_300);
-  } // DOM에 풀팝업이 있을 경우 
+  } // DOM에 풀팝업이 있을 경우
 
 
   function fullPopupState() {

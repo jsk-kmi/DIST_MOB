@@ -34,20 +34,38 @@
 
 <body>
     <div id="container">
-        <div class="flex-wrap">
-            <div class="flex-container type-etc">
-                <div class="type-update">
-                    <img src="../../images/logo/kmi/kmi_01.png" alt="기분이좋아하트를날리며웃고있는KMI캐릭터" />
+        <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupPersonalGuide01"><span>OPEN
+                POPUP</span></button>
 
-                    <h4>홈페이지가 업데이트 중입니다.</h4>
-                    <p>곧 좋은 모습으로 만나 뵐 수 있게 최선을 다하겠습니다.</p>
+        <div class="c-layer-popup kmi-popup type-modal" id="popupPersonalGuide01" role="dialog" aria-labelledby="popupPersonalGuide_Label01" aria-modal="true" aria-hidden="true">
+            <div class="modal-wrap">
+                <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+                <div class="modal-field" tabindex="0">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                    <div class="c-modal-body">
+                        <div class="c-modal-inner">
+                            <!-- 팝업의 설명(대체텍스트)이 필요한 경우 -->
+                            <!-- <h4 class="c-title skip" id="popupModalType_Label">대체 텍스트</h4> -->
+                            <div class="in-cont personal-terms-popup">
+                                <p id="popupPersonalGuide_Label01" class="title">목록 제공 타이틀</p>
+                                <div class="cont">
+                                    목록제공 관련 내용
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-modal-footer">
+                        <div class="inner">
+                            <div class="buttons">
+                                <button class="co-btn bg-navy-1 popup-btn-close"><span>확인</span></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- footer -->
-            <footer class="footer type-login ">
-                <img src="../../images/logo/footer_logo_02.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE" />
-                <p class="copyright">Copyright© KMI.All Rights Reserved.</p>
-            </footer>
         </div>
     </div>
 </body>

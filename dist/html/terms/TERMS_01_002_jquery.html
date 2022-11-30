@@ -548,7 +548,9 @@
                             </acticle>
                         </div>
                     </div>
+
                 </div>
+
                 <button class="btn-move-top"><span class="skip">터치시최상단으로이동</span></button>
             </div>
             <!-- footer -->
@@ -574,7 +576,36 @@
             </footer>
         </div>
     </div>
+    <style>
+        html,
+        body {
+            overflow-y: auto;
+            height: initial;
+        }
+    </style>
+    <script>
+        $('.policy-list > li > a').on('click', function(e) {
+            var target = $(e.currentTarget),
+                policyList = target.closest('.policy-list'),
+                policyControl = target.attr('id'),
+                policyContList = $(".policy-section[aria-labelledby=".concat(policyControl, "]")),
+                policyContPosition = policyContList.offset().top - 120;
 
+            console.log(policyContPosition);
+
+            policyList.find(' > li > a').removeClass('on').attr('aria-selected', 'false');
+            target.addClass('on').attr('aria-selected', 'true');
+            $('html, body').stop().animate({
+                scrollTop: policyContPosition
+            }, 1000);
+        });
+
+        $('.btn-move-top').on('click', () => {
+            $('html, body').stop().animate({
+                scrollTop: 0
+            }, 1000);
+        })
+    </script>
 </body>
 
 </html>

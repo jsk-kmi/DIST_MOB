@@ -515,3 +515,85 @@ a {
     text-align: right;
   }
 }
+
+// = list
+.co-list-card {
+  > li {
+    white-space: initial;
+  }
+
+  &.circle01,
+  &.circle02 {
+    > li {
+      position: relative;
+      &:before {
+        content: '';
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: $color-black-60;
+        display: inline-block;
+        position: absolute;
+      }
+    }
+  }
+  // circle01
+  &.circle01 {
+    li {
+      color: $color-black-60;
+      @include coTxtCaption;
+      padding-left: 14px;
+      &:before {
+        top: 11px;
+        left: 0;
+      }
+    }
+  }
+  // circle02
+  &.circle02 {
+    li {
+      @include fontStyle(14px, 30px, 300);
+      padding-left: 12px;
+      &:before {
+        top: 14px;
+        left: 0;
+      }
+    }
+  }
+
+  // + number-01
+  &.number01 {
+    > li {
+      list-style: none;
+      counter-increment: list-cnt01;
+      position: relative;
+      &:before {
+        content: counter(list-cnt01);
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        border: 1px solid $color-black-50;
+      }
+      @include coTxtBody;
+    }
+  }
+
+  &.number02 {
+    > li {
+      list-style: none;
+      counter-increment: list-cnt02;
+      position: relative;
+      font: {
+        size: $fs-body;
+      }
+
+      &:before {
+        content: counter(list-cnt02) '.';
+        display: inline-block;
+        text-align: left;
+        line-height: 1;
+        padding-right: 4px;
+      }
+    }
+  }
+}
