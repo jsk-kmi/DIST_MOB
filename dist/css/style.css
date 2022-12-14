@@ -6245,7 +6245,7 @@ header.header.co-header.scroll-hide {
 		font-weight: 400;
 		letter-spacing: -0.0313rem;
 		line-height: 1.25rem;
-		color: rgba(255, 255, 255, 0.4);
+		color: rgba(255, 255, 255, 0.8);
 		text-align: center;
 }
 .footer.type-default .footer-txt {
@@ -6253,6 +6253,9 @@ header.header.co-header.scroll-hide {
 }
 .footer.type-default .copyright {
 		margin-top: 2.5rem;
+}
+.footer.type-default .personal-policy {
+		color: #2f7ad3;
 }
 .footer.type-login {
 		position: relative;

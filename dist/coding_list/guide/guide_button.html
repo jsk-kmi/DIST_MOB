@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Layout Guide</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scaLabel=no" />
+    <!-- guide css -->
+    <link rel="stylesheet" href="../css/base.css" />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap" class="coding_guide">
+      <h1 class="h1_guide">Button</h1>
+      <div class="title-box">
+        <h2 class="h2_guide">공통</h2>
+      </div>
+      <div class="guide_descbox">
+        <h3 class="g-title"></h3>
+        <div class="inner_desc">
+          <ul>
+            <li>좌우 버튼 parent element class: buttons</li>
+            <li>테두리 버튼 class: is-outline-navy-1</li>
+            <li>disabled class: is-disable || is-outline-disable</li>
+            <li>이전 글 class: is-prev || 다음 글 class: is-next</li>
+            <li>button tab일 경우, alt-txt에 팝업의 기능은 꼭 적어주세요..</li>
+          </ul>
+        </div>
+      </div>
+      <!-- ===================================== BUTTON -->
+      <div class="title-box">
+        <h2 class="h2_guide">BUTTON</h2>
+      </div>
+
+      <!-- [button TAG] -->
+      <h3 class="h3_guide">button TAG</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="c-input-list type01">
+          <div class="row">
+            <div class="col per-column">
+              <!-- button TAG -->
+              <button class="co-btn"><span class="alt-txt">페이지 이동 || 팝업열림</span><span>BUTTON TAG</span></button>
+            </div>
+            <div class="col per-column">
+              <!-- button TAG: round -->
+              <button class="co-btn is-outline-navy-1"><span class="alt-txt">페이지 이동 || 팝업열림</span><span>BUTTON TAG</span></button>
+            </div>
+          </div>
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [ // button TAG] -->
+
+      <!-- [button TAG disabled] -->
+      <h3 class="h3_guide">button TAG disabled</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="c-input-list type01">
+          <div class="row">
+            <div class="col per-column">
+              <!-- button TAG -->
+              <button class="co-btn is-disable"><span>BUTTON TAG DISABLED</span></button>
+            </div>
+            <div class="col per-column">
+              <!-- button TAG: round -->
+              <button class="co-btn is-outline-disable"><span>BUTTON TAG</span></button>
+            </div>
+          </div>
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [ // button TAG disabled] -->
+
+      <!-- [a TAG] -->
+      <h3 class="h3_guide">a TAG</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="c-input-list type01">
+          <div class="row">
+            <div class="col per-column">
+              <!-- a TAG -->
+              <a href="javascript:void(0);" class="co-btn"><span>A TAG</span></a>
+            </div>
+            <div class="col per-column">
+              <!-- a TAG: round -->
+              <a href="javascript:void(0);" class="co-btn  is-outline-navy-1"><span>A TAG</span></a>
+            </div>
+          </div>
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [ // a TAG] -->
+
+      <!-- [a TAG disabled] -->
+      <h3 class="h3_guide">a TAG disabled</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="c-input-list type01">
+          <div class="row">
+            <div class="col per-column">
+              <!-- a TAG -->
+              <a href="javascript:void(0);" class="co-btn is-disable"><span>A TAG</span></a>
+            </div>
+            <div class="col per-column">
+              <!-- a TAG: round -->
+              <a href="javascript:void(0);" class="co-btn  is-outline-disable"><span>A TAG</span></a>
+            </div>
+          </div>
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [ // a TAG disabled] -->
+
+      <!-- [button TAG list] -->
+      <h3 class="h3_guide">button TAG list</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="c-input-list type01">
+          <div class="row">
+            <div class="col per-column">
+              <div class="buttons">
+                <button class="co-btn"><span>BUTTON TAG</span></button>
+                <button class="co-btn"><span>BUTTON TAG</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [ // button TAG list] -->
+
+      <!-- [a TAG list] -->
+      <h3 class="h3_guide">a TAG list</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="c-input-list type01">
+          <div class="row">
+            <div class="col per-column">
+              <div class="buttons">
+                <a href="javascript:void(0);" class="co-btn"><span>A TAG</span></a>
+                <a href="javascript:void(0);" class="co-btn"><span>A TAG</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ? // view -->
+      </div>
+      <!-- [ // a TAG list] -->
+
+      <!-- [이전 글, 다음 글] -->
+      <h3 class="h3_guide">이전 글, 다음 글</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="c-input-list type01">
+          <div class="row">
+            <div class="col per-column">
+              <div class="buttons">
+                <a href="javascript:void(0);" title="페이지 이동" class="co-btn is-prev"><span><img src="../../images/ico/ico_arrow_left_01.svg" alt="이전 화살표 아이콘" aria-hidden="true" />이전 글</span></a>
+                <a href="javascript:void(0);" title="페이지 이동" class="co-btn is-next"><span>다음 글<img src="../../images/ico/ico_arrow_right_01.svg" alt="이전 화살표 아이콘" aria-hidden="true" /></span></a>
+              </div>
+            </div>
+            <!-- 이전 글: disabled -->
+            <div class="col per-column">
+              <div class="buttons">
+                <a href="javascript:void(0);" title="페이지 이동" class="co-btn is-prev is-disable"><span><img src="../../images/ico/ico_arrow_left_01.svg" alt="이전 화살표 아이콘" aria-hidden="true" />이전 글</span></a>
+                <a href="javascript:void(0);" title="페이지 이동" class="co-btn is-next"><span>다음 글<img src="../../images/ico/ico_arrow_right_01.svg" alt="이전 화살표 아이콘" aria-hidden="true" /></span></a>
+              </div>
+            </div>
+            <!-- 다음 글: disabled -->
+            <div class="col per-column">
+              <div class="buttons">
+                <a href="javascript:void(0);" title="페이지 이동" class="co-btn is-prev"><span><img src="../../images/ico/ico_arrow_left_01.svg" alt="이전 화살표 아이콘" aria-hidden="true" />이전 글</span></a>
+                <a href="javascript:void(0);" title="페이지 이동" class="co-btn is-next is-disable"><span>다음 글<img src="../../images/ico/ico_arrow_right_01.svg" alt="이전 화살표 아이콘" aria-hidden="true" /></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ? // view -->
+      </div>
+      <!-- [ // 이전 글, 다음 글] -->
+
+    </div>
+
+    <!-- guide script -->
+    <script src="../js/pretty.js"></script>
+
+    <script defer src="../../js/common.js"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
+
+    <meta name="description" content="임직원 건강검진 위탁 운영은 WITH KMI가 함께합니다.">
+    <meta name="keyword" content="WITH KMI, 위드 케이엠아이, 건강검진, KMI 한국의학연구소">
+    <meta name="Robots" content="INDEX, FOLLOW">
+
+    <meta name="og:type" content="website">
+    <meta name="og:locale" content="ko_KO">
+    <meta name="og:title" content="WITH KMI">
+    <meta name="og:url" content="">
+    <meta name="og:description" content="임직원 건강검진 위탁 운영은 WITH KMI가 함께합니다.">
+    <meta name="og:image" content="../../images/kmi_info_img.jpg">
+
+
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <div class="flex-container">
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupJoin2"><span>팝업열림 - 본인인증</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- full popup - 본인인증 -->
+    <div class="c-full-layer kmi-popup type-full" id="popupJoin2" role="dialog" aria-labelledby="popupJoin2_Label" aria-modal="true" aria-hidden="true">
+        <div class="c-container" tabindex="0">
+            <div class="full-header">
+                <button class="btn-go-back">
+                    <span>뒤로 가기</span>
+                </button>
+            </div>
+
+            <div class="full-body">
+                <!-- 회원가입 및 확인 2단계 -->
+                <h4 id="popupJoin2_Label" class="top-title-box type-step">
+                    회원가입 및 확인
+                    <i class="skip">2단계 중 2단게</i>
+                    <div class="step" aria-hidden="true">
+                        <span>2</span>/<span>2</span>
+                    </div>
+                </h4>
+
+                <div class="cont-box type-btn-floating">
+                    <p class="tit">본인인증</p>
+
+                    <p class="txt">아래 본인 확인 수단 중 하나를 선택하여 본인 인증을 진행해 주세요.</p>
+
+                    <div class="co-chk-list type02">
+                        <div class="c-rdochk type01">
+                            <input type="radio" id="rdoCertifyWayPhone" name="rdoCertifyWay" checked="">
+                            <label for="rdoCertifyWayPhone" class="chk-label"><i></i><span>휴대폰 인증</span></label>
+                        </div>
+                        <div class="c-rdochk type01">
+                            <input type="radio" id="rdoCertifyWayIpin" name="rdoCertifyWay">
+                            <label for="rdoCertifyWayIpin" class="chk-label"><i></i><span>아이핀 인증</span></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- // 회원가입 및 확인 2단계 -->
+
+                <!-- 이전, 다음 버튼 -->
+                <div class="btn-floating">
+                    <div class="buttons">
+                        <a href="javascript:void(0);" class="co-btn is-outline-navy-1" title="두번탭하면,팝업이,이전내용으로,바뀜"><span>이전</span></a>
+                        <a href="javascript:void(0);" class="co-btn bg-navy-1" title="페이지이동"><span>확인</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

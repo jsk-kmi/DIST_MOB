@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Layout Guide</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scaLabel=no" />
+    <!-- guide css -->
+    <link rel="stylesheet" href="../css/base.css" />
+
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="wrap" class="coding_guide">
+      <h1 class="h1_guide">Sub Card</h1>
+      <div class="title-box">
+        <h2 class="h2_guide">공통</h2>
+      </div>
+      <div class="guide_descbox">
+        <h3 class="g-title"></h3>
+        <div class="inner_desc">
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+      <!-- ===================================== SUB CARD -->
+      <div class="title-box">
+        <h2 class="h2_guide">SUB CARD</h2>
+      </div>
+
+      <!-- [SUB CARD TYPE1] -->
+      <h3 class="h3_guide">SUB CARD TYPE1</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="sub-card type1">
+          <input type="checkbox" id="subCardType1" />
+          <label for="subCardType1">
+            <div class="inner">
+              <ul class="case">
+                <li>본인</li>
+                <li class="ico-checkbox"></li>
+              </ul>
+              <ul class="profile">
+                <li>홍길동</li>
+                <li>
+                  <em class="alt-txt">1988년6월30일</em>
+                  <span aria-hidden="true">1988-06-30</span>
+                </li>
+              </ul>
+              <ul class="tag-list">
+                <li>회사지원</li>
+                <li>특수검진</li>
+                <li>출장검진</li>
+                <li>종합검진</li>
+                <li>기타</li>
+              </ul>
+            </div>
+          </label>
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [ // SUB CARD TYPE1] -->
+
+      <!-- [SUB CARD TYPE1: BOTTOM LIST] -->
+      <h3 class="h3_guide">SUB CARD TYPE1: BOTTOM LIST</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="sub-card type1">
+          <input type="checkbox" id="subCardType1_bottom" />
+          <label for="subCardType1_bottom">
+            <div class="inner">
+              <ul class="case">
+                <li>본인</li>
+                <li class="ico-checkbox"></li>
+              </ul>
+              <ul class="profile">
+                <li>홍길동</li>
+                <li>
+                  <em class="alt-txt">1988년6월30일</em>
+                  <span aria-hidden="true">1988-06-30</span>
+                </li>
+              </ul>
+              <ul class="tag-list">
+                <li>회사지원</li>
+                <li>특수검진</li>
+                <li>출장검진</li>
+                <li>종합검진</li>
+                <li>기타</li>
+              </ul>
+              <dl>
+                <dt>장소</dt>
+                <dd><span>한국의학연구소 광화문센터</span></dd>
+              </dl>
+              <dl>
+                <dt>1차</dt>
+                <dd>
+                  <em class="alt-txt">2022년5월12일오전</em>
+                  <span aria-hidden="true">2022-05-12 / 오전</span>
+                </dd>
+              </dl>
+              <dl>
+                <dt>2차</dt>
+                <dd>
+                  <em class="alt-txt">2022년5월12일오전</em>
+                  <span aria-hidden="true">2022-05-12 / 오후</span>
+                </dd>
+              </dl>
+            </div>
+          </label>
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [ // SUB CARD TYPE1: BOTTOM LIST] -->
+
+      <!-- [SUB CARD TYPE2] -->
+      <h3 class="h3_guide">SUB CARD TYPE2</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="sub-card type2">
+          <ul class="co-badge">
+            <!--
+              * 예약 대기: wait
+              * 예약 확정: conf
+              * 검진완료: end
+              * 취소 신청: cencel
+              * 변경 신청: change
+            -->
+            <li class="wait">예약 대기</li>
+            <!-- <li class="conf">예약 확정</li>
+            <li class="end">검진완료</li>
+            <li class="cencel">취소 신청</li>
+            <li class="change">변경 신청</li> -->
+          </ul>
+          <p class="location">한국의학연구소 광화문</p>
+          <div class="info-list">
+            <dl>
+              <dt>홍길동</dt>
+              <dd>본인</dd>
+            </dl>
+            <dl>
+              <dt>1차 검사일정</dt>
+              <dd>
+                <em class="alt-txt">2022년5월12일오후</em>
+                <span aria-hidden="true">2022-05-12</span>
+                <span aria-hidden="true">오후</span>
+              </dd>
+            </dl>
+            <dl>
+              <dt>2차 검사일정</dt>
+              <dd>
+                <em class="alt-txt">2022년5월12일오전</em>
+                <span aria-hidden="true">2022-05-12</span>
+                <span aria-hidden="true">오전</span>
+              </dd>
+            </dl>
+            <dl>
+              <dt>연기일정</dt>
+              <dd>
+                <em class="alt-txt">2022년5월12일12시30분</em>
+                <span aria-hidden="true">2022-05-12</span>
+                <span aria-hidden="true">12:30</span>
+              </dd>
+            </dl>
+          </div>
+          <div class="button-list">
+            <a href="javascript:void(0);" title="페이지이동">취소신청</a>
+            <a href="javascript:void(0);" title="페이지이동">변경신청</a>
+          </div>
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [ // SUB CARD TYPE2] -->
+
+      <!-- [검진 대상자가 없습니다.] -->
+      <h3 class="h3_guide">검진 대상자가 없습니다.</h3>
+      <div class="d_desc code">
+        <!-- ? view -->
+        <div class="null-contents type-shadow">
+          <img src="../../images/logo/kmi/kmi_02.png" alt="검진 대상자가 없어서 당황하는 KMI 캐릭터" />
+          <p>검진 대상자가 없습니다.</p>
+        </div>
+        <!-- ? // view -->
+      </div>
+      <!-- [// 검진 대상자가 없습니다.] -->
+    </div>
+
+    <!-- guide script -->
+    <script src="../js/pretty.js"></script>
+
+    <script defer src="../../js/common.js"></script>
+  </body>
+</html>

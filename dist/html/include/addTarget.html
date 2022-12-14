@@ -1,0 +1,96 @@
+<div class="c-modal-body">
+    <div class="c-modal-inner">
+        <div class="in-cont">
+
+            <div class="c-input-list type01">
+                <div class="row">
+                    <div class="col per-column label-input">
+                        <label for="relation">임직원과의 관계<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                        <div class="c-select is-error">
+                            <select title="선택" id="relation">
+                                <option selected>선택</option>
+                                <option>배우자</option>
+                                <option>자녀</option>
+                                <option>본인의 부</option>
+                                <option>본인의 모</option>
+                                <option>배우자의 부</option>
+                                <option>배우자의 모</option>
+                                <option>기타</option>
+                            </select>
+                        </div>
+                        <p class="input-err-txt">에러문구</p>
+                    </div>
+                    <div class="col per-column label-input">
+                        <label for="relationName">검진자 이름<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                        <input type="text" class="c-input" id="relationName" placeholder="이름을 입력하세요" />
+
+                    </div>
+                    <div class="col per-column label-input">
+                        <label for="relationBirth">생년월일<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                        <input type="number" class="c-input" id="relationBirth" placeholder="ex) 19850101" pattern="\d*" />
+                    </div>
+                    <div class="col per-column label-input">
+                        <label for="relationGender">성별<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                        <div class="c-select">
+                            <select title="선택" id="relationGender">
+                                <option selected>선택</option>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col per-column label-input">
+                        <label for="relationForeigner">내/외국인<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                        <div class="c-select">
+                            <select title="선택" id="relationForeigner">
+                                <option selected>선택</option>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col per-column label-input">
+                        <label for="relationNationality">국적 (외국인일 경우)</label>
+                        <div class="c-select">
+                            <select title="선택" id="relationNationality">
+                                <option selected>선택</option>
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col per-column label-input">
+                        <label for="relationMobile">휴대폰 전화번호<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                        <input type="number" class="c-input" id="relationMobile" placeholder="'-'를 제외하고 입력" pattern="\d*" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="terms type-box">
+                <div class="c-chkbox type01">
+                    <input type="checkbox" id="relationTermsPrivacy" />
+                    <label for="relationTermsPrivacy" class="chk-label"><i></i><span>[필수] 개인정보 정보 수집 이용동의</span></label>
+                </div>
+                <div class="terms-box">
+                    <div class="inner">
+                        <div class="terms-row">
+                            수집항목<br />
+                            이름, 성별, 휴대전화 번호, 이메일, 요청사항<br /><br />
+                            이용목적<br />
+                            검진 예약 시 귀하의 개인 정보를 수집 이용합니다.<br /><br />
+                            보유 및 이용 기간<br />
+                            "회사"는 원칙적으로 회원의 정보를 다음의 사유 발생 시 지체 없이 파기하고 있습니다.<br />
+                            1. 회원 탈퇴 시<br />
+                            2. 서비스 종료 시
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="c-modal-footer">
+    <div class="inner">
+        <div class="buttons">
+            <a href="javascript:void(0);" class="co-btn bg-navy-1" title="팝업닫힘"><span>대상자 추가</span></a>
+        </div>
+    </div>
+</div>

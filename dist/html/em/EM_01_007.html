@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
+    <meta name="apple-mobile-web-app-title" content="KMI 한국의학연구소" />
+
+    <meta name="description" content="임직원 건강검진 위탁 운영은 WITH KMI가 함께합니다.">
+    <meta name="keyword" content="WITH KMI, 위드 케이엠아이, 건강검진, KMI 한국의학연구소">
+    <meta name="Robots" content="INDEX, FOLLOW">
+
+    <meta name="og:type" content="website">
+    <meta name="og:locale" content="ko_KO">
+    <meta name="og:title" content="WITH KMI">
+    <meta name="og:url" content="">
+    <meta name="og:description" content="임직원 건강검진 위탁 운영은 WITH KMI가 함께합니다.">
+    <meta name="og:image" content="../../images/kmi_info_img.jpg">
+
+
+    <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/apple-touch-icon-167x167.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../images/logo/apple-touch-icon-180x180.png" />
+    <link rel="stylesheet" href="../../lib/swiper/css/swiper.min.css" />
+    <link rel="stylesheet" href="../../lib/datepicker/datepicker.min.css" />
+    <link rel="stylesheet" href="../../css/style.css" />
+    <script src="../../lib/jquery/jquery.min.js"></script>
+    <script src="../../lib/swiper/js/swiper.min.js"></script>
+    <script defer src="../../js/common.js"></script>
+    <title>KMI 한국의학연구소</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="flex-wrap">
+            <!-- Header -->
+            <header class="header co-header">
+                <!-- 기업 로고에 따른 alt값 부여 -->
+                <!-- 흑백로고 -->
+                <h1 class="logo">
+                    <a href="javascrpit:void(0);"><img src="../../images/dummy/dummy_logo01.png" alt="LG화학 로고" /></a>
+                </h1>
+                <!-- 컬러로고: type-color -->
+                <!-- <h1 class="logo type-color">
+    <a href="javascrpit:void(0);"><img src="../../images/dummy/dummy_logo02.png" alt="LG화학 로고" /></a>
+  </h1> -->
+                <div class="menu">
+                    <button type="button" class="btn-open-gnb">
+                        <span class="skip">전체 메뉴 열기</span>
+                        <img src="../../images/ico/ico_gnb_hamberger.svg" alt="전체메뉴 아이콘" />
+                    </button>
+                </div>
+            </header>
+
+            <div class="flex-container">
+                <div class="em-block type-btn-floating">
+                    <h1 class="tit type-step type-floating">
+                        검진 일자
+                        <i class="skip">3단계 중 2단게</i>
+                        <div class="step" aria-hidden="true">(<span>2</span>/<span>3</span>)</div>
+                    </h1>
+
+                    <div class="tab-floating">
+                        <ul class="c-tab type-slide type-move type-step" role="tablist" data-tablist="health-screenings">
+                            <li role="tab" aria-controls="hs-person-tab-panel">
+                                <a href="javascript:void(0);" title="비활성화된버튼" class="tab is-disable">검진 대상자</a>
+                            </li>
+                            <li role="tab" aria-controls="hs-institution-tab-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab is-disable">검진기관</a>
+                            </li>
+                            <li role="tab" aria-controls="hs-day-tab-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab active">검사 일자</a>
+                            </li>
+                            <li role="tab" aria-controls="hs-confirm-tab-panel">
+                                <a href="javascript:void(0);" title="페이지 이동" class="tab">최종확인</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="tab-panel show" role="tabpanel" aria-labelledby="hs-day-tab-panel" data-panelname="health-screenings">
+
+                        <div class="c-input-list type01">
+                            <div class="row">
+                                <div class="col per-column label-input">
+                                    <label for="hopeDay">희망 일자<em class="alt-txt">두번탭하면,희망일자,선택할,수,있는,달력,팝업열림</em></label>
+                                    <div class="c-input-date">
+                                        <input type="text" class="c-input btn-date-picker" autocomplete="off" id="hopeDay" placeholder="희망일자를 선택해주세요." />
+                                        <span><i class="date-btn"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="col per-column label-input">
+                                    <label for="hopeTime">희망 시간</label>
+                                    <div class="c-select">
+                                        <select title="오전" id="hopeTime">
+                                            <option selected>오전</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col per-column label-input">
+                                    <label for="examinationRequests">검진 요청사항</label>
+                                    <div class="c-txtarea-field">
+                                        <textarea id="examinationRequests" class="c-txt-area type02" placeholder="의료진에게 전달하고 싶은 내용(EX 알레르기, 복용약 등)을 입력해 주세요.&#13;&#10;아스피린, 혈압, 당뇨가 있으시면 기재해 주세요."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="terms type-basic">
+                            <div class="c-chkbox type01">
+                                <input type="checkbox" id="all" />
+                                <label for="all" class="chk-label"><i></i><span>모두 동의합니다.</span></label>
+                            </div>
+                            <p>전체 동의는 약관 동의를 한번에 동의할 수 있으며, 개별적으로도 동의를 선택하실 수 있습니다.</p>
+                        </div>
+
+                        <div class="terms type-box">
+                            <div class="c-chkbox type01">
+                                <input type="checkbox" id="privacy">
+                                <label for="privacy" class="chk-label"><i></i><span>[필수] 개인정보 정보 수집 이용동의 </span></label>
+                            </div>
+                            <div class="terms-box">
+                                <div class="inner">
+                                    <div class="terms-row">
+                                        수집항목<br />
+                                        이름, 성별, 휴대전화 번호, 이메일, 요청사항<br /><br />
+                                        이용목적<br />
+                                        검진 예약 시 귀하의 개인 정보를 수집 이용합니다.<br /><br />
+                                        보유 및 이용 기간<br />
+                                        "회사"는 원칙적으로 회원의 정보를 다음의 사유 발생 시 지체 없이 파기하고 있습니다.<br />
+                                        1. 회원 탈퇴 시<br />
+                                        2. 서비스 종료 시
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="terms type-box">
+                            <div class="c-chkbox type01">
+                                <input type="checkbox" id="sensitive">
+                                <label for="sensitive" class="chk-label"><i></i><span>[필수] 민감정보 수집 및 이용동의 </span></label>
+                            </div>
+                            <div class="terms-box">
+                                <div class="inner">
+                                    <div class="terms-row">
+                                        수집항목<br />
+                                        요청사항<br /><br />
+                                        이용목적<br />
+                                        검진 예약 시 귀하의 개인 정보를 수집 이용합니다.<br /><br />
+                                        보유 및 이용 기간<br />
+                                        "회사"는 원칙적으로 회원의 정보를 다음의 사유 발생 시 지체 없이 파기하고 있습니다.<br />
+                                        1. 회원 탈퇴 시<br />
+                                        2. 서비스 종료 시
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="terms type-box">
+                            <div class="c-chkbox type01">
+                                <input type="checkbox" id="sensitiveConsent">
+                                <label for="sensitiveConsent" class="chk-label"><i></i><span>[필수] 민감정보의 제3자 제공동의</span></label>
+                            </div>
+                            <div class="terms-box">
+                                <div class="inner">
+                                    <div class="terms-row">
+                                        제공받는 자<br />
+                                        검진 기관명<br /><br />
+                                        제공 항목<br />
+                                        요청사항<br /><br />
+                                        제공 목적<br />
+                                        검진 예약 시 귀하의 개인 정보를 수집 이용합니다<br /><br />
+                                        보유 및 이용 기간<br />
+                                        이용 목적 달성 시 또는 보유기간 경과 시
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="terms type-box">
+                            <div class="c-chkbox type01">
+                                <input type="checkbox" id="privacyConsent">
+                                <label for="privacyConsent" class="chk-label"><i></i><span>[필수] 개인정보의 제3자 제공동의</span></label>
+                            </div>
+                            <div class="terms-box">
+                                <div class="inner">
+                                    <div class="terms-row">
+                                        제공받는 자<br />
+                                        검진 기관명<br /><br />
+                                        제공 항목<br />
+                                        이름, 성별, 휴대전화 번호, 이메일, 요청사항<br /><br />
+                                        제공 목적<br />
+                                        검진 예약 시 귀하의 개인 정보를 수집 이용합니다<br /><br />
+                                        보유 및 이용 기간<br />
+                                        이용 목적 달성 시 또는 보유기간 경과 시
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p>고객님은 본 약관에 동의하지 않을 권리가 있습니다. 다만 본 약관에 동의하지 않을 경우 검진 예약 진행이 불가함을 알려 드립니다.</p>
+                        <p>검진 예약을 진행하실 경우 해당 약관에 동의하여 주시기 바랍니다.</p>
+
+                        <div class="btn-bottom-floating">
+                            <a href="javascript:void(0);" class="co-btn btn-next" title="페이지이동"><span>다음</span></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="btn-move-top"><span class="skip">터치시최상단으로이동</span></button>
+            </div>
+            <!-- footer -->
+            <footer class="footer type-default">
+                <a href="javascript:void(0);" title="페이지이동" class="img-logo"><img src="../../images/logo/footer_logo_01.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE" /></a>
+
+                <div class="btn-list type-footer">
+                    <a href="javascript:void(0);" title="페이지 이동">이용약관</a>
+                    <a href="javascript:void(0);" title="페이지 이동" class="personal-policy">개인정보처리방침</a>
+                    <a href="javascript:void(0);" title="페이지 이동">이용가이드</a>
+                </div>
+
+                <div class="footer-txt">
+                    상호 : 재단법인 한국의학연구소 ㅣ 대표자 : 이상호<br />
+                    03173 서울시 종로구 세종대로 23길 54(당주동, 세종빌딩)<br />
+                    전화 : <a href="tel:1599-7070">1599-7070</a> ㅣ 전자우편주소 : <a href="mailto:webmaster@kmi.or.kr">webmaster@kmi.or.kr</a><br />
+                    사업자등록번호 : 130-82-06960 ㅣ 서비스운영사 : ㈜옴니케어
+                </div>
+
+                <div class="copyright">Copyright© KMI.All Rights Reserved.</div>
+            </footer>
+
+        </div>
+    </div>
+    <!-- GNB -->
+    <!-- // GNB -->
+</body>
+
+</html>
