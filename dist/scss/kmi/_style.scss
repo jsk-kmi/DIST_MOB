@@ -472,7 +472,7 @@ button {
       }
     }
     .accordion {
-      margin-top: 0.75rem;
+      margin-top: 1.25rem;
       transition: margin-top $transition-3 ease-in-out;
       &.open {
         & + .accordion {
@@ -2218,5 +2218,17 @@ button {
   .chart-area {
     width: 100%;
     height: auto;
+  }
+}
+
+.offered-examination {
+  .offered-exam-list {
+    > li {
+      padding: {
+        top: 8px;
+        bottom: 8px;
+      }
+      @include coTxtBody;
+    }
   }
 }

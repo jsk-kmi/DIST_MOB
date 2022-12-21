@@ -2,7 +2,7 @@
   margin-top: 2.5rem;
   .c-chkbox {
     display: block;
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       & + label {
         display: inline-flex;
       }
@@ -16,7 +16,7 @@
     }
   }
   &.type-box {
-    .terms-box{
+    .terms-box {
       position: relative;
       padding: {
         top: 0;
@@ -42,6 +42,26 @@
         .terms-row {
           @include coTxtLabelMedium;
           color: $color-black-60;
+
+          h2,
+          h3,
+          h4,
+          p,
+          span {
+            @include coTxtLabelMedium;
+          }
+          .co-list-card {
+            > li {
+              @include coTxtLabelMedium;
+              &:before {
+                width: 0.75rem;
+                height: 0.75rem;
+                font-size: 0.625rem;
+                line-height: 0.75rem;
+                margin-right: 0.125rem;
+              }
+            }
+          }
         }
         &::-webkit-scrollbar,
         &::-webkit-scrollbar-thumb {

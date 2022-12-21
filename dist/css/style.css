@@ -2481,6 +2481,29 @@ textarea textarea[readonly=readonly]:focus,
 		line-height: 1.25rem;
 		color: rgba(28, 28, 28, 0.6);
 }
+.terms.type-box .terms-box .inner .terms-row h2,
+.terms.type-box .terms-box .inner .terms-row h3,
+.terms.type-box .terms-box .inner .terms-row h4,
+.terms.type-box .terms-box .inner .terms-row p,
+.terms.type-box .terms-box .inner .terms-row span {
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.25rem;
+}
+.terms.type-box .terms-box .inner .terms-row .co-list-card > li {
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.25rem;
+}
+.terms.type-box .terms-box .inner .terms-row .co-list-card > li:before {
+		width: 0.75rem;
+		height: 0.75rem;
+		font-size: 0.625rem;
+		line-height: 0.75rem;
+		margin-right: 0.125rem;
+}
 .terms.type-box .terms-box .inner::-webkit-scrollbar, .terms.type-box .terms-box .inner::-webkit-scrollbar-thumb {
 		display: none;
 }
@@ -7739,7 +7762,7 @@ button.ico-plus::after {
 		margin-left: 0.5rem;
 }
 .region-list .list .accordion {
-		margin-top: 0.75rem;
+		margin-top: 1.25rem;
 		-webkit-transition: margin-top 0.3s ease-in-out;
 		transition: margin-top 0.3s ease-in-out;
 }
@@ -9623,6 +9646,15 @@ button.ico-plus::after {
 .c-full-layer .chart-area {
 		width: 100%;
 		height: auto;
+}
+
+.offered-examination .offered-exam-list > li {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		font-size: 1rem;
+		font-weight: 300;
+		letter-spacing: -0.0187rem;
+		line-height: 1.75rem;
 }
 
 @media (max-width: 370px) {
