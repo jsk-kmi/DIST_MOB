@@ -552,54 +552,13 @@ textarea,
   // + type01
   &.type01 {
     input[type='checkbox'] {
-      top: 0;
-      left: 0;
-      width: 24px;
-      height: 24px;
-      & + .chk-label,
-      & + label.chk-label {
-        i {
-          cursor: pointer;
-          display: inline-block;
-          width: 24px;
-          min-width: 24px;
-          height: 24px;
-          background: {
-            image: url($image-ico-chkbox-sprite01);
-            position: -10px -10px;
-            size: 44px auto;
-          }
-        }
-      }
-
-      // + checked
-      &:checked {
-        & + .chk-label {
-          i {
-            background-position-y: -44px;
-          }
-          span {
-            color: $color-main;
-          }
-        }
-
-        &:disabled {
-          & + .chk-label {
-            i {
-              background-position-y: -112px;
-            }
-          }
-        }
-      }
-
-      // + disabled
-      &:disabled {
-        & + .chk-label {
-          i {
-            background-position-y: -78px;
-          }
-        }
-      }
+      @include inputChkSquare;
+    }
+  }
+  // + type-rdo
+  &.type-rdo {
+    input[type='radio'] {
+      @include inputChkSquare;
     }
   }
 }

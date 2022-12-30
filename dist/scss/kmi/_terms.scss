@@ -47,7 +47,8 @@
           h3,
           h4,
           p,
-          span {
+          span,
+          .terms-ord-list li {
             @include coTxtLabelMedium;
           }
           .co-list-card {
@@ -92,6 +93,49 @@
           opacity: 1;
         }
       }
+    }
+  }
+  .terms-box {
+    & + .chk-list {
+      margin-top: 0.75rem;
+    }
+  }
+  .chk-list {
+    > .c-chkbox {
+      & ~ .c-chkbox {
+        margin-top: 0.75rem;
+      }
+    }
+  }
+  .co-terms-tit {
+    @include coTxtLabelLarge;
+    color: $color-black-40;
+    & + .terms-box {
+      margin-top: 0.75rem;
+    }
+  }
+}
+
+.terms-block {
+  .c-terms-section {
+    > h1 {
+      @include coTxtTitleHeadingSmall;
+      & + h2 {
+        margin-top: 1.25rem;
+      }
+    }
+  }
+}
+
+.terms-box {
+  .c-terms-section {
+    h1,
+    h2,
+    h3,
+    p,
+    span,
+    li {
+      color: $color-black-60;
     }
   }
 }

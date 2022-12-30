@@ -2078,6 +2078,34 @@ textarea textarea[readonly=readonly]:focus,
 .c-chkbox.type01 input[type=checkbox]:disabled + .chk-label i {
 		background-position-y: -78px;
 }
+.c-chkbox.type-rdo input[type=radio] {
+		top: 0;
+		left: 0;
+		width: 24px;
+		height: 24px;
+}
+.c-chkbox.type-rdo input[type=radio] + .chk-label i, .c-chkbox.type-rdo input[type=radio] + label.chk-label i {
+		cursor: pointer;
+		display: inline-block;
+		width: 24px;
+		min-width: 24px;
+		height: 24px;
+		background-image: url("../images/ico/ico_chkbox_sprite_01.png");
+		background-position: -10px -10px;
+		background-size: 44px auto;
+}
+.c-chkbox.type-rdo input[type=radio]:checked + .chk-label i {
+		background-position-y: -44px;
+}
+.c-chkbox.type-rdo input[type=radio]:checked + .chk-label span {
+		color: #253981;
+}
+.c-chkbox.type-rdo input[type=radio]:checked:disabled + .chk-label i {
+		background-position-y: -112px;
+}
+.c-chkbox.type-rdo input[type=radio]:disabled + .chk-label i {
+		background-position-y: -78px;
+}
 
 .c-rdochk.type01 input[type=radio] {
 		top: 0;
@@ -2485,7 +2513,8 @@ textarea textarea[readonly=readonly]:focus,
 .terms.type-box .terms-box .inner .terms-row h3,
 .terms.type-box .terms-box .inner .terms-row h4,
 .terms.type-box .terms-box .inner .terms-row p,
-.terms.type-box .terms-box .inner .terms-row span {
+.terms.type-box .terms-box .inner .terms-row span,
+.terms.type-box .terms-box .inner .terms-row .terms-ord-list li {
 		font-size: 0.75rem;
 		font-weight: 400;
 		letter-spacing: -0.0313rem;
@@ -2531,6 +2560,41 @@ textarea textarea[readonly=readonly]:focus,
 }
 .terms.type-box .terms-box .terms_scroll.show {
 		opacity: 1;
+}
+.terms .terms-box + .chk-list {
+		margin-top: 0.75rem;
+}
+.terms .chk-list > .c-chkbox ~ .c-chkbox {
+		margin-top: 0.75rem;
+}
+.terms .co-terms-tit {
+		font-size: 0.875rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.5rem;
+		color: rgba(28, 28, 28, 0.4);
+}
+.terms .co-terms-tit + .terms-box {
+		margin-top: 0.75rem;
+}
+
+.terms-block .c-terms-section > h1 {
+		font-size: 1.5rem;
+		font-weight: 500;
+		letter-spacing: -0.0313rem;
+		line-height: 2rem;
+}
+.terms-block .c-terms-section > h1 + h2 {
+		margin-top: 1.25rem;
+}
+
+.terms-box .c-terms-section h1,
+.terms-box .c-terms-section h2,
+.terms-box .c-terms-section h3,
+.terms-box .c-terms-section p,
+.terms-box .c-terms-section span,
+.terms-box .c-terms-section li {
+		color: rgba(28, 28, 28, 0.6);
 }
 
 .card_01 {
