@@ -2519,6 +2519,7 @@ textarea textarea[readonly=readonly]:focus,
 		font-weight: 400;
 		letter-spacing: -0.0313rem;
 		line-height: 1.25rem;
+		margin-top: 0;
 }
 .terms.type-box .terms-box .inner .terms-row .co-list-card > li {
 		font-size: 0.75rem;
@@ -2584,8 +2585,14 @@ textarea textarea[readonly=readonly]:focus,
 		letter-spacing: -0.0313rem;
 		line-height: 2rem;
 }
-.terms-block .c-terms-section > h1 + h2 {
-		margin-top: 1.25rem;
+.terms-block .c-terms-section ~ .c-terms-section {
+		margin-top: 0;
+}
+.terms-block .c-terms-section h1,
+.terms-block .c-terms-section h2,
+.terms-block .c-terms-section h3 {
+		margin-top: 0;
+		padding-top: 0;
 }
 
 .terms-box .c-terms-section h1,
@@ -2595,6 +2602,85 @@ textarea textarea[readonly=readonly]:focus,
 .terms-box .c-terms-section span,
 .terms-box .c-terms-section li {
 		color: rgba(28, 28, 28, 0.6);
+}
+.terms-box hr {
+		border: 0;
+		height: 1px;
+		background-color: #e9e9e9;
+		margin: 1rem 0;
+}
+.terms-box b {
+		color: #494949;
+		margin-bottom: 0.25rem;
+		font-weight: 400;
+}
+
+.rv-block .c-terms-section h1,
+.rv-block .c-terms-section h2,
+.rv-block .c-terms-section h3 {
+		padding-top: 0;
+}
+
+.co-terms-tbl {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+}
+.co-terms-tbl caption {
+		position: absolute;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		margin: -1px;
+		padding: 0;
+		width: 1px;
+		height: 1px;
+		border: 0;
+		font-size: 1px;
+		line-height: 1px;
+		color: transparent;
+}
+.co-terms-tbl thead th {
+		padding: 4px;
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.25rem;
+		border-top: 1px solid #e9e9e9;
+		color: #494949;
+		text-align: center;
+}
+.co-terms-tbl tbody {
+		border-top: 2px solid #d2d2d1;
+}
+.co-terms-tbl tbody th,
+.co-terms-tbl tbody td {
+		padding: 4px 0;
+		border-bottom: 1px solid #e9e9e9;
+}
+.co-terms-tbl tbody th {
+		text-align: center;
+}
+
+.terms-field .c-terms-section h2 {
+		font-size: 1.25rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+}
+.terms-field .c-terms-section h2 ~ h3 {
+		margin-top: 20px;
+}
+.terms-field .c-terms-section h2,
+.terms-field .c-terms-section h3 {
+		margin-top: 2.5rem;
+}
+.terms-field .c-terms-section ~ .c-terms-section {
+		margin-top: 3.75rem;
+}
+.terms-field .terms-ord-list + h3 {
+		margin-top: 2.5rem;
+}
+.terms-field .terms-ord-list {
+		margin-top: 0.25rem;
 }
 
 .card_01 {
