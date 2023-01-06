@@ -6380,17 +6380,18 @@ header.header.co-header h1.logo {
 }
 header.header.co-header h1.logo a {
 		display: block;
+		padding: 0.5rem 0.75rem;
+		background-color: #fff;
+		border-radius: 0.5rem;
+		overflow: hidden;
 }
 header.header.co-header h1.logo a img {
 		width: auto;
 		height: 1.5rem;
 		min-height: 24px;
 }
-header.header.co-header h1.logo.type-color a {
-		padding: 0.5rem 0.75rem;
-		background-color: #fff;
-		border-radius: 0.5rem;
-		overflow: hidden;
+header.header.co-header h1.logo.type-color {
+		display: block;
 }
 header.header.co-header .menu button.btn-open-gnb img {
 		width: 34px;
