@@ -2655,6 +2655,11 @@ textarea textarea[readonly=readonly]:focus,
 .co-terms-tbl tbody td {
 		padding: 4px 0;
 		border-bottom: 1px solid #e9e9e9;
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.25rem;
+		color: rgba(28, 28, 28, 0.6);
 }
 .co-terms-tbl tbody th {
 		text-align: center;
