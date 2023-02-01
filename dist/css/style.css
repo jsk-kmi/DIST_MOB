@@ -7316,6 +7316,7 @@ header.header.co-header.scroll-hide {
 }
 .type-loading > img {
 		width: 280px;
+		max-width: 100%;
 }
 .type-loading p {
 		font-size: 1rem;
