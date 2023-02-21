@@ -1988,6 +1988,17 @@ button {
           }
         }
       }
+      &.terms-table-1 {
+        tbody {
+          th {
+            vertical-align: middle;
+            color: $color-black-80;
+          }
+          th[rowspan] {
+            vertical-align: top;
+          }
+        }
+      }
       &.terms-table-2 {
         thead tr th,
         tbody tr td {

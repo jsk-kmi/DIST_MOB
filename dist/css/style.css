@@ -9775,6 +9775,13 @@ button.ico-plus::after {
 .personal-terms .table-wrap table.terms-table-1 tbody tr td:last-child, .personal-terms .table-wrap table.terms-table-2 tbody tr td:last-child, .personal-terms .table-wrap table.terms-table-3 tbody tr td:last-child {
 		text-align: center;
 }
+.personal-terms .table-wrap table.terms-table-1 tbody th {
+		vertical-align: middle;
+		color: rgba(28, 28, 28, 0.8);
+}
+.personal-terms .table-wrap table.terms-table-1 tbody th[rowspan] {
+		vertical-align: top;
+}
 .personal-terms .table-wrap table.terms-table-2 thead tr th,
 .personal-terms .table-wrap table.terms-table-2 tbody tr td {
 		width: 15rem;
