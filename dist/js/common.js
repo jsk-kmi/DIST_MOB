@@ -5,23 +5,23 @@
  */
 // animation time
 
-var ANI_TIME_300 = 301; // interval time
+const ANI_TIME_300 = 301; // interval time
 
-var INTERVAL_1 = 1;
-var INTERVAL_100 = 100;
-var INTERVAL_1000 = 1000; // scroll
+const INTERVAL_1 = 1;
+const INTERVAL_100 = 100;
+const INTERVAL_1000 = 1000; // scroll
 
-var SHOW_HEADER_NUM = 100; // 이 숫자만큼 스크롤을 올려야 .co-header가 보임
+const SHOW_HEADER_NUM = 100; // 이 숫자만큼 스크롤을 올려야 .co-header가 보임
 
-var SCROLL_TIME = 0.5; // 초(second), 이 숫자만큼의 스피드로 scroll top 이동
+const SCROLL_TIME = 0.5; // 초(second), 이 숫자만큼의 스피드로 scroll top 이동
 
-var INVERTED = 55;
+const INVERTED = 55;
 /**
  * common interface
  */
 // POPUP
 
-var IPOPUP = {
+const IPOPUP = {
   iModal: {
     mAlert: 'mAlert',
     mHeader: 'mHeader'
@@ -32,30 +32,30 @@ var IPOPUP = {
   }
 }; // ACCORDION
 
-var IACCORDION = {
+const IACCORDION = {
   iAll: 'iAll',
   iOne: 'iOne'
 };
-var ACC_ALT_TXT = {
+const ACC_ALT_TXT = {
   open: '버튼확장됨축소하려면이중탭하십시요',
   close: '버튼축소됨확장하려면이중탭하십시요'
 }; // container
 
-var elTopArr = [];
-var elTopRes = 0;
+let elTopArr = [];
+let elTopRes = 0;
 /**
  * HTML element length check
  */
 
-function elemLenCheck() {
-  var okEl = 1;
+function elemLenCheck(..._el) {
+  let okEl = 1;
 
-  if (arguments.length > 0) {
-    for (var i = 0; i < arguments.length; i++) {
-      if (document.querySelectorAll(i < 0 || arguments.length <= i ? undefined : arguments[i]).length > 0) {
+  if (_el.length > 0) {
+    for (let i = 0; i < _el.length; i++) {
+      if (document.querySelectorAll(_el[i]).length > 0) {
         okEl += 1;
 
-        if (okEl === arguments.length) {
+        if (okEl === _el.length) {
           okEl = 0;
           return true;
         }
@@ -86,13 +86,13 @@ document.addEventListener('readystatechange', function (event) {
 // #container -> aria-hidden: true || false
 
 function containerHidden(_state) {
-  var GNB_CONTAINER_EL = document.getElementById('container');
+  const GNB_CONTAINER_EL = document.getElementById('container');
 
   if (GNB_CONTAINER_EL) {
     if (_state) {
       GNB_CONTAINER_EL.setAttribute('aria-hidden', true);
     } else {
-      var OPEN_POPUPS = document.querySelectorAll('.kmi-popup.show');
+      let OPEN_POPUPS = document.querySelectorAll('.kmi-popup.show');
       if (OPEN_POPUPS.length == 0) GNB_CONTAINER_EL.setAttribute('aria-hidden', false);
     }
   }
@@ -106,9 +106,9 @@ function commonInit() {
   /**
    * resize event
    */
-  var rtime;
-  var timeout = false;
-  var DELTA = 10;
+  let rtime;
+  let timeout = false;
+  const DELTA = 10;
   window.addEventListener('resize', function () {
     rtime = new Date();
 
@@ -141,22 +141,20 @@ function commonInit() {
    */
 
 
-  var GNB_ELEM = document.querySelectorAll('.btn-open-gnb');
-  if (GNB_ELEM.length > 0) for (var i = 0; i < GNB_ELEM.length; i++) {
-    gnbComn(GNB_ELEM[i]);
-  } // + gnb common event
+  const GNB_ELEM = document.querySelectorAll('.btn-open-gnb');
+  if (GNB_ELEM.length > 0) for (let i = 0; i < GNB_ELEM.length; i++) gnbComn(GNB_ELEM[i]); // + gnb common event
 
   function gnbComn(_gnbEl) {
     // 접근성 적용: aria-expanded
     _gnbEl.setAttribute('aria-expanded', false); // 초기세팅
 
 
-    var NAV_INIT = document.querySelector('.co-gnb');
+    const NAV_INIT = document.querySelector('.co-gnb');
 
     if (NAV_INIT) {
       popupStyle(NAV_INIT, 'hide');
       NAV_INIT.setAttribute('aria-hidden', true);
-      var GNB_BG_INIT = NAV_INIT.querySelector('.gnb-bg');
+      const GNB_BG_INIT = NAV_INIT.querySelector('.gnb-bg');
       if (GNB_BG_INIT) popupStyle(GNB_BG_INIT, 'hide');
     } // gnb button click event
 
@@ -166,7 +164,7 @@ function commonInit() {
       _gnbEl.setAttribute('aria-expanded', true); // 전체메뉴 hide / show
 
 
-      var NAV = document.querySelector('.co-gnb');
+      const NAV = document.querySelector('.co-gnb');
       if (NAV) gnbClickEvent(NAV, _gnbEl);
     });
   } // + gnb open button click event
@@ -176,11 +174,11 @@ function commonInit() {
     // 접근성 aria-hidden
     _navEl.setAttribute('aria-hidden', false);
 
-    var GNB_CLOSE_BTN = _navEl.querySelector('.btn-close-gnb');
+    const GNB_CLOSE_BTN = _navEl.querySelector('.btn-close-gnb');
 
-    var GNB_BG = _navEl.querySelector('.gnb-bg');
+    const GNB_BG = _navEl.querySelector('.gnb-bg');
 
-    var GNB_ACC = _navEl.querySelectorAll('.accordion');
+    const GNB_ACC = _navEl.querySelectorAll('.accordion');
 
     if (GNB_CLOSE_BTN && GNB_BG && GNB_ACC.length > 0) {
       // gnb 공통 event
@@ -210,10 +208,10 @@ function commonInit() {
 
   function navCloseEvent(_navEl, _gnbEl, _gnbBgEl, _gnbCloseBtn, _gnbAcc) {
     // 전체메뉴 닫기 element 배열 - .btn-close-gnb || .gnb-bg
-    var GNB_CLOSE_ARR = [_gnbBgEl, _gnbCloseBtn];
+    const GNB_CLOSE_ARR = [_gnbBgEl, _gnbCloseBtn];
 
-    for (var _i2 = 0; _i2 < GNB_CLOSE_ARR.length; _i2++) {
-      GNB_CLOSE_ARR[_i2].addEventListener('click', function () {
+    for (let i = 0; i < GNB_CLOSE_ARR.length; i++) {
+      GNB_CLOSE_ARR[i].addEventListener('click', function () {
         // 접근성 aria-hidden
         _navEl.setAttribute('aria-hidden', true);
 
@@ -247,10 +245,8 @@ function commonInit() {
    */
 
 
-  var TAB_EL = document.querySelectorAll('ul.c-tab');
-  if (TAB_EL.length > 0) for (var _i3 = 0; _i3 < TAB_EL.length; _i3++) {
-    tabCommonEvent(TAB_EL[_i3]);
-  } // tabCommonEvent
+  const TAB_EL = document.querySelectorAll('ul.c-tab');
+  if (TAB_EL.length > 0) for (let i = 0; i < TAB_EL.length; i++) tabCommonEvent(TAB_EL[i]); // tabCommonEvent
 
   function tabCommonEvent(_elem) {
     // panel 내용이 바뀌는 방식의 tab 일 경우
@@ -259,18 +255,16 @@ function commonInit() {
 
     if (_elem.classList.contains('type-basic')) tabBarAnimation(_elem);
 
-    var tabEl = _elem.querySelectorAll('li');
+    let tabEl = _elem.querySelectorAll('li');
 
-    if (tabEl.length > 0) for (var j = 0; j < tabEl.length; j++) {
-      tabClickCheck(_elem, tabEl[j], j);
-    }
+    if (tabEl.length > 0) for (let j = 0; j < tabEl.length; j++) tabClickCheck(_elem, tabEl[j], j);
   } // + tab click check
 
 
   function tabClickCheck(_wrap, _elem, _j) {
-    var ipt = _elem.querySelector('input[type="radio"]') || _elem.querySelector('a.tab');
+    let ipt = _elem.querySelector('input[type="radio"]') || _elem.querySelector('a.tab');
 
-    var ipt_checked = _elem.querySelector('input[type="radio"]:checked') || _elem.querySelector('a.tab.active');
+    let ipt_checked = _elem.querySelector('input[type="radio"]:checked') || _elem.querySelector('a.tab.active');
 
     if (ipt) tabClickEvent(_wrap, ipt, _elem, _j, ipt_checked);
   } // ++ tab Click Event
@@ -280,7 +274,7 @@ function commonInit() {
     // 접근성 : 대체텍스트 적용: 선택됨, 선택안됨
     tabAltTxtInit(_elem, _ipt, _ipt_checked); // tab 종류 체크
 
-    var tabState = tabStateCheck(_wrap); // panel 내용이 바뀌는 방식의 tab 일 경우 + scroll Type
+    let tabState = tabStateCheck(_wrap); // panel 내용이 바뀌는 방식의 tab 일 경우 + scroll Type
 
     if (_wrap.classList.contains('type-move')) {
       setTimeout(function () {
@@ -312,10 +306,8 @@ function commonInit() {
 
   function tabClickComn(_wrap, _elem, _ipt, _tabState, _j) {
     // focus 제거
-    var FOCUS_INPUT = document.querySelectorAll('.input-focus');
-    if (FOCUS_INPUT.length > 0) for (var _i4 = 0; _i4 < FOCUS_INPUT.length; _i4++) {
-      FOCUS_INPUT[_i4].classList.remove('input-focus');
-    } // 팝업에서 tab 터치 시 팝업 c-container 높이가 변할 경우
+    const FOCUS_INPUT = document.querySelectorAll('.input-focus');
+    if (FOCUS_INPUT.length > 0) for (let i = 0; i < FOCUS_INPUT.length; i++) FOCUS_INPUT[i].classList.remove('input-focus'); // 팝업에서 tab 터치 시 팝업 c-container 높이가 변할 경우
     // 애니메이션 타임: 100
     // setTimeout(() => { clkElClickPopupCheck(_elem) }, INTERVAL_1);
 
@@ -324,7 +316,7 @@ function commonInit() {
     }, INTERVAL_1); // 대체텍스트 적용
 
     if (_ipt.tagName !== 'A' && _ipt.tagName !== 'a') {
-      var altEl = _wrap.querySelectorAll('.alt-txt');
+      let altEl = _wrap.querySelectorAll('.alt-txt');
 
       if (altEl.length > 0) applyTabAltText(_ipt, altEl, _j);
     } // hide / show 방식의 tab 일 경우
@@ -338,13 +330,13 @@ function commonInit() {
 
     if (_ipt.closest('.c-tab').classList.contains('type-basic')) tabBarTouchAnimation(_elem); // center 정렬 필요한 tab
 
-    var centerType = tabCenterCheck(_wrap);
+    let centerType = tabCenterCheck(_wrap);
     if (centerType) tabCenterEvent(_wrap, _elem);
   } // +++ 탭 종류 체크
 
 
   function tabStateCheck(_tabState) {
-    var tabCase = _tabState.classList; // 탭 터치 시 페이지 이동되는 경우
+    let tabCase = _tabState.classList; // 탭 터치 시 페이지 이동되는 경우
 
     if (tabCase.contains('type-move')) return 'move-type'; // 탭 터치 시 스크롤 되는 경우: scroll-type
 
@@ -358,17 +350,17 @@ function commonInit() {
 
   function tabCenterCheck(_tabEl) {
     // a tag tab일 경우 실행 안함
-    var A_TAG_CHECK = _tabEl.querySelectorAll('li a');
+    const A_TAG_CHECK = _tabEl.querySelectorAll('li a');
 
     if (A_TAG_CHECK.length > 0) return false;
-    var tabCenterState = _tabEl.classList;
+    let tabCenterState = _tabEl.classList;
     if (tabCenterState.contains('type-basic') || tabCenterState.contains('type-move')) return false;
     return true;
   } // +++ 터치 전 대체텍스트 적용 - 선택됨, 선택안됨
 
 
   function tabAltTxtInit(_elem, _ipt, _ipt_checked) {
-    var altElBefore = document.createElement('span');
+    let altElBefore = document.createElement('span');
     altElBefore.classList.add('alt-txt');
 
     if (_ipt.tagName == 'A') {
@@ -404,9 +396,9 @@ function commonInit() {
 
   function applyTabAltText(_ipt, _elem, _j) {
     HTMLElement.prototype.index = function () {
-      var self = this.parentNode;
-      var parent = self.parentNode;
-      var i = 0;
+      let self = this.parentNode;
+      let parent = self.parentNode;
+      let i = 0;
 
       while (self.previousElementSibling) {
         i++;
@@ -416,19 +408,15 @@ function commonInit() {
       return this.parentNode === parent.children[i] ? i : -1;
     };
 
-    var indexRes = Number(_ipt.index() - 1);
+    let indexRes = Number(_ipt.index() - 1);
 
     if (_ipt.closest('.c-tab').querySelector('.ico-plus')) {
       // 탭 제일 왼쪽에 +버튼이 있는 경우
-      for (var k = 0; k < _elem.length; k++) {
-        _elem[k].innerText = '선택안됨';
-      }
+      for (let k = 0; k < _elem.length; k++) _elem[k].innerText = '선택안됨';
 
       _elem[indexRes].innerText = '선택됨';
     } else {
-      for (var _k = 0; _k < _elem.length; _k++) {
-        _elem[_k].innerText = '선택안됨';
-      }
+      for (let k = 0; k < _elem.length; k++) _elem[k].innerText = '선택안됨';
 
       _elem[_j].innerText = '선택됨';
     }
@@ -437,18 +425,18 @@ function commonInit() {
 
   function tabCenterEvent(_tabWrap, _tabEl) {
     _tabEl.addEventListener('click', function () {
-      var SCROLL_WRAP = _tabEl.parentElement;
+      const SCROLL_WRAP = _tabEl.parentElement;
       if (SCROLL_WRAP) tabCenterComnEvent(_tabEl, _tabWrap, SCROLL_WRAP);
     });
   } // +++ center정렬 common event
 
 
   function tabCenterComnEvent(_tabEl, _tabWrap, _scrollWrap) {
-    var tabLeft = _tabEl.offsetLeft;
-    var tabStyle = _tabWrap.currentStyle || window.getComputedStyle(_tabWrap);
-    var tabPadRes = parseInt(tabStyle.paddingLeft) + parseInt(tabStyle.paddingRight);
-    var tabWidth = _scrollWrap.clientWidth - tabPadRes;
-    var tabDiff = tabLeft - tabWidth / 2;
+    let tabLeft = _tabEl.offsetLeft;
+    let tabStyle = _tabWrap.currentStyle || window.getComputedStyle(_tabWrap);
+    let tabPadRes = parseInt(tabStyle.paddingLeft) + parseInt(tabStyle.paddingRight);
+    let tabWidth = _scrollWrap.clientWidth - tabPadRes;
+    let tabDiff = tabLeft - tabWidth / 2;
 
     _scrollWrap.scroll({
       left: tabDiff,
@@ -458,63 +446,57 @@ function commonInit() {
 
 
   function tabBarAnimation(_tabWrap) {
-    var TAB_LI_ELEM = _tabWrap.querySelectorAll('li');
+    const TAB_LI_ELEM = _tabWrap.querySelectorAll('li');
 
-    var aniEl = 0;
+    let aniEl = 0;
 
     if (TAB_LI_ELEM.length > 0) {
-      for (var _i5 = 0; _i5 < TAB_LI_ELEM.length; _i5++) {
-        aniEl += 1;
-      }
+      for (let i = 0; i < TAB_LI_ELEM.length; i++) aniEl += 1;
 
       _tabWrap.classList.add('tab-len-' + aniEl);
 
       aniEl = 0;
 
-      for (var _i6 = 0; _i6 < TAB_LI_ELEM.length; _i6++) {
-        tabBarAnimationComn(TAB_LI_ELEM[_i6], _i6);
-      }
+      for (let i = 0; i < TAB_LI_ELEM.length; i++) tabBarAnimationComn(TAB_LI_ELEM[i], i);
     }
   } // +++ tabBarAnimation
 
 
   function tabBarAnimationComn(_tabLiEl, _i) {
-    var tab_chked_ipt = _tabLiEl.querySelector('input[type="radio"]:checked');
+    let tab_chked_ipt = _tabLiEl.querySelector('input[type="radio"]:checked');
 
     if (tab_chked_ipt) tab_chked_ipt.closest('.c-tab').classList.add('tab-active-' + _i);
   } // ++ tab터치 시 tab의 하단 bar가 animation되는 경우
 
 
   function tabBarTouchAnimation(_elem) {
-    var el = _elem.parentElement;
-    var prefix = 'tab-active-';
-    var classes = el.className.split(' ').filter(function (c) {
+    let el = _elem.parentElement;
+    let prefix = 'tab-active-';
+    let classes = el.className.split(' ').filter(function (c) {
       return c.lastIndexOf(prefix, 0) !== 0;
     });
     el.className = classes.join(' ').trim();
-    var idx = Array.prototype.indexOf.call(el.children, _elem);
+    let idx = Array.prototype.indexOf.call(el.children, _elem);
     el.classList.add('tab-active-' + idx);
   } // +++ hide / show 방식의 tab 일 경우
 
 
   function tabStatePanel(_elem) {
     // aria-labelledby element의 removeClass: show
-    var tabList = [];
+    let tabList = [];
 
-    var tabWrap = _elem.closest('.c-tab');
+    let tabWrap = _elem.closest('.c-tab');
 
-    var tabListEl = tabWrap.querySelectorAll('[role="tab"]');
+    let tabListEl = tabWrap.querySelectorAll('[role="tab"]');
 
-    for (var _i7 = 0; _i7 < tabListEl.length; _i7++) {
-      tabList.push(tabListEl[_i7].getAttribute('aria-controls'));
-    }
+    for (let i = 0; i < tabListEl.length; i++) tabList.push(tabListEl[i].getAttribute('aria-controls'));
 
     if (tabList.length > 0) tabStatePanelEvent(tabList); // 터치한 tab의 aria-controls와 동일한 aria-labelledby에게 addClass: show
 
-    var AC = _elem.getAttribute('aria-controls');
+    let AC = _elem.getAttribute('aria-controls');
 
     if (AC) {
-      var activeAC = document.querySelector('[aria-labelledby=' + AC + ']');
+      let activeAC = document.querySelector('[aria-labelledby=' + AC + ']');
       if (activeAC) activeAC.classList.add('show'); // .tabpanel.show에 있는 아코디언
 
       if (activeAC) tabAccInit(activeAC);
@@ -522,24 +504,23 @@ function commonInit() {
   }
 
   function tabStatePanelEvent(_tabList) {
-    for (var _i8 = 0; _i8 < _tabList.length; _i8++) {
-      var panelEl = document.querySelector('[aria-labelledby="' + _tabList[_i8] + '"]');
+    for (let i = 0; i < _tabList.length; i++) {
+      let panelEl = document.querySelector('[aria-labelledby="' + _tabList[i] + '"]');
       if (panelEl) if (panelEl.classList.contains('show')) panelEl.classList.remove('show');
     }
   }
 
   function tabAccInit(_panelEl) {
     if (_panelEl) {
-      var ACC_EL = _panelEl.querySelectorAll('.accordion');
+      const ACC_EL = _panelEl.querySelectorAll('.accordion');
 
       if (ACC_EL.length > 0) {
-        for (var _i9 = 0; _i9 < ACC_EL.length; _i9++) {
-          var ACC_HEADER = ACC_EL[_i9].querySelector('.accordion-header');
-
-          var ACC_BODY = ACC_EL[_i9].querySelector('.accordion-body');
+        for (let i = 0; i < ACC_EL.length; i++) {
+          const ACC_HEADER = ACC_EL[i].querySelector('.accordion-header');
+          const ACC_BODY = ACC_EL[i].querySelector('.accordion-body');
 
           if (ACC_BODY && ACC_HEADER) {
-            if (ACC_EL[_i9].classList.contains('open')) ACC_BODY.style.maxHeight = ACC_BODY.scrollHeight + 'px';else tabAccClickEvt(ACC_EL[_i9], ACC_HEADER, ACC_BODY);
+            if (ACC_EL[i].classList.contains('open')) ACC_BODY.style.maxHeight = ACC_BODY.scrollHeight + 'px';else tabAccClickEvt(ACC_EL[i], ACC_HEADER, ACC_BODY);
           }
         }
       }
@@ -548,14 +529,14 @@ function commonInit() {
 
   function tabAccClickEvt(_accEl, _accHead, _accBody) {
     _accHead.addEventListener('click', function (e) {
-      var accordionType = accordionTypeCheck(_accEl);
-      var bodyHeight = _accBody.scrollHeight;
+      let accordionType = accordionTypeCheck(_accEl);
+      let bodyHeight = _accBody.scrollHeight;
       accButtonClickEvtComn(e, accordionType, _accEl, _accBody, bodyHeight);
     });
   }
 
   function clkElClickPopupChk(_elem) {
-    var popHasElem = _elem.closest('.c-full-layer.show');
+    let popHasElem = _elem.closest('.c-full-layer.show');
 
     if (popHasElem) {
       if (popHasElem.classList.contains('type-full')) clkElClickPopupChkFull(popHasElem);
@@ -564,11 +545,11 @@ function commonInit() {
   }
 
   function clkElClickPopupChkFull(_popHasElem) {
-    var TAB_POP_BODY_EL = _popHasElem.querySelector('.full-body');
+    const TAB_POP_BODY_EL = _popHasElem.querySelector('.full-body');
 
-    var TAB_POP_CONT_EL = _popHasElem.querySelector('.cont-box');
+    const TAB_POP_CONT_EL = _popHasElem.querySelector('.cont-box');
 
-    var TAB_POP_BTN_EL = _popHasElem.querySelector('.btn-floating');
+    const TAB_POP_BTN_EL = _popHasElem.querySelector('.btn-floating');
 
     if (TAB_POP_BODY_EL) TAB_POP_BODY_EL.classList.add('type-flex');
     if (TAB_POP_CONT_EL) if (TAB_POP_CONT_EL.classList.contains('type-btn-floating')) TAB_POP_BTN_EL.classList.remove('.type-btn-floating');
@@ -582,7 +563,7 @@ function commonInit() {
   }
 
   function clkElClickPopupChkFullFooter(_popHasElem) {
-    var TAB_POP_BTN_ELEM = _popHasElem.querySelector('.full-footer');
+    const TAB_POP_BTN_ELEM = _popHasElem.querySelector('.full-footer');
 
     if (TAB_POP_BTN_ELEM) if (TAB_POP_BTN_ELEM.classList.contains('scroll')) TAB_POP_BTN_ELEM.classList.remove('scroll');
     fullPopupScrollHeightChk('full-footer', _popHasElem);
@@ -603,61 +584,53 @@ function commonInit() {
 
   function tabStateClick(_elem) {
     // panel의 aria-labelledby를 터치한 탭의 aria-controls로 변경
-    var TAB_ONE_WRAP = _elem.closest('.c-tab');
+    const TAB_ONE_WRAP = _elem.closest('.c-tab');
 
     if (TAB_ONE_WRAP) tabStateClickAraiControls(TAB_ONE_WRAP); // 사용안함
     // tab의 data-case에 해당하는 panel의 data-view가 보여짐
 
-    var DATA_CASE = _elem.dataset["case"];
+    const DATA_CASE = _elem.dataset.case;
 
-    var DATA_TAB_LIST = _elem.closest('.c-tab');
+    const DATA_TAB_LIST = _elem.closest('.c-tab');
 
     if (DATA_CASE && DATA_TAB_LIST) {
-      var DATA_VIEW = document.querySelectorAll('*[data-view="' + DATA_CASE + '"]');
+      const DATA_VIEW = document.querySelectorAll('*[data-view="' + DATA_CASE + '"]');
 
       if (DATA_VIEW.length > 0) {
-        var DATA_WRAP = DATA_VIEW[0].closest('.tab-click-list');
+        const DATA_WRAP = DATA_VIEW[0].closest('.tab-click-list');
 
         if (DATA_WRAP) {
-          var DATA_LIST = DATA_WRAP.querySelectorAll('[data-view]');
+          const DATA_LIST = DATA_WRAP.querySelectorAll('[data-view]');
 
           if (DATA_LIST) {
-            for (var _i10 = 0; _i10 < DATA_LIST.length; _i10++) {
-              DATA_LIST[_i10].classList.remove('show');
-            }
+            for (let i = 0; i < DATA_LIST.length; i++) DATA_LIST[i].classList.remove('show');
 
-            for (var _i11 = 0; _i11 < DATA_VIEW.length; _i11++) {
-              DATA_VIEW[_i11].classList.add('show');
-            }
+            for (let i = 0; i < DATA_VIEW.length; i++) DATA_VIEW[i].classList.add('show');
           }
         }
       } else {
         // 해당하는 리스트가 없는 경우
-        var DATA_NULL_DATA = DATA_TAB_LIST.dataset.tablist;
-        var DATA_NULL_WRAP = document.querySelector('[data-tabpanel="' + DATA_NULL_DATA + '"]');
+        const DATA_NULL_DATA = DATA_TAB_LIST.dataset.tablist;
+        const DATA_NULL_WRAP = document.querySelector('[data-tabpanel="' + DATA_NULL_DATA + '"]');
 
         if (DATA_NULL_WRAP) {
-          var DATA_NULL_LIST = DATA_NULL_WRAP.querySelectorAll('[data-view]');
-          if (DATA_NULL_LIST.length > 0) for (var _i12 = 0; _i12 < DATA_NULL_LIST.length; _i12++) {
-            DATA_NULL_LIST[_i12].classList.remove('show');
-          } // 전체 tab click
+          const DATA_NULL_LIST = DATA_NULL_WRAP.querySelectorAll('[data-view]');
+          if (DATA_NULL_LIST.length > 0) for (let i = 0; i < DATA_NULL_LIST.length; i++) DATA_NULL_LIST[i].classList.remove('show'); // 전체 tab click
 
-          if (DATA_CASE === 'all') for (var _i13 = 0; _i13 < DATA_NULL_LIST.length; _i13++) {
-            DATA_NULL_LIST[_i13].classList.add('show');
-          }
+          if (DATA_CASE === 'all') for (let i = 0; i < DATA_NULL_LIST.length; i++) DATA_NULL_LIST[i].classList.add('show');
         }
       }
     }
   }
 
   function tabStateClickAraiControls() {
-    var TAB_ONE_TAB = TAB_ONE_WRAP.dataset.onetab;
+    const TAB_ONE_TAB = TAB_ONE_WRAP.dataset.onetab;
 
     if (TAB_ONE_TAB) {
-      var TAB_ONE_PANEL = document.querySelector('[data-onepanel="' + TAB_ONE_TAB + '"]');
+      const TAB_ONE_PANEL = document.querySelector('[data-onepanel="' + TAB_ONE_TAB + '"]');
 
       if (TAB_ONE_PANEL) {
-        var ONE_TARGET_TAB = _elem.getAttribute('aria-controls');
+        const ONE_TARGET_TAB = _elem.getAttribute('aria-controls');
 
         if (ONE_TARGET_TAB) TAB_ONE_PANEL.setAttribute('aria-labelledby', ONE_TARGET_TAB);
       }
@@ -666,37 +639,37 @@ function commonInit() {
 
 
   function tabStateMove(_elem) {
-    var TAB_WRAP = _elem.closest('.c-tab');
+    const TAB_WRAP = _elem.closest('.c-tab');
 
     if (TAB_WRAP) tabStateMoveConm(TAB_WRAP);
   }
 
   function tabStateMoveConm(_tabWrap) {
-    var TAB_MOVE_LIST = _tabWrap.querySelectorAll('li');
+    const TAB_MOVE_LIST = _tabWrap.querySelectorAll('li');
 
     if (TAB_MOVE_LIST.length > 0) tabStateMoveConmEvt(TAB_MOVE_LIST, _tabWrap);
   }
 
   function tabStateMoveConmEvt(_tabMoveList, _tabWrap) {
-    for (var _i14 = 0; _i14 < _tabMoveList.length; _i14++) {
-      var activeTab = _tabMoveList[_i14].querySelectorAll('a.tab.active');
+    for (let i = 0; i < _tabMoveList.length; i++) {
+      let activeTab = _tabMoveList[i].querySelectorAll('a.tab.active');
 
-      if (activeTab.length > 0) moveTabActivity(_tabWrap, _tabMoveList[_i14]);
+      if (activeTab.length > 0) moveTabActivity(_tabWrap, _tabMoveList[i]);
     }
   }
 
   function moveTabActivity(_wrap, _tab) {
     if (_wrap && _tab) {
-      var TAB_WRAP_NAME = _wrap.dataset.tablist;
+      const TAB_WRAP_NAME = _wrap.dataset.tablist;
 
-      var TAB_ATTR = _tab.getAttribute('aria-controls');
+      const TAB_ATTR = _tab.getAttribute('aria-controls');
 
       if (TAB_WRAP_NAME && TAB_ATTR) moveTabActivityComn(TAB_WRAP_NAME, TAB_ATTR, _wrap, _tab);
     }
   }
 
   function moveTabActivityComn(_tabWrapName, _tabAttr, _wrap, _tab) {
-    var PANEL_SELECTOR = document.querySelector('[data-panelname="' + _tabWrapName + '"]');
+    const PANEL_SELECTOR = document.querySelector('[data-panelname="' + _tabWrapName + '"]');
 
     if (PANEL_SELECTOR) {
       PANEL_SELECTOR.setAttribute('aria-labelledby', _tabAttr); // 선택된 tab 중앙 이동
@@ -707,7 +680,7 @@ function commonInit() {
 
 
   function tabStateMoveConm(_tabWrap) {
-    var TAB_MOVE_LIST = _tabWrap.querySelectorAll('li');
+    const TAB_MOVE_LIST = _tabWrap.querySelectorAll('li');
 
     if (TAB_MOVE_LIST.length > 0) tabStateMoveConmEvt(TAB_MOVE_LIST, _tabWrap);
   } // 선택된 tab 중앙 이동
@@ -718,11 +691,11 @@ function commonInit() {
   }
 
   function moveTabCenterScrollComn(_activeEl, _scrollBody) {
-    var tabLeft = _activeEl.offsetLeft;
-    var tabStyle = _scrollBody.currentStyle || window.getComputedStyle(_scrollBody);
-    var tabPadRes = parseInt(tabStyle.paddingLeft) + parseInt(tabStyle.paddingRight);
-    var tabWidth = _scrollBody.clientWidth - tabPadRes;
-    var tabDiff = tabLeft - tabWidth / 2;
+    let tabLeft = _activeEl.offsetLeft;
+    let tabStyle = _scrollBody.currentStyle || window.getComputedStyle(_scrollBody);
+    let tabPadRes = parseInt(tabStyle.paddingLeft) + parseInt(tabStyle.paddingRight);
+    let tabWidth = _scrollBody.clientWidth - tabPadRes;
+    let tabDiff = tabLeft - tabWidth / 2;
 
     _scrollBody.scroll({
       left: tabDiff,
@@ -734,16 +707,14 @@ function commonInit() {
 
 
   function tabClickListAllShow(_tabWrap) {
-    var dataTabList = _tabWrap.dataset.tablist;
+    let dataTabList = _tabWrap.dataset.tablist;
 
     if (dataTabList) {
-      var DATA_TAB_PANEL = document.querySelector('*[data-tabpanel="' + dataTabList + '"]');
+      const DATA_TAB_PANEL = document.querySelector('*[data-tabpanel="' + dataTabList + '"]');
 
       if (DATA_TAB_PANEL) {
-        var PANEL_VIEW_LIST = DATA_TAB_PANEL.querySelectorAll('*[data-view]');
-        if (PANEL_VIEW_LIST.length > 0) for (var _i15 = 0; _i15 < PANEL_VIEW_LIST.length; _i15++) {
-          PANEL_VIEW_LIST[_i15].classList.add('show');
-        }
+        const PANEL_VIEW_LIST = DATA_TAB_PANEL.querySelectorAll('*[data-view]');
+        if (PANEL_VIEW_LIST.length > 0) for (let i = 0; i < PANEL_VIEW_LIST.length; i++) PANEL_VIEW_LIST[i].classList.add('show');
       }
     }
   }
@@ -754,50 +725,32 @@ function commonInit() {
   // 팝업 필수 class: kmi-popup
 
 
-  var POPUP_ELEM = document.querySelectorAll('.kmi-popup'); // style
+  const POPUP_ELEM = document.querySelectorAll('.kmi-popup'); // style
 
-  if (POPUP_ELEM.length > 0) for (var _i16 = 0; _i16 < POPUP_ELEM.length; _i16++) {
-    popupStyle(POPUP_ELEM[_i16], 'hide');
-  } // 팝업 열림
+  if (POPUP_ELEM.length > 0) for (let i = 0; i < POPUP_ELEM.length; i++) popupStyle(POPUP_ELEM[i], 'hide'); // 팝업 열림
 
-  var POPUP_BTN_ELEM = document.querySelectorAll('.btn-open-popup'); // popup open button - click event
+  const POPUP_BTN_ELEM = document.querySelectorAll('.btn-open-popup'); // popup open button - click event
 
-  if (POPUP_BTN_ELEM.length > 0) {
-    var _loop = function _loop(_i17) {
-      POPUP_BTN_ELEM[_i17].addEventListener('click', function () {
-        popupOpenEvent(POPUP_BTN_ELEM[_i17], _i17);
-      });
-    };
+  if (POPUP_BTN_ELEM.length > 0) for (let i = 0; i < POPUP_BTN_ELEM.length; i++) POPUP_BTN_ELEM[i].addEventListener('click', function () {
+    popupOpenEvent(POPUP_BTN_ELEM[i], i);
+  }); // + popup open button click event
 
-    for (var _i17 = 0; _i17 < POPUP_BTN_ELEM.length; _i17++) {
-      _loop(_i17);
-    }
-  } // + popup open button click event
+  function popupOpenEvent(_btnElem, ..._i) {
+    const OPENSTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
+    if (OPENSTATE_POPUP.length > 0) for (let i = 0; i < OPENSTATE_POPUP.length; i++) OPENSTATE_POPUP[i].setAttribute('aria-hidden', true);
 
+    const TARGET = _btnElem.getAttribute('data-target');
 
-  function popupOpenEvent(_btnElem) {
-    var OPENSTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
-    if (OPENSTATE_POPUP.length > 0) for (var _i18 = 0; _i18 < OPENSTATE_POPUP.length; _i18++) {
-      OPENSTATE_POPUP[_i18].setAttribute('aria-hidden', true);
-    }
-
-    var TARGET = _btnElem.getAttribute('data-target');
-
-    var CURRENT_POPUP = document.getElementById(TARGET);
+    const CURRENT_POPUP = document.getElementById(TARGET);
     CURRENT_POPUP.classList.add('show');
     CURRENT_POPUP.setAttribute('aria-hidden', false); // 접근성: popup 오픈 시 #container focus 막기
 
     containerHidden(true); // 팝업 종류 체크
 
-    var popupState = popupStateCheck(CURRENT_POPUP); // style
+    let popupState = popupStateCheck(CURRENT_POPUP); // style
 
-    var btnArr = 0;
+    let btnArr = 0;
     if (OPENSTATE_POPUP.length > 0) btnArr = OPENSTATE_POPUP.length;
-
-    for (var _len = arguments.length, _i = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      _i[_key - 1] = arguments[_key];
-    }
-
     if (_i.length > 0) btnArr = _i.map(function (idx) {
       return idx;
     });
@@ -817,7 +770,7 @@ function commonInit() {
 
 
   function popupStateCheck(_popState) {
-    var popCase = _popState.classList; // 모달 팝업: modal
+    let popCase = _popState.classList; // 모달 팝업: modal
 
     if (popCase.contains('type-modal')) return 'modal'; // 푸터 없는 풀팝업: full
     else if (popCase.contains('type-full')) return 'full'; // 푸터 있는 풀팝업: full-footer
@@ -825,11 +778,9 @@ function commonInit() {
   } // + 팝업 style - top, z-index, visibility
 
 
-  function popupStyle(_elem, _state) {
-    var indexRes = 0;
-    if ((arguments.length <= 2 ? 0 : arguments.length - 2) > 0) for (var _i19 = 0; _i19 < (arguments.length <= 2 ? 0 : arguments.length - 2); _i19++) {
-      indexRes = _i19 + 2 < 2 || arguments.length <= _i19 + 2 ? undefined : arguments[_i19 + 2];
-    }
+  function popupStyle(_elem, _state, ..._i) {
+    let indexRes = 0;
+    if (_i.length > 0) for (let i = 0; i < _i.length; i++) indexRes = _i[i];
 
     switch (_state) {
       case 'show':
@@ -854,7 +805,7 @@ function commonInit() {
 
 
   function popupBgClickEvt(_elem) {
-    var POPUP_BG_ELEM = _elem.querySelector('.popup-bg');
+    const POPUP_BG_ELEM = _elem.querySelector('.popup-bg');
 
     if (POPUP_BG_ELEM) {
       POPUP_BG_ELEM.addEventListener('click', function () {
@@ -876,38 +827,38 @@ function commonInit() {
   }
 
   function fullTabScrollChk(_elem) {
-    var F_CONTAINER = _elem.querySelector('.c-container');
+    const F_CONTAINER = _elem.querySelector('.c-container');
 
     if (F_CONTAINER) {
-      var F_Tab = F_CONTAINER.querySelector('.tab-floating');
-      var F_HEADER = F_CONTAINER.querySelector('.full-header');
-      var F_BODY = F_CONTAINER.querySelector('.full-body');
+      const F_Tab = F_CONTAINER.querySelector('.tab-floating');
+      const F_HEADER = F_CONTAINER.querySelector('.full-header');
+      const F_BODY = F_CONTAINER.querySelector('.full-body');
       if (F_HEADER && F_BODY && F_Tab) fullTabScrollEvt(F_CONTAINER, F_Tab, F_HEADER, F_BODY);
     }
   }
 
   function fullTabScrollEvt(_container, _tab, _header, _body) {
     // scroll end check
-    var headerHeight = _header.clientHeight;
-    var lastScrollTop = 0;
-    var scrollArr = [];
+    let headerHeight = _header.clientHeight;
+    let lastScrollTop = 0;
+    let scrollArr = [];
     var isScrolling;
 
     _body.addEventListener('scroll', function () {
-      var CONT_BOX = _container.querySelector('.cont-box');
+      const CONT_BOX = _container.querySelector('.cont-box');
 
-      var TIT = _container.querySelector('.top-title-box');
+      const TIT = _container.querySelector('.top-title-box');
 
       if (CONT_BOX && TIT) {
-        var contBoxStyle = CONT_BOX.currentStyle || window.getComputedStyle(CONT_BOX);
-        var contBoxStyleRes = parseInt(contBoxStyle.paddingTop);
-        var scrollRes = this.clientHeight + _header.clientHeight + _tab.clientHeight + TIT.clientHeight + contBoxStyleRes;
+        let contBoxStyle = CONT_BOX.currentStyle || window.getComputedStyle(CONT_BOX);
+        let contBoxStyleRes = parseInt(contBoxStyle.paddingTop);
+        let scrollRes = this.clientHeight + _header.clientHeight + _tab.clientHeight + TIT.clientHeight + contBoxStyleRes;
 
         if (this.scrollHeight > scrollRes) {
           _container.closest('.kmi-popup.show').classList.add('type-floating');
 
           if (this.scrollTop > headerHeight) {
-            var st = this.pageYOffset || this.scrollTop;
+            let st = this.pageYOffset || this.scrollTop;
 
             if (st > lastScrollTop) {
               // SCROLL: DOWN
@@ -956,12 +907,12 @@ function commonInit() {
   }
 
   function fullScrollChk(_elem) {
-    var F_CONTAINER = _elem.querySelector('.c-container');
+    const F_CONTAINER = _elem.querySelector('.c-container');
 
     if (F_CONTAINER) {
-      var F_HEADER = F_CONTAINER.querySelector('.full-header');
-      var F_BODY = F_CONTAINER.querySelector('.full-body');
-      var F_BUTTON = F_CONTAINER.querySelector('.btn-floating');
+      const F_HEADER = F_CONTAINER.querySelector('.full-header');
+      const F_BODY = F_CONTAINER.querySelector('.full-body');
+      const F_BUTTON = F_CONTAINER.querySelector('.btn-floating');
       if (F_HEADER && F_BODY && F_BUTTON) fullScrollEvt(F_CONTAINER, F_HEADER, F_BODY, F_BUTTON);
     }
   }
@@ -980,7 +931,7 @@ function commonInit() {
       _fBtn.classList.add('isScroll');
 
       _body.addEventListener('scroll', function () {
-        var SCROLL_WRAP = document.querySelector('.c-full-layer.kmi-popup.show');
+        const SCROLL_WRAP = document.querySelector('.c-full-layer.kmi-popup.show');
         if (SCROLL_WRAP) fullScrollEvtInit(SCROLL_WRAP, _fBtn);
       });
     } else {
@@ -989,14 +940,14 @@ function commonInit() {
   }
 
   function fullScrollEvtInit(_scrollWrap, _fBtn) {
-    var SCROLL_BODY = _scrollWrap.querySelector('.full-body');
+    const SCROLL_BODY = _scrollWrap.querySelector('.full-body');
 
     if (SCROLL_BODY) fullScrollEvtScroll(SCROLL_BODY, _fBtn);
   }
 
   function fullScrollEvtScroll(_scrollBody, _fBtn) {
     // scroll end check
-    var scrollRes = _scrollBody.offsetHeight + _scrollBody.scrollTop + 30; // scroll down end
+    let scrollRes = _scrollBody.offsetHeight + _scrollBody.scrollTop + 30; // scroll down end
 
     if (scrollRes >= _scrollBody.scrollHeight) _fBtn.classList.add('isScrollEnd');else _fBtn.classList.remove('isScrollEnd');
   } // X XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -1051,13 +1002,13 @@ function commonInit() {
 
 
   function fullFooterScrollCheck(_elem) {
-    var FF_CONTAINER = _elem.querySelector('.c-container');
+    const FF_CONTAINER = _elem.querySelector('.c-container');
 
     if (FF_CONTAINER) {
-      var FF_HEADER = FF_CONTAINER.querySelector('.full-header');
-      var FF_BODY = FF_CONTAINER.querySelector('.full-body');
-      var FF_BUTTON = FF_CONTAINER.querySelector('.full-footer');
-      var FF_FOOTER = FF_CONTAINER.querySelector('.footer'); // fixed 버튼 있는 full-body가 스크롤 되는지 체크
+      const FF_HEADER = FF_CONTAINER.querySelector('.full-header');
+      const FF_BODY = FF_CONTAINER.querySelector('.full-body');
+      const FF_BUTTON = FF_CONTAINER.querySelector('.full-footer');
+      const FF_FOOTER = FF_CONTAINER.querySelector('.footer'); // fixed 버튼 있는 full-body가 스크롤 되는지 체크
 
       if (FF_HEADER && FF_BODY && FF_BUTTON && FF_FOOTER) fullFooterScrollEvent(_elem, FF_CONTAINER, FF_HEADER, FF_BODY, FF_BUTTON, FF_FOOTER); // fixed 버튼 없는 full-body가 스크롤 되는지 체크
 
@@ -1067,23 +1018,23 @@ function commonInit() {
 
 
   function fullNoFooterScrollEvent(_popEl, _container, _header, _body, _footer) {
-    var cHeight = _container.clientHeight;
-    var hHeight = _header.clientHeight;
-    var bHeight = _body.scrollHeight;
-    var fHeight = _footer.clientHeight;
-    var hRes = cHeight - (hHeight + fHeight);
+    let cHeight = _container.clientHeight;
+    let hHeight = _header.clientHeight;
+    let bHeight = _body.scrollHeight;
+    let fHeight = _footer.clientHeight;
+    let hRes = cHeight - (hHeight + fHeight);
     if (bHeight > hRes) _popEl.classList.add('type-scroll');
   } // +++ fixed 버튼 있는 full-body가 스크롤 되는지 체크
 
 
   function fullFooterScrollEvent(_popEl, _container, _header, _body, _btnEl, _footer) {
-    var cHeight = _container.clientHeight;
-    var hHeight = _header.clientHeight;
-    var bHeight = _body.scrollHeight;
-    var btnHeight = _btnEl.clientHeight; // 72px || 100px
+    let cHeight = _container.clientHeight;
+    let hHeight = _header.clientHeight;
+    let bHeight = _body.scrollHeight;
+    let btnHeight = _btnEl.clientHeight; // 72px || 100px
 
-    var fHeight = _footer.clientHeight;
-    var hRes = cHeight - (hHeight + fHeight + btnHeight);
+    let fHeight = _footer.clientHeight;
+    let hRes = cHeight - (hHeight + fHeight + btnHeight);
 
     if (bHeight > hRes) {
       // popup addClass: type-scroll
@@ -1105,12 +1056,12 @@ function commonInit() {
   function fullFooterScrollEndEvent(_scrollContainer, _buttonEl, _footerEl) {
     _scrollContainer.addEventListener('scroll', function () {
       // scroll end check
-      var scrollRes = _scrollContainer.offsetHeight + _scrollContainer.scrollTop + 50;
-      var scrollRight = _scrollContainer.scrollHeight - _footerEl.clientHeight; // scroll down end
+      let scrollRes = _scrollContainer.offsetHeight + _scrollContainer.scrollTop + 50;
+      let scrollRight = _scrollContainer.scrollHeight - _footerEl.clientHeight; // scroll down end
 
       if (scrollRes >= scrollRight) if (_buttonEl.classList.contains('scroll')) _buttonEl.classList.remove('scroll'); // scroll up
 
-      var scrollResUp = _scrollContainer.scrollHeight - _footerEl.clientHeight;
+      let scrollResUp = _scrollContainer.scrollHeight - _footerEl.clientHeight;
       if (scrollRes < scrollResUp) if (!_buttonEl.classList.contains('scroll')) _buttonEl.classList.add('scroll');
     });
   } // + modal header type
@@ -1122,10 +1073,10 @@ function commonInit() {
 
 
   function popupModalHeaderScroll(_popEl, _state) {
-    var SCROLL_ELEM = _popEl.querySelector('.modal-field');
+    const SCROLL_ELEM = _popEl.querySelector('.modal-field');
 
     if (SCROLL_ELEM) {
-      var POP_HEADER = SCROLL_ELEM.querySelector('.c-modal-header');
+      const POP_HEADER = SCROLL_ELEM.querySelector('.c-modal-header');
 
       if (POP_HEADER) {
         if (SCROLL_ELEM.scrollHeight > SCROLL_ELEM.clientHeight) {
@@ -1146,19 +1097,17 @@ function commonInit() {
   } // 팝업 닫힘 - 닫힘버튼 class: popup-btn-close
 
 
-  var POPUP_CLOSE_ELEM = document.querySelectorAll('.popup-btn-close');
+  const POPUP_CLOSE_ELEM = document.querySelectorAll('.popup-btn-close');
   if (POPUP_CLOSE_ELEM.length > 0) popupCloseComn(POPUP_CLOSE_ELEM); // + popup close
 
   function popupCloseComn(_popupCloseEl) {
-    var _loop2 = function _loop2(_i20) {
+    for (let i = 0; i < _popupCloseEl.length; i++) {
       // popup close button - click event
-      _popupCloseEl[_i20].addEventListener('click', function () {
-        var CLOSESTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
-        if (CLOSESTATE_POPUP.length > 0) for (var _i21 = 0; _i21 < CLOSESTATE_POPUP.length; _i21++) {
-          CLOSESTATE_POPUP[_i21].setAttribute('aria-hidden', false);
-        }
+      _popupCloseEl[i].addEventListener('click', function () {
+        const CLOSESTATE_POPUP = document.querySelectorAll('.kmi-popup.show');
+        if (CLOSESTATE_POPUP.length > 0) for (let i = 0; i < CLOSESTATE_POPUP.length; i++) CLOSESTATE_POPUP[i].setAttribute('aria-hidden', false);
 
-        var TARGET = _popupCloseEl[_i20].closest('.kmi-popup');
+        const TARGET = _popupCloseEl[i].closest('.kmi-popup');
 
         TARGET.classList.remove('show');
         TARGET.setAttribute('aria-hidden', true); // 접근성: popup close 시 #container focus 풀기
@@ -1169,10 +1118,6 @@ function commonInit() {
           popupCloseTimeout(TARGET);
         }, ANI_TIME_300);
       });
-    };
-
-    for (var _i20 = 0; _i20 < _popupCloseEl.length; _i20++) {
-      _loop2(_i20);
     }
   }
 
@@ -1185,7 +1130,7 @@ function commonInit() {
 
   function focusCloseState(_elem) {
     setTimeout(function () {
-      var FOCUS_ELEM = document.querySelector("[data-target=\"".concat(_elem.id, "\"]"));
+      const FOCUS_ELEM = document.querySelector(`[data-target="${_elem.id}"]`);
       if (FOCUS_ELEM) FOCUS_ELEM.focus();
     }, INTERVAL_1);
   } // + modal type 이면 X 버튼에 focus 시키기
@@ -1194,7 +1139,7 @@ function commonInit() {
 
   function focusFirstBtn(_state, _elem) {
     setTimeout(function () {
-      var focus_el = new Object();
+      let focus_el = new Object();
       if (_state === 'full-footer' || _state === 'full') focus_el = _elem.querySelectorAll('.btn-go-back');
       if (_state === 'modal') focus_el = _elem.querySelectorAll('.popup-cls-btn.popup-btn-close');
       if (focus_el.length > 0) setTimeout(function () {
@@ -1205,36 +1150,36 @@ function commonInit() {
 
 
   function fullPopupState() {
-    var FULL_POP_ELEM = document.querySelectorAll('.c-full-layer.show');
+    const FULL_POP_ELEM = document.querySelectorAll('.c-full-layer.show');
 
     if (FULL_POP_ELEM.length > 0) {
-      for (var _i22 = 0; _i22 < FULL_POP_ELEM.length; _i22++) {
-        if (FULL_POP_ELEM[_i22].classList.contains('type-full')) fullPopupScrollHeightCheck('full', FULL_POP_ELEM[_i22]);
-        if (FULL_POP_ELEM[_i22].classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', FULL_POP_ELEM[_i22]);
+      for (let i = 0; i < FULL_POP_ELEM.length; i++) {
+        if (FULL_POP_ELEM[i].classList.contains('type-full')) fullPopupScrollHeightCheck('full', FULL_POP_ELEM[i]);
+        if (FULL_POP_ELEM[i].classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', FULL_POP_ELEM[i]);
       }
     }
   } // + resize: DOM에 팝업이 있는 경우
 
 
   function fullPopupScrollHeightCheck(_type, _popEl) {
-    var F_CONTAINER = _popEl.querySelector('.c-container');
+    const F_CONTAINER = _popEl.querySelector('.c-container');
 
     if (F_CONTAINER) {
-      var F_HEADER = F_CONTAINER.querySelector('.full-header');
-      var F_BODY = F_CONTAINER.querySelector('.full-body');
-      var F_BUTTON = F_CONTAINER.querySelector('.btn-floating');
+      const F_HEADER = F_CONTAINER.querySelector('.full-header');
+      const F_BODY = F_CONTAINER.querySelector('.full-body');
+      const F_BUTTON = F_CONTAINER.querySelector('.btn-floating');
       if (F_HEADER && F_BODY && F_BUTTON) if (_type === 'full') fullScrollEvt(F_CONTAINER, F_HEADER, F_BODY, F_BUTTON);
     }
   } // + resize: DOM에 팝업이 있는 경우
 
 
   function fullPopupScrollHeightChk(_type, _popEl) {
-    var FULL_CONTAINER = _popEl.querySelector('.c-container');
+    const FULL_CONTAINER = _popEl.querySelector('.c-container');
 
     if (FULL_CONTAINER) {
-      var FULL_HEADER = FULL_CONTAINER.querySelector('.full-header');
-      var FULL_BODY = FULL_CONTAINER.querySelector('.full-body');
-      var FULL_FOOTER = FULL_CONTAINER.querySelector('.full-footer'); // full type
+      const FULL_HEADER = FULL_CONTAINER.querySelector('.full-header');
+      const FULL_BODY = FULL_CONTAINER.querySelector('.full-body');
+      const FULL_FOOTER = FULL_CONTAINER.querySelector('.full-footer'); // full type
 
       if (_type === 'full') fullResizeEvent(FULL_CONTAINER, FULL_HEADER, FULL_BODY, FULL_FOOTER);
     }
@@ -1242,14 +1187,14 @@ function commonInit() {
 
 
   function fullResizeEvent(_container, _header, _body, _footer) {
-    var bStyle = _body.currentStyle || window.getComputedStyle(_body);
-    var cHeight = _container.clientHeight;
-    var hHeight = _header.clientHeight;
-    var bhInit = parseInt(bStyle.paddingBottom);
-    var bHeight = _body.clientHeight + bhInit > _body.scrollHeight ? _body.clientHeight + bhInit : _body.scrollHeight; // let fHeight = _footer.clientHeight; // 100px || 72px
+    let bStyle = _body.currentStyle || window.getComputedStyle(_body);
+    let cHeight = _container.clientHeight;
+    let hHeight = _header.clientHeight;
+    let bhInit = parseInt(bStyle.paddingBottom);
+    let bHeight = _body.clientHeight + bhInit > _body.scrollHeight ? _body.clientHeight + bhInit : _body.scrollHeight; // let fHeight = _footer.clientHeight; // 100px || 72px
 
-    var fHeight = 72;
-    var hRes = cHeight - (hHeight + fHeight); // footer addClass: scroll
+    let fHeight = 72;
+    let hRes = cHeight - (hHeight + fHeight); // footer addClass: scroll
 
     if (bHeight > hRes) _footer.classList.add('scroll'); // footer removeClass: scroll
     else _footer.classList.remove('scroll'); // reisze 했을 때 scroll이 최하단일 경우
@@ -1259,20 +1204,18 @@ function commonInit() {
 
 
   function modalHeaderPopupShadow() {
-    var MODAL_HEADER_POPUP = document.querySelectorAll('.c-layer-popup.kmi-popup.type-modal.show');
-    if (MODAL_HEADER_POPUP.length > 0) for (var _i23 = 0; _i23 < MODAL_HEADER_POPUP.length; _i23++) {
-      customScrollbar(MODAL_HEADER_POPUP[_i23], 'modal');
-    }
+    const MODAL_HEADER_POPUP = document.querySelectorAll('.c-layer-popup.kmi-popup.type-modal.show');
+    if (MODAL_HEADER_POPUP.length > 0) for (let i = 0; i < MODAL_HEADER_POPUP.length; i++) customScrollbar(MODAL_HEADER_POPUP[i], 'modal');
   } // resize: full popup
 
 
   function fullPopupResizeScrollbar() {
-    var FULL_POPUP = document.querySelectorAll('.c-full-layer.kmi-popup.show');
+    const FULL_POPUP = document.querySelectorAll('.c-full-layer.kmi-popup.show');
 
     if (FULL_POPUP.length > 0) {
-      for (var _i24 = 0; _i24 < FULL_POPUP.length; _i24++) {
-        if (FULL_POPUP[_i24].classList.contains('type-full')) customScrollbar(FULL_POPUP[_i24], 'full');
-        if (FULL_POPUP[_i24].classList.contains('type-full-footer')) customScrollbar(FULL_POPUP[_i24], 'full-footer');
+      for (let i = 0; i < FULL_POPUP.length; i++) {
+        if (FULL_POPUP[i].classList.contains('type-full')) customScrollbar(FULL_POPUP[i], 'full');
+        if (FULL_POPUP[i].classList.contains('type-full-footer')) customScrollbar(FULL_POPUP[i], 'full-footer');
       }
     }
   } // 팝업 열림 버튼을 직접 click할 경우
@@ -1286,20 +1229,18 @@ function commonInit() {
    */
 
 
-  var ACCORDION_ELEM = document.querySelectorAll('.accordion');
+  const ACCORDION_ELEM = document.querySelectorAll('.accordion');
 
   if (ACCORDION_ELEM.length > 0) {
-    for (var _i25 = 0; _i25 < ACCORDION_ELEM.length; _i25++) {
+    for (let i = 0; i < ACCORDION_ELEM.length; i++) {
       // 아코디언 타입체크
-      var accordionType = accordionTypeCheck(ACCORDION_ELEM[_i25]); // 접근성
+      let accordionType = accordionTypeCheck(ACCORDION_ELEM[i]); // 접근성
 
-      accordionAltTxt(ACCORDION_ELEM[_i25]);
-      accordionAccessibility(ACCORDION_ELEM[_i25]);
+      accordionAltTxt(ACCORDION_ELEM[i]);
+      accordionAccessibility(ACCORDION_ELEM[i]);
+      const BTN_OPEN = ACCORDION_ELEM[i].querySelectorAll('.accordion-header'); // acc button click event
 
-      var BTN_OPEN = ACCORDION_ELEM[_i25].querySelectorAll('.accordion-header'); // acc button click event
-
-
-      if (BTN_OPEN.length > 0) accButtonClickEvent(ACCORDION_ELEM[_i25], BTN_OPEN[0], accordionType);
+      if (BTN_OPEN.length > 0) accButtonClickEvent(ACCORDION_ELEM[i], BTN_OPEN[0], accordionType);
     }
   } // + 아코디언 타입 체크: 하나만 보이는 타입, 모두 보이는 타입
 
@@ -1312,13 +1253,13 @@ function commonInit() {
 
   function accordionAltTxt(_elem) {
     if (_elem.classList.contains('type-inner-btn')) {
-      var altElTxt = document.createElement('em');
+      let altElTxt = document.createElement('em');
       altElTxt.classList.add('alt-txt');
       altElTxt.setAttribute('role', 'button');
 
-      var header = _elem.querySelector('.accordion-header');
+      let header = _elem.querySelector('.accordion-header');
 
-      var accTit = header.querySelector('.acc-tit');
+      let accTit = header.querySelector('.acc-tit');
       header.insertBefore(altElTxt, accTit);
       _elem.classList.contains('open') ? altElTxt.innerHTML = ACC_ALT_TXT.open : altElTxt.innerHTML = ACC_ALT_TXT.close;
     }
@@ -1360,9 +1301,9 @@ function commonInit() {
 
 
   function accButtonClickEvent(_accWrap, _elem, _accType) {
-    var bodyHeight = 0;
+    let bodyHeight = 0;
     setTimeout(function () {
-      var accBodyEl = _accWrap.querySelector('.accordion-body');
+      let accBodyEl = _accWrap.querySelector('.accordion-body');
 
       bodyHeight = accBodyEl.scrollHeight; // 열려있는 아코디언이 있을 경우
 
@@ -1384,7 +1325,7 @@ function commonInit() {
       accordionAccessibility(_accWrap); // btn-bottom-floating check
 
       setTimeout(function () {
-        var CONTAINER_EL = document.getElementById('container');
+        const CONTAINER_EL = document.getElementById('container');
         if (CONTAINER_EL) scrollTopFake(CONTAINER_EL);
       }, ANI_TIME_300);
     }
@@ -1399,22 +1340,18 @@ function commonInit() {
   }
 
   function accButtonTypeOneOpenAllClose(_accWrap) {
-    var ACC_WRAP = _accWrap.closest('.accordion-list');
+    const ACC_WRAP = _accWrap.closest('.accordion-list');
 
     if (ACC_WRAP) {
       // 아코디언 모두 닫기
-      var accOneList = ACC_WRAP.querySelectorAll('.accordion');
+      let accOneList = ACC_WRAP.querySelectorAll('.accordion');
 
-      for (var _i26 = 0; _i26 < accOneList.length; _i26++) {
-        accOneList[_i26].classList.remove('open');
-
-        accOneList[_i26].querySelector('.accordion-body').style.maxHeight = 0;
-
-        accOneList[_i26].querySelector('.accordion-body').setAttribute('tabindex', -1);
-
-        accOneList[_i26].querySelector('.accordion-body').setAttribute('aria-hidden', true);
-
-        accOneList[_i26].querySelector('.accordion-header').setAttribute('aria-expanded', false);
+      for (let i = 0; i < accOneList.length; i++) {
+        accOneList[i].classList.remove('open');
+        accOneList[i].querySelector('.accordion-body').style.maxHeight = 0;
+        accOneList[i].querySelector('.accordion-body').setAttribute('tabindex', -1);
+        accOneList[i].querySelector('.accordion-body').setAttribute('aria-hidden', true);
+        accOneList[i].querySelector('.accordion-header').setAttribute('aria-expanded', false);
       }
     }
   }
@@ -1433,14 +1370,14 @@ function commonInit() {
 
 
   function accordionAllClose(_accEl) {
-    for (var _i27 = 0; _i27 < _accEl.length; _i27++) {
-      _accEl[_i27].classList.remove('open');
+    for (let i = 0; i < _accEl.length; i++) {
+      _accEl[i].classList.remove('open');
 
-      _accEl[_i27].querySelector('.accordion-body').setAttribute('tabindex', -1);
+      _accEl[i].querySelector('.accordion-body').setAttribute('tabindex', -1);
 
-      _accEl[_i27].querySelector('.accordion-body').setAttribute('aria-hidden', true);
+      _accEl[i].querySelector('.accordion-body').setAttribute('aria-hidden', true);
 
-      _accEl[_i27].querySelector('.accordion-body').style.maxHeight = 0;
+      _accEl[i].querySelector('.accordion-body').style.maxHeight = 0;
     }
   }
   /**
@@ -1448,27 +1385,24 @@ function commonInit() {
    */
 
 
-  var TERMS_ELEM = document.querySelectorAll('.terms-box');
+  const TERMS_ELEM = document.querySelectorAll('.terms-box');
   if (TERMS_ELEM.length > 0) termsComn(TERMS_ELEM); // + 약관이 있으면
 
   function termsComn(_elem) {
-    for (var _i28 = 0; _i28 < TERMS_ELEM.length; _i28++) {
-      var TERMS_INNER = TERMS_ELEM[_i28].querySelectorAll('.inner');
-
-      termsInner(TERMS_INNER, TERMS_ELEM[_i28]);
+    for (let i = 0; i < TERMS_ELEM.length; i++) {
+      const TERMS_INNER = TERMS_ELEM[i].querySelectorAll('.inner');
+      termsInner(TERMS_INNER, TERMS_ELEM[i]);
     }
   }
 
   function termsInner(_inner, _elem) {
-    if (_inner.length > 0) for (var j = 0; j < _inner.length; j++) {
-      temrsRow(_inner[j], _elem);
-    }
+    if (_inner.length > 0) for (let j = 0; j < _inner.length; j++) temrsRow(_inner[j], _elem);
   } // ++ 약관에 내용이 있으면
 
 
   function temrsRow(_row, _elem) {
     if (_row.scrollHeight > _elem.clientHeight + 2) {
-      var TERMS_ROW = _row.querySelectorAll('.terms-row');
+      const TERMS_ROW = _row.querySelectorAll('.terms-row');
 
       termsAppend(TERMS_ROW, _elem, _row);
     }
@@ -1477,8 +1411,8 @@ function commonInit() {
 
   function termsAppend(_row, _elem, _rowEl) {
     if (_row.length > 0) {
-      var scrollEl = document.createElement('div');
-      var scrollInner = document.createElement('span');
+      let scrollEl = document.createElement('div');
+      let scrollInner = document.createElement('span');
       scrollEl.classList.add('terms_scroll');
       scrollEl.setAttribute('aria-hidden', true);
       scrollEl.appendChild(scrollInner); // 스크롤바 element 만들기
@@ -1492,8 +1426,8 @@ function commonInit() {
 
 
   function termsScrollEvent(_scrollBody, _scrollWrap, _scrollElem) {
-    var scrollRes = 0;
-    var isScrolling;
+    let scrollRes = 0;
+    let isScrolling;
 
     _scrollBody.addEventListener('scroll', function () {
       window.clearTimeout(isScrolling);
@@ -1502,7 +1436,7 @@ function commonInit() {
         _scrollWrap.classList.add('show');
 
         scrollRes = (100 - _scrollElem.clientHeight) / (this.scrollHeight - this.clientHeight) * this.scrollTop;
-        _scrollElem.style.top = "".concat(scrollRes, "%");
+        _scrollElem.style.top = `${scrollRes}%`;
       } else {
         _scrollElem.style.top = '0';
       } // scroll stop event
@@ -1518,10 +1452,8 @@ function commonInit() {
    */
 
 
-  var TEXTAREA_ELEM = document.querySelectorAll('textarea');
-  if (TEXTAREA_ELEM.length > 0) for (var _i29 = 0; _i29 < TEXTAREA_ELEM.length; _i29++) {
-    textareaComn(TEXTAREA_ELEM[_i29]);
-  } // + textarea가 있으면
+  const TEXTAREA_ELEM = document.querySelectorAll('textarea');
+  if (TEXTAREA_ELEM.length > 0) for (let i = 0; i < TEXTAREA_ELEM.length; i++) textareaComn(TEXTAREA_ELEM[i]); // + textarea가 있으면
 
   function textareaComn(_elem) {
     if (_elem.scrollHeight > _elem.clientHeight) textareaScrollbar(_elem); // add scrollbar
@@ -1536,8 +1468,8 @@ function commonInit() {
     if (_elem.parentElement.querySelector('.textarea-scroll')) {// has scrollbar
     } else {
       // null scrollbar
-      var scrollEl = document.createElement('div');
-      var scrollInner = document.createElement('span');
+      let scrollEl = document.createElement('div');
+      let scrollInner = document.createElement('span');
       scrollEl.classList.add('textarea-scroll');
       scrollEl.setAttribute('aria-hidden', true);
       scrollEl.appendChild(scrollInner);
@@ -1553,19 +1485,17 @@ function commonInit() {
    */
 
 
-  var INPUT_ELEM = document.querySelectorAll('input');
-  if (INPUT_ELEM.length > 0) for (var _i30 = 0; _i30 < INPUT_ELEM.length; _i30++) {
-    inputComn(INPUT_ELEM[_i30]);
-  } // input 공통 scritp
+  const INPUT_ELEM = document.querySelectorAll('input');
+  if (INPUT_ELEM.length > 0) for (let i = 0; i < INPUT_ELEM.length; i++) inputComn(INPUT_ELEM[i]); // input 공통 scritp
 
   function inputComn(_elem) {
-    var inputTypeState = inputTypeCase(_elem);
+    let inputTypeState = inputTypeCase(_elem);
     inputFocusEvent(_elem, inputTypeState);
   } // + input type check
 
 
   function inputTypeCase(_input) {
-    var inputCase = _input.type;
+    let inputCase = _input.type;
 
     switch (inputCase) {
       case 'text':
@@ -1588,28 +1518,28 @@ function commonInit() {
     _inputEl.addEventListener('focus', function () {
       inputFocusEvtFloating(_inputEl);
       inputFocusEvtModal();
-      var elTop = 0;
+      let elTop = 0;
       setTimeout(function () {
-        var elTopElem = _inputEl.closest('*[class^="c-input-"]');
+        let elTopElem = _inputEl.closest('*[class^="c-input-"]');
 
         if (elTopElem) {
           elTop = elTopElem.offsetTop; // type-fulld
 
-          var PARENT_EL_FULL = _inputEl.closest('.c-container');
+          const PARENT_EL_FULL = _inputEl.closest('.c-container');
 
           if (PARENT_EL_FULL) {
-            var PARENT_EL_HEADER = PARENT_EL_FULL.querySelector('.full-header');
+            const PARENT_EL_HEADER = PARENT_EL_FULL.querySelector('.full-header');
             if (PARENT_EL_HEADER) PARENT_EL_FULL.scrollTop = elTop - PARENT_EL_HEADER.clientHeight;
           } // type-modal
 
 
-          var PARENT_EL_MODAL = _inputEl.closest('.c-layer-popup.kmi-popup.type-modal.show');
+          const PARENT_EL_MODAL = _inputEl.closest('.c-layer-popup.kmi-popup.type-modal.show');
 
           if (PARENT_EL_MODAL) {
-            var MODAL_INNER = PARENT_EL_MODAL.querySelector('.modal-field');
+            const MODAL_INNER = PARENT_EL_MODAL.querySelector('.modal-field');
 
             if (MODAL_INNER) {
-              var MODAL_HEADER = MODAL_INNER.querySelector('.c-modal-header');
+              const MODAL_HEADER = MODAL_INNER.querySelector('.c-modal-header');
               if (MODAL_HEADER) MODAL_INNER.scrollTop = elTop - MODAL_HEADER.clientHeight;
             }
           }
@@ -1622,16 +1552,16 @@ function commonInit() {
 
     _inputEl.addEventListener('blur', function () {
       // type-full
-      var floatinPopup = _inputEl.closest('.c-full-layer.kmi-popup.show');
+      let floatinPopup = _inputEl.closest('.c-full-layer.kmi-popup.show');
 
       if (floatinPopup) {
-        var floatingContainer = floatinPopup.querySelector('.c-container');
+        let floatingContainer = floatinPopup.querySelector('.c-container');
 
         if (floatingContainer) {
-          var SCROLL_ELEM = floatingContainer.querySelector('.full-body');
+          const SCROLL_ELEM = floatingContainer.querySelector('.full-body');
 
           if (SCROLL_ELEM) {
-            var floatingBtn = SCROLL_ELEM.querySelector('.btn-floating');
+            let floatingBtn = SCROLL_ELEM.querySelector('.btn-floating');
             floatinPopup.classList.remove('input-focus');
 
             if (floatinPopup.classList.contains('input-focus')) {
@@ -1649,11 +1579,11 @@ function commonInit() {
 
 
   function inputFocusEvtFloating(_inputEl) {
-    var floatinPopup = document.querySelector('.c-full-layer.kmi-popup.show');
+    let floatinPopup = document.querySelector('.c-full-layer.kmi-popup.show');
 
     if (floatinPopup) {
-      var floatingContainer = floatinPopup.querySelector('.c-container');
-      var floatingBtn = floatinPopup.querySelector('.btn-floating');
+      let floatingContainer = floatinPopup.querySelector('.c-container');
+      let floatingBtn = floatinPopup.querySelector('.btn-floating');
       if (floatingContainer && floatingBtn) inputFocusEvtFloatingBtn(floatinPopup, floatingContainer, floatingBtn, _inputEl);
     }
   }
@@ -1679,21 +1609,19 @@ function commonInit() {
    */
 
 
-  var CONTAINER_ELEM = document.querySelector('#container');
+  const CONTAINER_ELEM = document.querySelector('#container');
 
   if (CONTAINER_ELEM) {
-    var FLEX_ELEM = CONTAINER_ELEM.querySelector('.flex-wrap');
+    const FLEX_ELEM = CONTAINER_ELEM.querySelector('.flex-wrap');
 
     if (!FLEX_ELEM.classList.contains('type-tab-scroll')) {
       console.log('type tab scrol x');
-      var MOVE_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
+      const MOVE_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
       if (MOVE_HEADER) containerScrollEvent(MOVE_HEADER, CONTAINER_ELEM);
     } else if (FLEX_ELEM.classList.contains('type-tab-scroll')) {
       console.log('type tab scroll 0');
-
-      var _MOVE_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
-
-      if (_MOVE_HEADER) containerTabScrollEvent(_MOVE_HEADER, CONTAINER_ELEM);
+      const MOVE_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
+      if (MOVE_HEADER) containerTabScrollEvent(MOVE_HEADER, CONTAINER_ELEM);
     } // custom 스크롤바 만들기
 
 
@@ -1701,33 +1629,33 @@ function commonInit() {
   }
 
   function containerScrollEvent(_moveHeader, _scrollEl) {
-    var headerHeight = _moveHeader.clientHeight;
-    var lastScrollTop = 0;
-    var scrollArr = [];
+    let headerHeight = _moveHeader.clientHeight;
+    let lastScrollTop = 0;
+    let scrollArr = [];
     var isScrolling;
 
-    var BTN_BOTTOM_FLOATING = _scrollEl.querySelector('.btn-bottom-floating');
+    const BTN_BOTTOM_FLOATING = _scrollEl.querySelector('.btn-bottom-floating');
 
-    var CONTAINER_FOOTER = _scrollEl.querySelector('.footer');
+    const CONTAINER_FOOTER = _scrollEl.querySelector('.footer');
 
-    var FLOATING_BLOCK_ARR = ['rv-block', 'rc-block'];
+    const FLOATING_BLOCK_ARR = ['rv-block', 'rc-block'];
 
     if (BTN_BOTTOM_FLOATING) {
-      var MARGIN_EL = BTN_BOTTOM_FLOATING.previousSibling.previousElementSibling;
+      const MARGIN_EL = BTN_BOTTOM_FLOATING.previousSibling.previousElementSibling;
       if (MARGIN_EL) MARGIN_EL.style.marginBottom = '3.75rem';
       FLOATING_BLOCK_ARR.map(function (el) {
-        var blockEl = document.querySelector('.' + el);
+        let blockEl = document.querySelector('.' + el);
         if (blockEl) blockEl.classList.add('type-floating-btn');
       });
       if (CONTAINER_FOOTER) floatingBtnComn(_scrollEl, CONTAINER_FOOTER);else floatingBtnComn(_scrollEl);
     } // move top button
 
 
-    var MOVE_TOP_BTN_ELEM = document.querySelector('.btn-move-top');
+    const MOVE_TOP_BTN_ELEM = document.querySelector('.btn-move-top');
 
     _scrollEl.addEventListener('scroll', function (e) {
       if (this.scrollTop > headerHeight) {
-        var st = this.pageYOffset || this.scrollTop;
+        let st = this.pageYOffset || this.scrollTop;
 
         if (st > lastScrollTop) {
           // SCROLL: DOWN
@@ -1776,35 +1704,35 @@ function commonInit() {
 
 
   function containerTabScrollEvent(_moveHeader, _scrollEl) {
-    var headerHeight = _moveHeader.clientHeight;
-    var lastScrollTop = 0;
-    var scrollArr = [];
+    let headerHeight = _moveHeader.clientHeight;
+    let lastScrollTop = 0;
+    let scrollArr = [];
     var isScrolling;
 
-    var BTN_BOTTOM_FLOATING = _scrollEl.querySelector('.btn-bottom-floating');
+    const BTN_BOTTOM_FLOATING = _scrollEl.querySelector('.btn-bottom-floating');
 
-    var CONTAINER_FOOTER = _scrollEl.querySelector('.footer');
+    const CONTAINER_FOOTER = _scrollEl.querySelector('.footer');
 
-    var FLOATING_BLOCK_ARR = ['rv-block', 'rc-block'];
+    const FLOATING_BLOCK_ARR = ['rv-block', 'rc-block'];
 
     if (BTN_BOTTOM_FLOATING) {
-      var MARGIN_EL = BTN_BOTTOM_FLOATING.previousSibling.previousElementSibling;
+      const MARGIN_EL = BTN_BOTTOM_FLOATING.previousSibling.previousElementSibling;
       if (MARGIN_EL) MARGIN_EL.style.marginBottom = '3.75rem';
       FLOATING_BLOCK_ARR.map(function (el) {
-        var blockEl = document.querySelector('.' + el);
+        let blockEl = document.querySelector('.' + el);
         if (blockEl) blockEl.classList.add('type-floating-btn');
       });
       if (CONTAINER_FOOTER) floatingBtnComn(_scrollEl, CONTAINER_FOOTER);else floatingBtnComn(_scrollEl);
     } // move top button
 
 
-    var MOVE_TOP_BTN_ELEM = document.querySelector('.btn-move-top');
+    const MOVE_TOP_BTN_ELEM = document.querySelector('.btn-move-top');
 
     _scrollEl.addEventListener('touchmove', function (e) {
-      var SHOW_HEADER_NUM = '10';
+      let SHOW_HEADER_NUM = '10';
 
       if (this.scrollTop > headerHeight) {
-        var st = this.pageYOffset || this.scrollTop; // 현재 위치
+        let st = this.pageYOffset || this.scrollTop; // 현재 위치
 
         if (st > lastScrollTop) {
           // SCROLL: DOWN
@@ -1846,11 +1774,7 @@ function commonInit() {
     }, false);
   }
 
-  function floatingBtnComn(_scrollBody) {
-    for (var _len2 = arguments.length, _footer = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-      _footer[_key2 - 1] = arguments[_key2];
-    }
-
+  function floatingBtnComn(_scrollBody, ..._footer) {
     if (_footer.length > 0) {
       // console.log(_scrollBody.scrollHeight);
       // console.log(_scrollBody.clientHeight + _footer[0].clientHeight + INVERTED);
@@ -1876,9 +1800,9 @@ function commonInit() {
   }
 
   function scrollingFloatingBtn(_floatingBtn, _this, _footer) {
-    var S_HEADER = _this.querySelector('.header.co-header');
+    const S_HEADER = _this.querySelector('.header.co-header');
 
-    var S_BTN = _this.querySelector('.btn-bottom-floating');
+    const S_BTN = _this.querySelector('.btn-bottom-floating');
 
     if (elTopArr.length < 10) {
       elTopArr.push(_floatingBtn.offsetTop);
@@ -1889,7 +1813,7 @@ function commonInit() {
       });
     }
 
-    var min = 0;
+    let min = 0;
 
     if (_this.scrollTop <= 0) {
       min = Math.min.apply(Math, elTopArr);
@@ -1915,23 +1839,23 @@ function commonInit() {
 
 
   function containerResizeScrollbar() {
-    var CONTAINER_ELEM = document.getElementById('container');
+    const CONTAINER_ELEM = document.getElementById('container');
     if (CONTAINER_ELEM) customScrollbar(CONTAINER_ELEM);
   } // container bottom floating button
 
 
   function containerResizeFloatingBtn() {
     elTopArr = [];
-    var CONTAINER_ELEM = document.getElementById('container');
+    const CONTAINER_ELEM = document.getElementById('container');
 
     if (CONTAINER_ELEM) {
-      var CONTAINER_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
-      var CONTAINER_BTN = document.querySelector('.btn-bottom-floating');
+      const CONTAINER_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
+      const CONTAINER_BTN = document.querySelector('.btn-bottom-floating');
 
       if (CONTAINER_HEADER && CONTAINER_BTN) {
         if (CONTAINER_ELEM.scrollHeight > CONTAINER_ELEM.clientHeight) {
-          var lRes = CONTAINER_ELEM.clientHeight - CONTAINER_HEADER.clientHeight - CONTAINER_BTN.clientHeight;
-          var rRes = Math.ceil(CONTAINER_BTN.offsetTop - CONTAINER_ELEM.scrollTop);
+          let lRes = CONTAINER_ELEM.clientHeight - CONTAINER_HEADER.clientHeight - CONTAINER_BTN.clientHeight;
+          let rRes = Math.ceil(CONTAINER_BTN.offsetTop - CONTAINER_ELEM.scrollTop);
           if (lRes > rRes) CONTAINER_ELEM.classList.remove('isFloatingScroll');else CONTAINER_ELEM.classList.add('isFloatingScroll');
         }
       }
@@ -1942,10 +1866,10 @@ function commonInit() {
    */
 
 
-  var BTN_MOVE_TOP_ELEM = document.querySelector('.btn-move-top');
+  const BTN_MOVE_TOP_ELEM = document.querySelector('.btn-move-top');
 
   if (BTN_MOVE_TOP_ELEM) {
-    var SCROLLING_ELEM = document.getElementById('container');
+    const SCROLLING_ELEM = document.getElementById('container');
 
     if (SCROLLING_ELEM) {
       if (SCROLLING_ELEM.scrollTop <= 0) BTN_MOVE_TOP_ELEM.classList.add('hide');
@@ -1959,7 +1883,7 @@ function commonInit() {
   function scrollToItemId(containerId) {
     var scrollContainer = document.getElementById(containerId);
     var from = scrollContainer.scrollTop;
-    var by = scrollContainer.scrollTop * -1;
+    let by = scrollContainer.scrollTop * -1;
     var currentIteration = 0;
     var animIterations = Math.round(60 * SCROLL_TIME);
 
@@ -1985,13 +1909,13 @@ function commonInit() {
    */
 
 
-  var STICKYELM = document.querySelector('.tab-floating');
+  const STICKYELM = document.querySelector('.tab-floating');
 
   if (STICKYELM) {
-    var scrollEl = document.querySelector('#container');
+    const scrollEl = document.querySelector('#container');
 
     if (scrollEl) {
-      var tabOffsetTop = STICKYELM.offsetTop;
+      let tabOffsetTop = STICKYELM.offsetTop;
       scrollEl.addEventListener('scroll', function () {
         stickyElComn(STICKYELM, tabOffsetTop);
       });
@@ -2000,7 +1924,7 @@ function commonInit() {
 
   function stickyElComn(_el, _top) {
     // scrolling
-    var tabOffsetTopScroll = _el.offsetTop;
+    let tabOffsetTopScroll = _el.offsetTop;
     if (tabOffsetTopScroll <= _top) _el.classList.remove('isScroll');else _el.classList.add('isScroll');
   }
   /**
@@ -2010,46 +1934,46 @@ function commonInit() {
   // + popup: modal header
 
 
-  var scrollElHeight = function scrollElHeight(_body, _header) {
+  let scrollElHeight = function (_body, _header) {
     return parseFloat(_body.clientHeight - _header.clientHeight - 20) + 'px';
   };
 
-  var scrollStyleTop = function scrollStyleTop(_header) {
+  let scrollStyleTop = function (_header) {
     return parseFloat(_header.clientHeight) + 'px';
   };
 
-  var innerStyleHeight = function innerStyleHeight(_body, _header) {
+  let innerStyleHeight = function (_body, _header) {
     return (_body.clientHeight - _header.clientHeight) * ((_body.clientHeight - _header.clientHeight) / (_body.scrollHeight - _header.clientHeight)) + 'px';
   }; // + popup: full
 
 
-  var innerStyleHeightFull = function innerStyleHeightFull(_body, _header) {
+  let innerStyleHeightFull = function (_body, _header) {
     return (_body.clientHeight - _header.clientHeight) * ((_body.clientHeight - _header.clientHeight) / (_body.scrollHeight - _header.clientHeight)) + 'px';
   }; // + popup: full footer
 
 
-  var innerStyleHeightFooter = function innerStyleHeightFooter(_body, _header) {
+  let innerStyleHeightFooter = function (_body, _header) {
     return (_body.clientHeight - _header.clientHeight) * ((_body.clientHeight - _header.clientHeight) / (_body.scrollHeight - _header.clientHeight)) + 'px';
   }; // + container
 
 
-  var scrollElHeightCon = function scrollElHeightCon(_body) {
+  let scrollElHeightCon = function (_body) {
     return _body.clientHeight - 24 + 'px';
   };
 
-  var innerStyleHeightCon = function innerStyleHeightCon(_body) {
+  let innerStyleHeightCon = function (_body) {
     return _body.clientHeight * _body.clientHeight / _body.scrollHeight + 'px';
   }; // common create scrollbar
 
 
-  function customScrollbar(_elem) {
-    if ((arguments.length <= 1 ? 0 : arguments.length - 1) > 0) {
+  function customScrollbar(_elem, ..._state) {
+    if (_state.length > 0) {
       // popup - modal: .modal-field
-      if ((arguments.length <= 1 ? undefined : arguments[1]) === 'modal') scrollDesignPopModalHeader(_elem); // popup - full: .full-body
+      if (_state[0] === 'modal') scrollDesignPopModalHeader(_elem); // popup - full: .full-body
 
-      if ((arguments.length <= 1 ? undefined : arguments[1]) === 'full') scrollDesignPopFullLayer(_elem); // popup - full-footer: c-container
+      if (_state[0] === 'full') scrollDesignPopFullLayer(_elem); // popup - full-footer: c-container
 
-      if ((arguments.length <= 1 ? undefined : arguments[1]) === 'full-footer') scrollDesignPopFullFooter(_elem);
+      if (_state[0] === 'full-footer') scrollDesignPopFullFooter(_elem);
     } else {
       // container
       scrollDesignContainer(_elem);
@@ -2058,10 +1982,10 @@ function commonInit() {
 
 
   function scrollDesignContainer(_container) {
-    var CUSTOMER_SCROLL = _container.querySelector('.kmi-scroll');
+    const CUSTOMER_SCROLL = _container.querySelector('.kmi-scroll');
 
     if (CUSTOMER_SCROLL) {
-      var CUSTOMER_SCROLL_INNER = CUSTOMER_SCROLL.querySelector('span');
+      const CUSTOMER_SCROLL_INNER = CUSTOMER_SCROLL.querySelector('span');
       if (CUSTOMER_SCROLL_INNER) addStyle('container', CUSTOMER_SCROLL, CUSTOMER_SCROLL_INNER, _container);
     } else {
       scrollbarCreate(_container);
@@ -2070,36 +1994,36 @@ function commonInit() {
 
 
   function scrollDesignPopFullLayer(_elem) {
-    var POPUP_SCROLL_ELEM = _elem.querySelector('.c-container');
+    const POPUP_SCROLL_ELEM = _elem.querySelector('.c-container');
 
     if (POPUP_SCROLL_ELEM) {
-      var POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.full-header');
-      var POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.full-body');
-      var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
+      const POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.full-header');
+      const POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.full-body');
+      const CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
       if (POPUP_HEADER && POPUP_BODY) fullLayerScrollbarComn(POPUP_BODY, CUSTOMER_SCROLL, POPUP_HEADER);
     }
   } // popup: full footer
 
 
   function scrollDesignPopFullFooter(_elem) {
-    var POPUP_SCROLL_ELEM = _elem.querySelector('.c-container');
+    const POPUP_SCROLL_ELEM = _elem.querySelector('.c-container');
 
     if (POPUP_SCROLL_ELEM) {
-      var POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.full-header');
-      var POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.full-body');
-      var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
+      const POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.full-header');
+      const POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.full-body');
+      const CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
       if (POPUP_HEADER && POPUP_BODY) fullLayerScrollbarComn(POPUP_SCROLL_ELEM, CUSTOMER_SCROLL, POPUP_HEADER);
     }
   } // popup: modal header
 
 
   function scrollDesignPopModalHeader(_elem) {
-    var POPUP_SCROLL_ELEM = _elem.querySelector('.modal-field');
+    const POPUP_SCROLL_ELEM = _elem.querySelector('.modal-field');
 
     if (POPUP_SCROLL_ELEM) {
-      var POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.c-modal-header');
-      var POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.c-modal-body');
-      var CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
+      const POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.c-modal-header');
+      const POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.c-modal-body');
+      const CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
       if (POPUP_HEADER && POPUP_BODY) modalHeaderScrollbarComn(POPUP_SCROLL_ELEM, CUSTOMER_SCROLL, POPUP_HEADER);
     }
   } // + modal heder create scrollbar comn
@@ -2107,7 +2031,7 @@ function commonInit() {
 
   function modalHeaderScrollbarComn(_wrap, _scrollEl, _header) {
     if (_scrollEl) {
-      var CUSTOMER_SCROLL_INNER = _scrollEl.querySelector('span'); // add style
+      const CUSTOMER_SCROLL_INNER = _scrollEl.querySelector('span'); // add style
 
 
       if (CUSTOMER_SCROLL_INNER) addStyle('modal', _scrollEl, CUSTOMER_SCROLL_INNER, _wrap, _header);
@@ -2123,7 +2047,7 @@ function commonInit() {
 
   function fullLayerScrollbarComn(_wrap, _scrollEl, _header) {
     if (_scrollEl) {
-      var CUSTOMER_SCROLL_INNER = _scrollEl.querySelector('span');
+      const CUSTOMER_SCROLL_INNER = _scrollEl.querySelector('span');
 
       if (CUSTOMER_SCROLL_INNER) {
         // add style
@@ -2137,8 +2061,8 @@ function commonInit() {
 
 
   function scrollbarCreate(_scrollEl, _popHeader) {
-    var scrollEl = document.createElement('div');
-    var scrollInner = document.createElement('span');
+    let scrollEl = document.createElement('div');
+    let scrollInner = document.createElement('span');
     scrollEl.classList.add('kmi-scroll');
     scrollEl.setAttribute('aria-hidden', true);
     scrollEl.appendChild(scrollInner);
@@ -2190,8 +2114,8 @@ function commonInit() {
 
 
   function scrollDesignScrollEvt(_type, _sclBody, _sclBar, _sclThum) {
-    var sclBarTop = parseInt(_sclBar.style.top);
-    var isScrolling;
+    let sclBarTop = parseInt(_sclBar.style.top);
+    let isScrolling;
 
     _sclBody.addEventListener('scroll', function () {
       if (this.scrollTop > 0) {

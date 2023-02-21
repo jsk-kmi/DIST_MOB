@@ -1,5 +1,3 @@
-"use strict";
-
 $.datepicker.setDefaults({
   closeText: '닫기',
   prevText: '이전 달',
