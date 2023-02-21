@@ -12,7 +12,8 @@ header {
       height: 5.25rem;
       padding: 1.5625rem 1.75rem;
       z-index: 990;
-      transition: top $transition-3 ease-in-out;
+      transition: top $transition-3 linear;
+      will-change: scroll-position;
       h1 {
         &.logo {
           display: flex;
@@ -46,6 +47,7 @@ header {
       // scroll hide/show
       &.scroll-hide {
         top: -5.25rem;
+        // transition: top $transition-3 linear;
       }
     }
   }

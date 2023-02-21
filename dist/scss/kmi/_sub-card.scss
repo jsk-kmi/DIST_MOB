@@ -40,7 +40,8 @@
       }
     }
   }
-  &.type1 {
+  &.type1,
+  &.type3 {
     position: relative;
     input[type='radio'],
     input[type='checkbox'] {
@@ -48,14 +49,14 @@
       & + label {
         @include card-check-type-off;
         box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-        border-radius: 1.25rem;
+        // border-radius: 1.25rem;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         overflow: hidden;
         .inner {
           position: relative;
-          border-radius: 1.125rem;
+          // border-radius: 1.125rem;
           background-color: #fff;
           padding: {
             top: 1.3125rem;
@@ -137,8 +138,6 @@
         }
         &::before {
           @include card-check-type-on-before(1.25rem);
-
-          border-radius: 1.25rem;
         }
       }
 
@@ -164,6 +163,15 @@
       }
     }
   }
+
+  &.type1 {
+    @include cardType01(1.125rem);
+  }
+
+  &.type3 {
+    @include cardType01(0.75rem);
+  }
+
   &.type2 {
     background: #ffffff;
     border: 1px solid $color-black-05;

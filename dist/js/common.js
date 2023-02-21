@@ -2,7 +2,7 @@
 
 /**
  * common variable
-*/
+ */
 // animation time
 
 var ANI_TIME_300 = 301; // interval time
@@ -18,7 +18,7 @@ var SCROLL_TIME = 0.5; // 초(second), 이 숫자만큼의 스피드로 scroll t
 var INVERTED = 55;
 /**
  * common interface
-*/
+ */
 // POPUP
 
 var IPOPUP = {
@@ -45,7 +45,7 @@ var elTopArr = [];
 var elTopRes = 0;
 /**
  * HTML element length check
-*/
+ */
 
 function elemLenCheck() {
   var okEl = 1;
@@ -67,7 +67,7 @@ function elemLenCheck() {
 }
 /**
  * load event
-*/
+ */
 
 
 document.addEventListener('readystatechange', function (event) {
@@ -82,7 +82,7 @@ document.addEventListener('readystatechange', function (event) {
 });
 /**
  * 접근성 공통
-*/
+ */
 // #container -> aria-hidden: true || false
 
 function containerHidden(_state) {
@@ -99,13 +99,13 @@ function containerHidden(_state) {
 }
 /**
  * common function
-*/
+ */
 
 
 function commonInit() {
   /**
    * resize event
-  */
+   */
   var rtime;
   var timeout = false;
   var DELTA = 10;
@@ -138,7 +138,7 @@ function commonInit() {
   }
   /**
    * GNB
-  */
+   */
 
 
   var GNB_ELEM = document.querySelectorAll('.btn-open-gnb');
@@ -244,7 +244,7 @@ function commonInit() {
   }
   /**
    * tab
-  */
+   */
 
 
   var TAB_EL = document.querySelectorAll('ul.c-tab');
@@ -280,12 +280,22 @@ function commonInit() {
     // 접근성 : 대체텍스트 적용: 선택됨, 선택안됨
     tabAltTxtInit(_elem, _ipt, _ipt_checked); // tab 종류 체크
 
-    var tabState = tabStateCheck(_wrap); // panel 내용이 바뀌는 방식의 tab 일 경우
+    var tabState = tabStateCheck(_wrap); // panel 내용이 바뀌는 방식의 tab 일 경우 + scroll Type
 
-    if (_wrap.classList.contains('type-move')) setTimeout(function () {
-      tabStateMove(_elem);
-    }, INTERVAL_1); // talkback event listener
+    if (_wrap.classList.contains('type-move')) {
+      setTimeout(function () {
+        tabStateMove(_elem);
+      }, INTERVAL_1);
+    } // [Mod [230220]]
+
+
+    if (_wrap.classList.contains('type-scroll')) {
+      setTimeout(function () {
+        tabScrollEvt();
+      }, INTERVAL_1);
+    } // talkback event listener
     // + 탭 터치 event
+
 
     if (_ipt.tagName !== 'A' && _ipt.tagName !== 'a') {
       _ipt.parentElement.addEventListener('click', function () {
@@ -403,7 +413,6 @@ function commonInit() {
         self = self.previousElementSibling;
       }
 
-      ;
       return this.parentNode === parent.children[i] ? i : -1;
     };
 
@@ -543,10 +552,6 @@ function commonInit() {
       var bodyHeight = _accBody.scrollHeight;
       accButtonClickEvtComn(e, accordionType, _accEl, _accBody, bodyHeight);
     });
-  } // +++ scroll 방식의 tab 일 경우
-
-
-  function tabStateScroll(_elem) {// TODO - 검진 결과 디자인 완료 후 작업 예정
   }
 
   function clkElClickPopupChk(_elem) {
@@ -657,7 +662,7 @@ function commonInit() {
         if (ONE_TARGET_TAB) TAB_ONE_PANEL.setAttribute('aria-labelledby', ONE_TARGET_TAB);
       }
     }
-  } // +++ tab 터치 시 페이지 이동하는 tab 일 경우
+  } // +++ tab 터치 시 페이지 이동하는 tab 일 경우 or scroll 이동
 
 
   function tabStateMove(_elem) {
@@ -698,7 +703,14 @@ function commonInit() {
 
       moveTabCenterScroll(_wrap, _tab);
     }
-  } // 선택된 tab 중앙 이동 - 取捨選擇
+  } // + tab Click 시 스크롤 이동
+
+
+  function tabStateMoveConm(_tabWrap) {
+    var TAB_MOVE_LIST = _tabWrap.querySelectorAll('li');
+
+    if (TAB_MOVE_LIST.length > 0) tabStateMoveConmEvt(TAB_MOVE_LIST, _tabWrap);
+  } // 선택된 tab 중앙 이동
 
 
   function moveTabCenterScroll(_scrollBody, _activeEl) {
@@ -737,7 +749,7 @@ function commonInit() {
   }
   /**
    * popup
-  */
+   */
   // 화면에 팝업이 있을 경우 공통 스타일 적용
   // 팝업 필수 class: kmi-popup
 
@@ -900,9 +912,12 @@ function commonInit() {
             if (st > lastScrollTop) {
               // SCROLL: DOWN
               _container.classList.add('scroll-hide');
+
+              console.log(' scroll down');
             } else {
               // SCROLL: UP
               scrollArr.push(st);
+              console.log('scroll up');
               window.clearTimeout(isScrolling);
               isScrolling = setTimeout(function () {
                 scrollArr = [];
@@ -916,6 +931,7 @@ function commonInit() {
             }
 
             lastScrollTop = st <= 0 ? 0 : st;
+            console.log('🚀 ~ file: common.js:796 ~ lastScrollTop', lastScrollTop);
           }
 
           if (this.scrollTop > TIT.clientHeight + _tab.clientHeight) _container.classList.add('isTop');else _container.classList.remove('isTop');
@@ -1267,7 +1283,7 @@ function commonInit() {
   }
   /**
    * accordion
-  */
+   */
 
 
   var ACCORDION_ELEM = document.querySelectorAll('.accordion');
@@ -1429,7 +1445,7 @@ function commonInit() {
   }
   /**
    * terms
-  */
+   */
 
 
   var TERMS_ELEM = document.querySelectorAll('.terms-box');
@@ -1499,7 +1515,7 @@ function commonInit() {
   }
   /**
    * textarea
-  */
+   */
 
 
   var TEXTAREA_ELEM = document.querySelectorAll('textarea');
@@ -1534,7 +1550,7 @@ function commonInit() {
   }
   /**
    * input
-  */
+   */
 
 
   var INPUT_ELEM = document.querySelectorAll('input');
@@ -1660,7 +1676,7 @@ function commonInit() {
   }
   /**
    * #container scroll event
-  */
+   */
 
 
   var CONTAINER_ELEM = document.querySelector('#container');
@@ -1668,9 +1684,16 @@ function commonInit() {
   if (CONTAINER_ELEM) {
     var FLEX_ELEM = CONTAINER_ELEM.querySelector('.flex-wrap');
 
-    if (FLEX_ELEM) {
+    if (!FLEX_ELEM.classList.contains('type-tab-scroll')) {
+      console.log('type tab scrol x');
       var MOVE_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
       if (MOVE_HEADER) containerScrollEvent(MOVE_HEADER, CONTAINER_ELEM);
+    } else if (FLEX_ELEM.classList.contains('type-tab-scroll')) {
+      console.log('type tab scroll 0');
+
+      var _MOVE_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
+
+      if (_MOVE_HEADER) containerTabScrollEvent(_MOVE_HEADER, CONTAINER_ELEM);
     } // custom 스크롤바 만들기
 
 
@@ -1708,7 +1731,14 @@ function commonInit() {
 
         if (st > lastScrollTop) {
           // SCROLL: DOWN
+          // console.log('SCROLL DOWN');
           _moveHeader.classList.add('scroll-hide');
+
+          if (document.querySelector('.flex-wrap').classList.contains('type-tab-scroll')) {
+            _moveHeader.classList.remove('scroll-hide');
+          } // _moveHeader.classList.add('scroll-hide');
+          //}
+
         } else {
           // SCROLL: UP
           scrollArr.push(st);
@@ -1721,6 +1751,7 @@ function commonInit() {
             _moveHeader.classList.remove('scroll-hide');
 
             scrollArr = [];
+            console.log('scroll up ');
           }
         }
 
@@ -1732,6 +1763,79 @@ function commonInit() {
 
         scrollArr = [];
       }
+
+      if (MOVE_TOP_BTN_ELEM) {
+        if (this.scrollTop <= 0) MOVE_TOP_BTN_ELEM.classList.add('hide');else MOVE_TOP_BTN_ELEM.classList.remove('hide');
+      } // 하단 고정 버튼이 있는 경우
+
+
+      if (BTN_BOTTOM_FLOATING) scrollingFloatingBtn(BTN_BOTTOM_FLOATING, this, CONTAINER_FOOTER);
+    }, false);
+  } // [Mod 230220]
+  // + touch move
+
+
+  function containerTabScrollEvent(_moveHeader, _scrollEl) {
+    var headerHeight = _moveHeader.clientHeight;
+    var lastScrollTop = 0;
+    var scrollArr = [];
+    var isScrolling;
+
+    var BTN_BOTTOM_FLOATING = _scrollEl.querySelector('.btn-bottom-floating');
+
+    var CONTAINER_FOOTER = _scrollEl.querySelector('.footer');
+
+    var FLOATING_BLOCK_ARR = ['rv-block', 'rc-block'];
+
+    if (BTN_BOTTOM_FLOATING) {
+      var MARGIN_EL = BTN_BOTTOM_FLOATING.previousSibling.previousElementSibling;
+      if (MARGIN_EL) MARGIN_EL.style.marginBottom = '3.75rem';
+      FLOATING_BLOCK_ARR.map(function (el) {
+        var blockEl = document.querySelector('.' + el);
+        if (blockEl) blockEl.classList.add('type-floating-btn');
+      });
+      if (CONTAINER_FOOTER) floatingBtnComn(_scrollEl, CONTAINER_FOOTER);else floatingBtnComn(_scrollEl);
+    } // move top button
+
+
+    var MOVE_TOP_BTN_ELEM = document.querySelector('.btn-move-top');
+
+    _scrollEl.addEventListener('touchmove', function (e) {
+      var SHOW_HEADER_NUM = '10';
+
+      if (this.scrollTop > headerHeight) {
+        var st = this.pageYOffset || this.scrollTop; // 현재 위치
+
+        if (st > lastScrollTop) {
+          // SCROLL: DOWN
+          console.log('touch move scroll down');
+
+          _moveHeader.classList.add('scroll-hide');
+        } else {
+          // SCROLL: UP
+          scrollArr.push(st);
+          window.clearTimeout(isScrolling);
+          isScrolling = setTimeout(function () {
+            scrollArr = [];
+          }, 66);
+
+          if (Math.max.apply(Math, scrollArr) - Math.min.apply(Math, scrollArr) > SHOW_HEADER_NUM) {
+            _moveHeader.classList.remove('scroll-hide'); // console.log('Math.max.apply(Math, scrollArr)' + Math.max.apply(Math, scrollArr));
+            // console.log('Math.min.apply(Math, scrollArr)' + Math.min.apply(Math, scrollArr));
+            // console.log('SHOW_HEADER_NUM: ' + SHOW_HEADER_NUM);
+
+
+            console.log('touch move scroll up 여부');
+            scrollArr = [];
+          }
+        }
+
+        lastScrollTop = st <= 0 ? 0 : st;
+      } // if (this.scrollTop <= _moveHeader.clientHeight) {
+      //   _moveHeader.classList.remove('scroll-hide');
+      //   scrollArr = [];
+      // }
+
 
       if (MOVE_TOP_BTN_ELEM) {
         if (this.scrollTop <= 0) MOVE_TOP_BTN_ELEM.classList.add('hide');else MOVE_TOP_BTN_ELEM.classList.remove('hide');
@@ -1835,7 +1939,7 @@ function commonInit() {
   }
   /**
    * 최상단 스크롤 이동 버튼 click event
-  */
+   */
 
 
   var BTN_MOVE_TOP_ELEM = document.querySelector('.btn-move-top');
@@ -1878,7 +1982,7 @@ function commonInit() {
   }
   /**
    * floating tab
-  */
+   */
 
 
   var STICKYELM = document.querySelector('.tab-floating');
@@ -1901,7 +2005,7 @@ function commonInit() {
   }
   /**
    * custom scrollbar
-  */
+   */
   // common formula
   // + popup: modal header
 

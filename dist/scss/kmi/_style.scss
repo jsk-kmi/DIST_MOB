@@ -330,61 +330,6 @@ button {
   background-color: transparent;
   z-index: 2;
 }
-// + 등록된 컨텐츠 없음
-.null-contents {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 2.5rem 0;
-  img {
-    width: 7rem;
-    height: auto;
-    opacity: 0.4;
-  }
-  p {
-    @include coTxtBody;
-    color: $color-black-40;
-    text-align: center;
-    margin-top: 0.9375rem;
-  }
-  &.type-default {
-    img {
-      padding: 0.9375rem 0;
-    }
-    p {
-      @include coTxtBody;
-      color: $color-black-80;
-      margin: 0;
-    }
-  }
-  &.type-round {
-    padding: 1rem 0;
-    border: 1px solid $color-black-20;
-    border-radius: 0.75rem;
-    img {
-      width: 5.0625rem;
-    }
-    p {
-      margin-top: 0.75rem;
-    }
-  }
-  &.type-shadow {
-    padding: 1.25rem;
-    background: #ffffff;
-    border: 1px solid $color-black-05;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
-    border-radius: 0.75rem;
-    img {
-      width: 6rem;
-      opacity: 1;
-    }
-    p {
-      @include coTxtLabelLarge;
-      margin-top: 0.75rem;
-    }
-  }
-}
 // #container > 하단고정버튼
 #container {
   .btn-bottom-floating {
@@ -422,6 +367,12 @@ button {
         height: 2.25rem;
         opacity: 1;
       }
+    }
+  }
+  // + floating 아닌 경우
+  .c-btn-bottom {
+    &.type01 {
+      margin-top: 3.75rem;
     }
   }
 }
@@ -499,7 +450,8 @@ button {
 .mi-block,
 .em-block,
 .terms-block,
-.guide-block {
+.guide-block,
+.co-block {
   position: relative;
   .tit {
     @include coTxtTitleHeadingLarge;
@@ -620,10 +572,12 @@ button {
 .mi-block,
 .em-block,
 .terms-block,
-.guide-block {
+.guide-block,
+.jo-block,
+.co-block {
   padding: 3.75rem 1.75rem 5rem;
 }
-// 결과 완료 페이지
+// + 결과 완료 페이지
 .rv-block,
 .rc-block,
 .em-block {
@@ -647,6 +601,15 @@ button {
         }
       }
     }
+  }
+
+  // .cont {
+  //   text-align: center;
+  //   color: $color-black-60;
+  //   @include coTxtLabelLarge;
+  // }
+  h2 + .cont {
+    margin-top: 0.75rem;
   }
 }
 
@@ -1334,7 +1297,7 @@ button {
   }
 }
 
-// 검진기관(VGT)
+// =  검진기관(VGT)
 .vgt-block {
   .tit {
     & + .c-select {
@@ -1783,6 +1746,10 @@ button {
       }
     }
   }
+
+  .null-contents {
+    padding: 2.5rem 0;
+  }
 }
 // + 검진항목정보 상세 팝업
 #popupExaminationInfo {
@@ -1800,7 +1767,7 @@ button {
   }
 }
 
-// 커뮤니티(NI)
+// = 커뮤니티(NI)
 .ni-block {
   .media-list {
     a {
@@ -1872,6 +1839,10 @@ button {
         }
       }
     }
+  }
+
+  .type-round {
+    border: 0;
   }
 }
 
@@ -2232,3 +2203,238 @@ button {
     }
   }
 }
+
+// = 직무 스트레스 (JO)
+
+// + 직무스트레스 검사하기
+.jo-block {
+  .cont {
+    & + .box {
+      &.type03 {
+        margin-top: 1.25rem;
+      }
+    }
+  }
+  h2 {
+    & + .terms {
+      margin-top: 1.25rem;
+    }
+  }
+
+  .co-complete-field {
+    .cont {
+      & + .box {
+        margin-top: 1.25rem;
+      }
+    }
+    .box {
+      > p {
+        @include coTxtLabelLarge;
+        & + .co-list-card {
+          margin-top: 12px;
+        }
+      }
+      .co-list-card {
+        color: $default-font-color;
+
+        > li {
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+}
+.jobstrees-factor-field {
+  .ref-cont {
+  }
+}
+
+.jobstress-target-list {
+  .sub-card {
+    & ~ .sub-card {
+      margin-top: 0.75rem;
+    }
+  }
+}
+
+.jobstress-title-field {
+  margin: {
+    top: 3.75rem;
+    bottom: 2.5rem;
+  }
+  display: block;
+  align-items: center;
+  color: $color-black-80;
+  .co-tooltip {
+    margin: {
+      top: 0.25rem;
+      left: 0.5rem;
+    }
+  }
+  .title {
+    display: flex;
+    align-items: center;
+    & + .cont {
+      color: $color-black-80;
+      margin-top: 1.25rem;
+    }
+  }
+}
+
+.jo-exam-listbox {
+  margin: {
+    left: -1.75rem;
+    right: -1.75rem;
+  }
+  padding-bottom: 2rem;
+  background-color: $color-black-05;
+  .sub-title {
+    @include coTxtTitleSmall;
+  }
+
+  .condition-field {
+    margin-top: 2.5rem;
+    color: $color-black-80;
+    .cont {
+      color: $color-black-100;
+
+      & + .cont {
+        margin-top: 2.5rem;
+      }
+    }
+  }
+}
+
+.jo-exam-field {
+  padding: 2rem 1.75rem 0;
+
+  .title {
+    @include coTxtTitleHeadingSmall;
+  }
+  & ~ .exam-field {
+    margin-top: 3.75rem;
+  }
+
+  .cont {
+    & + .chkgruoup {
+      margin-top: 0.75rem;
+    }
+  }
+
+  .exam-article {
+    &:first-of-type {
+      margin-top: 1.25rem;
+    }
+    .cont {
+      color: $color-black-100;
+
+      &.is-error {
+        color: $color-sub-03;
+        font-weight: 400;
+      }
+      & + .row {
+        margin-top: 0.75rem;
+      }
+    }
+    .c-chkbox {
+      & ~ .c-chkbox {
+        margin-top: 0.5rem;
+      }
+    }
+    & ~ .exam-article {
+      margin-top: 2.5rem;
+    }
+  }
+}
+
+.jo-btm-refcont {
+  margin-top: 1.25rem;
+  color: $color-black-80;
+}
+
+.c-chkbox {
+  &.type-jobstress {
+    text-align: left;
+    & ~ .type-jobstress {
+      margin-top: 9px;
+    }
+    display: block;
+    width: 100%;
+
+    input [type='checkbox'],
+    input[type='radio'] {
+      & + .chk-label {
+        &:before {
+          @include card-check-type-on-before(1.25rem);
+          transition: opacity 0.3s ease-in-out;
+        }
+        position: relative;
+        > span {
+          color: $color-black-80;
+        }
+        > i {
+          width: 24px;
+          height: 24px;
+          background: url($image-ico-path + 'ico_checkbox_sub_card_20x20.svg') center/24px auto no-repeat;
+          margin-right: 0.25rem;
+        }
+        > i,
+        > span {
+          z-index: 10;
+          margin-left: 0;
+        }
+      }
+      &:checked {
+        & + .chk-label {
+          position: relative;
+          &:before {
+            border-radius: 0.75rem;
+            opacity: 1;
+          }
+
+          > i {
+            background-image: url($image-ico-path + 'ico_checkbox_sub_card_20x20_default_on.svg');
+          }
+        }
+      }
+    }
+
+    > label {
+      width: 100%;
+      padding: 15px 12px;
+      border-radius: 0.75rem;
+      border: 1px solid $color-bg-03;
+      background-color: $color-white-100;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+    }
+  }
+}
+
+// + 직무스트레스 검사결과
+// = temp style
+.exam-field {
+  height: 500px;
+  padding: 40px;
+}
+// = temp style
+
+// .tab-floating {
+//   &.fixed {
+//     top: 0;
+//   }
+// }
+
+// .header {
+//   &.co-header {
+//     &.scroll-hide {
+//       .tab-floating {
+//         &.fixed {
+//           top: -5.25rem;
+//         }
+//       }
+//     }
+//   }
+// }

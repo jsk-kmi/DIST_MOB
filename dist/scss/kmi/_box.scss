@@ -34,6 +34,9 @@
         margin-top: 0.75rem;
       }
     }
+    .c-txt-label-l + ul {
+      margin-top: 0.75rem;
+    }
   }
   &.type4 {
     @include coTxtLabelLarge;

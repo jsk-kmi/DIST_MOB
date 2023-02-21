@@ -195,6 +195,9 @@
       color: $color-black-60;
     }
     th {
+      &[scope='col'] {
+        color: $color-black-80;
+      }
       text-align: center;
     }
   }

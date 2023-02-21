@@ -130,7 +130,8 @@
   .em-block,
   .terms-block,
   .guide-block,
-  .main-block {
+  .main-block,
+  .jo-block {
     @include mSmHorizonSpacing;
   }
 
@@ -281,7 +282,8 @@
   .mi-block,
   .em-block,
   .terms-block,
-  .guide-block {
+  .guide-block,
+  .jo-block {
     .tit {
       font-size: 1.866rem;
     }

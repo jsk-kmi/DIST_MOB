@@ -53,117 +53,37 @@
                 </div>
             </header>
             <div class="flex-container">
-                <div class="rv-block">
-                    <h1 class="tit type-step type-floating">
-                        예약 변경 신청
-                        <i class="skip">3단계 중 3단게</i>
-                        <div class="step" aria-hidden="true">(<span>3</span>/<span>3</span>)</div>
+
+                <div class="co-block jo-block">
+                    <h1 class="tit type-step type-floating c-btn-type">
+                        직무스트레스
+                        <button class="c-ico-btn-type circle ico-person-01" type="button" aria-label="두번탭하면개인비용대상자추가할수있는팝업열림"></button>
                     </h1>
 
-                    <div class="tab-floating">
-                        <ul class="c-tab type-slide type-move type-step" role="tablist" data-tablist="requestReservationChange">
-                            <li role="tab" aria-controls="step-1-panel">
-                                <a href="javascript:void(0);" title="페이지 이동" class="tab">검사 항목</a>
-                            </li>
-                            <li role="tab" aria-controls="step-2-panel">
-                                <a href="javascript:void(0);" title="페이지 이동" class="tab">검진 일자</a>
-                            </li>
-                            <li role="tab" aria-controls="step-3-panel">
-                                <a href="javascript:void(0);" title="페이지 이동" class="tab active">개인 정보 입력</a>
-                            </li>
-                        </ul>
+                    <div class="co-article">
+                        <h2>검사 대상자 정보</h2>
+                        <div class="c-input-list type01">
+                            <div class="row">
+                                <div class="col per-column label-input">
+                                    <label for="inputJobstressChkPersoninfo01_01">검진자명</label>
+                                    <input type="text" class="c-input" id="inputJobstressChkPersoninfo01_01" value="홍길동" disabled />
+                                </div>
+
+                                <div class="col per-column label-input">
+                                    <label for="inputJobstressChkPersoninfo01_02">생년월일</label>
+                                    <input type="text" class="c-input" id="inputJobstressChkPersoninfo01_02" value="780101" disabled />
+                                </div>
+
+                                <div class="col per-column label-input">
+                                    <label for="inputJobstressChkPersoninfo01_03">관계</label>
+                                    <input type="text" class="c-input" id="inputJobstressChkPersoninfo01_03" value="본인" disabled />
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="tab-panel show" role="tabpanel" aria-labelledby="step-3-panel" data-panelname="requestReservationChange">
-                        <p>예약 시 유의사항</p>
-                        <div class="box type5">
-                            <ul class="list type1">
-                                <li>검진 예약의 "예약 상태"는 예약 신청&gt;예약 대기&gt;예약 확정&gt;검진 완료 순으로 진행됩니다.</li>
-                                <li>검진 예약 변경 및 취소는 [ 검진 예약/결과 조회&gt;예약 내역 ]에서 신청 가능합니다.</li>
-                                <li>특수검사(대장 내시경, MRI, MRA, 유방초음파, 심장초음파 등)의 일정에 따라 예약 신청 일정이 변경될 수 있습니다.</li>
-                            </ul>
-                        </div>
-
-                        <h2>검진자 정보</h2>
-
-                        <div class="c-input-list type01">
-                            <div class="row">
-                                <div class="col per-column label-input">
-                                    <label for="patientName">검진자 명</label>
-                                    <input type="text" class="c-input" id="patientName" value="홍길동" disabled />
-                                </div>
-
-                                <div class="col per-column label-input">
-                                    <label for="patientBirth">생년월일</label>
-                                    <input type="number" pattern="\d*" class="c-input" id="patientBirth" value="780101" disabled />
-                                </div>
-
-                                <div class="col per-column label-input">
-                                    <label for="patientGender">성별</label>
-                                    <input type="text" class="c-input" id="patientGender" value="남" disabled />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="c-input-list type01">
-                            <div class="row">
-                                <div class="col per-column label-input">
-                                    <label for="patientMobile">휴대폰 전화번호<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
-                                    <input type="number" pattern="\d*" class="c-input" id="patientMobile" value="01012345678" />
-                                </div>
-
-                                <div class="col per-column label-input">
-                                    <label for="patientPhone">전화번호</label>
-                                    <input type="number" pattern="\d*" class="c-input" id="patientPhone" value="0212345967" />
-                                </div>
-
-                                <div class="col label-input">
-                                    <label for="patientAddress">주소<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
-                                    <div class="c-input-address-group">
-                                        <a href="javascript:;" class="btn-address">
-                                            <div class="row inner c-input-btn-group">
-                                                <div class="column input">
-                                                    <!-- [comment]
-                              - 필요에 따라 disabled 제거
-                            -->
-                                                    <input type="text" class="c-input type-white" id="patientAddress" placeholder="주소" disabled />
-                                                </div>
-                                                <div class="column btns">
-                                                    <button type="button" class="co-btn type02 type-input-btn"><span>주소검색</span></button>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="row input-addr-02">
-                                            <input type="text" class="c-input" placeholder="상세 주소" title="상세주소 입력" />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col per-column label-input">
-                                    <label for="patientEmail">이메일 주소<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
-                                    <input type="text" class="c-input" id="patientEmail" value="test@text.com" />
-                                </div>
-
-                                <div class="col per-column label-input">
-                                    <label for="patientReception">검진 결과 수신방법<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
-                                    <div class="c-select">
-                                        <select title="E-mail" id="patientReception">
-                                            <option selected>E-mail</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col per-column label-input">
-                                    <label for="patientReq">검진 요청사항</label>
-                                    <div class="c-txtarea-field">
-                                        <textarea id="patientReq" class="c-txt-area type02" placeholder="의료진에 전달하고자 하는 내용(ex 알레르기, 복용약 등)을 입력해 주세요."></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                    <div class="co-article">
                         <h2>약관동의</h2>
-                        <!-- [ mod(230105) ] 약관-->
                         <div class="terms type-basic">
                             <div class="c-chkbox type01">
                                 <input type="checkbox" id="basicTermsAll">
@@ -388,9 +308,6 @@
                                                         <col style="width:45%">
                                                         <col>
                                                     </colgroup>
-                                                    <!-- [ mod(230214)]
-				- Tag 변경
-			-->
                                                     <tbody class="tbody">
                                                         <tr>
                                                             <th scope="col">제공받는 자</th>
@@ -410,10 +327,7 @@
                                                         </tr>
                                                     </tbody>
                                                 </table>
-                                            </div>이벤트 정보 및 제도 수신 동의 관련 안내 사항
-
-                                            한국의학연구소에서 제공하는 이벤트 정보 및 제도 Email 수신 동의 시 제공되는 다양한 혜택 및 이벤트 정보를 받아 보실 수 있습니다.
-                                            건강검진 예약 및 결과 조회 서비스 등 주요 서비스 정책에 관련된 사항은 수신 여부와 관계 없이 발송 됩니다.
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -429,12 +343,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- [ // mod(230105) ] 약관 -->
+                    </div>
 
-                        <!-- 변경 신청하기 -->
-                        <div class="btn-bottom-floating">
-                            <a href="javascript:void(0);" class="co-btn btn-next" title="페이지이동"><span>변경 신청하기</span></a>
-                        </div>
+                    <div class="c-btn-bottom type01">
+                        <a href="javascript:void(0);" class="co-btn btn-next" title="페이지이동"><span>검사시작</span></a>
                     </div>
                 </div>
 
@@ -463,8 +375,6 @@
             </footer>
         </div>
     </div>
-    <!-- GNB -->
-    <!-- // GNB -->
 </body>
 
 </html>

@@ -338,11 +338,18 @@ a {
     & ~ .co-btn {
       margin-left: 1.25rem;
     }
+
+    &:disabled {
+      background-color: $color-blue-02;
+    }
   }
 
   // + is-disable
   &.is-disable {
     background-color: $color-blue-02;
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
   // + outline btn
@@ -521,9 +528,7 @@ a {
   > li {
     white-space: initial;
   }
-
-  &.circle01,
-  &.circle02 {
+  &[class*='circle'] {
     > li {
       position: relative;
       &:before {
@@ -531,9 +536,23 @@ a {
         width: 4px;
         height: 4px;
         border-radius: 50%;
-        background-color: $color-black-60;
+        background-color: $color-black-20;
         display: inline-block;
         position: absolute;
+      }
+    }
+  }
+  // circle
+  &.circle {
+    li {
+      color: inherit;
+      padding-left: 12px;
+      & ~ li {
+        margin-top: 0.75rem;
+      }
+      &:before {
+        top: 11px;
+        left: 0;
       }
     }
   }
@@ -553,6 +572,16 @@ a {
   &.circle02 {
     li {
       @include fontStyle(14px, 30px, 300);
+      padding-left: 12px;
+      &:before {
+        top: 14px;
+        left: 0;
+      }
+    }
+  }
+  // circle03
+  &.circle03 {
+    li {
       padding-left: 12px;
       &:before {
         top: 14px;
@@ -595,5 +624,337 @@ a {
         padding-right: 4px;
       }
     }
+  }
+}
+
+// [20230210 Add Common Style]
+// .co-block {
+//   .tit {
+//     & + .c-select {
+//       margin-top: 1.25rem;
+//       & + .info-txt {
+//         margin: 3.75rem 0 0.75rem;
+//         position: relative;
+//         display: block;
+//         text-align: right;
+//         li {
+//           & ~ li {
+//             @include coTxtLabelMedium;
+//             color: $color-black-60;
+//             span {
+//               color: $color-sub-02;
+//               display: inline-block;
+//               margin: 0 0.25rem;
+//             }
+//           }
+//         }
+//         & + .sub-card.type2 {
+//           & ~ .sub-card.type2 {
+//             margin-top: 2.5rem;
+//           }
+//         }
+//       }
+//     }
+//     & + h2 {
+//       margin-top: 2.5rem;
+//       & ~ h2 {
+//         padding-top: 3.75rem;
+//         position: relative;
+//       }
+//     }
+//   }
+//   h2 {
+//     @include coTxtTitleLarge;
+//     color: $color-black-80;
+//     position: relative;
+//     &.type-link {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//       a {
+//         font-size: 0.75rem;
+//         line-height: 1.25rem;
+//         color: $color-sub-02;
+//         text-decoration: underline;
+//       }
+//     }
+//     & + .c-input-list {
+//       margin-top: 1.25rem;
+//     }
+//     & + h3 {
+//       margin-top: 1.25rem;
+//       & ~ h3 {
+//         padding-top: 1.75rem;
+//       }
+//     }
+//     & + .tag-list {
+//       margin-top: 1.375rem;
+//       & + .type-link {
+//         padding-top: 4.25rem;
+//         &::after {
+//           top: 1.75rem;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// + co-article
+.co-article {
+  > h2 {
+    @include coTxtTitleLarge;
+    margin-bottom: 1.25rem;
+  }
+  & ~ .co-article {
+    margin-top: 3.75rem;
+  }
+}
+
+.tit {
+  & + .co-article {
+    margin-top: 2.5rem;
+  }
+}
+
+// =  등록된 컨텐츠 없음
+.null-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.25rem 0;
+  img {
+    width: 7rem;
+    height: auto;
+    opacity: 0.8;
+  }
+  p {
+    @include coTxtLabelLarge;
+    color: $color-black-80;
+    margin-top: 0.75rem;
+  }
+  &.type-default {
+    // p {
+    //   @include coTxtBody;
+    //   color: $color-black-80;
+    //   margin: 0;
+    // }
+  }
+  &.type-round,
+  &.type-shadow {
+    border: 1px solid $color-black-05;
+    border-radius: 0.75rem;
+    background: $color-white-100;
+    padding: 1.25rem 0;
+  }
+  // + type-shadow
+  &.type-shadow {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+  }
+}
+
+// = Description
+// + type01
+.co-description {
+  @at-root {
+    .cont-box {
+      > .co-description {
+        &:first-of-type {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+  padding: 2.5rem 0;
+  position: relative;
+  &.type01 {
+    // h2 {
+    //   @include coTxtTitleHeadingSmall;
+    //   color: $color-black-80;
+    //   & + p {
+    //     & + h3 {
+    //       padding-top: 5rem;
+    //       position: relative;
+    //       &::after {
+    //         content: '';
+    //         display: block;
+    //         position: absolute;
+    //         width: 100%;
+    //         height: 1px;
+    //         top: 2.5rem;
+    //         left: 0;
+    //         background-color: $color-black-10;
+    //       }
+    //     }
+    //   }
+    //   & + ul {
+    //     margin-top: 1.25rem;
+    //     li {
+    //       & ~ li {
+    //         margin-top: 0.75rem;
+    //       }
+    //     }
+    //     & + h3 {
+    //       & + ul {
+    //         margin-top: 1.25rem;
+    //         li {
+    //           & ~ li {
+    //             margin-top: 0.75rem;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    //   & + h3 {
+    //     margin-top: 1.25rem;
+    //     & + ul {
+    //       li {
+    //         & + li {
+    //           margin-top: 0.75rem;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    // h3 {
+    //   @include coTxtTitleSmall;
+    //   color: $color-sub-02;
+    //   & ~ h3 {
+    //     margin-top: 3.75rem;
+    //   }
+    //   & + ul {
+    //     margin-top: 1rem;
+    //     li {
+    //       & ~ li {
+    //         margin-top: 0.5rem;
+    //       }
+    //     }
+    //     &.list {
+    //       &.type1 {
+    //         li {
+    //           &::after {
+    //             top: 0.75rem;
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    // p,
+    // ul li {
+    //   @include coTxtBody;
+    //   color: $color-black-80;
+    // }
+    // p {
+    //   margin-top: 1.25rem;
+    // }
+    // ul {
+    //   & + h2 {
+    //     padding-top: 5rem;
+    //     position: relative;
+    //     & + h3 {
+    //       margin-top: 1.25rem;
+    //     }
+    //     & ~ h3 {
+    //       & + ul {
+    //         li {
+    //           & ~ li {
+    //             margin-top: 0.75rem;
+    //           }
+    //         }
+    //       }
+    //     }
+    //     &::after {
+    //       content: '';
+    //       display: block;
+    //       position: absolute;
+    //       width: 100%;
+    //       height: 1px;
+    //       top: 2.5rem;
+    //       left: 0;
+    //       background-color: $color-black-10;
+    //     }
+    //   }
+    //   & + h3 {
+    //     margin-top: 3.75rem;
+    //   }
+    // }
+  }
+
+  .c-title {
+    color: $color-sub-02;
+    margin-bottom: 1rem;
+    @include coTxtTitleLarge;
+
+    & + .c-list {
+      margin-top: 1rem;
+    }
+  }
+
+  & ~ .co-description {
+    // margin-top: 3.75rem;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      top: 0;
+      left: 0;
+      background-color: $color-black-10;
+    }
+  }
+}
+
+// = List
+.c-list {
+  > li {
+    margin-top: 0.5rem;
+    color: $color-black-80;
+  }
+  &.type01 {
+  }
+}
+
+// + 완료 화면
+.co-complete-block {
+  .box {
+    p {
+      color: $color-black-60;
+    }
+  }
+}
+
+.c-complete-field {
+  text-align: center;
+  .tit {
+    text-align: left;
+  }
+  .cont {
+    @include coTxtLabelLarge;
+  }
+  > img {
+    margin: 2.5rem auto;
+    width: 10.9375rem;
+    max-width: 175px;
+  }
+
+  h2 {
+    @include coTxtTitleLarge;
+    color: $color-sub-02;
+
+    & + .cont {
+      margin-top: 0.75rem;
+      color: $color-black-60;
+    }
+  }
+  & + .box {
+    margin-top: 20px;
+  }
+}
+
+.c-txt-link {
+  &.lined {
+    text-decoration: underline;
   }
 }
