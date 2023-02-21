@@ -9985,6 +9985,10 @@ button.ico-plus::after {
 		margin-top: 12px;
 }
 
+.jobstrees-factor-field .ref-cont {
+		font-weight: 400;
+}
+
 .jobstress-target-list .sub-card ~ .sub-card {
 		margin-top: 0.75rem;
 }
