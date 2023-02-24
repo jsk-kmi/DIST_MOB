@@ -4395,6 +4395,224 @@ a.card_09 {
 .sub-card.type2 .button-list a ~ a {
 		border-left: 1px solid rgba(28, 28, 28, 0.1);
 }
+.sub-card.type4 {
+		margin-top: 1.25rem;
+		position: relative;
+}
+.sub-card.type4 input[type=radio] + label,
+.sub-card.type4 input[type=checkbox] + label {
+		border-radius: 1.125rem;
+}
+.sub-card.type4 input[type=radio] + label:before,
+.sub-card.type4 input[type=checkbox] + label:before {
+		border-radius: 1.125rem;
+}
+.sub-card.type4 input[type=radio]:checked + label:before,
+.sub-card.type4 input[type=checkbox]:checked + label:before {
+		border-radius: 1.125rem;
+}
+.sub-card.type4:before {
+		border-radius: 1.125rem;
+}
+.sub-card.type4 .inner {
+		border-radius: 1.125rem;
+}
+.sub-card.type4 input[type=radio],
+.sub-card.type4 input[type=checkbox] {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 1px;
+		height: 1px;
+		background-color: transparent;
+		color: transparent;
+		font-size: 1px;
+		line-height: 1px;
+		opacity: 0;
+}
+.sub-card.type4 input[type=radio] + label,
+.sub-card.type4 input[type=checkbox] + label {
+		background-color: #fff;
+		padding: 0.1875rem;
+		border: 1px solid rgba(28, 28, 28, 0.05);
+		box-sizing: border-box;
+		box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		overflow: hidden;
+}
+.sub-card.type4 input[type=radio] + label .inner,
+.sub-card.type4 input[type=checkbox] + label .inner {
+		position: relative;
+		background-color: #fff;
+		padding-top: 1.3125rem;
+		padding-right: 1.25rem;
+		padding-bottom: 0.5625rem;
+		padding-left: 1.25rem;
+}
+.sub-card.type4 input[type=radio] + label .inner ul.case,
+.sub-card.type4 input[type=checkbox] + label .inner ul.case {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+}
+.sub-card.type4 input[type=radio] + label .inner ul.case li.ico-checkbox,
+.sub-card.type4 input[type=checkbox] + label .inner ul.case li.ico-checkbox {
+		width: 1.25rem;
+		height: 1.25rem;
+		background-image: url("../images/ico/ico_checkbox_sub_card_20x20_on.svg");
+		background-size: 1.25rem 1.25rem;
+		background-position: center center;
+		background-repeat: no-repeat;
+		-webkit-transition: background-image 0.3s ease-in-out;
+		transition: background-image 0.3s ease-in-out;
+}
+.sub-card.type4 input[type=radio] + label .inner ul.case li:first-child,
+.sub-card.type4 input[type=checkbox] + label .inner ul.case li:first-child {
+		font-size: 0.75rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.25rem;
+		color: #2f7ad3;
+}
+.sub-card.type4 input[type=radio] + label .inner ul.profile,
+.sub-card.type4 input[type=checkbox] + label .inner ul.profile {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-pack: start;
+		-webkit-justify-content: flex-start;
+		    -ms-flex-pack: start;
+		        justify-content: flex-start;
+		padding-bottom: 0.5rem;
+		margin-top: 0.25rem;
+}
+.sub-card.type4 input[type=radio] + label .inner ul.profile li,
+.sub-card.type4 input[type=checkbox] + label .inner ul.profile li {
+		font-size: 1.25rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+		color: rgba(28, 28, 28, 0.8);
+		position: relative;
+}
+.sub-card.type4 input[type=radio] + label .inner ul.profile li ~ li span,
+.sub-card.type4 input[type=checkbox] + label .inner ul.profile li ~ li span {
+		font-size: 1rem;
+		font-weight: 300;
+		letter-spacing: -0.0187rem;
+		line-height: 1.75rem;
+		margin-left: 0.75rem;
+}
+.sub-card.type4 input[type=radio] + label .inner ul.tag-list,
+.sub-card.type4 input[type=checkbox] + label .inner ul.tag-list {
+		margin-top: 0.75rem;
+		margin-right: 0;
+		margin-bottom: 0.75rem;
+		margin-left: 0;
+		width: 100%;
+		max-height: 24px;
+		overflow-y: hidden;
+		overflow-x: scroll;
+		-webkit-flex-wrap: nowrap;
+		    -ms-flex-wrap: nowrap;
+		        flex-wrap: nowrap;
+}
+.sub-card.type4 input[type=radio] + label .inner ul.tag-list li,
+.sub-card.type4 input[type=checkbox] + label .inner ul.tag-list li {
+		margin: 0;
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 auto;
+		    -ms-flex: 0 0 auto;
+		        flex: 0 0 auto;
+}
+.sub-card.type4 input[type=radio] + label .inner ul.tag-list li ~ li,
+.sub-card.type4 input[type=checkbox] + label .inner ul.tag-list li ~ li {
+		margin-left: 0.75rem;
+}
+.sub-card.type4 input[type=radio] + label .inner dl dt,
+.sub-card.type4 input[type=checkbox] + label .inner dl dt {
+		width: 1.625rem;
+}
+.sub-card.type4 input[type=radio] + label .inner dl dd span,
+.sub-card.type4 input[type=checkbox] + label .inner dl dd span {
+		font-size: 0.75rem;
+		font-weight: 300;
+		letter-spacing: -0.0187rem;
+		line-height: 1.5rem;
+		width: calc(100% - 2.125rem);
+}
+.sub-card.type4 input[type=radio] + label::before,
+.sub-card.type4 input[type=checkbox] + label::before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		-webkit-transition: opacity 0.3s ease-in-out;
+		transition: opacity 0.3s ease-in-out;
+		border: 3px solid transparent;
+		border-radius: 1.25rem;
+		background-image: -webkit-linear-gradient(top, #fff, #fff), -webkit-linear-gradient(25deg, #2f7ad3 1%, #253981 113%);
+		background-image: linear-gradient(to bottom, #fff, #fff), linear-gradient(65deg, #2f7ad3 1%, #253981 113%);
+		background-origin: border-box;
+		background-clip: content-box, border-box;
+}
+.sub-card.type4 input[type=radio]:checked + label,
+.sub-card.type4 input[type=checkbox]:checked + label {
+		background-color: transparent;
+		border-color: transparent;
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+}
+.sub-card.type4 input[type=radio]:checked + label .inner ul.case li.target,
+.sub-card.type4 input[type=checkbox]:checked + label .inner ul.case li.target {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+}
+.sub-card.type4 input[type=radio]:checked + label .inner ul.case li.target:after,
+.sub-card.type4 input[type=checkbox]:checked + label .inner ul.case li.target:after {
+		content: "";
+		margin-left: 4px;
+		width: 1.25rem;
+		height: 1.25rem;
+		background-image: url("../images/ico/ico_checkbox_sub_card_20x20_on.svg");
+		background-size: 1.25rem 1.25rem;
+		background-position: center center;
+		background-repeat: no-repeat;
+		-webkit-transition: background-image 0.3s ease-in-out;
+		transition: background-image 0.3s ease-in-out;
+}
+.sub-card.type4 input[type=radio]:checked + label::before,
+.sub-card.type4 input[type=checkbox]:checked + label::before {
+		opacity: 1;
+}
 
 .accordion .accordion-header img.img-acc-arrow {
 		-webkit-transform: rotate(0);
@@ -10179,6 +10397,19 @@ button.ico-plus::after {
 .exam-field {
 		height: 500px;
 		padding: 40px;
+}
+
+.btn-del-target {
+		position: absolute;
+		top: 26px;
+		right: 22px;
+		width: 1rem;
+		height: 1rem;
+		background: url("../images/ico/ico_close_03.svg") 0/1rem 1rem no-repeat;
+		z-index: 10;
+		overflow: hidden;
+		text-indent: 100%;
+		white-space: nowrap;
 }
 
 @media (max-width: 370px) {

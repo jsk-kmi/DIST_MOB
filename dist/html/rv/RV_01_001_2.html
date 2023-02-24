@@ -55,7 +55,7 @@
             <div class="flex-container">
                 <div class="rv-block">
                     <h1 class="tit type-step type-floating">
-                        검진대상자
+                        검진 대상자
                         <i class="skip">6단계 중 1단게</i>
                         <button class="ico-plus" aria-label="두번탭하면개인비용대상자추가할수있는팝업열림"></button>
                     </h1>
@@ -83,6 +83,7 @@
                         </ul>
                     </div>
 
+
                     <div class="tab-panel show" role="tabpanel" aria-labelledby="ap-step-1-panel" data-panelname="appointmentCheckup">
                         <p>예약 진행하실 대상자를 선택하여 주시기 바랍니다.</p>
                         <p>개인 비용의 가족 및 지인 검진 신청을 원하실 경우 우측 상단 [추가] 버튼을 선택하여 주시기 바랍니다.</p>
@@ -107,14 +108,16 @@
                                 </ul>
                             </div>
                         </div>
-
-                        <div class="sub-card type1">
+                        <!-- [ mod(230224) ]
+							- 삭제 버튼 클릭 시 삭제 안내 문구 팝업 (RV_01_001_1_popup.html)
+						-->
+                        <div class="sub-card type4">
+                            <button type="button" class="btn-open-popup btn-del-target" data-toggle="modal" data-target="#popupDeleteExamTarget"><span>대상자 삭제하기</span></button>
                             <input type="radio" id="patient1" name="patientList" />
                             <label for="patient1">
                                 <div class="inner">
                                     <ul class="case">
-                                        <li>본인</li>
-                                        <li class="ico-checkbox"></li>
+                                        <li class="target">본인</li>
                                     </ul>
                                     <ul class="profile">
                                         <li>홍길동</li>
@@ -132,13 +135,13 @@
                             </label>
                         </div>
 
-                        <div class="sub-card type1">
+                        <div class="sub-card type4">
+
                             <input type="radio" id="patient2" name="patientList" />
                             <label for="patient2">
                                 <div class="inner">
                                     <ul class="case">
-                                        <li>배우자</li>
-                                        <li class="ico-checkbox"></li>
+                                        <li class="target">배우자</li>
                                     </ul>
                                     <ul class="profile">
                                         <li>홍길순</li>
@@ -155,13 +158,12 @@
                             </label>
                         </div>
 
-                        <div class="sub-card type1">
+                        <div class="sub-card type4">
                             <input type="radio" id="patient3" name="patientList" />
                             <label for="patient3">
                                 <div class="inner">
                                     <ul class="case">
-                                        <li>미지정</li>
-                                        <li class="ico-checkbox"></li>
+                                        <li class="target">미지정</li>
                                     </ul>
                                     <ul class="profile">
                                         <li>미지정</li>
@@ -177,13 +179,12 @@
                             </label>
                         </div>
 
-                        <div class="sub-card type1">
+                        <div class="sub-card type4">
                             <input type="radio" id="patient4" name="patientList" />
                             <label for="patient4">
                                 <div class="inner">
                                     <ul class="case">
-                                        <li>본인</li>
-                                        <li class="ico-checkbox"></li>
+                                        <li class="target">본인</li>
                                     </ul>
                                     <ul class="profile">
                                         <li>홍길동</li>
@@ -212,6 +213,7 @@
                                 </div>
                             </label>
                         </div>
+                        <!-- [ //  mod(230224) ] -->
 
                         <div class="accordion type4 open">
                             <button class="accordion-header" id="notesReservation" aria-controls="notes-reservation" aria-expanded="true">

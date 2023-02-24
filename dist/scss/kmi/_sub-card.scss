@@ -252,4 +252,143 @@
       }
     }
   }
+
+  &.type4 {
+    margin-top: 1.25rem;
+    @include cardType01(1.125rem);
+		
+    position: relative;
+    input[type='radio'],
+    input[type='checkbox'] {
+      @include hide-input;
+      & + label {
+        @include card-check-type-off;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+        // border-radius: 1.25rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        .inner {
+          position: relative;
+          // border-radius: 1.125rem;
+          background-color: #fff;
+          padding: {
+            top: 1.3125rem;
+            right: 1.25rem;
+            bottom: 0.5625rem;
+            left: 1.25rem;
+          }
+          ul {
+            &.case {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              li {
+                &.ico-checkbox {
+                  width: 1.25rem;
+                  height: 1.25rem;
+                  background-image: url($image-ico-path + 'ico_checkbox_sub_card_20x20_on.svg');
+                  background-size: 1.25rem 1.25rem;
+                  background-position: center center;
+                  background-repeat: no-repeat;
+                  transition: background-image $transition-3 ease-in-out;
+                }
+                &:first-child {
+                  @include coTxtSubCard;
+                  color: $color-sub-02;
+                }
+              }
+            }
+            &.profile {
+              display: flex;
+              align-items: center;
+              justify-content: flex-start;
+              padding-bottom: 0.5rem;
+              margin-top: 0.25rem;
+              li {
+                @include coTxtTitleLarge;
+                color: $color-black-80;
+                position: relative;
+                & ~ li {
+                  span {
+                    @include coTxtBody;
+                    margin-left: 0.75rem;
+                  }
+                }
+              }
+            }
+            &.tag-list {
+              margin: {
+                top: 0.75rem;
+                right: 0;
+                bottom: 0.75rem;
+                left: 0;
+              }
+              width: 100%;
+              max-height: 24px;
+              overflow-y: hidden;
+              overflow-x: scroll;
+              flex-wrap: nowrap;
+              li {
+                margin: 0;
+                flex: 0 0 auto;
+                & ~ li {
+                  margin-left: 0.75rem;
+                }
+              }
+            }
+          }
+          dl {
+            dt {
+              width: 1.625rem;
+            }
+            dd {
+              span {
+                @include coTxtBodySmall;
+                width: calc(100% - 2.125rem);
+              }
+            }
+          }
+        }
+        &::before {
+          @include card-check-type-on-before(1.25rem);
+        }
+      }
+
+      &:checked {
+        & + label {
+          @include card-check-type-on;
+          box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+          .inner {
+            ul {
+              &.case {
+                li {
+                  &.target {
+                    display: flex;
+                    &:after {
+                      content: '';
+                      margin-left: 4px;
+                      width: 1.25rem;
+                      height: 1.25rem;
+                      background-image: url($image-ico-path + 'ico_checkbox_sub_card_20x20_on.svg');
+                      background-size: 1.25rem 1.25rem;
+                      background-position: center center;
+                      background-repeat: no-repeat;
+                      transition: background-image $transition-3 ease-in-out;
+                    }
+                  }
+                  &.ico-checkbox {
+                  }
+                }
+              }
+            }
+          }
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 }
