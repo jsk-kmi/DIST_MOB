@@ -39,6 +39,13 @@ function tabScrollEvt() {
         firstTab = tabField.querySelectorAll('[role="tabpanel"]');
     navbarlinks.forEach(function (navbarlink) {
       let position = document.querySelector('#container').scrollTop + 100;
+
+      if (position <= 264) {
+        if (document.querySelector('.header').classList.contains('scroll-hide')) {
+          document.querySelector('.header').classList.remove('scroll-hide');
+        }
+      }
+
       let nowTab = navbarlink.getAttribute('aria-controls'),
           rdoChk = navbarlink.querySelector('input');
       let section = document.querySelector(`#${nowTab}`);
@@ -65,6 +72,67 @@ function tabScrollEvt() {
       left: tabDiff,
       behavior: 'smooth'
     });
+  });
+} // + jobStress Progressbar
+
+
+function once(fn, context) {
+  let fnResult;
+  return function () {
+    if (fn) {
+      fnResult = fn.apply(context || this, arguments);
+      fn = null;
+    }
+
+    return fnResult;
+  };
+}
+
+const jobProgressbar = once(function () {
+  let i = 0;
+  progressList = document.querySelectorAll('.jo-progress');
+  Array.prototype.forEach.call(progressList, function (value, index) {
+    let elemWidth = value.querySelector('span').innerText;
+
+    function progressCall(index) {
+      let prgbarElem = progressList[index];
+      let barWidth = 0;
+
+      if (i === 0) {
+        var prgInterval = setInterval(doing, 20);
+      }
+
+      function doing() {
+        if (barWidth >= elemWidth) {
+          clearInterval(prgInterval);
+          i = 0;
+        } else {
+          {
+            barWidth++;
+
+            if (elemWidth <= barWidth) {
+              prgbarElem.style.width = elemWidth + '%';
+            } else {
+              prgbarElem.style.width = barWidth + '%';
+            }
+          }
+        }
+      }
+    }
+
+    progressCall(index);
+  });
+});
+
+function jobProgressbarInit() {
+  let scrollPosInit = document.querySelector('#container').scrollTop;
+  document.querySelector('#container').addEventListener('scroll', function () {
+    let totalSectionPos = document.querySelector('.total-article').offsetTop;
+    scrollPosInit = document.querySelector('#container').scrollTop + document.querySelector('.total-article').offsetHeight + 100;
+
+    if (scrollPosInit >= totalSectionPos) {
+      jobProgressbar();
+    }
   });
 }
 //# sourceMappingURL=maps/common02.js.map

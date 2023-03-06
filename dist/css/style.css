@@ -1360,6 +1360,9 @@ a.is-next {
 		background-color: rgba(28, 28, 28, 0.05);
 		border-radius: 0.75rem;
 }
+.box em {
+		font-weight: 500;
+}
 .box.type1 .box-txt {
 		font-size: 0.75rem;
 		font-weight: 400;
@@ -1386,6 +1389,7 @@ a.is-next {
 		letter-spacing: -0.0187rem;
 		line-height: 1.75rem;
 		color: rgba(28, 28, 28, 0.8);
+		background-color: #f6f6f8;
 		padding: 1rem 1.25rem;
 }
 .box.type3 p ~ p {
@@ -3357,6 +3361,12 @@ textarea textarea[readonly=readonly]:focus,
 		background-color: #fff;
 		padding: 1.25rem;
 }
+.card_04 .inner p {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		word-wrap: break-word;
+}
 .card_04 .inner .hospital-date {
 		font-size: 0.875rem;
 		font-weight: 400;
@@ -3396,6 +3406,10 @@ textarea textarea[readonly=readonly]:focus,
 		font-weight: 400;
 		letter-spacing: -0.0313rem;
 		line-height: 1.25rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		word-wrap: break-word;
 		color: #253981;
 		padding: 0.125rem 0.625rem;
 		background-color: #ecf1f8;
@@ -4103,19 +4117,15 @@ a.card_09 {
 		-webkit-align-items: center;
 		    -ms-flex-align: center;
 		        align-items: center;
-		-webkit-box-pack: justify;
-		-webkit-justify-content: space-between;
-		    -ms-flex-pack: justify;
-		        justify-content: space-between;
 }
 .sub-card.type1 input[type=radio] + label .inner ul.case li.ico-checkbox,
 .sub-card.type1 input[type=checkbox] + label .inner ul.case li.ico-checkbox, .sub-card.type3 input[type=radio] + label .inner ul.case li.ico-checkbox,
 .sub-card.type3 input[type=checkbox] + label .inner ul.case li.ico-checkbox {
+		margin-left: 0.25rem;
 		width: 1.25rem;
 		height: 1.25rem;
-		background-image: url("../images/ico/ico_checkbox_sub_card_20x20.svg");
-		background-size: 1.25rem 1.25rem;
-		background-position: center center;
+		background-size: 1.25rem;
+		background-position: center;
 		background-repeat: no-repeat;
 		-webkit-transition: background-image 0.3s ease-in-out;
 		transition: background-image 0.3s ease-in-out;
@@ -4281,6 +4291,16 @@ a.card_09 {
 }
 .sub-card.type3 .inner {
 		border-radius: 0.75rem;
+}
+.sub-card.type3 input[type=radio]:checked + label,
+.sub-card.type3 input[type=checkbox]:checked + label {
+		background-color: transparent;
+		border-color: transparent;
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+}
+.sub-card.type3 input[type=radio]:checked + label::before,
+.sub-card.type3 input[type=checkbox]:checked + label::before {
+		opacity: 1;
 }
 .sub-card.type2 {
 		background: #ffffff;
@@ -7078,7 +7098,6 @@ header.header.co-header.scroll-hide {
 		width: 100%;
 }
 .c-modal-header .c-modal-title-field .c-title {
-		margin-right: 2.875rem;
 		text-align: left;
 		font-size: 1.5rem;
 		font-weight: 500;
@@ -8106,11 +8125,14 @@ button.ico-plus::after {
 		        justify-content: center;
 }
 .swiper-pagination .swiper-pagination-bullet {
-		min-width: 8px;
+		min-width: 10px;
+		width: 10px;
+		height: 10px;
 		border: 0 none;
 		border-radius: 0.5rem;
 		background: rgba(28, 28, 28, 0.1);
 		opacity: 1;
+		margin: 0 6px;
 		-webkit-transition: background-color 0.3s ease-in-out, width 0.3s ease-in-out;
 		transition: background-color 0.3s ease-in-out, width 0.3s ease-in-out;
 }
@@ -8124,6 +8146,10 @@ button.ico-plus::after {
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
 		bottom: 0;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets > .swiper-pagination-bullet {
+		margin: 0 6px;
 }
 
 .btn-swiper-stop {
@@ -8276,7 +8302,8 @@ button.ico-plus::after {
 .em-block,
 .terms-block,
 .guide-block,
-.co-block {
+.co-block,
+.jo-block {
 		position: relative;
 }
 .login-block .tit,
@@ -8292,7 +8319,8 @@ button.ico-plus::after {
 .em-block .tit,
 .terms-block .tit,
 .guide-block .tit,
-.co-block .tit {
+.co-block .tit,
+.jo-block .tit {
 		font-size: 2rem;
 		font-weight: 500;
 		letter-spacing: -0.0313rem;
@@ -8312,7 +8340,8 @@ button.ico-plus::after {
 .em-block .tit.type-step,
 .terms-block .tit.type-step,
 .guide-block .tit.type-step,
-.co-block .tit.type-step {
+.co-block .tit.type-step,
+.jo-block .tit.type-step {
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -ms-flexbox;
@@ -8353,7 +8382,9 @@ button.ico-plus::after {
 .guide-block .tit.type-step .step,
 .guide-block .tit.type-step .step span,
 .co-block .tit.type-step .step,
-.co-block .tit.type-step .step span {
+.co-block .tit.type-step .step span,
+.jo-block .tit.type-step .step,
+.jo-block .tit.type-step .step span {
 		font-size: 1.25rem;
 		font-weight: 400;
 		letter-spacing: -0.0313rem;
@@ -8373,7 +8404,8 @@ button.ico-plus::after {
 .em-block .tit.type-step .step span:first-child,
 .terms-block .tit.type-step .step span:first-child,
 .guide-block .tit.type-step .step span:first-child,
-.co-block .tit.type-step .step span:first-child {
+.co-block .tit.type-step .step span:first-child,
+.jo-block .tit.type-step .step span:first-child {
 		color: rgba(28, 28, 28, 0.4);
 }
 .login-block .c-tab.type-slide,
@@ -8389,7 +8421,8 @@ button.ico-plus::after {
 .em-block .c-tab.type-slide,
 .terms-block .c-tab.type-slide,
 .guide-block .c-tab.type-slide,
-.co-block .c-tab.type-slide {
+.co-block .c-tab.type-slide,
+.jo-block .c-tab.type-slide {
 		margin-left: -1.75rem;
 		width: 100vw;
 		padding-top: 1.25rem;
@@ -8410,7 +8443,8 @@ button.ico-plus::after {
 .em-block .detail-tit,
 .terms-block .detail-tit,
 .guide-block .detail-tit,
-.co-block .detail-tit {
+.co-block .detail-tit,
+.jo-block .detail-tit {
 		font-size: 1.5rem;
 		font-weight: 500;
 		letter-spacing: -0.0313rem;
@@ -8431,7 +8465,8 @@ button.ico-plus::after {
 .em-block .detail-info,
 .terms-block .detail-info,
 .guide-block .detail-info,
-.co-block .detail-info {
+.co-block .detail-info,
+.jo-block .detail-info {
 		position: relative;
 		padding: 1.25rem 0;
 		display: -webkit-box;
@@ -8460,7 +8495,8 @@ button.ico-plus::after {
 .em-block .detail-info span,
 .terms-block .detail-info span,
 .guide-block .detail-info span,
-.co-block .detail-info span {
+.co-block .detail-info span,
+.jo-block .detail-info span {
 		font-size: 0.75rem;
 		font-weight: 400;
 		letter-spacing: -0.0313rem;
@@ -8500,7 +8536,8 @@ button.ico-plus::after {
 .em-block .detail-info span:first-of-type,
 .terms-block .detail-info span:first-of-type,
 .guide-block .detail-info span:first-of-type,
-.co-block .detail-info span:first-of-type {
+.co-block .detail-info span:first-of-type,
+.jo-block .detail-info span:first-of-type {
 		margin-left: 0;
 		background-image: url("../images/ico/ico_eye_01.svg");
 }
@@ -8517,7 +8554,8 @@ button.ico-plus::after {
 .em-block .detail-info::after,
 .terms-block .detail-info::after,
 .guide-block .detail-info::after,
-.co-block .detail-info::after {
+.co-block .detail-info::after,
+.jo-block .detail-info::after {
 		content: "";
 		display: block;
 		position: absolute;
@@ -8540,7 +8578,8 @@ button.ico-plus::after {
 .em-block .detail-editor,
 .terms-block .detail-editor,
 .guide-block .detail-editor,
-.co-block .detail-editor {
+.co-block .detail-editor,
+.jo-block .detail-editor {
 		position: relative;
 		min-height: 320px;
 }
@@ -8557,7 +8596,8 @@ button.ico-plus::after {
 .em-block .detail-editor.type-vdo,
 .terms-block .detail-editor.type-vdo,
 .guide-block .detail-editor.type-vdo,
-.co-block .detail-editor.type-vdo {
+.co-block .detail-editor.type-vdo,
+.jo-block .detail-editor.type-vdo {
 		padding-bottom: 56.25%; /* 16:9 */
 		height: 0;
 }
@@ -8574,7 +8614,8 @@ button.ico-plus::after {
 .em-block .detail-editor.type-vdo iframe,
 .terms-block .detail-editor.type-vdo iframe,
 .guide-block .detail-editor.type-vdo iframe,
-.co-block .detail-editor.type-vdo iframe {
+.co-block .detail-editor.type-vdo iframe,
+.jo-block .detail-editor.type-vdo iframe {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -8594,7 +8635,8 @@ button.ico-plus::after {
 .em-block .detail-editor .dummy-area,
 .terms-block .detail-editor .dummy-area,
 .guide-block .detail-editor .dummy-area,
-.co-block .detail-editor .dummy-area {
+.co-block .detail-editor .dummy-area,
+.jo-block .detail-editor .dummy-area {
 		background: url("../images/dummy/dummy_editorarea.png") center/contain rgba(28, 28, 28, 0.05) no-repeat;
 		width: 100%;
 		min-height: 320px;
@@ -8612,7 +8654,8 @@ button.ico-plus::after {
 .em-block .detail-btn,
 .terms-block .detail-btn,
 .guide-block .detail-btn,
-.co-block .detail-btn {
+.co-block .detail-btn,
+.jo-block .detail-btn {
 		margin-top: 2.5rem;
 }
 .login-block .btn-move-list,
@@ -8628,7 +8671,8 @@ button.ico-plus::after {
 .em-block .btn-move-list,
 .terms-block .btn-move-list,
 .guide-block .btn-move-list,
-.co-block .btn-move-list {
+.co-block .btn-move-list,
+.jo-block .btn-move-list {
 		margin-top: 1.25rem;
 }
 
@@ -10233,6 +10277,10 @@ button.ico-plus::after {
 		margin-left: 0.5rem;
 }
 .jobstress-title-field .title {
+		font-size: 1.125rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -ms-flexbox;
@@ -10245,6 +10293,9 @@ button.ico-plus::after {
 .jobstress-title-field .title + .cont {
 		color: rgba(28, 28, 28, 0.8);
 		margin-top: 1.25rem;
+}
+.jobstress-title-field.type02 .title + .cont {
+		margin-top: 8px;
 }
 
 .jo-exam-listbox {
@@ -10410,6 +10461,145 @@ button.ico-plus::after {
 		overflow: hidden;
 		text-indent: 100%;
 		white-space: nowrap;
+}
+
+.jo-progress-field .jo-row ~ .jo-row {
+		margin-top: 1.5rem;
+}
+.jo-progress-field .jo-row .inner {
+		margin-top: 0.5rem;
+		padding: 1rem 1.25rem;
+		border-radius: 0.75rem;
+		background-color: #fff;
+		box-shadow: 0px 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+}
+.jo-progress-field h3 {
+		font-size: 0.875rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.5rem;
+		color: rgba(28, 28, 28, 0.8);
+}
+.jo-progress-field .score {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: end;
+		-webkit-align-items: flex-end;
+		    -ms-flex-align: end;
+		        align-items: flex-end;
+}
+.jo-progress-field .score .type {
+		font-size: 1.375rem;
+		font-weight: 500;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+}
+.jo-progress-field .score .num {
+		font-size: 1.125rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+		color: rgba(28, 28, 28, 0.6);
+		padding-left: 0.5rem;
+}
+.jo-progress-field .score .unit {
+		font-size: 1.125rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+		color: rgba(28, 28, 28, 0.6);
+		padding-left: 0.5rem;
+}
+
+.jo-res-swiper {
+		margin-top: 20px;
+}
+
+.jo-accordion-list .accordion + .accordion {
+		margin-top: 24px;
+}
+
+.jo-factor-box {
+		margin-top: 1.5rem;
+		padding: 1.5rem 1.25rem;
+		background-color: #f6f6f8;
+		border-radius: 0.75rem;
+}
+
+.jo-factor-list > li ~ li {
+		margin-top: 1.5rem;
+}
+.jo-factor-list .name {
+		font-size: 0.875rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.5rem;
+		color: #1c1c1c;
+}
+.jo-factor-list .name + .value {
+		margin-top: 0.5rem;
+}
+.jo-factor-list .value {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: end;
+		-webkit-align-items: flex-end;
+		    -ms-flex-align: end;
+		        align-items: flex-end;
+		padding: 1rem 1.25rem;
+		background-color: #fff;
+		box-shadow: 0px 0.125rem 4px rgba(0, 0, 0, 0.2);
+		border-radius: 0.75rem;
+		font-size: 1.125rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.5rem;
+		color: rgba(28, 28, 28, 0.6);
+}
+.jo-factor-list .value > em {
+		color: #1c1c1c;
+		font-size: 1.375rem;
+		font-weight: 500;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+}
+.jo-factor-list .value .unit {
+		display: -webkit-inline-box;
+		display: -webkit-inline-flex;
+		display: -ms-inline-flexbox;
+		display: inline-flex;
+		margin-left: 0.25rem;
+}
+.jo-factor-list + .cont {
+		margin-top: 1.5rem;
+}
+
+.jo-progress-bar {
+		border-radius: 12px;
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 4px;
+		background-color: #ebf2fb;
+		margin-top: 0.5rem;
+}
+.jo-progress-bar .unit {
+		padding-left: 0.5rem;
+		font-size: 1.125rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+}
+.jo-progress-bar .jo-progress {
+		border-radius: 8px;
+		display: block;
+		width: 0%;
+		height: 100%;
+		background: #2f7ad3;
 }
 
 @media (max-width: 370px) {

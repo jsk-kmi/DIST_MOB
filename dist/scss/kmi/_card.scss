@@ -325,6 +325,9 @@
     border-radius: 1.125rem;
     background-color: $color-white-100;
     padding: 1.25rem;
+    p {
+      @include ellipsisLine01;
+    }
     .hospital-date {
       @include coTxtLabelLarge;
       color: $color-sub-02;
@@ -344,6 +347,7 @@
       margin-top: 1.25rem;
       span {
         @include coTxtLabelMedium;
+        @include ellipsisLine01;
         color: $color-main;
         padding: 0.125rem 0.625rem;
         background-color: $color-bg-03;

@@ -1615,11 +1615,9 @@ function commonInit() {
     const FLEX_ELEM = CONTAINER_ELEM.querySelector('.flex-wrap');
 
     if (!FLEX_ELEM.classList.contains('type-tab-scroll')) {
-      console.log('type tab scrol x');
       const MOVE_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
       if (MOVE_HEADER) containerScrollEvent(MOVE_HEADER, CONTAINER_ELEM);
     } else if (FLEX_ELEM.classList.contains('type-tab-scroll')) {
-      console.log('type tab scroll 0');
       const MOVE_HEADER = CONTAINER_ELEM.querySelector('.header.co-header');
       if (MOVE_HEADER) containerTabScrollEvent(MOVE_HEADER, CONTAINER_ELEM);
     } // custom 스크롤바 만들기
@@ -1679,7 +1677,6 @@ function commonInit() {
             _moveHeader.classList.remove('scroll-hide');
 
             scrollArr = [];
-            console.log('scroll up ');
           }
         }
 
@@ -1736,8 +1733,7 @@ function commonInit() {
 
         if (st > lastScrollTop) {
           // SCROLL: DOWN
-          console.log('touch move scroll down');
-
+          // console.log('touch move scroll down');
           _moveHeader.classList.add('scroll-hide');
         } else {
           // SCROLL: UP
@@ -1753,7 +1749,6 @@ function commonInit() {
             // console.log('SHOW_HEADER_NUM: ' + SHOW_HEADER_NUM);
 
 
-            console.log('touch move scroll up 여부');
             scrollArr = [];
           }
         }

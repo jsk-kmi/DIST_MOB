@@ -7,6 +7,9 @@
   }
   background-color: $color-black-05;
   border-radius: 0.75rem;
+  em {
+    font-weight: 500;
+  }
   &.type1 {
     .box-txt {
       @include coTxtLabelMedium;
@@ -28,6 +31,7 @@
   &.type3 {
     @include coTxtBody;
     color: $color-black-80;
+    background-color: $color-bg-04;
     padding: 1rem 1.25rem;
     p {
       & ~ p {

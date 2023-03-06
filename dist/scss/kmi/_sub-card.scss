@@ -68,15 +68,16 @@
             &.case {
               display: flex;
               align-items: center;
-              justify-content: space-between;
               li {
                 &.ico-checkbox {
+                  margin-left: 0.25rem;
                   width: 1.25rem;
                   height: 1.25rem;
-                  background-image: url($image-ico-path + 'ico_checkbox_sub_card_20x20.svg');
-                  background-size: 1.25rem 1.25rem;
-                  background-position: center center;
-                  background-repeat: no-repeat;
+                  background: {
+                    size: 1.25rem;
+                    position: center;
+                    repeat: no-repeat;
+                  }
                   transition: background-image $transition-3 ease-in-out;
                 }
                 &:first-child {
@@ -170,6 +171,28 @@
 
   &.type3 {
     @include cardType01(0.75rem);
+    input[type='radio'],
+    input[type='checkbox'] {
+      &:checked {
+        & + label {
+          @include card-check-type-on;
+          box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
+          .inner {
+            ul {
+              &.case {
+                li {
+                  &.ico-checkbox {
+                  }
+                }
+              }
+            }
+          }
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 
   &.type2 {
@@ -256,7 +279,7 @@
   &.type4 {
     margin-top: 1.25rem;
     @include cardType01(1.125rem);
-		
+
     position: relative;
     input[type='radio'],
     input[type='checkbox'] {

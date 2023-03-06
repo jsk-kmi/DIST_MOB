@@ -302,11 +302,14 @@ button {
   align-items: center;
   justify-content: center;
   .swiper-pagination-bullet {
-    min-width: 8px;
+    min-width: 10px;
+    width: 10px;
+    height: 10px;
     border: 0 none;
     border-radius: 0.5rem;
     background: $color-black-10;
     opacity: 1;
+    margin: 0 6px;
     transition: background-color $transition-3 ease-in-out, width $transition-3 ease-in-out;
     &.swiper-pagination-bullet-active {
       min-width: 16px;
@@ -319,6 +322,14 @@ button {
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
   bottom: 0;
+}
+
+.swiper-container-horizontal {
+  > .swiper-pagination-bullets {
+    > .swiper-pagination-bullet {
+      margin: 0 6px;
+    }
+  }
 }
 // ++ rolling swiper stop button
 .btn-swiper-stop {
@@ -451,7 +462,8 @@ button {
 .em-block,
 .terms-block,
 .guide-block,
-.co-block {
+.co-block,
+.jo-block {
   position: relative;
   .tit {
     @include coTxtTitleHeadingLarge;
@@ -2284,11 +2296,20 @@ button {
     }
   }
   .title {
+    @include coTxtTitleSmall;
     display: flex;
     align-items: center;
     & + .cont {
       color: $color-black-80;
       margin-top: 1.25rem;
+    }
+  }
+
+  &.type02 {
+    .title {
+      & + .cont {
+        margin-top: 8px;
+      }
     }
   }
 }
@@ -2461,4 +2482,124 @@ button {
 
   z-index: 10;
   @include hide;
+}
+
+.jo-progress-field {
+  .jo-row {
+    & ~ .jo-row {
+      margin-top: 1.5rem;
+    }
+
+    .inner {
+      margin-top: 0.5rem;
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      background-color: $color-white-100;
+      box-shadow: 0px 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  h3 {
+    @include coTxtLabelLarge;
+    color: $color-black-80;
+  }
+
+  .score {
+    display: flex;
+    align-items: flex-end;
+    .type {
+      @include fontStyle(1.375rem, 1.75rem, 500, -0.0313rem);
+    }
+    .num {
+      @include coTxtTitleSmall;
+      color: $color-black-60;
+      padding-left: 0.5rem;
+    }
+    .unit {
+      @include coTxtTitleSmall;
+      color: $color-black-60;
+      padding-left: 0.5rem;
+    }
+  }
+}
+
+.jo-res-swiper {
+  margin-top: 20px;
+}
+
+.jo-accordion-list {
+  .accordion {
+    & + .accordion {
+      margin-top: 24px;
+    }
+  }
+}
+
+.jo-factor-box {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.25rem;
+  background-color: $color-bg-04;
+  border-radius: 0.75rem;
+}
+
+.jo-factor-list {
+  > li {
+    & ~ li {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .name {
+    @include coTxtLabelLarge;
+    color: $default-font-color;
+
+    & + .value {
+      margin-top: 0.5rem;
+    }
+  }
+
+  .value {
+    display: flex;
+    align-items: flex-end;
+    padding: 1rem 1.25rem;
+    background-color: $color-white-100;
+    box-shadow: 0px 0.125rem 4px rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+
+    @include fontStyle(1.125rem, 1.5rem, 400, -0.0313rem);
+    color: $color-black-60;
+    > em {
+      color: $color-black-100;
+      @include fontStyle(1.375rem, 1.75rem, 500, -0.0313rem);
+    }
+
+    .unit {
+      display: inline-flex;
+      margin-left: 0.25rem;
+    }
+  }
+  & + .cont {
+    margin-top: 1.5rem;
+  }
+}
+
+.jo-progress-bar {
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 4px;
+  background-color: #ebf2fb;
+  margin-top: 0.5rem;
+  .unit {
+    padding-left: 0.5rem;
+    @include coTxtTitleSmall;
+  }
+  .jo-progress {
+    border-radius: 8px;
+    display: block;
+    width: 0%;
+    height: 100%;
+    background: $color-sub-02;
+  }
 }

@@ -2,10 +2,10 @@
 
 /**
  * swiper variable
-*/
+ */
 
-var autoPlayState = true;
-var SWIPER_ALT_TXT = {
+let autoPlayState = true;
+const SWIPER_ALT_TXT = {
   rolling: {
     start: '자동롤링되있는리스트입니다이중탭하면자동롤링이멈춥니다',
     stop: '자동롤링이정지되어있는리스트입니다이중탭하면자동롤링이플레이됩니다'
@@ -13,7 +13,7 @@ var SWIPER_ALT_TXT = {
 };
 /**
  * swiper
-*/
+ */
 // swiper 공통 event
 // + init
 
@@ -44,12 +44,12 @@ function swiperTransitionEndEvt(_elem) {
 
 
 function slide(_slide) {
-  var SlideEls = _slide.$el[0].querySelectorAll('.swiper-slide');
+  let SlideEls = _slide.$el[0].querySelectorAll('.swiper-slide');
 
-  var currentSlide = _slide.$el[0].querySelector('.swiper-slide-active');
+  let currentSlide = _slide.$el[0].querySelector('.swiper-slide-active');
 
   if (SlideEls && currentSlide) {
-    for (var i = 0; i < SlideEls.length; i++) {
+    for (let i = 0; i < SlideEls.length; i++) {
       SlideEls[i].setAttribute('aria-expanded', false);
       SlideEls[i].setAttribute('aria-hidden', true);
       SlideEls[i].setAttribute('tabindex', '-1');
@@ -63,27 +63,25 @@ function slide(_slide) {
 
 
 function dot(_dot) {
-  var dotWrap = _dot.$el[0].querySelector('.swiper-pagination');
+  let dotWrap = _dot.$el[0].querySelector('.swiper-pagination');
 
   if (dotWrap) {
-    var allDot = dotWrap.querySelectorAll('.swiper-pagination-bullet');
-    var currentDot = dotWrap.querySelector('.swiper-pagination-bullet-active');
+    let allDot = dotWrap.querySelectorAll('.swiper-pagination-bullet');
+    let currentDot = dotWrap.querySelector('.swiper-pagination-bullet-active');
 
     if (allDot && currentDot) {
-      for (var i = 0; i < allDot.length; i++) {
-        allDot[i].setAttribute('aria-label', "\uC774\uC911\uD0ED\uD558\uBA74 ".concat(i + 1, "\uBC88 \uC2AC\uB77C\uC774\uB4DC\uB85C \uC774\uB3D9"));
-      }
+      for (let i = 0; i < allDot.length; i++) allDot[i].setAttribute('aria-label', `이중탭하면 ${i + 1}번 슬라이드로 이동`);
 
-      currentDot.setAttribute('aria-label', "\uD604\uC7AC ".concat(_dot.realIndex + 1, "\uBC88 \uC2AC\uB77C\uC774\uB4DC"));
+      currentDot.setAttribute('aria-label', `현재 ${_dot.realIndex + 1}번 슬라이드`);
     }
   }
 } // left, right Arrow
 
 
 function arrow(_arrow) {
-  var arrPrev = _arrow.$el[0].querySelector('.swiper-button-prev');
+  let arrPrev = _arrow.$el[0].querySelector('.swiper-button-prev');
 
-  var arrNext = _arrow.$el[0].querySelector('.swiper-button-next');
+  let arrNext = _arrow.$el[0].querySelector('.swiper-button-next');
 
   if (arrPrev) arrPrev.setAttribute('aria-label', '이전 슬라이드로 이동');
   if (arrNext) arrNext.setAttribute('aria-label', '다음 슬라이드로 이동');
@@ -91,7 +89,7 @@ function arrow(_arrow) {
 
 
 function rollingSwiper(_this) {
-  var swiper = _this.parentElement.swiper;
+  let swiper = _this.parentElement.swiper;
   autoPlayState ? swiper.autoplay.stop() : swiper.autoplay.start();
   autoPlayState ? _this.setAttribute('aria-label', SWIPER_ALT_TXT.rolling.stop) : _this.setAttribute('aria-label', SWIPER_ALT_TXT.rolling.start);
   autoPlayState = autoPlayState ? false : true;
