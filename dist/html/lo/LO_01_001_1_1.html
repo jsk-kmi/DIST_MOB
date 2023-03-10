@@ -63,12 +63,14 @@
                         <label for="rememberID" class="chk-label"><i></i><span>아이디 기억하기</span></label>
                     </div>
 
-                    <a href="javascript:void(0);" title="페이지 이동" class="co-btn"><span>로그인</span></a>
+                    <!-- <a href="javascript:void(0);" title="페이지 이동" class="co-btn"><span>로그인</span></a> -->
+
+                    <a href="#" onclick="getPopup()" title="팝업안내" class="co-btn"><span>로그인</span></a>
                     <!-- 팝업열림 - 퇴직 처리된 임직원 입니다. -->
                     <!-- <button type="button" class="co-btn btn-open-popup" data-toggle="modal" data-target="popupRetirement" onclick="popupDirectClick(this)"><em class="alt-txt">팝업열림</em><span>로그인</span></button> -->
 
                     <div class="btn-list">
-                        <a href="javascript:void(0);" title="페이지 이동">사번/아이디 찾기</a>
+                        <a href="javascript:void(0)" onclick="test()" title="페이지 이동">사번/아이디 찾기</a>
                         <a href="javascript:void(0);" title="페이지 이동">비밀번호 찾기</a>
                         <a href="javascript:void(0);" title="페이지 이동">이용가이드</a>
                     </div>
@@ -119,5 +121,22 @@
         </div>
     </div>
 </body>
+<script>
+    var popup;
+
+    function getPopup() {
+
+        var settings = 'toolbar=0, status=0, menubar=0, scrollbars=yes, height=400, width=300';
+        var target = 'popup.html';
+        popup = window.open('about:blank', 'popup_name', settings);
+
+        $.ajax({
+            // type: 'POST',
+            success: function(data) {
+                popup.location = "http://m.naver.com";
+            }
+        });
+    }
+</script>
 
 </html>
