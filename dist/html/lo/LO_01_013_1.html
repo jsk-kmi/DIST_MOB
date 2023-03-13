@@ -96,17 +96,17 @@
                   <input type="text" id="employeeBelong" class="c-input" value="YYYY-MM-DD 인증완료" disabled />
                 </div> -->
                             <div class="col per-column">
-                                <input type="number" class="c-input" placeholder="(필수) 휴대폰 전화번호" pattern="\d*" />
-                                <!-- [Comment] 
+                                <input type="number" class="c-input" placeholder="(필수) 휴대폰 전화번호" pattern="\d*">
+                                <!-- [Comment]
 										-  휴대번호 데이터를 불러오는 경우 Disable
 									-->
-                                <!-- <input type="text" class="c-input" placeholder="(필수) 휴대폰 전화번호" value="01011111111" disabled /> -->
+                                <!-- <input type="text" class="c-input" placeholder="(필수) 휴대폰 전화번호" value="01011111111" disabled > -->
                             </div>
                             <div class="col per-column">
-                                <input type="text" class="c-input" placeholder="유선전화" />
+                                <input type="text" class="c-input" placeholder="유선전화">
                             </div>
                             <div class="col per-column">
-                                <input type="text" class="c-input" placeholder="(필수) 이메일 주소" />
+                                <input type="text" class="c-input" placeholder="(필수) 이메일 주소">
                             </div>
                             <div class="col per-column">
                                 <div class="c-input-address-group">
@@ -115,7 +115,7 @@
                                             <div class="row inner c-input-btn-group">
                                                 <div class="column input">
                                                     <!-- [comment]
-															- 필요에 따라 disabled 제거 
+															- 필요에 따라 disabled 제거
 														-->
                                                     <input type="text" class="c-input type-white" title="주소입력" placeholder="(필수) 주소" disabled />
                                                 </div>
@@ -130,6 +130,17 @@
                                         <input type="text" class="c-input" placeholder="(필수) 상세 주소" />
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ mod(230313) ]
+						- 생년월일 입력 타입 추가
+					-->
+                    <div class="c-input-list type01">
+                        <div class="row">
+                            <div class="col per-column label-input">
+                                <label for="employeeBirthday">생년월일<span class="essential" aria-hidden="true">*</span><em class="skip">필수입력항목입니다</em></label>
+                                <input type="text" id="employeeBirthday" class="c-input" placeholder="(예 : 19990101)" />
                             </div>
                         </div>
                     </div>

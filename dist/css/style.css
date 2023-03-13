@@ -1774,6 +1774,10 @@ a.is-next {
 .c-input-list .label-input ~ .label-input {
 		margin-top: 1.75rem;
 }
+.c-input-list .label-input:only-child {
+		margin-top: 1.25rem;
+}
+
 .c-input-sub-group .col ~ .col,
 .c-input-sub-group .per-column ~ .per-column {
 		margin-top: 0.75rem;

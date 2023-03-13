@@ -103,8 +103,8 @@
     & ~ .label-input {
       margin-top: 1.75rem;
     }
-    &:first-child {
-      // margin-top: 1.25rem;
+    &:only-child {
+      margin-top: 1.25rem;
     }
   }
 }
