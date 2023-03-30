@@ -598,8 +598,16 @@ $colors: (
   & + .ui-datepicker-month {
     position: relative;
     &:before {
-      content: '-';
-      margin-left: -12px;
+      content: '.';
+      margin: {
+        left: -0.75rem;
+        right: 0.125rem;
+      }
+      // font-size: $fs-title-large;
+      // margin: {
+      //   left: -5px;
+      //   right: 6px;
+      // }
     }
   }
 }

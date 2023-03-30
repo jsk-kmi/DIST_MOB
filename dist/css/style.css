@@ -6474,8 +6474,9 @@ a.card_09 {
 		position: relative;
 }
 .ui-datepicker-year + .ui-datepicker-month:before {
-		content: "-";
-		margin-left: -12px;
+		content: ".";
+		margin-left: -0.75rem;
+		margin-right: 0.125rem;
 }
 
 .ui-datepicker-today.ui-state-disabled .ui-state-default {

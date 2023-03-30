@@ -31,7 +31,7 @@
         }
         &:checked {
           & + label {
-            color: $color-main;
+					color: $color-main;
           }
         }
       }
@@ -74,7 +74,7 @@
       }
     }
   }
-  
+
   &.type-slide {
     justify-content: flex-start;
     overflow-x: auto;
