@@ -1,10 +1,10 @@
 # KMI 재단법인 한국의학연구소
 
-## HealthCare Platform Service UI Develop Mobile Repositiory (DEV_DIST)
+## VitaBridge UI Develop Mobile Repositiory (DEV_DIST)
 
 ## 개요
 
-- KMI HealthCare Platform Service Mobile UI Develop Source
+- VitaBridge Mobile UI Develop Source
 
 - index 페이지 접속 후 파일 목록과 작업 전달사항 파악 : index 페이지 경로(dist/coding_list/index.html)
 
