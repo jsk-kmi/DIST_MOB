@@ -759,7 +759,7 @@ function commonInit() {
     focusFirstBtn(popupState, CURRENT_POPUP); // 팝업 배경 click event
     // 220923 - 현업 요청으로 제거
     // popupBgClickEvt(CURRENT_POPUP);
-    // modal header type
+    // modal header type _현재 팝업 상태 체크
 
     popupModalHeader(popupState, CURRENT_POPUP); // full type: floating tab 있는 full type 팝업이 스크롤 되는 경우
 
@@ -772,7 +772,8 @@ function commonInit() {
   function popupStateCheck(_popState) {
     let popCase = _popState.classList; // 모달 팝업: modal
 
-    if (popCase.contains('type-modal')) return 'modal'; // 푸터 없는 풀팝업: full
+    if (popCase.contains('type-modal')) return 'modal'; // 모탈 팝업 : modal (header + footer)
+    else if (popCase.contains('type-modal-hf-fixed')) return 'modal-hf-fixed'; // 푸터 없는 풀팝업: full
     else if (popCase.contains('type-full')) return 'full'; // 푸터 있는 풀팝업: full-footer
     else if (popCase.contains('type-full-footer')) return 'full-footer';
   } // + 팝업 style - top, z-index, visibility
@@ -1068,7 +1069,7 @@ function commonInit() {
 
 
   function popupModalHeader(_state, _popupEl) {
-    if (_state === 'modal') setTimeout(popupModalHeaderScroll, ANI_TIME_300, _popupEl, _state);
+    if (_state === 'modal') setTimeout(popupModalHeaderScroll, ANI_TIME_300, _popupEl, _state);else if (_state === 'modal-hf-fixed') setTimeout(popupModalHFFixedScroll, ANI_TIME_300, _popupEl, _state);
   } // ++ modal header type의 modal-field가 스크롤 되는지 체크
 
 
@@ -1087,11 +1088,34 @@ function commonInit() {
         }
       }
     }
+  } // ++ popupModalHFFixedScroll
+
+
+  function popupModalHFFixedScroll(_popEl, _state) {
+    const SCROLL_ELEM2 = _popEl.querySelector('.modal-field');
+
+    const SCROLL_ELEM2_BODY = _popEl.querySelector('.modal-field').querySelector('.c-modal-body');
+
+    if (SCROLL_ELEM2) {
+      const POP_HEADER2 = SCROLL_ELEM2.querySelector('.c-modal-header');
+
+      if (POP_HEADER2) {
+        if (SCROLL_ELEM2.querySelector('.c-modal-body').scrollHeight > SCROLL_ELEM2.querySelector('.c-modal-body').clientHeight) {
+          // scrollbar design
+          customScrollbar(_popEl, _state); // scroll event
+
+          popupModalHeaderScrollEvt(SCROLL_ELEM2_BODY, POP_HEADER2);
+        }
+      }
+    }
   } // +++ modal header type의 modal-field가 스크롤 되는 경우
 
 
   function popupModalHeaderScrollEvt(_scrollEl, _popHeader) {
+    console.log(_scrollEl);
+
     _scrollEl.addEventListener('scroll', function () {
+      console.log('scroll');
       if (this.scrollTop <= 0) _popHeader.classList.remove('isScroll');else _popHeader.classList.add('isScroll');
     });
   } // 팝업 닫힘 - 닫힘버튼 class: popup-btn-close
@@ -2014,6 +2038,19 @@ function commonInit() {
 
   function scrollDesignPopModalHeader(_elem) {
     const POPUP_SCROLL_ELEM = _elem.querySelector('.modal-field');
+
+    if (POPUP_SCROLL_ELEM) {
+      const POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.c-modal-header');
+      const POPUP_BODY = POPUP_SCROLL_ELEM.querySelector('.c-modal-body');
+      const CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
+      if (POPUP_HEADER && POPUP_BODY) modalHeaderScrollbarComn(POPUP_SCROLL_ELEM, CUSTOMER_SCROLL, POPUP_HEADER);
+    }
+  } // + add(230410)
+  // popup: modal header + footer
+
+
+  function scrollDesignPopModalHeaderFooter(_elem) {
+    const POPUP_SCROLL_ELEM = _elem.querySelector('.modal-field.type02');
 
     if (POPUP_SCROLL_ELEM) {
       const POPUP_HEADER = POPUP_SCROLL_ELEM.querySelector('.c-modal-header');

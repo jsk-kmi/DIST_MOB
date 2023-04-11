@@ -2471,19 +2471,6 @@ button {
 //     }
 //   }
 // }
-
-.btn-del-target {
-  position: absolute;
-  top: 26px;
-  right: 22px;
-  width: 1rem;
-  height: 1rem;
-  background: url($image-ico-path + 'ico_close_03.svg') 0/1rem 1rem no-repeat;
-
-  z-index: 10;
-  @include hide;
-}
-
 .jo-progress-field {
   .jo-row {
     & ~ .jo-row {
@@ -2602,4 +2589,134 @@ button {
     height: 100%;
     background: $color-sub-02;
   }
+}
+
+// + 대상자 선택 영역 추가
+.target-btn-list {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 25px;
+  right: 22px;
+  button {
+    & + button {
+      margin-left: 1.25rem;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+  .btn-del-target {
+    width: 1rem;
+    height: 1rem;
+    background: url($image-ico-path + 'ico_close_03.svg') 0/1rem 1rem no-repeat;
+
+    z-index: 10;
+    @include hide;
+  }
+  .btn-modify-target {
+    width: 1rem;
+    height: 1rem;
+    background: url($image-ico-path + 'ico_modify_01.svg') 0/1.125rem 1rem no-repeat;
+
+    z-index: 10;
+    @include hide;
+  }
+}
+
+// + 검진 정보 활용 동의서
+.popup-agree-consent {
+  .c-modal-body {
+    padding-bottom: 0;
+  }
+  .c-modal-footer {
+    .chk-list {
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  .c-modal-inner {
+    @include coTxtTermsType02;
+    // &,
+    // .tbl-useagree {
+    //   th,
+    //   td {
+    //     @include coTxtTermsType02;
+    //   }
+    // }
+    .co-list-card {
+      > li {
+        @include coTxtTermsType02;
+      }
+    }
+  }
+}
+.co-consent-form-field {
+  .cont-detail-body {
+    margin: {
+      top: 10px;
+      bottom: 10px;
+    }
+  }
+}
+
+.resexam-agreeuse-cont {
+  .co-list-card {
+    > li {
+      &:before {
+        font-weight: 500;
+      }
+      & ~ li {
+        margin-top: 20px;
+      }
+    }
+    .title {
+      display: inline-block;
+      font-weight: 700;
+      & + .table-wrap {
+        margin-top: 0.625rem;
+      }
+    }
+  }
+
+  .messrs {
+    margin-top: 0.625rem;
+    text-align: center;
+    @include fontStyle(0.9375rem, 1.875rem, 500);
+  }
+}
+
+.consent-personal-info {
+  margin-top: 1.25rem;
+  text-align: center;
+  @include fontStyle(0.9375rem, 1.875rem, 400);
+  .date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > span {
+      & ~ span {
+        padding-left: 4px;
+      }
+    }
+  }
+
+  .chk-list {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: left;
+  }
+}
+
+table {
+  &.tbl-useagree {
+    width: 100%;
+    em {
+      font-weight: 700;
+    }
+  }
+}
+.c-t-cont-type01 {
+  @include fontStyle(0.9375rem, 1.625rem, 300);
 }

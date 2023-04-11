@@ -124,6 +124,11 @@
   @include fontStyle($fs-body-small, 18px, 400, null);
 }
 
+@mixin coTxtTermsType02 {
+  // + 활용동의서
+  @include fontStyle(0.9375rem, $g-line-height-02, 300, $g-letter-spacing-02);
+}
+
 @mixin coTxtTitleSub {
   @include fontStyle($fs-body, $g-line-height-02, 500, null);
 }

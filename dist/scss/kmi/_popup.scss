@@ -61,6 +61,19 @@
     transition: opacity $transition-3 ease-in-out;
   }
 
+  // = modal-type
+  // + type-modal-hf-fixed (header-footer fixed)
+  &.type-modal-hf-fixed {
+    .modal-field {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      .c-modal-body {
+        height: 100%;
+      }
+    }
+  }
+
   // = show
   &.show {
     opacity: 1;
@@ -231,6 +244,7 @@
   // + type03
   &.type03 {
     .modal-field {
+      max-height: calc(100% - 5rem);
       height: calc(100% - 5rem);
       display: flex;
       flex-direction: column;

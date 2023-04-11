@@ -665,6 +665,10 @@ i {
 		        align-items: center !important;
 }
 
+.fw-bold {
+		font-weight: 700 !important;
+}
+
 .row {
 		display: -webkit-box;
 		display: -webkit-flex;
@@ -7045,6 +7049,24 @@ header.header.co-header.scroll-hide {
 		-webkit-transition: opacity 0.3s ease-in-out;
 		transition: opacity 0.3s ease-in-out;
 }
+.c-layer-popup.type-modal-hf-fixed .modal-field {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+		-webkit-box-flex: 1;
+		-webkit-flex-grow: 1;
+		    -ms-flex-positive: 1;
+		        flex-grow: 1;
+}
+.c-layer-popup.type-modal-hf-fixed .modal-field .c-modal-body {
+		height: 100%;
+}
 .c-layer-popup.show {
 		opacity: 1;
 }
@@ -7205,6 +7227,7 @@ header.header.co-header.scroll-hide {
 }
 
 .c-layer-popup.type03 .modal-field {
+		max-height: calc(100% - 5rem);
 		height: calc(100% - 5rem);
 		display: -webkit-box;
 		display: -webkit-flex;
@@ -10516,19 +10539,6 @@ button.ico-plus::after {
 		padding: 40px;
 }
 
-.btn-del-target {
-		position: absolute;
-		top: 26px;
-		right: 22px;
-		width: 1rem;
-		height: 1rem;
-		background: url("../images/ico/ico_close_03.svg") 0/1rem 1rem no-repeat;
-		z-index: 10;
-		overflow: hidden;
-		text-indent: 100%;
-		white-space: nowrap;
-}
-
 .jo-progress-field .jo-row ~ .jo-row {
 		margin-top: 1.5rem;
 }
@@ -10666,6 +10676,141 @@ button.ico-plus::after {
 		width: 0%;
 		height: 100%;
 		background: #2f7ad3;
+}
+
+.target-btn-list {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		position: absolute;
+		top: 25px;
+		right: 22px;
+}
+.target-btn-list button + button {
+		margin-left: 1.25rem;
+		width: 1.25rem;
+		height: 1.25rem;
+}
+.target-btn-list .btn-del-target {
+		width: 1rem;
+		height: 1rem;
+		background: url("../images/ico/ico_close_03.svg") 0/1rem 1rem no-repeat;
+		z-index: 10;
+		overflow: hidden;
+		text-indent: 100%;
+		white-space: nowrap;
+}
+.target-btn-list .btn-modify-target {
+		width: 1rem;
+		height: 1rem;
+		background: url("../images/ico/ico_modify_01.svg") 0/1.125rem 1rem no-repeat;
+		z-index: 10;
+		overflow: hidden;
+		text-indent: 100%;
+		white-space: nowrap;
+}
+
+.popup-agree-consent .c-modal-body {
+		padding-bottom: 0;
+}
+.popup-agree-consent .c-modal-footer .chk-list {
+		margin-bottom: 1.25rem;
+}
+.popup-agree-consent .c-modal-inner {
+		font-size: 0.9375rem;
+		font-weight: 300;
+		letter-spacing: -0.0313rem;
+		line-height: 1.5rem;
+}
+.popup-agree-consent .c-modal-inner .co-list-card > li {
+		font-size: 0.9375rem;
+		font-weight: 300;
+		letter-spacing: -0.0313rem;
+		line-height: 1.5rem;
+}
+
+.co-consent-form-field .cont-detail-body {
+		margin-top: 10px;
+		margin-bottom: 10px;
+}
+
+.resexam-agreeuse-cont .co-list-card > li:before {
+		font-weight: 500;
+}
+.resexam-agreeuse-cont .co-list-card > li ~ li {
+		margin-top: 20px;
+}
+.resexam-agreeuse-cont .co-list-card .title {
+		display: inline-block;
+		font-weight: 700;
+}
+.resexam-agreeuse-cont .co-list-card .title + .table-wrap {
+		margin-top: 0.625rem;
+}
+.resexam-agreeuse-cont .messrs {
+		margin-top: 0.625rem;
+		text-align: center;
+		font-size: 0.9375rem;
+		font-weight: 500;
+		line-height: 1.875rem;
+}
+
+.consent-personal-info {
+		margin-top: 1.25rem;
+		text-align: center;
+		font-size: 0.9375rem;
+		font-weight: 400;
+		line-height: 1.875rem;
+}
+.consent-personal-info .date {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+}
+.consent-personal-info .date > span ~ span {
+		padding-left: 4px;
+}
+.consent-personal-info .chk-list {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: end;
+		-webkit-align-items: flex-end;
+		    -ms-flex-align: end;
+		        align-items: flex-end;
+		-webkit-box-pack: end;
+		-webkit-justify-content: flex-end;
+		    -ms-flex-pack: end;
+		        justify-content: flex-end;
+		text-align: left;
+}
+
+table.tbl-useagree {
+		width: 100%;
+}
+table.tbl-useagree em {
+		font-weight: 700;
+}
+
+.c-t-cont-type01 {
+		font-size: 0.9375rem;
+		font-weight: 300;
+		line-height: 1.625rem;
 }
 
 @media (max-width: 370px) {

@@ -28,32 +28,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>웹 호환성</td>
-						<td>
-							<ul class="cont-list">
-								<li>HTML5를 적용한 Markup을 기반하여 웹 표준 및 호환성 작업 진행</li>
-								<li>Markup &amp; Programming Language
-									<br>- HTML5, CSS3 : 브라우저 호환 작업 완료
-									<br>- Javascript, jQuery : 작업환경의 경우 ES6 기반으로 작업이 진행되나 배포용 소스(DIST)의 Babel 변환을 통한 브라우저 대응 작업 완료
-								</li>
-								<li>웹 접근성 Markup 부분 대응 </li>
-							</ul>
-						</td>
-						<td class="date">22.10.11</td>
-					</tr>
-					<tr>
-						<td>Device Check</td>
-						<td>
-							<ul class="cont-list">
-								<li>
-									퍼블리싱 소스 기준 : iOS, Android 호환 테스트 완료
-								</li>
-							</ul>
-						</td>
-						<td class="date">22.10.11</td>
-					</tr>
-					<tr>
-						<td>공통</td>
+						<th>공통</th>
 						<td>
 							<ul class="cont-list">
 								<li>
@@ -61,6 +36,25 @@
 								</li>
 								<li>
 									<p>수정이 필요한 파일(*.js, *.html)의 경우 퍼블리싱 원본 소스와 개발용 소스를 별도로 관리하여 코드 수정</p>
+								</li>
+							</ul>
+						</td>
+						<td class="date">22.10.06</td>
+					</tr>
+					<tr>
+						<th>작업 환경</th>
+						<td>
+							<ul class="cont-list">
+								<li>문서 및 버전 : HTML5, SCSS, ES6 &amp; ES2015, jQuery</li>
+								<li>인코딩 : UTF-8</li>
+								<li>Build System: Gulp</li>
+								<li>IE 호환성 대응 완료
+									<br>- SCSS → CSS/CSS3 컴파일 (Gulp)
+									<br>- ES6 → ES2015 컴파일 (Babel)
+								</li>
+								<li>웹 접근성 : Markup 부분 대응</li>
+								<li>
+									퍼블리싱 소스 기준 : iOS, Android 호환 테스트 완료
 								</li>
 							</ul>
 						</td>
@@ -104,6 +98,32 @@
 							<ul class="cont-list">
 								<li>git log 확인하여 코드 수정 부분 일괄 반영</li>
 								<li>퍼블리싱과 관련한 불필요한 comment 주석은 개발 소스에서 삭제</li>
+							</ul>
+						</td>
+						<td class="date">22.10.06</td>
+					</tr>
+					<tr>
+						<th>수정/추가 코드 전달</th>
+						<td>
+							<ul class="cont-list">
+								<li>
+									<div>최신 파일 다운로드 시 <span class="fc-red">전체 파일 </span> 일괄 덮어쓰기</div>
+								</li>
+								<li>Source Diff 후 Markup Source 일괄 반영</li>
+								<li>
+									<div>
+										소스 내 전달사항 및 수정 부분 주석 표기방식
+										<div class="exam">ex) type1</div>
+										<span class="code">&lt;!-- [ mod(220602) ] --&gt;</span>
+										<div class="exam">ex) type2</div>
+										<div class="code" style="display: inline-block">
+											&lt;!-- [ mod(220602) ] <br />
+											<span class="space"></span>- 수정사항] <br />--&gt;
+										</div>
+									</div>
+								</li>
+								<li>퍼블리싱 소스 내 <em class="fc-red" style="padding-left:5px; padding-right:5px;"> Guide comment 주석은 개발
+										소스에서 삭제</em>후 작업 요망</li>
 							</ul>
 						</td>
 						<td class="date">22.10.06</td>
