@@ -1,12 +1,12 @@
 # KMI 재단법인 한국의학연구소
 
-## WITHKMI UI Develop PC Repositiory (DEV_DIST)
+## WITHKMI UI Develop MOBILE Repositiory (DEV_DIST)
 
 ## ※ Source Code 외부 반출 불가 ※
 
 ## 개요
 
-- WITHKMI PC UI Develop Source
+- WITHKMI PC MOBILE Develop Source
 
 - index 페이지 접속 후 파일 목록과 작업 전달사항 파악 : index 페이지 경로(dist/coding_list/index.html)
 
