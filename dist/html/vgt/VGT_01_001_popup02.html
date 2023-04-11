@@ -52,7 +52,8 @@
             <div class="flex-container">
                 <!-- BUTTON - 의사초진 및 상담 -->
                 <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popuprResExamAgreeConsent01"><span>건강검진 결과 활용 동의서(Popup)</span></button>
-                <br /><br /><br />
+                <br />
+                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popuprResExamAgreeConsent02_01"><span>검진활용 동의서 관련 Alert Form</span></button>
             </div>
         </div>
 
@@ -188,8 +189,39 @@
                 </div>
             </div>
         </div>
-
         <!-- = // Popup Sources -->
+
+
+
+        <!-- = 검진활용 동의서 관련 Alert 창 Source -->
+        <div class="c-layer-popup kmi-popup type-modal" id="popuprResExamAgreeConsent02_01" role="dialog" aria-labelledby="popuprResExamAgreeConsent02_Label01" aria-modal="true" aria-hidden="true">
+            <div class="modal-wrap">
+                <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+                <div class="modal-field" tabindex="0">
+                    <!-- 닫힘버튼 class: popup-btn-close -->
+                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
+
+                    <div class="c-modal-body">
+                        <div class="c-modal-inner">
+                            <div class="in-cont">
+                                <p id="popuprResExamAgreeConsent02_Label01">서비스 이용동의 및 <br>인증 대상자를 선택해 주세요. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="c-modal-footer">
+                        <div class="inner">
+                            <div class="buttons">
+                                <button class="co-btn bg-navy-1 popup-btn-close"><span>확인</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- = // 검진활용 동의서 관련 Alert 창 Source -->
+
+
     </div>
 
 </body>
