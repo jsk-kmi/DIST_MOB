@@ -470,6 +470,22 @@ textarea,
     width: 100%;
   }
 }
+.label-block {
+  &.type01 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    label {
+      margin-bottom: 0;
+      & + .co-tooltip {
+        margin: {
+          top: 0.0625rem;
+          left: 0.5rem;
+        }
+      }
+    }
+  }
+}
 
 // = email
 .c-input-email-group {

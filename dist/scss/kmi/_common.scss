@@ -230,6 +230,13 @@ $fonts: (
   flex: 1 1 auto;
 }
 
+.in-input-row {
+  & ~ .in-input-row {
+    margin-top: 3.75rem;
+		&:before {
+		}
+  }
+}
 // = input
 input {
   &[type='text'],
