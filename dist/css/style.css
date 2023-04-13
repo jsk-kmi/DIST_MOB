@@ -9633,14 +9633,17 @@ button.ico-plus::after {
 		padding-bottom: 2.5rem;
 }
 
-.ri-block .tit + .c-select {
+.ri-block .tit + .c-select,
+.ri-block .txt + .c-select {
 		margin-top: 1.25rem;
 }
-.ri-block .tit + .c-select + .swiper {
+.ri-block .tit + .c-select + .swiper,
+.ri-block .txt + .c-select + .swiper {
 		margin-top: 1.25rem;
 		margin-bottom: 2.25rem;
 }
-.ri-block .tit.type-floating ~ .tab-floating ~ .tab-panel.show {
+.ri-block .tit.type-floating ~ .tab-floating ~ .tab-panel.show,
+.ri-block .txt.type-floating ~ .tab-floating ~ .tab-panel.show {
 		padding-top: 0 !important;
 		margin-top: 0.5rem;
 }
