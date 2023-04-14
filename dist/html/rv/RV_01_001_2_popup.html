@@ -51,10 +51,11 @@
         <div class="flex-wrap">
             <div class="flex-container">
                 <button type="button" title="팝업열림" class="btn-open-popup" data-toggle="modal" data-target="popupDeleteExamTarget">팝업 확인용 버튼: 대상자 삭제 팝업</button>
+                <button type="button" title="팝업열림" class="btn-open-popup" data-toggle="modal" data-target="popupUnspecifiedPerson">팝업 확인용 버튼: 미지정 회사지원 대상자가 있을때 안내 팝업</button>
             </div>
         </div>
 
-
+        <!-- [대상자 삭제 팝업 Source] -->
         <div class="c-layer-popup kmi-popup type-modal" id="popupDeleteExamTarget" role="dialog" aria-labelledby="popupDeleteExamTarget_Label" aria-modal="true" aria-hidden="true">
             <div class="modal-wrap">
                 <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
@@ -77,6 +78,37 @@
                                         닫기</span><span>취소</span></button>
                                 <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업
                                         닫기</span><span>확인</span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- [ mod(230414) ] -->
+        <!-- [미지정 회사지원 대상자 안내  팝업 Source] -->
+        <div class="c-layer-popup kmi-popup type-modal" id="popupUnspecifiedPerson" role="dialog" aria-labelledby="popupUnspecifiedPerson_Label" aria-modal="true" aria-hidden="true">
+            <div class="modal-wrap">
+                <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+                <div class="modal-field" tabindex="0">
+
+                    <div class="c-modal-body">
+                        <div class="c-modal-inner">
+                            <div class="in-cont" id="popupUnspecifiedPerson_Label">
+                                <p>미지정 회사지원 대상자가 있습니다. <br>확인해주시기 바랍니다.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="c-modal-footer">
+                        <div class="inner">
+                            <div class="buttons">
+                                <button class="co-btn is-outline-navy-1 popup-btn-close"><span class="alt-txt">팝업닫기</span><span>돌아가기</span></button>
+                                <button class="co-btn bg-navy-1 popup-btn-close"><span class="alt-txt">팝업
+                                        닫기</span><span>계속하기</span></button>
                             </div>
                         </div>
                     </div>
