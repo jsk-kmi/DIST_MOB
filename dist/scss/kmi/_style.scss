@@ -1411,7 +1411,8 @@ button {
 
 // = 검진결과 (RI)
 .ri-block {
-  .tit {
+  .tit,
+  .txt {
     & + .c-select {
       margin-top: 1.25rem;
       & + .swiper {
@@ -2721,8 +2722,5 @@ table {
   @include fontStyle(0.9375rem, 1.625rem, 300);
 }
 
-
-
 .finalconfirm-total-list {
-	
 }
