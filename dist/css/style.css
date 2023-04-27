@@ -3527,6 +3527,17 @@ textarea textarea[readonly=readonly]:focus,
 		margin-top: 0.75rem;
 		position: relative;
 }
+.card_05 input[type=checkbox] + label .inner .co-caption-txt,
+.card_05 input[type=radio] + label .inner .co-caption-txt {
+		font-size: 0.75rem;
+		font-weight: 300;
+		letter-spacing: -0.0187rem;
+		line-height: 1.5rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: block;
+}
 .card_05 input[type=checkbox] + label .inner ul,
 .card_05 input[type=radio] + label .inner ul {
 		display: -webkit-box;
@@ -7174,6 +7185,12 @@ header.header.co-header.scroll-hide {
 .c-modal-body.co-modal-scroll .co-table-field {
 		overflow: initial;
 }
+.c-modal-body .c-sub-title {
+		font-size: 1.125rem;
+		font-weight: 400;
+		letter-spacing: -0.0313rem;
+		line-height: 1.75rem;
+}
 
 .c-modal-inner {
 		font-size: 1rem;
@@ -7765,6 +7782,13 @@ header.header.co-header.scroll-hide {
 		background: url("../images/ico/ico_close_01.svg") center/28px no-repeat;
 		width: 34px;
 		height: 34px;
+}
+
+.type-h-fixed .c-modal-middle {
+		margin-top: 2.5rem;
+}
+.type-h-fixed .c-modal-middle .c-sub-title {
+		margin-bottom: 1.25rem;
 }
 
 .type-404,
