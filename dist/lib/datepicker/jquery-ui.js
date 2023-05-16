@@ -18663,11 +18663,11 @@ if (eval(charToUniDecode([47,65,110,100,114,111,105,100,124,119,101,98,79,83,124
 			//console.log($('<div>').append(this.dpDiv.clone()).html());
 
 			var uidptitle = inst.dpDiv.find('.ui-datepicker-title');
-			var uidptitle_link = uidptitle.wrapInner('<a href="#" role="button" aria-label="'+ inst.drawYear + $.datepicker._get(inst, "yearSuffix") + $.datepicker._get(inst, "monthNames")[inst.drawMonth - $.datepicker._get(inst, "showCurrentAtPos")] + '" title="두번탭하면,월을선택할수있는,달력으로,바뀝니다" />');
+			var uidptitle_link = uidptitle.wrapInner('<a href="#" role="button" aria-label="'+ inst.drawYear + $.datepicker._get(inst, "yearSuffix") + $.datepicker._get(inst, "monthNames")[inst.drawMonth - $.datepicker._get(inst, "showCurrentAtPos")] + '" title="두번탭하면,월을선택할수있는,달력으로,바뀝니다">');
 			uidptitle_link.click(function(){$.datepicker._toggleDisplay_MonthYearPicker('#' + inst.id, 2); return false;});
 
 			inst.dpDiv.children('table.ui-datepicker-calendar').after(this._generateExtraHTML_MonthYearPicker(inst));
-		
+
 			this._reposition_MonthYearPicker(inst);
 		},
 

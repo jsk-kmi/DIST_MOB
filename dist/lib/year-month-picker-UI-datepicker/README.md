@@ -18,7 +18,7 @@ After jQuery UI's script section
 add this:
 ```html
 <script type="text/javascript" src="jquery.ui.datepicker.monthyearpicker.js"></script>
-<link type="text/css" href="jquery.ui.datepicker.monthyearpicker.css" rel="stylesheet" />
+<link type="text/css" href="jquery.ui.datepicker.monthyearpicker.css" rel="stylesheet">
 ```
 That's it, your datepickers will show a nice month and year picker when clicking on the month year heading (e.g. September 2015).
 

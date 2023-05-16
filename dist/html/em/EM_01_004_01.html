@@ -181,98 +181,12 @@
                 </div>
 
                 <!-- 상단으로 이동 버튼 -->
-                <button class="btn-move-top"><span class="skip">터치시최상단으로이동</span></button>
             </div>
-            <!-- footer -->
-            <footer class="footer type-default">
-                <a href="javascript:void(0);" title="페이지이동" class="img-logo"><img src="../../images/logo/footer_logo_01.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE"></a>
-
-                <!-- [ mod(230130) ] -->
-                <div class="btn-list type-footer"> <a href="javascript:void(0);" title="페이지 이동" class="personal-policy">개인정보처리방침</a>
-                    <a href="javascript:void(0);" title="페이지 이동">이용약관</a>
-                    <a href="javascript:void(0);" title="페이지 이동">이용가이드</a>
-                </div>
-
-                <div class="footer-txt">
-                    상호 : 재단법인 한국의학연구소 ㅣ 대표자 성명 : 이상호 ㅣ 본원 : (우)03173 서울시 종로구 세종대로 23길 54(당주동, 세종빌딩) ㅣ 사업자등록번호 : 130-82-06960 ㅣ 서비스 운영사 :
-                    ㈜옴니케어 ㅣ 전자우편주소 : <a href="mailto:webmaster@kmi.or.kr">webmaster@kmi.or.kr</a> ㅣ 고객문의 : <a href="tel:1533-0505">1533-0505</a> / 평일 : 오전 07:00 ~
-                    오후 18:00
-                    (토요일 오전 07:00 ~ 오후 12:30)
-                    (일/공휴일 휴무)
-                </div>
-
-                <div class="copyright">© 2022. <strong>KMI</strong> All Rights Reserved.</div>
-                <!-- [ // mod(230130) ] -->
-            </footer>
         </div>
     </div>
     <!-- GNB -->
     <!-- // GNB -->
 
-    <!-- script - swiper -->
-    <script src="../../js/common-swiper.js"></script>
-    <script>
-        function* swiperStep() {
-            yield swiperStep1();
-        }
-        const SWIPER_START = swiperStep();
-
-        function swiperStep1() {
-            const SWIPER = document.querySelectorAll('.swiper');
-            if (SWIPER.length > 0) swiperReadyCheck(SWIPER);
-        }
-
-        function swiperReadyCheck(_swiper) {
-            for (let i = 0; i < _swiper.length; i++) swiperReady(_swiper[i]);
-        }
-
-        function swiperReady(_swiperEl) {
-            const SLIDE = _swiperEl.querySelectorAll('.swiper-slide');
-            if (SLIDE.length > 1) {
-                _swiperEl.classList.add('swiper-ready');
-                swiperStep2(_swiperEl.classList);
-            } else {
-                const STOP_BTN = _swiperEl.querySelector('.btn-swiper-stop');
-                if (STOP_BTN) STOP_BTN.remove();
-            }
-        }
-
-        function swiperStep2(_swiper) {
-            let swiper = swuperReturn(_swiper);
-            const SWIPER_INIT = new Swiper(swiper, {
-                direction: 'vertical',
-                loop: true,
-                allowTouchMove: false,
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
-                speed: 400,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                on: {
-                    init: function() {
-                        swiperInitEvt(this);
-                    },
-                    slideChangeTransitionEnd: function() {
-                        swiperTransitionEndEvt(this);
-                    },
-                },
-            });
-        }
-
-        function swuperReturn(_rSwiper) {
-            let swiper = [];
-            for (let i = 0; i < _rSwiper.length; i++) swiper.push('.' + _rSwiper[i]);
-            swiper = swiper.join('');
-            return swiper;
-        }
-        // swiper 실행 명령
-        SWIPER_START.next();
-    </script>
-    <!-- // script - swiper -->
 </body>
 
 </html>

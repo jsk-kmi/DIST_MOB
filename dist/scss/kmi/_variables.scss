@@ -43,6 +43,7 @@ $color-sub-02: #2f7ad3 !default;
 $color-sub-03: #ba1d3c !default;
 $color-sub-05: #aacae6 !default;
 $color-orange-1: #ff6859;
+$color-orange-3: #ff6633 !default;
 $color-white-100: #fff !default;
 $color-white-80: rgba(255, 255, 255, 0.8) !default;
 $color-white-70: rgba(255, 255, 255, 0.7) !default;
@@ -67,7 +68,7 @@ $image-ico-sprite01: $image-ico-path + 'ico_sprite_01.png';
 $image-ico-sprite02: $image-ico-path + 'ico_sprite_02.png';
 $image-ico-chkbox-sprite01: $image-ico-path + 'ico_chkbox_sprite_01.png';
 $image-ico-radio-sprite01: $image-ico-path + 'ico_radio_sprite_01.png';
-                                                                   
+
 // = input
 $input-border-color: $color-black-20;
 $input-border-radius: 1.25rem;

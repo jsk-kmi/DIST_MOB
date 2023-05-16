@@ -6,17 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
     <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
     <meta name="apple-mobile-web-app-title" content="With KMI">
+
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="refresh" content="300">
+
     <meta name="robots" content="INDEX, FOLLOW">
     <meta name="author" content="With KMI">
     <meta name="title" content="건강검진 서비스 - With KMI">
     <meta name="description" content="With KMI는 건강검진 서비스를 제공합니다. 건강검진 예약과 결과 정보까지 확인하실 수 있습니다.">
     <meta name="keywords" content="With KMI, 위드케이엠아이, 비타브릿지, vitabridge, 건강검진, 헬스케어서비스, 헬스케어">
     <meta name="copyright" content="© 2022. KMI All Rights Reserved.">
+
     <link rel="canonical" href="{유동 도메인 주소}.withkmi.or.kr">
+
     <meta property="og:locale" content="ko-KR">
     <meta property="og:type" content="website">
     <meta property="og:title" content="With KMI - 건강검진 서비스">
@@ -26,7 +30,10 @@
     <meta property="og:image:height" content="400">
     <meta property="og:url" content="https://{유동 도메인 주소}.withkmi.or.kr">
     <meta property="og:site_name" content="With KMI">
+
     <link rel="shortcut icon" href="../../images/favicon.ico">
+
+
     <link rel="apple-touch-icon" sizes="120x120" href="../../images/logo/home-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="152x152" href="../../images/logo/home-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="167x167" href="../../images/logo/home-icon-167x167.png">
@@ -189,33 +196,14 @@
                                 <img src="../../images/ico/ico_arrow_accordion.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow">
                             </button>
                             <div class="accordion-body" id="result-body-measur-blood" role="region" aria-labelledby="resultBodyMeasurBlood">
-
-                                <!-- [ mod(230516) ]
-											- 결가 수치 내역 UI 수정 요청 사항 반영에 따른 Markup 수정
-											- 비교하기 버튼 상단 배치
-											- 세부 결과 내역 type01, type02 존재
-											   - type02의 경우 결과 내용이 긴 경우 사용되며 장비검사에 탭 패널에 소스 참고
-										-->
                                 <ul class="card_06">
                                     <li>
                                         <p class="card-tit">신장(cm)<button class="co-tooltip" aria-label="두번탭하면,상세팝업열림"></button></p>
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
                                     </li>
-                                    <li>
-
-                                        <!-- [ mod(230516) ]
-												- 세부 결과 내역 type01, type02 존재
-										-->
-                                        <div class="card-res-list type01">
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">현재결과</div>
-                                                <div class="cr-col card-res">12.45</div>
-                                            </div>
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">현재결과 2</div>
-                                                <div class="cr-col card-res">12.45</div>
-                                            </div>
-                                        </div>
+                                    <li class="card-res-row">
+                                        <p class="card-res">현재결과 2</p>
+                                        <p class="card-num">12.45</p>
                                     </li>
                                 </ul>
                                 <ul class="card_06">
@@ -229,19 +217,9 @@
                                         <p class="card-tit">체중(kg)<button class="co-tooltip" aria-label="두번탭하면,상세팝업열림"></button></p>
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
                                     </li>
-
-                                    <!-- [ mod(230516) ] -->
-                                    <li>
-                                        <div class="card-res-list type01">
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">현재결과현재결과현재결과 2</div>
-                                                <div class="cr-col card-res">12.45</div>
-                                            </div>
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">현재결과 2</div>
-                                                <div class="cr-col card-res">12.45</div>
-                                            </div>
-                                        </div>
+                                    <li class="card-res-row">
+                                        <p class="card-res">현재결과 2</p>
+                                        <p class="card-num">12.45</p>
                                     </li>
                                 </ul>
                                 <ul class="card_06">
@@ -249,17 +227,29 @@
                                         <p class="card-tit">허리둘레(복위cm)<button class="co-tooltip" aria-label="두번탭하면,상세팝업열림"></button></p>
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
                                     </li>
+                                    <li class="card-res-row">
+                                        <p class="card-res">현재결과 2</p>
+                                        <p class="card-num">12.45</p>
+                                    </li>
                                 </ul>
                                 <ul class="card_06">
                                     <li>
                                         <p class="card-tit">체질량지수(BMI)<button class="co-tooltip" aria-label="두번탭하면,상세팝업열림"></button></p>
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
                                     </li>
+                                    <li class="card-res-row">
+                                        <p class="card-res">현재결과 2</p>
+                                        <p class="card-num">12.45</p>
+                                    </li>
                                 </ul>
                                 <ul class="card_06">
                                     <li>
                                         <p class="card-tit">허벅지둘레<button class="co-tooltip" aria-label="두번탭하면,상세팝업열림"></button></p>
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
+                                    </li>
+                                    <li class="card-res-row">
+                                        <p class="card-res">현재결과 2</p>
+                                        <p class="card-num">12.45</p>
                                     </li>
                                 </ul>
                             </div>
@@ -277,6 +267,10 @@
                                     <li>
                                         <p class="card-tit">좌측시력<button class="co-tooltip" aria-label="두번탭하면,상세팝업열림"></button></p>
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
+                                    </li>
+                                    <li class="card-res-row">
+                                        <p class="card-res">현재결과 2</p>
+                                        <p class="card-num">12.45</p>
                                     </li>
                                 </ul>
                                 <ul class="card_06">
@@ -319,19 +313,13 @@
                                         <p class="card-tit">250Hz<button class="co-tooltip" aria-label="두번탭하면,상세팝업열림"></button></p>
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
                                     </li>
-
-                                    <!-- [ mod(230516) ] -->
-                                    <li>
-                                        <div class="card-res-list type01">
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">좌측청력</div>
-                                                <div class="cr-col card-res">12.45</div>
-                                            </div>
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">우측청력</div>
-                                                <div class="cr-col card-res">12.45</div>
-                                            </div>
-                                        </div>
+                                    <li class="card-res-row">
+                                        <p class="card-res">좌측청력</p>
+                                        <p>12.45</p>
+                                    </li>
+                                    <li class="card-res-row">
+                                        <p class="card-res">우측청력</p>
+                                        <p>65</p>
                                     </li>
                                 </ul>
                                 <ul class="card_06">
@@ -370,16 +358,15 @@
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
                                     </li>
                                 </ul>
-
-                                <!-- <ul class="card_06">
-									<li>
-										<p class="card-tit">소견</p>
-										<a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
-									</li>
-									<li>
-										<p class="card-res">정상</p>
-									</li>
-								</ul> -->
+                                <ul class="card_06">
+                                    <li>
+                                        <p class="card-tit">소견</p>
+                                        <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
+                                    </li>
+                                    <li>
+                                        <p class="card-res">정상</p>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
@@ -420,22 +407,15 @@
                                         <p class="card-tit">신장(cm)<button class="co-tooltip" aria-label="두번탭하면,상세팝업열림"></button></p>
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
                                     </li>
+                                    <li class="card-res-row">
+                                        <p class="card-res">현재결과 2</p>
+                                        <p class="card-num">113.4 </p>
+                                    </li>
+                                    <li class="card-res-row">
+                                        <p class="card-res">임상참고치</p>
+                                        <p class="card-num"><span class="c-res-txt-type01">높음<i class="ico-res-arrow-up"></i></span></p>
 
-                                    <!-- [ mod(230516) ] -->
-                                    <li>
-                                        <div class="card-res-list type01">
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">현재결과</div>
-                                                <div class="cr-col card-res">12.45</div>
-                                            </div>
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">임상참고치</div>
-                                                <div class="cr-col card-res"><span class="c-res-txt-type01">높음<i class="ico-res-arrow-up"></i></span>
-
-                                                    <!-- <span class="c-res-txt-type01">낮음<i class="ico-res-arrow-down"></i></span> -->
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <!-- <p><span class="c-res-txt-type01">정상</p> -->
                                     </li>
                                 </ul>
                             </div>
@@ -572,24 +552,19 @@
                                         <p class="card-tit">노력성폐활량(FVC%)<button class="co-tooltip" aria-label="두번탭하면,상세팝업열림"></button></p>
                                         <a class="co-btn is-outline-navy-1 type-sm" title="팝업열림"><span>비교하기</span></a>
                                     </li>
+                                    <li class="card-res-row type02">
+                                        <p class="card-res">종전결과</p>
+                                        <p class="card-num">113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4
+                                            113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 113.4 </p>
+                                    </li>
+                                    <li class="card-res-row type02">
+                                        <p class="card-res">현재결과</p>
+                                        <p class="card-num">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum reprehenderit
+                                            quae quam tenetur optio dolores? Totam, dolore alias eius officiis placeat autem illo ullam enim
+                                            earum repellat est. Similique libero praesentium officiis, laborum distinctio laboriosam harum
+                                            quae dolor maxime atque!</p>
 
-                                    <!-- [ mod(230516) ]
-										- type02
-										-->
-                                    <li>
-                                        <div class="card-res-list type02">
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">종전결과</div>
-                                                <div class="cr-col card-res">113.4</div>
-                                            </div>
-                                            <div class="cr-row">
-                                                <div class="cr-col card-ctg">현재결과</div>
-                                                <div class="cr-col card-res">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-                                                    reprehenderit quae quam tenetur optio dolores? Totam, dolore alias eius officiis placeat autem
-                                                    illo ullam enim earum repellat est. Similique libero praesentium officiis, laborum distinctio
-                                                    laboriosam harum quae dolor maxime atque!</div>
-                                            </div>
-                                        </div>
+                                        <!-- <p><span class="c-res-txt-type01">정상</p> -->
                                     </li>
                                 </ul>
 
