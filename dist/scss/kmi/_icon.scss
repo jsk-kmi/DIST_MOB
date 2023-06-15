@@ -181,7 +181,7 @@ $ico-arrow04-pos: 0;
 // + info01
 $ico-list01-info01: (info01-2, info01-3);
 $ico-info01-pos: 0;
-@each $icon in $ico-list01-info01 {
+@each $icon in $ico-list01-info01 {			
   $ico-info01-pos: $ico-info01-pos + $ico-type01-spacing;
   .ico-type01 {
     &.t-i-#{$icon} {
@@ -191,31 +191,8 @@ $ico-info01-pos: 0;
 }
 
 .ico-check-01 {
-  width: 17px;
-  height: 13px;
-  background: url($image-ico-path + 'ico_check_01.png') center/17px auto no-repeat;
-  display: inline-block;
-}
-
-// + 결과 수치
-
-.c-res-txt-type01 {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  > i {
-    margin-left: 6px;
-  }
-}
-
-[class^='ico-res-arrow'] {
-  @include icoResArrowColor($color-orange-3);
-}
-
-.ico-res-arrow-up {
-  transform: rotate(-180deg);
-}
-
-.ico-res-arrow-down {
-  transform: rotate(0);
+	width: 17px;
+	height: 13px;
+	background:url($image-ico-path + 'ico_check_01.png') center/17px auto no-repeat;
+	display: inline-block;
 }

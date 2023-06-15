@@ -10,7 +10,7 @@ $.datepicker.setDefaults({
   // yearSuffix: '년',
   dateFormat: 'yy-mm-dd',
   showMonthAfterYear: true,
-  showOtherMonths: true,
+  showOtherMonths: false,
   autoSize: true,
   showButtonPanel: false,
   duration: 100 // buttonImageOnly: true,

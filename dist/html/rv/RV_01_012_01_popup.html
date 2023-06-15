@@ -50,46 +50,55 @@
     <div id="container">
         <div class="flex-wrap">
             <div class="flex-container">
-                <!-- BUTTON - 예약상세 -->
-                <button type="button" class="btn-open-popup" data-toggle="modal" data-target="popupReservationDetails"><span>팝업확인용 버튼</span></button><br><br>
+
+                <!-- BUTTON - 제안내용 문구 및 레이어팝업 화면 추가 -->
+                <a href="javascript:void(0);" class="btn-open-popup" title="팝업열림" data-toggle="modal" data-target="popupExamCategoryDetail"><span>팝업 확인용 버튼 - 제안내용 문구 및 레이어팝업 화면 추가</span></a>
             </div>
         </div>
-    </div>
 
-    <!-- POPUP - 예약상세 -->
-    <div class="c-layer-popup kmi-popup type-modal" id="popupReservationDetails" role="dialog" aria-labelledby="popupReservationDetails_Label" aria-modal="true" aria-hidden="true">
-        <div class="modal-wrap">
-            <div class="popup-bg"></div>
-            <div class="modal-field" tabindex="0">
-                <div class="c-modal-header">
-                    <!-- 닫힘버튼 class: popup-btn-close -->
-                    <button type="button" class="popup-cls-btn popup-btn-close"><span class="skip">팝업 닫기</span></button>
-                    <div class="c-modal-title-field">
-                        <h3 id="popupReservationDetails_Label" class="c-title">예약상세</h3>
+        <!-- POPUP - 제안내용 문구 및 레이어팝업 화면 추가-->
+
+        <!-- # [ mod(230427) ] -->
+        <div class="c-layer-popup kmi-popup type-modal type-h-fixed" id="popupExamCategoryDetail" role="dialog" aria-labelledby="popupExamCategoryDetail_Label" aria-modal="true" aria-hidden="true">
+            <div class="modal-wrap">
+                <div class="popup-bg" aria-label="팝업의 배경입니다."></div>
+                <div class="modal-field" tabindex="0">
+                    <div class="c-modal-header">
+
+                        <!-- 닫힘버튼 class: popup-btn-close -->
+                        <button type="button" class="popup-cls-btn popup-btn-close">
+                            <span class="skip">팝업 닫기</span>
+                        </button>
+                        <div class="c-modal-title-field">
+                            <h3 id="popupExamCategoryDetail_Label" class="c-title cl-main-1"> 대장내시경(수면) </h3>
+                        </div>
                     </div>
-                </div>
-
-                <div class="c-modal-body">
-                    <div class="c-modal-inner">
-                        <div class="in-cont">
-                            김크미 (본인)<br>
-                            장소 : 한국의학연구소 광화문센터<br>
-                            1차 : 2022-05-23 / 오전<br>
-                            2차 : 2022-05-23 / 오전<br>
-                            연기 : 2022-05-23 / 오전
+                    <div class="c-modal-body">
+                        <div class="c-modal-inner">
+                            <div class="in-cont">
+                                <p> 항문을 통해 내시경을 삽입하여 전 디재아 직장과 소장의 마지막 부위인 말단 회장부까지 육안으로 확인할 수 있는 검사로 인체에 내시경 기구를 넣어 가장 멀리 볼 수 있는 검사이며,
+                                    대장과 직장의 병변을 찾아낼 수 있는 검사입니다.</p>
+                                <div class="c-modal-middle">
+                                    <h4 class="c-sub-title">주의사항</h4>
+                                    <p> 대장내시경에 대한 특이사항 설명 입니다. 가장 멀리 볼 수 있는 검사로 대장과 직장의 병명을 찾아낼 수 있는 검사입니다. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="c-modal-footer">
+                        <div class="inner">
+                            <div class="buttons">
+                                <button class="co-btn bg-navy-1 popup-btn-close">
+                                    <span>확인</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="c-modal-footer">
-                    <div class="inner">
-                        <div class="buttons">
-                            <a href="javascript:void(0);" class="co-btn bg-navy-1 popup-btn-close" title="팝업닫힘"><span>확인</span></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
+
+        <!-- # [// mod(230427) ] -->
     </div>
 </body>
 
