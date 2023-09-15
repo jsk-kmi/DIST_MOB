@@ -145,9 +145,7 @@ function commonInit() {
   if (GNB_ELEM.length > 0) for (let i = 0; i < GNB_ELEM.length; i++) gnbComn(GNB_ELEM[i]); // + gnb common event
 
   function gnbComn(_gnbEl) {
-    // 접근성 적용: aria-expanded
-    _gnbEl.setAttribute('aria-expanded', false); // 초기세팅
-
+    _gnbEl.setAttribute('aria-expanded', false);
 
     const NAV_INIT = document.querySelector('.co-gnb');
 
@@ -156,13 +154,10 @@ function commonInit() {
       NAV_INIT.setAttribute('aria-hidden', true);
       const GNB_BG_INIT = NAV_INIT.querySelector('.gnb-bg');
       if (GNB_BG_INIT) popupStyle(GNB_BG_INIT, 'hide');
-    } // gnb button click event
-
+    }
 
     _gnbEl.addEventListener('click', function () {
-      // 접근성 적용: aria-expanded
-      _gnbEl.setAttribute('aria-expanded', true); // 전체메뉴 hide / show
-
+      _gnbEl.setAttribute('aria-expanded', true);
 
       const NAV = document.querySelector('.co-gnb');
       if (NAV) gnbClickEvent(NAV, _gnbEl);
@@ -171,7 +166,6 @@ function commonInit() {
 
 
   function gnbClickEvent(_navEl, _gnbEl) {
-    // 접근성 aria-hidden
     _navEl.setAttribute('aria-hidden', false);
 
     const GNB_CLOSE_BTN = _navEl.querySelector('.btn-close-gnb');
@@ -181,9 +175,7 @@ function commonInit() {
     const GNB_ACC = _navEl.querySelectorAll('.accordion');
 
     if (GNB_CLOSE_BTN && GNB_BG && GNB_ACC.length > 0) {
-      // gnb 공통 event
-      navComnEvent(_navEl, GNB_BG); // 접근성 focus
-
+      navComnEvent(_navEl, GNB_BG);
       setTimeout(function () {
         GNB_CLOSE_BTN.focus();
       }, INTERVAL_1); // 전체메뉴 닫기
@@ -198,8 +190,7 @@ function commonInit() {
       popupStyle(_navEl, 'show');
       popupStyle(_bgEl, 'show');
 
-      _navEl.classList.add('show'); // 접근성: gnb 오픈 시 #container focus 막기
-
+      _navEl.classList.add('show');
 
       containerHidden(true);
     }
@@ -207,21 +198,17 @@ function commonInit() {
 
 
   function navCloseEvent(_navEl, _gnbEl, _gnbBgEl, _gnbCloseBtn, _gnbAcc) {
-    // 전체메뉴 닫기 element 배열 - .btn-close-gnb || .gnb-bg
     const GNB_CLOSE_ARR = [_gnbBgEl, _gnbCloseBtn];
 
     for (let i = 0; i < GNB_CLOSE_ARR.length; i++) {
       GNB_CLOSE_ARR[i].addEventListener('click', function () {
-        // 접근성 aria-hidden
         _navEl.setAttribute('aria-hidden', true);
 
         _navEl.classList.remove('show');
 
-        _gnbEl.setAttribute('aria-expanded', false); // 접근성: gnb close 시 #container focus 풀기
+        _gnbEl.setAttribute('aria-expanded', false);
 
-
-        containerHidden(false); // setTimeout Event
-
+        containerHidden(false);
         navTimeoutEvent(_navEl, _gnbBgEl, _gnbAcc, _gnbEl);
       }, false);
     }
@@ -231,10 +218,9 @@ function commonInit() {
   function navTimeoutEvent(_navEl, _gnbBgEl, _gnbAcc, _gnbEl) {
     setTimeout(function () {
       popupStyle(_navEl, 'hide');
-      popupStyle(_gnbBgEl, 'hide'); // 아코디언 모두 닫힘
+      popupStyle(_gnbBgEl, 'hide'); // close Allaccordion
 
-      accordionAllClose(_gnbAcc); // 접근성 focus
-
+      accordionAllClose(_gnbAcc);
       setTimeout(function () {
         _gnbEl.focus();
       }, INTERVAL_1);
@@ -271,9 +257,7 @@ function commonInit() {
 
 
   function tabClickEvent(_wrap, _ipt, _elem, _j, _ipt_checked) {
-    // 접근성 : 대체텍스트 적용: 선택됨, 선택안됨
-    tabAltTxtInit(_elem, _ipt, _ipt_checked); // tab 종류 체크
-
+    tabAltTxtInit(_elem, _ipt, _ipt_checked);
     let tabState = tabStateCheck(_wrap); // panel 내용이 바뀌는 방식의 tab 일 경우 + scroll Type
 
     if (_wrap.classList.contains('type-move')) {
@@ -307,10 +291,7 @@ function commonInit() {
   function tabClickComn(_wrap, _elem, _ipt, _tabState, _j) {
     // focus 제거
     const FOCUS_INPUT = document.querySelectorAll('.input-focus');
-    if (FOCUS_INPUT.length > 0) for (let i = 0; i < FOCUS_INPUT.length; i++) FOCUS_INPUT[i].classList.remove('input-focus'); // 팝업에서 tab 터치 시 팝업 c-container 높이가 변할 경우
-    // 애니메이션 타임: 100
-    // setTimeout(() => { clkElClickPopupCheck(_elem) }, INTERVAL_1);
-
+    if (FOCUS_INPUT.length > 0) for (let i = 0; i < FOCUS_INPUT.length; i++) FOCUS_INPUT[i].classList.remove('input-focus');
     setTimeout(function () {
       clkElClickPopupChk(_elem);
     }, INTERVAL_1); // 대체텍스트 적용
@@ -757,8 +738,6 @@ function commonInit() {
     popupStyle(CURRENT_POPUP, 'show', _i.length > 0 ? btnArr[0] : btnArr); // 접근성
 
     focusFirstBtn(popupState, CURRENT_POPUP); // 팝업 배경 click event
-    // 220923 - 현업 요청으로 제거
-    // popupBgClickEvt(CURRENT_POPUP);
     // modal header type _현재 팝업 상태 체크
 
     popupModalHeader(popupState, CURRENT_POPUP); // full type: floating tab 있는 full type 팝업이 스크롤 되는 경우
@@ -813,8 +792,7 @@ function commonInit() {
         // 팝업 닫힘
         _elem.classList.remove('show');
 
-        _elem.setAttribute('aria-hidden', true); // style - 사라지는 animation을 위해 setTimeout 사용
-
+        _elem.setAttribute('aria-hidden', true);
 
         setTimeout(function () {
           popupStyle(_elem, 'hide');
@@ -900,7 +878,6 @@ function commonInit() {
 
 
   function popupScrollCase(_state, _elem) {
-    // if (_state === 'full') fullScrollCheck(_elem);
     if (_state === 'full') fullScrollChk(_elem);
     if (_state === 'full-footer') fullFooterScrollCheck(_elem); // scroll event
 
@@ -1157,9 +1134,7 @@ function commonInit() {
       const FOCUS_ELEM = document.querySelector(`[data-target="${_elem.id}"]`);
       if (FOCUS_ELEM) FOCUS_ELEM.focus();
     }, INTERVAL_1);
-  } // + modal type 이면 X 버튼에 focus 시키기
-  // + full type 이면 뒤로가기 버튼에 focus 시키기
-
+  }
 
   function focusFirstBtn(_state, _elem) {
     setTimeout(function () {
@@ -1182,8 +1157,7 @@ function commonInit() {
         if (FULL_POP_ELEM[i].classList.contains('type-full-footer')) fullPopupScrollHeightChk('full-footer', FULL_POP_ELEM[i]);
       }
     }
-  } // + resize: DOM에 팝업이 있는 경우
-
+  }
 
   function fullPopupScrollHeightCheck(_type, _popEl) {
     const F_CONTAINER = _popEl.querySelector('.c-container');
@@ -1272,8 +1246,7 @@ function commonInit() {
   function accordionTypeCheck(_accEl) {
     if (_accEl.classList.contains('type-open-one')) return 'type-one-open';
     return 'type-multi-open';
-  } // + 접근성: 대체텍스트
-
+  }
 
   function accordionAltTxt(_elem) {
     if (_elem.classList.contains('type-inner-btn')) {
@@ -1287,8 +1260,7 @@ function commonInit() {
       header.insertBefore(altElTxt, accTit);
       _elem.classList.contains('open') ? altElTxt.innerHTML = ACC_ALT_TXT.open : altElTxt.innerHTML = ACC_ALT_TXT.close;
     }
-  } // + 접근성: 아코디언 터치 시 대체텍스트
-
+  }
 
   function accordionAltTxtTouch(_altEl, _state) {
     switch (_state) {
@@ -1300,8 +1272,7 @@ function commonInit() {
         _altEl.innerHTML = ACC_ALT_TXT.close;
         break;
     }
-  } // + 접근성: aria-expanded
-
+  }
 
   function accordionAccessibility(_elem) {
     if (_elem.classList.contains('open')) {
@@ -1768,10 +1739,7 @@ function commonInit() {
           }, 66);
 
           if (Math.max.apply(Math, scrollArr) - Math.min.apply(Math, scrollArr) > SHOW_HEADER_NUM) {
-            _moveHeader.classList.remove('scroll-hide'); // console.log('Math.max.apply(Math, scrollArr)' + Math.max.apply(Math, scrollArr));
-            // console.log('Math.min.apply(Math, scrollArr)' + Math.min.apply(Math, scrollArr));
-            // console.log('SHOW_HEADER_NUM: ' + SHOW_HEADER_NUM);
-
+            _moveHeader.classList.remove('scroll-hide');
 
             scrollArr = [];
           }
@@ -2045,8 +2013,7 @@ function commonInit() {
       const CUSTOMER_SCROLL = POPUP_SCROLL_ELEM.querySelector('.kmi-scroll');
       if (POPUP_HEADER && POPUP_BODY) modalHeaderScrollbarComn(POPUP_SCROLL_ELEM, CUSTOMER_SCROLL, POPUP_HEADER);
     }
-  } // + add(230410)
-  // popup: modal header + footer
+  } // popup: modal header + footer
 
 
   function scrollDesignPopModalHeaderFooter(_elem) {
@@ -2115,8 +2082,7 @@ function commonInit() {
     else {
       addStyle('container', scrollEl, scrollInner, _scrollEl);
     }
-  } // ++ add style
-
+  }
 
   function addStyle(_type, _scrollEl, _scrollInner, _popScrollEl, _popHeader) {
     setTimeout(function () {
