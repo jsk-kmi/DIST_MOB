@@ -48,12 +48,11 @@
 
 <body>
     <div id="container">
-        <div class="flex-wrap">
-            <!-- Header -->
+        <div class="flex-wrap"> <!-- Header -->
             <header class="header co-header">
                 <!-- 기업 로고에 따른 alt값 부여 -->
                 <h1 class="logo">
-                    <a href="javascrpit:void(0);"><img src="../../images/dummy/dummy_logo02.png" alt="LG화학 로고"></a>
+                    <a href="../vgt/vgt_01_001.html"><img src="../../images/dummy/dummy_logo02.png" alt="LG화학 로고"></a>
                 </h1>
                 <!-- 컬러로고: type-color -->
                 <!-- <h1 class="logo type-color">
@@ -68,40 +67,34 @@
             </header>
             <div class="flex-container">
                 <div class="rv-block">
-                    <h1 class="tit type-step type-floating">
-                        검진 대상자
-                        <i class="skip">6단계 중 1단게</i>
+                    <h1 class="tit type-step type-floating"> 검진 대상자 <i class="skip">6단계 중 1단게</i>
                         <button class="ico-plus" aria-label="두번탭하면개인비용대상자추가할수있는팝업열림"></button>
                     </h1>
-
                     <div class="tab-floating">
                         <ul class="c-tab type-slide type-panel type-move type-step" role="tablist" data-tablist="appointmentCheckup">
                             <li role="tab" aria-controls="ap-step-1-panel">
-                                <a href="javascript:void(0);" title="페이지 이동" class="tab active">검진 대상자</a>
+                                <a href="./RV_01_001_2.html" title="페이지 이동" class="tab active">검진 대상자</a>
                             </li>
                             <li role="tab" aria-controls="ap-step-2-panel">
-                                <a href="javascript:void(0);" title="페이지 이동" class="tab">검진기관</a>
+                                <a href="./RV_01_002.html" title="페이지 이동" class="tab">검진기관</a>
                             </li>
                             <li role="tab" aria-controls="ap-step-3-panel">
-                                <a href="javascript:void(0);" title="페이지 이동" class="tab">검사 항목</a>
+                                <a href="./RV_01_012.html" title="페이지 이동" class="tab">검사 항목</a>
                             </li>
                             <li role="tab" aria-controls="ap-step-4-panel">
-                                <a href="javascript:void(0);" title="페이지 이동" class="tab">검진 일자</a>
+                                <a href="./RV_01_015.html" title="페이지 이동" class="tab">검진 일자</a>
                             </li>
                             <li role="tab" aria-controls="ap-step-5-panel">
-                                <a href="javascript:void(0);" title="페이지 이동" class="tab">개인 정보 입력</a>
+                                <a href="./RV_01_018.html" title="페이지 이동" class="tab">개인 정보 입력</a>
                             </li>
                             <li role="tab" aria-controls="ap-step-6-panel">
-                                <a href="javascript:void(0);" title="페이지 이동" class="tab">최종 확인</a>
+                                <a href="./RV_01_019.html" title="페이지 이동" class="tab">최종 확인</a>
                             </li>
                         </ul>
                     </div>
-
-
                     <div class="tab-panel show" role="tabpanel" aria-labelledby="ap-step-1-panel" data-panelname="appointmentCheckup">
                         <p>예약 진행하실 대상자를 선택하여 주시기 바랍니다.</p>
                         <p>개인 비용의 가족 및 지인 검진 신청을 원하실 경우 우측 상단 [추가] 버튼을 선택하여 주시기 바랍니다.</p>
-
                         <div class="swiper examinationPeriod type-hide-arr">
                             <button class="btn-swiper-stop" data-swiper="examinationPeriod"></button>
                             <div class="swiper-wrapper">
@@ -134,7 +127,6 @@
                                 <button type="button" class="btn-open-popup btn-del-target" data-toggle="modal" data-target="#popupDeleteExamTarget"><span>대상자 삭제하기</span></button>
                             </div>
                             <input type="radio" id="patient1" name="patientList">
-
                             <label for="patient1">
                                 <div class="inner">
                                     <ul class="case">
@@ -155,9 +147,7 @@
                                 </div>
                             </label>
                         </div>
-
                         <div class="sub-card type4">
-
                             <input type="radio" id="patient2" name="patientList">
                             <label for="patient2">
                                 <div class="inner">
@@ -178,7 +168,6 @@
                                 </div>
                             </label>
                         </div>
-
                         <div class="sub-card type4">
                             <input type="radio" id="patient3" name="patientList">
                             <label for="patient3">
@@ -199,7 +188,6 @@
                                 </div>
                             </label>
                         </div>
-
                         <div class="sub-card type4">
                             <input type="radio" id="patient4" name="patientList">
                             <label for="patient4">
@@ -235,31 +223,24 @@
                             </label>
                         </div>
                         <!-- [ //  mod(230224) ] -->
-
                         <div class="accordion type4 open">
                             <button class="accordion-header" id="notesReservation" aria-controls="notes-reservation" aria-expanded="true">
                                 <h1 class="acc-tit">예약 시 유의사항</h1>
                                 <img src="../../images/ico/ico_arrow_accordion_28x28.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow">
                             </button>
                             <div class="accordion-body" id="notes-reservation" role="region" aria-labelledby="notesReservation" tabindex="0" aria-hidden="false" style="max-height: 236px">
-                                <div class="list default">
-                                    - 검진 희망 일은 예약 일로부터 최소 7일 이후부터 선택 가능하며, 검진 기관별로 상이 할 수 있습니다.<br><br>
-                                    - 검진 예약의 "예약 상태"는 예약 신청 &gt; 병원 접수 &gt; 예약 확정 &gt; 검진 완료 순으로 진행됩니다.<br><br>
-                                    - 검진 예약 변경 및 취소는 [검진 예약] 메뉴 또는 [ MY&gt;예약 신청내역 ]에서 신청 가능합니다.<br><br>
-                                    - 특수검사(대장 내시경, MRI, MRA, 유방초음파, 심장초음파 등)의 일정에 따라 예약 신청 일정이 변경될 수 있습니다.
-                                </div>
+                                <div class="list default"> - 검진 희망 일은 예약 일로부터 최소 7일 이후부터 선택 가능하며, 검진 기관별로 상이 할 수 있습니다.<br><br> - 검진 예약의
+                                    "예약 상태"는 예약 신청 &gt; 병원 접수 &gt; 예약 확정 &gt; 검진 완료 순으로 진행됩니다.<br><br> - 검진 예약 변경 및 취소는 [검진 예약] 메뉴 또는 [
+                                    MY&gt;예약 신청내역 ]에서 신청 가능합니다.<br><br> - 특수검사(대장 내시경, MRI, MRA, 유방초음파, 심장초음파 등)의 일정에 따라 예약 신청 일정이 변경될 수
+                                    있습니다. </div>
                             </div>
                         </div>
-
                         <div class="btn-bottom-floating">
-                            <a href="javascript:void(0);" class="co-btn btn-next" title="페이지이동"><span>다음</span></a>
+                            <a href="./RV_01_002.html" class="co-btn btn-next" title="페이지이동"><span>다음</span></a>
                         </div>
                     </div>
-                </div>
-
-                <button class="btn-move-top"><span class="skip">터치시최상단으로이동</span></button>
-            </div>
-            <!-- footer -->
+                </div> <button class="btn-move-top"><span class="skip">터치시최상단으로이동</span></button>
+            </div> <!-- footer -->
             <footer class="footer type-default">
                 <a href="javascript:void(0);" title="페이지이동" class="img-logo"><img src="../../images/logo/footer_logo_01.svg" alt="KMI 재단법인 한국의학연구소 KOREA MEDICAL INSTITUTE"></a>
 
@@ -284,7 +265,6 @@
     </div>
     <!-- GNB -->
     <!-- // GNB -->
-
     <!-- script - swiper -->
     <script src="../../js/common-swiper.js"></script>
     <script>
@@ -348,7 +328,114 @@
         // swiper 실행 명령
         SWIPER_START.next();
     </script>
-    <!-- // script - swiper -->
+    <!-- // script - swiper --> <!-- GNB -->
+    <div class="co-gnb">
+        <!-- gnb bg -->
+        <div class="gnb-bg"></div>
+        <!-- gnb header -->
+        <div class="gnb-header">
+            <h1 class="profile">
+                <a href="javascrpit:void(0);" title="마이페이지로 이동">
+                    <img src="../../images/ico/ico_gnb_profile.svg" alt="기본 프로필">
+                    <span><em>홍길동</em> 님</span>
+                </a>
+            </h1>
+            <button class="btn-close-gnb">
+                <img src="../../images/ico/ico_close_white_34x34.svg" alt="전체메뉴 닫기">
+            </button>
+        </div>
+        <!-- gnb body -->
+        <ul class="gnb-body accordion-list">
+            <li>
+                <a href="../vgt/vgt_01_001.html" title="페이지 이동" class="btn-gnb-main">
+                    <h2>메인</h2>
+                </a>
+            </li>
+            <li class="accordion type-open-one">
+                <button class="accordion-header" id="gnbMenuHealthCheckSystem" aria-controls="gnb-menu-health-check-system">
+                    <h2>건강검진 제도</h2>
+                    <img src="../../images/ico/ico_gnb_arrow.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow">
+                </button>
+                <div class="gnb-list accordion-body" id="gnb-menu-health-check-system" role="region" aria-labelledby="gnbMenuHealthCheckSystem">
+                    <!-- [Comment]
+					+ 서브메뉴 현재 페이지 클래스 제어 : active
+				-->
+                    <a href="../ti/TI_01_001.html" title="페이지 이동" class="active">국가건강 검진 제도 안내</a>
+                    <a href="../ti/TI_01_002.html" title="페이지 이동">우리 회사 검진제도 안내</a>
+                </div>
+            </li>
+            <li class="accordion type-open-one">
+                <button class="accordion-header" id="gnbMenuExamination" aria-controls="gnb-menu-examination">
+                    <h2>검진 예약/결과 조회</h2>
+                    <img src="../../images/ico/ico_gnb_arrow.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow">
+                </button>
+                <div class="gnb-list accordion-body" id="gnb-menu-examination" role="region" aria-labelledby="gnbMenuExamination">
+                    <a href="../rv/RV_01_001_2.html" title="페이지 이동">검진 예약</a>
+                    <a href="../rv/RV_01_027.html" title="페이지 이동">예약 내역</a>
+                    <a href="../vgt/VGT_03_001.html" title="페이지 이동">검진기관</a>
+                    <a href="../ri/RI_01_001.html" title="페이지 이동">검진 결과</a>
+                </div>
+            </li>
+            <!-- [ mod(230310) ]
+	직무스트레스 메뉴  markup 변경
+	-->
+            <li class="accordion type-open-one">
+                <button class="accordion-header" id="gnbJobStress" aria-controls="gnb-jobstress">
+                    <div class="gnb-mark">
+                        <h2>직무스트레스</h2>
+                        <div class="badge">
+                            <em>대상자</em>
+                        </div>
+                    </div>
+                    <img src="../../images/ico/ico_gnb_arrow.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow">
+                </button>
+                <div class="gnb-list accordion-body" id="gnb-jobstress" role="region" aria-labelledby="gnbJobStress">
+                    <a href="../jo/JO_01_001.html" title="페이지 이동">검사하기</a>
+                    <a href="../jo/JO_02_001.html" title="페이지 이동">검사결과</a>
+                </div>
+            </li>
+            <!-- [ // mod(230309) ]-->
+            <li class="accordion type-open-one">
+                <button class="accordion-header" id="gnbMenuResultConsultation" aria-controls="gnb-menu-result-consultation">
+                    <h2>결과 상담</h2>
+                    <img src="../../images/ico/ico_gnb_arrow.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow">
+                </button>
+                <div class="gnb-list accordion-body" id="gnb-menu-result-consultation" role="region" aria-labelledby="gnbMenuResultConsultation">
+                    <a href="../rc/RC_01_001.html" title="페이지 이동">결과 상담하기</a>
+                    <a href="../rc/RC_01_004.html" title="페이지 이동">상담 이력</a>
+                </div>
+            </li>
+            <li class="accordion type-open-one">
+                <button class="accordion-header" id="gnbMenuHealthInformation" aria-controls="gnb-menu-health-information">
+                    <h2>건강 정보</h2>
+                    <img src="../../images/ico/ico_gnb_arrow.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow">
+                </button>
+                <div class="gnb-list accordion-body" id="gnb-menu-health-information" role="region" aria-labelledby="gnbMenuHealthInformation">
+                    <a href="../hi/HI_01_001.html" title="페이지 이동">검진 항목 정보</a>
+                    <a href="../hi/HI_01_002_1.html" title="페이지 이동">영상 건강 정보</a>
+                    <a href="../hi/HI_01_003_1.html" title="페이지 이동">질환별 건강 정보</a>
+                    <a href="../hi/HI_01_004_1.html" title="페이지 이동">검진센터 탐방</a>
+                </div>
+            </li>
+            <li class="accordion type-open-one">
+                <button class="accordion-header" id="gnbMenuCommunity" aria-controls="gnb-menu-community">
+                    <h2>커뮤니티</h2>
+                    <img src="../../images/ico/ico_gnb_arrow.svg" alt="화살표 아이콘" aria-hidden="true" class="img-acc-arrow">
+                </button>
+                <div class="gnb-list accordion-body" id="gnb-menu-community" role="region" aria-labelledby="gnbMenuCommunity">
+                    <a href="../ni/NI_01_001.html" title="페이지 이동">이벤트</a>
+                    <a href="../ni/NI_01_002.html" title="페이지 이동">공지사항</a>
+                    <a href="../guide/GUIDE_01_004_4.html" title="페이지 이동">FAQ</a>
+                    <a href="../guide/GUIDE_01_004_1.html" title="페이지 이동">서비스 문의</a>
+                </div>
+            </li>
+        </ul>
+        <!-- gnb bottom button - logout -->
+        <a href="javascript:void(0);" class="gnb-btn-logout" title="전체 메뉴 닫히고 페이지 이동">
+            <img src="../../images/ico/ico_gnb_logout.svg" alt="로그아웃 아이콘">
+            <span>로그아웃</span>
+        </a>
+    </div>
 </body>
 
 </html>

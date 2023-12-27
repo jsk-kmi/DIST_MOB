@@ -13,8 +13,8 @@ $.datepicker.setDefaults({
   showOtherMonths: false,
   autoSize: true,
   showButtonPanel: false,
-  duration: 100 // buttonImageOnly: true,
+  duration: 100
+  // buttonImageOnly: true,
   // minDate: 0,
-
 });
 //# sourceMappingURL=maps/date.js.map

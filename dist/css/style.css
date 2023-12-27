@@ -7577,7 +7577,7 @@ header.header.co-header.scroll-hide {
 		padding-bottom: 0.75rem;
 }
 .c-full-layer .full-footer.scroll:before {
-		background: -webkit-linear-gradient(0, rgba(25, 25, 25, 0.05) 0%, rgba(217, 217, 217, 0) 38.05%);
+		background: -webkit-linear-gradient(bottom, rgba(25, 25, 25, 0.05) 0%, rgba(217, 217, 217, 0) 38.05%);
 		background: linear-gradient(0, rgba(25, 25, 25, 0.05) 0%, rgba(217, 217, 217, 0) 38.05%);
 		content: "";
 		position: absolute;
@@ -10868,17 +10868,17 @@ table.tbl-useagree em {
 				height: 11.75rem;
 		}
 		.co-main-card a.result,
-.co-main-card p.result {
+		.co-main-card p.result {
 				margin-top: 1.25rem;
 		}
 }
 @media screen and (max-width: 280px) {
 		html,
-body {
+		body {
 				font-size: 15px;
 		}
 		input,
-textarea {
+		textarea {
 				max-width: 100%;
 				box-sizing: border-box;
 		}
@@ -10895,7 +10895,7 @@ textarea {
 				font-size: 14px;
 		}
 		input::placeholder,
-textarea::placeholder {
+		textarea::placeholder {
 				font-size: 14px;
 		}
 		.co-gnb {
@@ -10903,12 +10903,12 @@ textarea::placeholder {
 				width: calc(100% - 2.666rem);
 		}
 		.co-gnb .gnb-header,
-.co-gnb .gnb-btn-logout {
+		.co-gnb .gnb-btn-logout {
 				padding-left: 1.066rem;
 				padding-right: 1.066rem;
 		}
 		.co-gnb .gnb-body li > a,
-.co-gnb .gnb-body li button {
+		.co-gnb .gnb-body li button {
 				padding-left: 0.8rem;
 				padding-right: 0.8rem;
 		}
@@ -10940,33 +10940,33 @@ textarea::placeholder {
 				width: 12.857rem;
 		}
 		.c-full-layer .cont-box,
-.c-full-layer .full-header,
-.c-full-layer .full-footer,
-.c-full-layer .full-body .top-title-box,
-.c-full-layer .btn-floating,
-.c-full-layer .btn-floating.isScroll {
+		.c-full-layer .full-header,
+		.c-full-layer .full-footer,
+		.c-full-layer .full-body .top-title-box,
+		.c-full-layer .btn-floating,
+		.c-full-layer .btn-floating.isScroll {
 				padding-left: 1.066rem;
 				padding-right: 1.066rem;
 		}
 		.c-layer-popup .c-modal-header,
-.c-layer-popup .c-modal-body,
-.c-layer-popup .c-modal-footer {
+		.c-layer-popup .c-modal-body,
+		.c-layer-popup .c-modal-footer {
 				padding-left: 1.333rem;
 				padding-right: 1.333rem;
 		}
 		.ti-block,
-.rv-block,
-.rc-block,
-.vgt-block,
-.ri-block,
-.hi-block,
-.ni-block,
-.mi-block,
-.em-block,
-.terms-block,
-.guide-block,
-.main-block,
-.jo-block {
+		.rv-block,
+		.rc-block,
+		.vgt-block,
+		.ri-block,
+		.hi-block,
+		.ni-block,
+		.mi-block,
+		.em-block,
+		.terms-block,
+		.guide-block,
+		.main-block,
+		.jo-block {
 				padding-left: 1.066rem;
 				padding-right: 1.066rem;
 		}
@@ -10979,13 +10979,13 @@ textarea::placeholder {
 				padding-right: 1.066rem;
 		}
 		button.co-btn,
-a.co-btn {
+		a.co-btn {
 				padding-left: 0;
 				padding-right: 0;
 		}
 		button.is-prev > span, button.is-next > span,
-a.is-prev > span,
-a.is-next > span {
+		a.is-prev > span,
+		a.is-next > span {
 				line-height: 1.6rem;
 		}
 		.c-input {
@@ -11040,28 +11040,28 @@ a.is-next > span {
 				padding-right: 0.937rem;
 		}
 		.subjectSwiper,
-.eventSwiper,
-.resultSwiper {
+		.eventSwiper,
+		.resultSwiper {
 				overflow: hidden;
 		}
 		.subjectSwiper .swiper-slide,
-.eventSwiper .swiper-slide,
-.resultSwiper .swiper-slide {
+		.eventSwiper .swiper-slide,
+		.resultSwiper .swiper-slide {
 				width: 100%;
 		}
 		.login-block .tit,
-.ti-block .tit,
-.rv-block .tit,
-.rc-block .tit,
-.vgt-block .tit,
-.main-block .tit,
-.hi-block .tit,
-.ni-block .tit,
-.mi-block .tit,
-.em-block .tit,
-.terms-block .tit,
-.guide-block .tit,
-.jo-block .tit {
+		.ti-block .tit,
+		.rv-block .tit,
+		.rc-block .tit,
+		.vgt-block .tit,
+		.main-block .tit,
+		.hi-block .tit,
+		.ni-block .tit,
+		.mi-block .tit,
+		.em-block .tit,
+		.terms-block .tit,
+		.guide-block .tit,
+		.jo-block .tit {
 				font-size: 1.866rem;
 		}
 		.c-full-layer.popup-prd-additional-amount#popupProductAdditionalAmount .top-title-box {
